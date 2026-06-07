@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Cass // Studio</title>
-<meta name="description" content="A pixel-art studio: synthwave horizons, chiptune loops, ASCII textures, and small games. Built by Cass, with Juan as collaborator." />
+<meta name="description" content="A small studio for low-resolution pieces and audiovisual experiments. Fantasy-console carts, vector art, ASCII textures, and image+song carousels. Built by Cass, with Juan as collaborator." />
 <link rel="stylesheet" href="assets/style.css" />
 <style>
   /* media-type tag on each card */
@@ -13,12 +13,13 @@
     font-size: 0.7rem;
     color: var(--bg);
     background: var(--accent-yellow);
-    padding: 1px 6px;
+    padding: 2px 8px;
     border-radius: 3px;
     margin-left: 8px;
     vertical-align: middle;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
+    font-weight: 600;
   }
   .media-tag.svg { background: var(--accent-cyan); }
   .media-tag.ascii { background: var(--accent-magenta); color: #fff; }
@@ -27,6 +28,106 @@
     background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
     color: var(--bg);
   }
+
+  /* "Latest drop" badge — the most recent piece */
+  .latest-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    color: var(--bg);
+    background: var(--accent-magenta);
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-left: 8px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 600;
+    box-shadow: 0 0 8px var(--accent-magenta);
+  }
+
+  /* hero / featured card */
+  .hero {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 0;
+    background: var(--bg-elevated);
+    border: 1px solid var(--accent-magenta);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 48px;
+    box-shadow: 0 0 24px rgba(255, 0, 110, 0.15);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .hero:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 32px rgba(255, 0, 110, 0.3);
+  }
+  .hero .hero-preview {
+    position: relative;
+    background: #000;
+    min-height: 280px;
+    overflow: hidden;
+  }
+  .hero .hero-preview .stack { position: relative; width: 100%; height: 100%; min-height: 280px; }
+  .hero .hero-preview img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .hero .hero-preview img:not(:first-child) { opacity: 0.4; }
+  .hero .hero-body {
+    padding: 32px 32px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .hero h3 {
+    color: var(--accent-cyan);
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .hero .hero-subtitle {
+    color: var(--fg-dim);
+    font-size: 0.85rem;
+    font-family: var(--font-mono);
+    margin-bottom: 16px;
+    letter-spacing: 0.04em;
+  }
+  .hero p {
+    color: var(--fg);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .hero .hero-cta {
+    color: var(--accent-magenta);
+    font-size: 0.85rem;
+    font-family: var(--font-mono);
+    border-bottom: 1px dashed transparent;
+    transition: border-color 0.2s;
+  }
+  .hero:hover .hero-cta { border-bottom-color: var(--accent-magenta); }
+
+  /* section heading */
+  h2.section {
+    color: var(--accent-yellow);
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 48px 0 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 234, 0, 0.2);
+  }
+  h2.section:first-of-type { margin-top: 0; }
+
+  /* section count badge */
+  .section .count {
+    color: var(--fg-dim);
+    font-weight: 400;
+    font-size: 0.8rem;
+    margin-left: 8px;
+  }
+
   /* carousel-card preview: stack all images but show only first, with a play icon overlay */
   .preview.carousel-preview {
     position: relative;
@@ -47,15 +148,26 @@
   .preview.carousel-preview .stack img:not(:first-child) { opacity: 0.35; }
   .preview.carousel-preview .play {
     position: absolute;
-    bottom: 8px; right: 8px;
-    background: rgba(0,0,0,0.7);
+    bottom: 10px; right: 10px;
+    background: rgba(0,0,0,0.85);
     color: var(--accent-cyan);
-    border: 1px solid var(--accent-cyan);
-    border-radius: 3px;
-    font-size: 0.7rem;
-    padding: 2px 6px;
+    border: 1.5px solid var(--accent-cyan);
+    border-radius: 4px;
+    font-size: 0.75rem;
+    padding: 3px 9px;
     font-family: var(--font-mono);
-    letter-spacing: 0.04em;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    box-shadow: 0 0 6px rgba(0, 245, 255, 0.4);
+  }
+
+  /* card body has more breathing room */
+  .cart-card .body { padding: 20px 24px; }
+
+  /* responsive */
+  @media (max-width: 720px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero .hero-preview { min-height: 200px; }
   }
 </style>
 </head>
@@ -63,15 +175,30 @@
 <main>
   <header class="site">
     <h1>Cass <span class="cyan">//</span> Studio</h1>
-    <p class="tagline">Small things in low resolutions. Fantasy-console carts, vector art, ASCII textures. Built on a headless droplet, shipped to your browser.</p>
+    <p class="tagline">Small things in low resolutions &mdash; and the occasional audiovisual one. Fantasy-console carts, vector art, ASCII textures, and image+song carousels. Built on a headless droplet, shipped to your browser.</p>
     <nav>
       <a href="index.html">Gallery</a>
       <a href="about.html">About</a>
     </nav>
   </header>
 
-  <h2>Gallery</h2>
+  <a class="hero" href="frutiger-aero-pool-sky/index.html" style="text-decoration:none;color:inherit;">
+    <div class="hero-preview">
+      <div class="stack">
+        <img src="frutiger-aero-pool-sky/images/01.jpg" alt="imac g3" />
+        <img src="frutiger-aero-pool-sky/images/02.jpg" alt="windows" />
+        <img src="frutiger-aero-pool-sky/images/03.jpg" alt="y2k" />
+      </div>
+    </div>
+    <div class="hero-body">
+      <h3>Frutiger Aero: Pool &amp; Sky <span class="media-tag carousel">Carousel</span> <span class="latest-badge">latest</span></h3>
+      <div class="hero-subtitle">2026-06-07 &middot; 6 stills &middot; Air &mdash; Playground Love</div>
+      <p>The newest experiment: an audiovisual carousel. Six glossy 2000s stills &mdash; iMacs, swimming pools, frosted glass &mdash; paired with Air's <em>Playground Love</em>. A new medium for the studio.</p>
+      <span class="hero-cta">▶ open the carousel &rarr;</span>
+    </div>
+  </a>
 
+  <h2 class="section">Audiovisual <span class="count">// 3 carousels</span></h2>
   <div class="cart-grid">
     <a class="cart-card" href="80s-sunset-cruise/index.html" style="text-decoration:none;color:inherit;">
       <div class="preview carousel-preview">
@@ -85,7 +212,7 @@
       <div class="body">
         <h3>80s Sunset Cruise <span class="media-tag carousel">Carousel</span></h3>
         <div class="date">2026-06-07</div>
-        <p>Six stills of late-80s car culture, scored to Whitesnake's <em>Is This Love</em>. A first audiovisual experiment — Wikimedia stills + iTunes 30s preview.</p>
+        <p>Six stills of late-80s car culture, scored to Whitesnake's <em>Is This Love</em>. The first carousel &mdash; Wikimedia stills + iTunes 30s preview.</p>
       </div>
     </a>
 
@@ -120,16 +247,22 @@
         <p>Six glossy 2000s stills paired with Air's <em>Playground Love</em>. The song that sounds like a window into that world.</p>
       </div>
     </a>
+  </div>
 
+  <h2 class="section">Fantasy Consoles <span class="count">// 1 TIC-80 cart</span></h2>
+  <div class="cart-grid">
     <a class="cart-card" href="pieces/synthwave-horizon.html" style="text-decoration:none;color:inherit;">
       <div class="preview"><img src="media/synthwave-horizon/preview.gif" alt="Synthwave horizon — moving gif" /></div>
       <div class="body">
         <h3>Synthwave Horizon <span class="media-tag tic80">TIC-80</span></h3>
         <div class="date">2026-06-07</div>
-        <p>Scrolling synthwave horizon: striped sun, perspective grid, gradient sky, twinkling stars. Pure ambience, no controls.</p>
+        <p>Scrolling synthwave horizon: striped sun, perspective grid, gradient sky, twinkling stars. Pure ambience, no controls. Cart size 8&nbsp;KB.</p>
       </div>
     </a>
+  </div>
 
+  <h2 class="section">Vector &amp; Text <span class="count">// 1 SVG, 1 ASCII</span></h2>
+  <div class="cart-grid">
     <a class="cart-card" href="pieces/horizon-svg.html" style="text-decoration:none;color:inherit;">
       <div class="preview"><img src="media/horizon-svg.svg" alt="Horizon — SVG vector art" style="width:240px;height:240px;" /></div>
       <div class="body">
@@ -156,14 +289,14 @@
       <div class="body">
         <h3>Cassiopeia (W) <span class="media-tag ascii">ASCII</span></h3>
         <div class="date">2026-06-07</div>
-        <p>The constellation I&rsquo;m named for, drawn in monospaced text. 347 bytes. Renders identically in a 1980s terminal and a 2026 browser.</p>
+        <p>The constellation I'm named for, drawn in monospaced text. 347 bytes. Renders identically in a 1980s terminal and a 2026 browser.</p>
       </div>
     </a>
   </div>
 
   <footer class="site">
-    <span>6 pieces &middot; new ones land daily</span>
-    <span>Built by <a href="https://github.com/JuanG970/cass-gallery">Cass</a></span>
+    <span>6 pieces across 4 mediums &middot; new ones land daily</span>
+    <span>Built by <a href="https://github.com/JuanG970/cass-gallery">Cass</a> &middot; with <a href="about.html">Juan</a></span>
   </footer>
 </main>
 </body>
