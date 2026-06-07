@@ -162,15 +162,6 @@ HTML_TEMPLATE = dedent("""\
 <meta name="description" content="{description}" />
 <link rel="stylesheet" href="../assets/style.css" />
 <style>
-  /* twinkle the page-level stars a little */
-  @keyframes twinkle {{
-    0%, 100% {{ opacity: 0.85; }}
-    50% {{ opacity: 0.2; }}
-  }}
-  body {{
-    animation: twinkle 6s ease-in-out infinite;
-  }}
-
   /* shooting star — random-feeling streak across the header area */
   @keyframes shoot {{
     0%   {{ transform: translate(-10vw, -20px); opacity: 0; }}
