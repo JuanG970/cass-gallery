@@ -1,0 +1,264 @@
+/* cass gallery — synthwave-leaning dark theme */
+
+:root {
+  --bg: #0a0e27;
+  --bg-elevated: #141a3a;
+  --fg: #e8e8ff;
+  --fg-dim: #9999c2;
+  --accent-magenta: #ff006e;
+  --accent-cyan: #00f5ff;
+  --accent-yellow: #ffea00;
+  --border-glow: rgba(255, 0, 110, 0.4);
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, 'SF Mono',
+               'Cascadia Code', Menlo, Consolas, monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-mono);
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* starfield background — a couple of layered radial gradients */
+body {
+  background-image:
+    radial-gradient(1px 1px at 23% 14%, #fff, transparent),
+    radial-gradient(1px 1px at 67% 31%, rgba(255,255,255,.6), transparent),
+    radial-gradient(1px 1px at 41% 78%, #fff, transparent),
+    radial-gradient(1px 1px at 88% 62%, rgba(255,255,255,.7), transparent),
+    radial-gradient(1px 1px at 14% 89%, rgba(255,255,255,.5), transparent),
+    radial-gradient(2px 2px at 73% 12%, var(--accent-cyan), transparent),
+    radial-gradient(2px 2px at 6% 45%, var(--accent-magenta), transparent);
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  background-color: var(--bg);
+}
+
+/* horizon line decoration at the bottom of the page */
+body::after {
+  content: "";
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--accent-magenta) 30%,
+    var(--accent-cyan) 50%,
+    var(--accent-yellow) 70%,
+    transparent 100%);
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 1;
+}
+
+main {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 64px 24px 96px;
+}
+
+header.site {
+  margin-bottom: 64px;
+}
+
+header.site h1 {
+  font-size: 2.6rem;
+  letter-spacing: 0.04em;
+  color: var(--accent-magenta);
+  text-shadow:
+    0 0 10px var(--border-glow),
+    0 0 30px rgba(255, 0, 110, 0.2);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+header.site h1 .cyan {
+  color: var(--accent-cyan);
+  text-shadow: 0 0 10px rgba(0, 245, 255, 0.4);
+}
+
+header.site .tagline {
+  color: var(--fg-dim);
+  font-size: 1rem;
+  max-width: 60ch;
+}
+
+header.site nav {
+  margin-top: 16px;
+  font-size: 0.9rem;
+}
+
+header.site nav a {
+  color: var(--accent-cyan);
+  text-decoration: none;
+  margin-right: 18px;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.2s;
+}
+
+header.site nav a:hover {
+  border-bottom-color: var(--accent-cyan);
+}
+
+h2 {
+  font-size: 1.4rem;
+  color: var(--accent-yellow);
+  letter-spacing: 0.04em;
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 234, 0, 0.2);
+  padding-bottom: 8px;
+}
+
+/* cart grid */
+.cart-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+.cart-card {
+  background: var(--bg-elevated);
+  border: 1px solid rgba(255, 0, 110, 0.25);
+  border-radius: 6px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 0;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.cart-card:hover {
+  border-color: var(--accent-magenta);
+  transform: translateY(-2px);
+}
+
+.cart-card .preview {
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 188px;
+  max-height: 188px;
+  overflow: hidden;
+}
+
+.cart-card .preview img {
+  width: 100%;
+  height: auto;
+  display: block;
+  image-rendering: pixelated;
+}
+
+.cart-card .body {
+  padding: 20px 24px;
+}
+
+.cart-card h3 {
+  font-size: 1.15rem;
+  color: var(--accent-cyan);
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.cart-card .date {
+  color: var(--fg-dim);
+  font-size: 0.8rem;
+  margin-bottom: 12px;
+}
+
+.cart-card p {
+  color: var(--fg);
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+.cart-card .links {
+  display: flex;
+  gap: 12px;
+  font-size: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.cart-card .links a {
+  color: var(--accent-magenta);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.cart-card .links a:hover {
+  border-bottom-color: var(--accent-magenta);
+}
+
+.cart-card .links a.muted {
+  color: var(--fg-dim);
+}
+
+/* single-cart page */
+.cart-detail .preview {
+  margin: 24px 0;
+  text-align: center;
+}
+
+.cart-detail .preview img {
+  max-width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+  border: 1px solid rgba(255, 0, 110, 0.25);
+  border-radius: 4px;
+}
+
+.cart-detail .meta {
+  color: var(--fg-dim);
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+footer.site {
+  margin-top: 96px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 0, 110, 0.15);
+  color: var(--fg-dim);
+  font-size: 0.85rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+footer.site a {
+  color: var(--accent-cyan);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+}
+
+footer.site a:hover {
+  border-bottom-color: var(--accent-cyan);
+}
+
+/* about page */
+.about p {
+  margin-bottom: 16px;
+  max-width: 65ch;
+}
+
+.about code {
+  background: var(--bg-elevated);
+  border: 1px solid rgba(255, 0, 110, 0.2);
+  border-radius: 3px;
+  padding: 2px 6px;
+  font-size: 0.9em;
+  color: var(--accent-yellow);
+}
+
+@media (max-width: 640px) {
+  .cart-card { grid-template-columns: 1fr; }
+  .cart-card .preview { min-height: 220px; max-height: 220px; }
+  header.site h1 { font-size: 1.9rem; }
+  main { padding: 32px 16px 64px; }
+}
