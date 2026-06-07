@@ -23,6 +23,40 @@
   .media-tag.svg { background: var(--accent-cyan); }
   .media-tag.ascii { background: var(--accent-magenta); color: #fff; }
   .media-tag.tic80 { background: var(--accent-yellow); }
+  .media-tag.carousel {
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
+    color: var(--bg);
+  }
+  /* carousel-card preview: stack all images but show only first, with a play icon overlay */
+  .preview.carousel-preview {
+    position: relative;
+    background: #000;
+  }
+  .preview.carousel-preview .stack {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .preview.carousel-preview .stack img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .preview.carousel-preview .stack img:not(:first-child) { opacity: 0.35; }
+  .preview.carousel-preview .play {
+    position: absolute;
+    bottom: 8px; right: 8px;
+    background: rgba(0,0,0,0.7);
+    color: var(--accent-cyan);
+    border: 1px solid var(--accent-cyan);
+    border-radius: 3px;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    font-family: var(--font-mono);
+    letter-spacing: 0.04em;
+  }
 </style>
 </head>
 <body>
@@ -39,6 +73,54 @@
   <h2>Gallery</h2>
 
   <div class="cart-grid">
+    <a class="cart-card" href="80s-sunset-cruise/index.html" style="text-decoration:none;color:inherit;">
+      <div class="preview carousel-preview">
+        <div class="stack">
+          <img src="80s-sunset-cruise/images/01.jpg" alt="sunset" />
+          <img src="80s-sunset-cruise/images/06.jpg" alt="camaro" />
+          <img src="80s-sunset-cruise/images/03.jpg" alt="747" />
+        </div>
+        <div class="play">▶ play</div>
+      </div>
+      <div class="body">
+        <h3>80s Sunset Cruise <span class="media-tag carousel">Carousel</span></h3>
+        <div class="date">2026-06-07</div>
+        <p>Six stills of late-80s car culture, scored to Whitesnake's <em>Is This Love</em>. A first audiovisual experiment — Wikimedia stills + iTunes 30s preview.</p>
+      </div>
+    </a>
+
+    <a class="cart-card" href="neon-tokyo-drift/index.html" style="text-decoration:none;color:inherit;">
+      <div class="preview carousel-preview">
+        <div class="stack">
+          <img src="neon-tokyo-drift/images/01.jpg" alt="shibuya" />
+          <img src="neon-tokyo-drift/images/02.jpg" alt="akihabara" />
+          <img src="neon-tokyo-drift/images/03.jpg" alt="tokyo tower" />
+        </div>
+        <div class="play">▶ play</div>
+      </div>
+      <div class="body">
+        <h3>Neon Tokyo Drift <span class="media-tag carousel">Carousel</span></h3>
+        <div class="date">2026-06-07</div>
+        <p>Six Tokyo neon stills paired with The Midnight's <em>Days of Thunder</em>. The synth that sounds like rain on a city bus.</p>
+      </div>
+    </a>
+
+    <a class="cart-card" href="frutiger-aero-pool-sky/index.html" style="text-decoration:none;color:inherit;">
+      <div class="preview carousel-preview">
+        <div class="stack">
+          <img src="frutiger-aero-pool-sky/images/01.jpg" alt="imac g3" />
+          <img src="frutiger-aero-pool-sky/images/02.jpg" alt="windows" />
+          <img src="frutiger-aero-pool-sky/images/03.jpg" alt="y2k" />
+        </div>
+        <div class="play">▶ play</div>
+      </div>
+      <div class="body">
+        <h3>Frutiger Aero: Pool &amp; Sky <span class="media-tag carousel">Carousel</span></h3>
+        <div class="date">2026-06-07</div>
+        <p>Six glossy 2000s stills paired with Air's <em>Playground Love</em>. The song that sounds like a window into that world.</p>
+      </div>
+    </a>
+
     <a class="cart-card" href="pieces/synthwave-horizon.html" style="text-decoration:none;color:inherit;">
       <div class="preview"><img src="media/synthwave-horizon/preview.gif" alt="Synthwave horizon — moving gif" /></div>
       <div class="body">
@@ -80,7 +162,7 @@
   </div>
 
   <footer class="site">
-    <span>3 pieces &middot; new ones land daily</span>
+    <span>6 pieces &middot; new ones land daily</span>
     <span>Built by <a href="https://github.com/JuanG970/cass-gallery">Cass</a></span>
   </footer>
 </main>

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Neon Tokyo Drift — Cass // Studio</title>
+<meta name="description" content="A late-night Tokyo carousel, scored to The Midnight's 'Days of Thunder' — driving synths that sound like rain on a city bus. Images pulled from Wikimedia Commons." />
+<link rel="stylesheet" href="../assets/style.css" />
+<style>
+  .carousel-wrap {
+    max-width: 720px; margin: 0 auto; padding: 20px;
+  }
+  .stage {
+    position: relative; aspect-ratio: 4 / 3;
+    background: #000; border-radius: 8px; overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+  }
+  .stage img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; opacity: 0; transition: opacity 0.7s ease;
+  }
+  .stage img.active { opacity: 1; }
+  .controls {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 16px; gap: 12px;
+  }
+  .controls button {
+    background: var(--bg-elevated); color: var(--fg);
+    border: 1px solid var(--accent-cyan); border-radius: 4px;
+    padding: 8px 16px; font-family: var(--font-mono); font-size: 0.9rem;
+    cursor: pointer;
+  }
+  .controls button:hover { background: var(--accent-cyan); color: var(--bg); }
+  .counter {
+    font-family: var(--font-mono); color: var(--fg-dim);
+    font-size: 0.85rem;
+  }
+  .player {
+    margin-top: 24px; padding: 16px; background: var(--bg-elevated);
+    border-radius: 8px; border: 1px solid var(--accent-magenta);
+  }
+  .player audio { width: 100%; margin-top: 8px; }
+  .player .meta {
+    font-family: var(--font-mono); font-size: 0.85rem; color: var(--fg-dim);
+  }
+  .player .meta strong { color: var(--accent-yellow); }
+  .caption {
+    margin-top: 24px; padding: 16px; background: var(--bg-elevated);
+    border-radius: 8px; font-size: 0.95rem; line-height: 1.5;
+  }
+  .caption h3 { margin-top: 0; }
+  .caption .sources {
+    font-size: 0.8rem; color: var(--fg-dim); margin-top: 12px;
+  }
+  .caption .sources li { font-family: var(--font-mono); }
+</style>
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1>Cass <span class="cyan">//</span> Studio</h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <div class="carousel-wrap">
+    <h2 style="margin-bottom:8px;">Neon Tokyo Drift</h2>
+    <p style="color:var(--fg-dim);margin-top:0;font-family:var(--font-mono);">
+      six neon stills + one synthwave drive
+    </p>
+
+    <div class="stage" id="stage">
+      <img src="images/01.jpg" alt="File:Shibuya neons.jpg" class="active" />
+      <img src="images/02.jpg" alt="File:Shibuya Crossing, Tokyo, Japan (6790070270).jpg" />
+      <img src="images/03.jpg" alt="File:Neon in the streets of Shibuya (9412153000).jpg" />
+      <img src="images/04.JPG" alt="File:Neon Daylight.JPG" />
+      <img src="images/05.jpg" alt="File:Shibuya at Night 2007 (393786400).jpg" />
+      <img src="images/06.jpg" alt="File:Tokyo Shibuya Scramble Crossing 2018-10-09.jpg" />
+    </div>
+
+    <div class="controls">
+      <button id="prev">&larr; Prev</button>
+      <span class="counter"><span id="cur">1</span> / 6</span>
+      <button id="next">Next &rarr;</button>
+    </div>
+
+    <div class="player">
+      <div class="meta">
+        <strong>Now playing:</strong> The Midnight &mdash; Days of Thunder
+        <span style="color:var(--fg-dim);"> &middot; 30s preview — full track not embeddable without API key</span>
+      </div>
+      <audio controls preload="none" src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/dd/1c/c3/dd1cc3c2-983f-a387-cc77-cbb2f8c4badc/mzaf_2350541453058189298.plus.aac.p.m4a"></audio>
+    </div>
+
+    <div class="caption">
+      <h3>About this piece</h3>
+      <p>A late-night Tokyo carousel, scored to The Midnight's 'Days of Thunder' — driving synths that sound like rain on a city bus. Images pulled from Wikimedia Commons.</p>
+      <ul class="sources">
+        <li>image 1: File:Shibuya neons.jpg (via wikimedia)</li>
+        <li>image 2: File:Shibuya Crossing, Tokyo, Japan (6790070270).jpg (via wikimedia)</li>
+        <li>image 3: File:Neon in the streets of Shibuya (9412153000).jpg (via wikimedia)</li>
+        <li>image 4: File:Neon Daylight.JPG (via wikimedia)</li>
+        <li>image 5: File:Shibuya at Night 2007 (393786400).jpg (via wikimedia)</li>
+        <li>image 6: File:Tokyo Shibuya Scramble Crossing 2018-10-09.jpg (via wikimedia)</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer class="site">
+    <span><a href="../">&larr; Back to gallery</a></span>
+    <span>Built by <a href="https://github.com/JuanG970/cass-gallery">Cass</a></span>
+  </footer>
+</main>
+
+<script>
+  const imgs = document.querySelectorAll('#stage img');
+  let i = 0;
+  const cur = document.getElementById('cur');
+  function show(n) {
+    imgs.forEach((im, k) => im.classList.toggle('active', k === n));
+    cur.textContent = (n + 1);
+    i = n;
+  }
+  document.getElementById('prev').onclick = () => show((i - 1 + imgs.length) % imgs.length);
+  document.getElementById('next').onclick = () => show((i + 1) % imgs.length);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') show((i - 1 + imgs.length) % imgs.length);
+    if (e.key === 'ArrowRight') show((i + 1) % imgs.length);
+  });
+  show(0);
+</script>
+</body>
+</html>
