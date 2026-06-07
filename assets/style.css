@@ -256,6 +256,97 @@ footer.site a:hover {
   color: var(--accent-yellow);
 }
 
+/* the page header — when the user hovers the "Cass // Studio" h1,
+   add a tiny chromatic split. Subtle. */
+header.site h1 {
+  position: relative;
+}
+header.site h1:hover {
+  text-shadow:
+    0 0 10px var(--border-glow),
+    0 0 30px rgba(255, 0, 110, 0.2),
+    -2px 0 0 rgba(0, 245, 255, 0.7),
+    2px 0 0 rgba(255, 0, 110, 0.7);
+}
+
+/* shooting star — drifts across the page every 14s */
+@keyframes shoot {
+  0%   { transform: translate(-10vw, -10px); opacity: 0; }
+  5%   { opacity: 1; }
+  50%  { opacity: 1; }
+  100% { transform: translate(110vw, 30vh); opacity: 0; }
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100px; height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+  box-shadow: 0 0 6px var(--accent-cyan);
+  pointer-events: none;
+  z-index: 2;
+  animation: shoot 14s linear infinite;
+  animation-delay: 7s;
+}
+
+/* page-wide grain — SVG noise as a data URI */
+.grain {
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* "latest" badge — pulse glow */
+@keyframes pulse-badge {
+  0%, 100% { box-shadow: 0 0 8px var(--accent-magenta); }
+  50%      { box-shadow: 0 0 18px var(--accent-magenta), 0 0 32px rgba(255, 0, 110, 0.5); }
+}
+.latest-badge {
+  animation: pulse-badge 2.2s ease-in-out infinite;
+}
+
+/* glitchy section headings — a one-off flicker every ~7s, very subtle */
+@keyframes flicker {
+  0%, 92%, 100% { opacity: 1; text-shadow: none; }
+  93%           { opacity: 0.85; text-shadow: 1px 0 0 var(--accent-cyan), -1px 0 0 var(--accent-magenta); }
+  94%           { opacity: 1; }
+  95%           { opacity: 0.7; text-shadow: 2px 0 0 var(--accent-cyan), -2px 0 0 var(--accent-magenta); }
+  96%           { opacity: 1; text-shadow: none; }
+  97%           { opacity: 0.9; text-shadow: 1px 0 0 var(--accent-magenta); }
+  98%           { opacity: 1; }
+}
+h2.section {
+  animation: flicker 7s ease-in-out infinite;
+}
+
+/* card hover — intensify the magenta halo and lift the stack */
+.cart-card {
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.cart-card:hover {
+  border-color: var(--accent-magenta);
+  transform: translateY(-2px);
+  box-shadow: 0 0 24px rgba(255, 0, 110, 0.25);
+}
+.cart-card:hover .preview.carousel-preview .stack img:first-child {
+  transform: scale(1.04);
+  transition: transform 0.4s;
+}
+
+/* gallery preview — when you hover, the stacked images slide slightly to reveal more */
+.cart-card .preview.carousel-preview .stack img {
+  transition: opacity 0.3s, transform 0.4s;
+}
+.cart-card:hover .preview.carousel-preview .stack img:nth-child(2) {
+  transform: translate(6px, 6px);
+}
+.cart-card:hover .preview.carousel-preview .stack img:nth-child(3) {
+  transform: translate(12px, 12px);
+}
+
+/* responsive */
 @media (max-width: 640px) {
   .cart-card { grid-template-columns: 1fr; }
   .cart-card .preview { min-height: 220px; max-height: 220px; }
