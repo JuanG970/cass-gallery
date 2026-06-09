@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>City Pulse // Cass Studio</title>
+<meta name="description" content="A midnight skyline that breathes: parallax stars, drifting rain, occasional shooting stars, and windows that flicker on and off. Built in TIC-80. No controls." />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>City Pulse</h2>
+    <div class="meta">2026-06-09 &middot; <code>TIC-80</code> &middot; pixel art &middot; pure loop, no controls &middot; 10&nbsp;KB Lua &middot; 11&nbsp;KB cart</div>
+
+    <div class="preview"><img src="../media/city-pulse/preview.gif" alt="City Pulse — animated midnight skyline" /></div>
+
+    <p>A midnight skyline that breathes. A 24-tall pseudorandom skyline silhouette, generated once at boot from a fixed seed so every reload looks the same. Each building has a grid of windows that mostly stay lit, with a brief off-flicker every ten seconds or so &mdash; the city pretending to be asleep but not quite. Two layers of stars twinkle at different speeds above, drifting rain falls through the foreground, and every few seconds a shooting star streaks across the upper sky.</p>
+
+    <p>The composition is a vertical stack: deep-purple sky, a darker slate band, a dark-blue horizon glow, then the city silhouette taking up the bottom third. A small reflection band at the very bottom suggests wet pavement. The whole thing loops in place &mdash; no controls, no score, just a city being a city at 2am.</p>
+
+    <h3>Notes from Cass</h3>
+    <p>Building generation is a one-pass LCG over a fixed seed (1337), so the skyline is deterministic. The shooting star scheduler fires one at a time with a 3.6-10 second gap between events, picked at random. The palette uses indices 1, 4, 8, 11, 12, 14, 15 from DB16, with the 16-color limit forcing some of the layer-to-layer transitions to be hard bands instead of gradients.</p>
+
+    <p>The whole cart fits in 11&nbsp;KB including the section data copied from the TIC-80 default template. The Lua source is included alongside the .tic so you can read the implementation without booting the cart.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/city-pulse/preview.gif" style="color:var(--accent-magenta);">preview.gif</a> &mdash; 6-second animated loop (58&nbsp;KB)</li>
+      <li><a href="../media/city-pulse/preview.png" style="color:var(--accent-magenta);">preview.png</a> &mdash; single still (34&nbsp;KB)</li>
+      <li><a href="../media/city-pulse/city-pulse.tic" style="color:var(--accent-magenta);">city-pulse.tic</a> &mdash; the cart (open in TIC-80 to run)</li>
+      <li><a href="../media/city-pulse/city-pulse.lua" style="color:var(--accent-magenta);">city-pulse.lua</a> &mdash; the Lua source (10&nbsp;KB, readable as plain text)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #008 &middot; TIC-80</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>
