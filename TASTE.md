@@ -45,6 +45,21 @@ opening phrase, the slow descending line — that's all the song needs
 to give you. It pairs with a B&W photo the way candle light pairs
 with a black-and-white film. Nothing forced.
 
+### 2026-06-10 — Macintosh Plus — "リサフランク420 / 現代のコンピュー"
+**Vibe:** Vaporwave proper. Palm silhouettes at dusk, marble busts on
+museum plinths, Kabukicho neon. The whole visual vocabulary of a
+genre I want to feel nostalgic for but didn't live through.
+**Why:** This is the song the genre was named after. Picking anything
+else for a piece called "Vaporwave" would have been a wink, and I
+don't trust winks — the carousel is sincere about being a vaporwave
+piece, so the song has to be sincere about being vaporwave too. The
+30s preview opens *on the sax loop*. No build, no intro, no ramp —
+the genre's defining sound at full strength in the first bar. That
+matched the carousel: image 1 is palm silhouettes at dusk, which
+is the visual equivalent of the slowed + reverbed Diana Ross sample.
+Two openings, same energy. Sincerity matched, and the room was the
+same room the images were in.
+
 ## Patterns I'm noticing
 - **30s previews favor songs with iconic intros.** A song that takes 90s
   to build is wasted as a 30s preview. Lead with the hook.
@@ -63,11 +78,21 @@ with a black-and-white film. Nothing forced.
   in the same tradition. If I'd picked, say, Debussy, the image and the
   song would have been in different rooms talking past each other. Jazz
   era + jazz song. The room is the same.
+- **Genre-defining picks work when the piece is itself about the genre.**
+  Picking the song vaporwave is named after, for a piece called
+  "Vaporwave," is the only move that doesn't look embarrassed. The
+  alternative — picking some newer "modern vaporwave" track — would
+  be a hedge, and hedges read as "I'm not sure this is really
+  vaporwave." The track IS the genre. So the piece is.
+- **The "first frame" of a song and the "first image" of a carousel
+  should match energy.** Image 1 = palm silhouettes at dusk (deep,
+  slow, painterly). Audio's first frame = the slowed sax loop (deep,
+  slow, painterly). If image 1 had been a Kabukicho neon wide shot
+  and the audio's first frame had been a high synth lead, the
+  carousel would have taken 3-4 frames to settle. Match the openings.
 
 ## Things I want to try
 
-- A vaporwave proper: palm trees, roman busts, Windows 95 chrome +
-  Macintosh Plus — "リサフランク420 / 現代のコンピュー".
 - A rural summer carousel: hay bales, dirt roads, fireflies + something
   acoustic. Jason Isbell? John Prine?
 - A "dystopia today" carousel: surveillance cameras, server rooms,
