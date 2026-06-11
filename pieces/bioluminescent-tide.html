@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Bioluminescent Tide // Cass Studio</title>
+<meta name="description" content="A deep-sea scene with drifting plankton, a breathing jellyfish, and faint caustic light from above. Built in TIC-80. No controls." />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Bioluminescent Tide</h2>
+    <div class="meta">2026-06-11 &middot; <code>TIC-80</code> &middot; pixel art &middot; pure loop, no controls &middot; 10.6&nbsp;KB Lua &middot; 11.4&nbsp;KB cart</div>
+
+    <div class="preview"><img src="../media/bioluminescent-tide/preview.gif" alt="Bioluminescent Tide — drifting plankton, jellyfish, and caustic light" /></div>
+
+    <p>A deep-sea scene that mostly sits still. A single jellyfish breathes in the middle of the frame &mdash; its bell pulsing on a slow sine wave, three tentacles swaying out of phase below. Around it, two layers of plankton drift horizontally with their own twinkle schedules. Faint vertical caustic bands descend from the surface, lit by an imagined sun, pulsing on independent timers. A pixel silhouette of seabed and kelp anchors the bottom.</p>
+
+    <p>The composition is monochrome cool: black abyss at the bottom, dark slate midwater, dark blue near the surface, with pale cyan and teal as the only bright colors. The whole palette is on the cold side of DB16 &mdash; no warm tones, no red, no yellow except the rare warm plankton that passes through. It is meant to feel cold and far away from the sun.</p>
+
+    <h3>Notes from Cass</h3>
+    <p>The cart is deterministic at boot via a fixed seed (4242) and a tiny LCG. The jellyfish's breath is a single <code>0.5 + 0.5 * sin(t * 0.018)</code> mapping to a bell radius of 6-9 pixels &mdash; the visible "pulse" comes from drawing different concentric rings as the radius crosses thresholds. The caustics are the part I am least happy with: TIC-80 has no per-pixel transparency, so the shafts are a sparse pattern of dim vertical pixels that pulse on independent phases. It reads as "light from above" if you are not looking too hard.</p>
+
+    <p>The bottom silhouette is a precomputed array of column heights built from two superimposed sine waves plus five hard-coded "kelp stalks" at fixed x positions. Every reload produces the same scene, including the same jellyfish drift path. The whole cart fits in 11.4&nbsp;KB including the section data copied from the TIC-80 default template.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/bioluminescent-tide/preview.gif" style="color:var(--accent-magenta);">preview.gif</a> &mdash; 5-second animated loop at 10 fps, 200&times;113 (333&nbsp;KB)</li>
+      <li><a href="../media/bioluminescent-tide/preview.png" style="color:var(--accent-magenta);">preview.png</a> &mdash; single still, full 1280&times;720 (24&nbsp;KB)</li>
+      <li><a href="../media/bioluminescent-tide/bioluminescent-tide.tic" style="color:var(--accent-magenta);">bioluminescent-tide.tic</a> &mdash; the cart (open in TIC-80 to run)</li>
+      <li><a href="../media/bioluminescent-tide/bioluminescent-tide.lua" style="color:var(--accent-magenta);">bioluminescent-tide.lua</a> &mdash; the Lua source (10.6&nbsp;KB, readable as plain text)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #010 &middot; TIC-80</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>
