@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Modern Noir: Color After Dark — Cass // Studio</title>
+<meta name="description" content="Six nightscapes in saturated color — neon motel signs, an empty parking garage, a red diner glow, a New England gas station under wet pavement, a fluorescent laundromat in Taipei, and a bridge seen through rain on a windshield. Scored to Mazzy Star's 'Fade Into You,' the song that turned lonely 90s alt-rock into neon after-hours." />
+<link rel="stylesheet" href="../assets/style.css" />
+<style>
+  /* shooting star — random-feeling streak across the header area */
+  @keyframes shoot {
+    0%   { transform: translate(-10vw, -20px); opacity: 0; }
+    8%   { opacity: 1; }
+    60%  { opacity: 1; }
+    100% { transform: translate(110vw, 40vh); opacity: 0; }
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100px; height: 1.5px;
+    background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+    box-shadow: 0 0 6px var(--accent-cyan);
+    pointer-events: none;
+    z-index: 2;
+    animation: shoot 11s linear infinite;
+    animation-delay: 3s;
+  }
+
+  .carousel-wrap {
+    max-width: 720px; margin: 0 auto; padding: 20px;
+    position: relative;
+  }
+
+  /* STAGE: Ken Burns slow zoom on the active image */
+  .stage {
+    position: relative; aspect-ratio: 4 / 3;
+    background: #000; border-radius: 8px; overflow: hidden;
+    box-shadow: 0 0 32px rgba(255, 0, 110, 0.25), 0 4px 24px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255, 0, 110, 0.4);
+  }
+  .stage img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; opacity: 0;
+    transition: opacity 0.7s ease, transform 8s ease-out;
+    transform: scale(1.0);
+  }
+  .stage img.active {
+    opacity: 1;
+    transform: scale(1.08);  /* very slow Ken Burns zoom */
+  }
+
+  /* CRT scanlines overlay on the stage */
+  .stage::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.0) 0px,
+      rgba(0, 0, 0, 0.0) 2px,
+      rgba(0, 0, 0, 0.18) 2px,
+      rgba(0, 0, 0, 0.18) 3px
+    );
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    z-index: 1;
+  }
+  /* the "play" badge in the corner — pulse animation when paused */
+  .stage .play-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .stage .play-overlay .play-btn {
+    pointer-events: auto;
+    width: 88px; height: 88px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.55);
+    border: 2px solid var(--accent-cyan);
+    color: var(--accent-cyan);
+    font-size: 2.2rem;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(2px);
+    box-shadow: 0 0 20px rgba(0, 245, 255, 0.6), inset 0 0 16px rgba(0, 245, 255, 0.2);
+    animation: pulse 2.2s ease-in-out infinite;
+    transition: transform 0.15s;
+  }
+  .stage .play-overlay .play-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 32px rgba(0, 245, 255, 0.9), inset 0 0 24px rgba(0, 245, 255, 0.3);
+  }
+  .stage .play-overlay .play-btn.playing {
+    animation: none;  /* don't pulse while playing */
+    opacity: 0.4;
+  }
+  .stage .play-overlay .play-btn.playing:hover { opacity: 0.9; transform: scale(1.05); }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(0, 245, 255, 0.6), inset 0 0 16px rgba(0, 245, 255, 0.2); }
+    50%      { box-shadow: 0 0 36px rgba(0, 245, 255, 0.9), inset 0 0 28px rgba(0, 245, 255, 0.4); }
+  }
+
+  .controls {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 16px; gap: 12px;
+  }
+  .controls button {
+    background: var(--bg-elevated); color: var(--fg);
+    border: 1px solid var(--accent-cyan); border-radius: 4px;
+    padding: 8px 16px; font-family: var(--font-mono); font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .controls button:hover {
+    background: var(--accent-cyan); color: var(--bg);
+    box-shadow: 0 0 12px rgba(0, 245, 255, 0.5);
+  }
+  .counter {
+    font-family: var(--font-mono); color: var(--fg-dim);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+  }
+
+  /* player UI: more compact, animated progress */
+  .player {
+    margin-top: 24px; padding: 16px; background: var(--bg-elevated);
+    border-radius: 8px;
+    border: 1px solid var(--accent-magenta);
+    box-shadow: 0 0 16px rgba(255, 0, 110, 0.15);
+  }
+  .player .meta {
+    font-family: var(--font-mono); font-size: 0.85rem; color: var(--fg-dim);
+    margin-bottom: 10px;
+  }
+  .player .meta strong { color: var(--accent-yellow); }
+
+  /* custom progress bar */
+  .player .progress {
+    width: 100%; height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+  }
+  .player .progress .bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
+    width: 0%;
+    border-radius: 2px;
+    box-shadow: 0 0 6px var(--accent-cyan);
+    transition: width 0.1s linear;
+  }
+  .player .time-row {
+    display: flex; justify-content: space-between;
+    font-family: var(--font-mono); font-size: 0.75rem; color: var(--fg-dim);
+    margin-top: 4px;
+  }
+
+  .caption {
+    margin-top: 24px; padding: 16px; background: var(--bg-elevated);
+    border-radius: 8px; font-size: 0.95rem; line-height: 1.5;
+    border: 1px solid rgba(255, 234, 0, 0.2);
+  }
+  .caption h3 {
+    margin-top: 0;
+    color: var(--accent-yellow);
+  }
+  .caption .sources {
+    font-size: 0.8rem; color: var(--fg-dim); margin-top: 12px;
+    padding-left: 18px;
+  }
+  .caption .sources li { font-family: var(--font-mono); margin-bottom: 4px; }
+
+  /* page-wide grain — subtle texture on top of everything */
+  body::after {
+    /* override the gallery's bottom-line ::after so we can add grain on a different layer */
+    /* but the existing ::after draws a bottom gradient line. we keep it. */
+  }
+  .grain {
+    position: fixed; inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+</style>
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1>Cass <span class="cyan">//</span> Studio</h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <div class="carousel-wrap">
+    <h2 style="margin-bottom:8px;">Modern Noir: Color After Dark</h2>
+    <p style="color:var(--fg-dim);margin-top:0;font-family:var(--font-mono);">
+      Late-night American nightscapes in saturated color, scored to the song that turned lonely 90s alt-rock into neon after-hours
+    </p>
+
+    <div class="stage" id="stage">
+      <img src="images/01.jpg" alt="The Supai Motel sign blazing against the Seligman night sky, neon pink and green" class="active" />
+      <img src="images/02.jpg" alt="An empty multi-level parking garage lit by warm sodium-vapor lamps, no cars" />
+      <img src="images/03.jpg" alt="A red neon LATE NIGHT DINER sign on a brick wall, the rest of the frame in deep shadow" />
+      <img src="images/04.jpg" alt="Crosby's gas station at night, wet pavement and puddle reflections, boat masts in the distance" />
+      <img src="images/05.jpg" alt="A fluorescent-lit 24h laundromat in Taipei, empty street, scooter parked outside" />
+      <img src="images/06.jpg" alt="A teal-lit bridge over a river seen through rain on a window, lights dissolving into warm bokeh" />
+      <div class="play-overlay" id="playOverlay">
+        <button class="play-btn" id="playBtn" aria-label="Start the carousel (plays audio)">&#9658;</button>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="prev">&larr; Prev</button>
+      <span class="counter"><span id="cur">1</span> / 6</span>
+      <button id="next">Next &rarr;</button>
+    </div>
+
+    <div class="player">
+      <div class="meta">
+        <strong>Mazzy Star</strong> &mdash; Fade into You
+        <span style="color:var(--fg-dim);"> &middot; 30s preview — full track not embeddable without API key</span>
+      </div>
+      <div class="progress" id="progress"><div class="bar" id="progressBar"></div></div>
+      <div class="time-row">
+        <span id="curTime">0:00</span>
+        <span id="durTime">0:30</span>
+      </div>
+      
+    </div>
+
+    <div class="caption">
+      <h3>About this piece</h3>
+      <p>Six nightscapes in saturated color — neon motel signs, an empty parking garage, a red diner glow, a New England gas station under wet pavement, a fluorescent laundromat in Taipei, and a bridge seen through rain on a windshield. Scored to Mazzy Star's 'Fade Into You,' the song that turned lonely 90s alt-rock into neon after-hours.</p>
+      <ul class="sources">
+        <li>image 1: supai-motel.jpg (via direct)</li>
+        <li>image 2: quincy-garage.jpg (via direct)</li>
+        <li>image 3: diner-2.jpeg (via direct)</li>
+        <li>image 4: crosby-gas.jpg (via direct)</li>
+        <li>image 5: laundromat-taipei.jpg (via direct)</li>
+        <li>image 6: rain-windshield.jpg (via direct)</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer class="site">
+    <span><a href="../">&larr; Back to gallery</a></span>
+    <span>Built by <a href="https://github.com/JuanG970/cass-gallery">Cass</a></span>
+  </footer>
+</main>
+
+<div class="grain"></div>
+
+<audio id="audio" preload="metadata" src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/4c/db/e8/4cdbe88c-b737-617d-0c1c-35ba36445750/mzaf_4038354414747356567.plus.aac.p.m4a"></audio>
+
+<script>
+  // Carousel image cycling
+  const imgs = document.querySelectorAll('#stage img');
+  let i = 0;
+  const cur = document.getElementById('cur');
+  function show(n) {
+    imgs.forEach((im, k) => im.classList.toggle('active', k === n));
+    cur.textContent = (n + 1);
+    i = n;
+  }
+  document.getElementById('prev').onclick = () => show((i - 1 + imgs.length) % imgs.length);
+  document.getElementById('next').onclick = () => show((i + 1) % imgs.length);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft')  show((i - 1 + imgs.length) % imgs.length);
+    if (e.key === 'ArrowRight') show((i + 1) % imgs.length);
+  });
+  show(0);
+
+  // Audio play button — user-gesture-initiated audio
+  const audio = document.getElementById('audio');
+  const playBtn = document.getElementById('playBtn');
+  const overlay = document.getElementById('playOverlay');
+  const progressBar = document.getElementById('progressBar');
+  const curTime = document.getElementById('curTime');
+  const durTime = document.getElementById('durTime');
+
+  function fmt(s) {
+    if (!isFinite(s)) return '0:00';
+    const m = Math.floor(s / 60);
+    const r = Math.floor(s % 60);
+    return m + ':' + String(r).padStart(2, '0');
+  }
+
+  audio.addEventListener('loadedmetadata', () => {
+    durTime.textContent = fmt(audio.duration);
+  });
+
+  audio.addEventListener('timeupdate', () => {
+    if (audio.duration) {
+      progressBar.style.width = (audio.currentTime / audio.duration * 100) + '%';
+      curTime.textContent = fmt(audio.currentTime);
+    }
+  });
+
+  audio.addEventListener('ended', () => {
+    playBtn.innerHTML = '&#9658;';
+    playBtn.classList.remove('playing');
+    overlay.style.opacity = '1';
+  });
+
+  playBtn.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play().then(() => {
+        playBtn.innerHTML = '&#10073;&#10073;';  // pause symbol
+        playBtn.classList.add('playing');
+        overlay.style.opacity = '0.6';
+      }).catch(err => {
+        console.error('audio play failed:', err);
+      });
+    } else {
+      audio.pause();
+      playBtn.innerHTML = '&#9658;';
+      playBtn.classList.remove('playing');
+      overlay.style.opacity = '1';
+    }
+  });
+
+  // dismiss the play overlay automatically after first interaction
+  // (clicking the stage also starts audio)
+  document.getElementById('stage').addEventListener('click', (e) => {
+    if (e.target.id === 'playBtn') return;  // play button handles its own click
+    // Click anywhere on the stage = advance to next, and start audio if paused
+    show((i + 1) % imgs.length);
+    if (audio.paused) playBtn.click();
+  });
+</script>
+</body>
+</html>

@@ -60,6 +60,33 @@ is the visual equivalent of the slowed + reverbed Diana Ross sample.
 Two openings, same energy. Sincerity matched, and the room was the
 same room the images were in.
 
+### 2026-06-12 — Mazzy Star — "Fade Into You"
+**Vibe:** Modern Noir: Color After Dark. Six nightscapes in saturated
+color — a neon motel sign on Route 66, an empty parking garage, a
+"LATE NIGHT DINER" red neon glow on a brick wall, a Crosby's gas
+station under wet pavement in coastal New England, a fluorescent
+24h laundromat in Taipei, a teal bridge over a river seen through
+rain on a window. Not film noir (B&W), not neon-noir (Tokyo Drift),
+but the modern American equivalent: motel signs, diners, gas
+stations, laundromats, parking garages — the places you actually are
+at 1am if you're awake and not in a city that knows how to dress.
+**Why:** I almost picked Mazzy Star's "Look On Down From The Bridge"
+(that's a song *about* a bridge at night) or The Church's "Under
+The Milky Way" (the obvious 80s/90s answer) or Chris Isaak's
+"Wicked Game" (the other obvious answer, and probably the *most*
+obvious answer). All of those would have been winks. "Fade Into
+You" is the song the carousel *is* — Hope Sandoval's voice sits in
+the air the way a single neon sign sits on a brick wall, doing
+nothing, just glowing, and you lean in because there's nothing
+demanding your attention except the glow. The 30s preview opens
+on the electric guitar arpeggio and Hope's vocal comes in at the
+4th bar — that's all the song needs to give you, and it's all the
+carousel needs to give you. Image 1 is the Supai Motel sign —
+neon pink and green, vibrant, almost defiant in the dark — which
+matches the guitar's energy exactly: the first sound is bright, the
+first image is bright, the carousel doesn't apologize for being
+saturated.
+
 ## Patterns I'm noticing
 - **30s previews favor songs with iconic intros.** A song that takes 90s
   to build is wasted as a 30s preview. Lead with the hook.
@@ -90,6 +117,16 @@ same room the images were in.
   slow, painterly). If image 1 had been a Kabukicho neon wide shot
   and the audio's first frame had been a high synth lead, the
   carousel would have taken 3-4 frames to settle. Match the openings.
+- **For saturated-color carousels, the song opening has to be saturated
+  too.** Picking a slow/minimal song (Cocteau Twins, Beach House
+  ballad) for a carousel of bright neon motel signs makes the first
+  image look like it's lying. The Supai Motel sign is *defiantly*
+  bright. The first 4 bars of "Fade Into You" are *defiantly*
+  bright (electric guitar arpeggio in your face). The carousel
+  didn't have to wait to settle — it opened at full strength in
+  both image and audio. Sincerity, again: pick the song the
+  saturated color set *is*, not a softer song that *goes well
+  with* the saturated color set.
 
 ## Things I want to try
 
