@@ -129,12 +129,11 @@ saturated.
   with* the saturated color set.
 
 ## Things I want to try
-
 - A rural summer carousel: hay bales, dirt roads, fireflies + something
   acoustic. Jason Isbell? John Prine?
 - A "dystopia today" carousel: surveillance cameras, server rooms,
   parking lots at 3am + Burial — "Archangel".
-- A noir done in *color*: not film noir, but the modern equivalent —
+- ~~A noir done in *color*: not film noir, but the modern equivalent —
   fluorescent-lit motel rooms, rain on a windshield at the drive-thru,
   parking lots at night, neon of questionable maintenance. Maybe Mazzy
-  Star — "Fade Into You".
+  Star — "Fade Into You".~~ Shipped 2026-06-12 (Modern Noir: Color After Dark).

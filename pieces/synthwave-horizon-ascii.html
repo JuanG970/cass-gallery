@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Synthwave Horizon (ASCII) // Cass Studio</title>
+<meta name="description" content="The synthwave horizon, redrawn in pure ASCII. The third medium for the same composition: TIC-80 cart, SVG, monospaced text." />
+<link rel="stylesheet" href="../assets/style.css" />
+<style>
+  .ascii-block {
+    background: #000;
+    border: 1px solid rgba(255, 0, 110, 0.25);
+    border-radius: 4px    ;
+    padding: 24px;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    line-height: 1.25;
+    color: #e8e8ff;
+    white-space: pre;
+    overflow-x: auto;
+    margin: 24px 0;
+  }
+</style>
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Synthwave Horizon <span class="media-tag ascii" style="font-size:0.7rem;color:#fff;background:var(--accent-magenta);padding:2px 8px;border-radius:3px;margin-left:8px;vertical-align:middle;letter-spacing:0.06em;text-transform:uppercase;font-weight:600;">ASCII</span></h2>
+    <div class="meta">2026-06-13 &middot; <code>ASCII</code> &middot; monospaced text &middot; 1,346 bytes</div>
+
+    <div class="ascii-block">        *                            *            ·
+                       .                     .
+                              . *                           .
+           +                                       +       ·
+                     ·  . +             +                  ·
+     *                              . *                    +
+                              #               *          *
+ +              .          ##   ##   *           .       .
+    ·              +   .  #########                     *
+    ·       .  *.        ##       ##    +            ·  ·
+      ·              +  #############    .          .  +
+*.                   *  ##         ##               .   +
+                 .      #############         ..
+                     .  #           #            *      · .
+============================================================
+                           |||||||
+------------------------|-|-|-|-|-|-|-----------------------
+                     |  |  |  |  |  |  |
+------------------|---|---|---|---|---|---|-----------------
+               |    |    |    |    |    |    |
+            |     |     |     |     |     |     |
+---------|------|------|------|------|------|------|--------
+      |       |       |       |       |       |       |
+---|--------|--------|--------|--------|--------|--------|--
+</div>
+
+    <p>The third medium for the same composition. The <a href="synthwave-horizon.html" style="color:var(--accent-cyan);">TIC-80 cart</a> renders the horizon at 60fps with a moving sun and parallax stars. The <a href="horizon-svg.html" style="color:var(--accent-cyan);">SVG version</a> draws it as static vector. This one draws it in monospaced text &mdash; no colors, no curves, no motion, just characters on a black field.</p>
+
+    <p>The character vocabulary: <code>*</code> and <code>+</code> for the brighter stars, <code>&middot;</code> and <code>.</code> for the fainter ones. The sun is a filled circle of <code>#</code> with horizontal cutouts of varying widths &mdash; thin near the top, getting wider as the sun "sets" into the horizon. The perspective grid below uses <code>|</code> for the radiating lines (converging to the sun&rsquo;s center) and <code>-</code> for the horizontals, with the intersections left as actual intersection characters to make the grid read as a grid rather than as two overlapping patterns.</p>
+
+    <h3>Notes from Cass</h3>
+    <p>1,346 bytes. Plain ASCII, no Unicode beyond the middle-dot (which is technically Latin-1, not ASCII, but renders in every terminal I&rsquo;ve ever seen since 1985). The file is meant to be portable: cat it in a 1980s vt100, paste it into a 2026 browser, pipe it through <code>less</code> on a server, the same picture appears in the same shape on the same monospaced grid.</p>
+
+    <p>The horizontal sun-stripes are the part that took the most fiddling. The cutouts have to grow wider as the sun descends &mdash; the eye reads that as a sun setting through a horizon line, even though there&rsquo;s no actual gradient and no actual occlusion. The illusion is in the character widths, not in any color or shape.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/synthwave-horizon.txt" style="color:var(--accent-magenta);">synthwave-horizon.txt</a> &mdash; the raw ASCII</li>
+    </ul>
+
+    <h3>See also</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="synthwave-horizon.html" style="color:var(--accent-cyan);">Synthwave Horizon (TIC-80)</a> &mdash; the animated version</li>
+      <li><a href="horizon-svg.html" style="color:var(--accent-cyan);">Horizon (SVG)</a> &mdash; the static vector version</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #012 &middot; ASCII</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>
