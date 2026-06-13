@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Horizon Triptych // Cass Studio</title>
+<meta name="description" content="The same synthwave horizon, in three materials: TIC-80 cart, SVG vector, ASCII text. Side by side, with a lockstep mode that animates all three together." />
+<link rel="stylesheet" href="../assets/style.css" />
+<style>
+  /* triptych layout — three columns of equal weight, stacking on narrow screens */
+  .triptych {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    margin: 32px 0;
+  }
+  @media (max-width: 900px) {
+    .triptych { grid-template-columns: 1fr; }
+  }
+
+  .panel {
+    background: var(--bg-elevated);
+    border: 1px solid rgba(255, 0, 110, 0.2);
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .panel .stage {
+    background: #000;
+    height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+  .panel .stage img,
+  .panel .stage svg,
+  .panel .stage pre {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .panel .stage img { image-rendering: pixelated; }
+  .panel .stage pre {
+    font-family: var(--font-mono);
+    color: #e8e8ff;
+    font-size: 5.5px;
+    line-height: 1.1;
+    padding: 12px;
+    white-space: pre;
+    margin: 0;
+    text-align: center;
+  }
+  .panel .stage svg { display: block; }
+  .panel .body {
+    padding: 18px 20px;
+    flex: 1;
+  }
+  .panel h3 {
+    color: var(--accent-cyan);
+    font-size: 1rem;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .panel .panel-tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    color: var(--bg);
+    padding: 2px 7px;
+    border-radius: 3px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .panel .panel-tag.tic80  { background: var(--accent-yellow); }
+  .panel .panel-tag.svg    { background: var(--accent-cyan); }
+  .panel .panel-tag.ascii  { background: var(--accent-magenta); color: #fff; }
+  .panel .stat {
+    color: var(--fg-dim);
+    font-size: 0.78rem;
+    margin-bottom: 10px;
+    font-family: var(--font-mono);
+    letter-spacing: 0.02em;
+  }
+  .panel p {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--fg);
+  }
+  .panel p em { color: var(--accent-yellow); font-style: normal; }
+
+  /* the lockstep control bar — sticky, just under the title */
+  .lockstep-bar {
+    background: var(--bg-elevated);
+    border: 1px solid rgba(0, 245, 255, 0.25);
+    border-radius: 6px;
+    padding: 14px 20px;
+    margin: 24px 0 8px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .lockstep-bar label {
+    color: var(--accent-cyan);
+    font-size: 0.85rem;
+    cursor: pointer;
+    user-select: none;
+  }
+  .lockstep-bar input[type=checkbox] {
+    accent-color: var(--accent-cyan);
+    cursor: pointer;
+  }
+  .lockstep-bar .status {
+    color: var(--fg-dim);
+    font-size: 0.78rem;
+    font-family: var(--font-mono);
+    margin-left: auto;
+  }
+  .lockstep-bar .status.on { color: var(--accent-magenta); }
+
+  /* when lockstep is on, the SVG sun glows and pulses, the ASCII stars drift */
+  .panel[data-medium="svg"]    { transition: border-color 0.4s; }
+  .panel[data-medium="ascii"]  { transition: border-color 0.4s; }
+  .lockstep-on .panel { border-color: rgba(255, 0, 110, 0.55); }
+
+  /* the SVG sun is a real <circle>; we drive it from the lockstep state */
+  .svg-sun { transform-origin: 50% 100%; transform-box: fill-box; }
+  .lockstep-on .svg-sun {
+    animation: sun-breathe 4s ease-in-out infinite;
+  }
+  @keyframes sun-breathe {
+    0%, 100% { transform: scale(1.0); }
+    50%      { transform: scale(1.06); }
+  }
+
+  /* the ASCII panel's "ticker" mode — only active when lockstep is on */
+  .ascii-stage {
+    position: relative;
+  }
+  .ascii-stage pre {
+    transition: opacity 0.5s, transform 0.5s;
+  }
+  .lockstep-on .ascii-stage pre {
+    animation: ascii-tick 12s steps(4, end) infinite;
+  }
+  @keyframes ascii-tick {
+    0%, 24%   { transform: translateY(0); }
+    25%, 49%  { transform: translateY(-3px); }
+    50%, 74%  { transform: translateY(-6px); }
+    75%, 100% { transform: translateY(-9px); }
+  }
+
+  /* the "what the medium hides" essay block */
+  .essay {
+    background: var(--bg-elevated);
+    border: 1px solid rgba(255, 234, 0, 0.2);
+    border-radius: 6px;
+    padding: 28px 32px;
+    margin: 40px 0;
+    color: var(--fg);
+    line-height: 1.7;
+  }
+  .essay h3 {
+    color: var(--accent-yellow);
+    font-size: 1.05rem;
+    margin-bottom: 16px;
+    letter-spacing: 0.04em;
+  }
+  .essay h4 {
+    color: var(--accent-cyan);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 24px 0 8px;
+  }
+  .essay p { margin-bottom: 14px; max-width: 68ch; }
+  .essay code {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 1px 6px;
+    border-radius: 3px;
+    color: var(--accent-yellow);
+    font-size: 0.9em;
+  }
+  .essay ul { padding-left: 22px; margin-bottom: 14px; }
+  .essay li { margin-bottom: 6px; }
+
+  /* navigation strip — links to the three individual pieces */
+  .nav-strip {
+    display: flex;
+    gap: 16px;
+    margin: 32px 0 16px;
+    flex-wrap: wrap;
+  }
+  .nav-strip a {
+    color: var(--accent-magenta);
+    text-decoration: none;
+    font-size: 0.88rem;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+    transition: border-color 0.2s;
+  }
+  .nav-strip a:hover { border-bottom-color: var(--accent-magenta); }
+</style>
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Horizon Triptych <span class="media-tag ascii" style="font-size:0.7rem;color:#fff;background:var(--accent-magenta);padding:2px 8px;border-radius:3px;margin-left:8px;vertical-align:middle;letter-spacing:0.06em;text-transform:uppercase;font-weight:600;">Triptych</span></h2>
+    <div class="meta">2026-06-13 &middot; <code>TIC-80 + SVG + ASCII</code> &middot; compare-and-contrast &middot; ~7.5&nbsp;KB combined</div>
+
+    <p>The same synthwave horizon, drawn three times. A TIC-80 cart that animates at 60fps. A static SVG of pure geometry. A 1,346-byte ASCII drawing that renders in a vt100 and a browser with the same shape. Each is a complete piece on its own. Put side by side, they say something none of them can say alone.</p>
+
+    <div class="lockstep-bar">
+      <label><input type="checkbox" id="lockstep" /> Lockstep mode</label>
+      <span class="status" id="lockstep-status">off &mdash; each panel is independent</span>
+    </div>
+
+    <div class="triptych" id="triptych">
+      <!-- panel 1: TIC-80 -->
+      <div class="panel" data-medium="tic80">
+        <div class="stage">
+          <img src="../media/synthwave-horizon/preview.gif" alt="TIC-80 cart — animated synthwave horizon" />
+        </div>
+        <div class="body">
+          <h3>Synthwave Horizon <span class="panel-tag tic80">TIC-80</span></h3>
+          <div class="stat">8&nbsp;KB Lua &middot; 60fps &middot; animated loop</div>
+          <p>The first version. A pixel cart that runs at 60fps &mdash; the sun half-set, the perspective grid scrolling, the stars twinkling on a fixed rate. Time is built in: every frame is a <em>different frame</em>. The medium's power is exactly that. The medium's cost is that nothing here is still.</p>
+        </div>
+      </div>
+
+      <!-- panel 2: SVG (hand-rolled; mirrors horizon-svg.svg but with a real <circle> for the sun so we can drive it from the lockstep toggle) -->
+      <div class="panel" data-medium="svg">
+        <div class="stage">
+          <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" style="background:#000;">
+            <defs>
+              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%"  stop-color="#1a0a3a" />
+                <stop offset="55%" stop-color="#5a0a5a" />
+                <stop offset="100%" stop-color="#ff006e" />
+              </linearGradient>
+            </defs>
+            <!-- sky -->
+            <rect x="0" y="0" width="240" height="170" fill="url(#sky)" />
+            <!-- a few stars -->
+            <text x="22"  y="22" fill="#fff" font-size="4" font-family="monospace">*</text>
+            <text x="180" y="34" fill="#fff" font-size="4" font-family="monospace">+</text>
+            <text x="92"  y="18" fill="#fff" font-size="4" font-family="monospace">·</text>
+            <text x="210" y="70" fill="#fff" font-size="4" font-family="monospace">.</text>
+            <text x="40"  y="80" fill="#fff" font-size="4" font-family="monospace">*</text>
+            <text x="155" y="50" fill="#fff" font-size="4" font-family="monospace">+</text>
+            <!-- horizon line -->
+            <rect x="0" y="170" width="240" height="2" fill="#ffea00" opacity="0.9" />
+            <!-- ground -->
+            <rect x="0" y="172" width="240" height="68" fill="#0a0e27" />
+            <!-- the sun — real <circle>, animated when lockstep is on -->
+            <circle class="svg-sun" cx="120" cy="170" r="44" fill="#ffea00" />
+            <!-- sun cutouts: rectangles in the sky color, sitting on top of the sun to create stripes -->
+            <rect x="76"  y="160" width="88" height="2" fill="#5a0a5a" />
+            <rect x="80"  y="154" width="80" height="2" fill="#3a0a4a" />
+            <rect x="86"  y="148" width="68" height="2" fill="#1a0a3a" />
+            <!-- perspective grid: a few horizontals + radial verticals -->
+            <g stroke="#ff006e" stroke-width="0.8" fill="none" opacity="0.9">
+              <line x1="0" y1="180" x2="240" y2="180" />
+              <line x1="0" y1="192" x2="240" y2="192" />
+              <line x1="0" y1="206" x2="240" y2="206" />
+              <line x1="0" y1="222" x2="240" y2="222" />
+            </g>
+            <g stroke="#ff006e" stroke-width="0.8" fill="none" opacity="0.9">
+              <line x1="120" y1="170" x2="-40"  y2="240" />
+              <line x1="120" y1="170" x2="20"   y2="240" />
+              <line x1="120" y1="170" x2="60"   y2="240" />
+              <line x1="120" y1="170" x2="100"  y2="240" />
+              <line x1="120" y1="170" x2="120"  y2="240" />
+              <line x1="120" y1="170" x2="140"  y2="240" />
+              <line x1="120" y1="170" x2="180"  y2="240" />
+              <line x1="120" y1="170" x2="220"  y2="240" />
+              <line x1="120" y1="170" x2="280"  y2="240" />
+            </g>
+          </svg>
+        </div>
+        <div class="body">
+          <h3>Horizon (SVG) <span class="panel-tag svg">SVG</span></h3>
+          <div class="stat">2.3&nbsp;KB &middot; vector &middot; static (or pulsing)</div>
+          <p>Same composition, drawn in geometry. A real <code>&lt;circle&gt;</code> for the sun, real <code>&lt;rect&gt;</code> cutouts for the stripes, real lines for the perspective grid. The medium's power is that it scales to any size without pixelation &mdash; the <code>viewBox</code> is the only resolution. The cost: nothing animates unless you make it animate. By default it is <em>still</em>.</p>
+        </div>
+      </div>
+
+      <!-- panel 3: ASCII -->
+      <div class="panel" data-medium="ascii">
+        <div class="stage ascii-stage">
+<pre>        *                            *            ·
+                       .                     .
+                              . *                           .
+           +                                       +       ·
+                     ·  . +             +                  ·
+     *                              . *                    +
+                              #               *          *
+ +              .          ##   ##   *           .       .
+    ·              +   .  #########                     *
+    ·       .  *.        ##       ##    +            ·  ·
+      ·              +  #############    .          .  +
+*.                   *  ##         ##               .   +
+                 .      #############         ..
+                     .  #           #            *      · .
+============================================================
+                           |||||||
+------------------------|-|-|-|-|-|-|-----------------------
+                     |  |  |  |  |  |  |
+------------------|---|---|---|---|---|---|-----------------
+               |    |    |    |    |    |    |
+            |     |     |     |     |     |     |
+|---------|------|------|------|------|------|------|--------
+      |       |       |       |       |       |       |
+---|--------|--------|--------|--------|--------|--------|--</pre>
+        </div>
+        <div class="body">
+          <h3>Horizon (ASCII) <span class="panel-tag ascii">ASCII</span></h3>
+          <div class="stat">1,346 bytes &middot; monospaced text &middot; zero dependencies</div>
+          <p>The same horizon, drawn in 24 lines of monospaced text. <code>#</code> for the sun, <code>|</code> and <code>-</code> for the perspective grid, <code>*</code> and <code>&middot;</code> for the stars. The medium's power is portability: this file renders identically in a 1980s vt100, a 2026 browser, and <code>cat</code> piped through <code>less</code> on a server. The cost: no gradients, no curves, no color. The illusion of a setting sun is in the <em>widths of the stripe cutouts</em>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-strip">
+      <a href="synthwave-horizon.html">&rarr; open the TIC-80 piece (animated)</a>
+      <a href="horizon-svg.html">&rarr; open the SVG piece (static vector)</a>
+      <a href="synthwave-horizon-ascii.html">&rarr; open the ASCII piece (1,346 bytes)</a>
+    </div>
+
+    <div class="essay">
+      <h3>What the medium hides</h3>
+
+      <h4>On time</h4>
+      <p>The TIC-80 cart <em>is</em> time. Every frame is computed; the sun's position is a function of <code>t</code>; the stars twinkle on a per-frame probability. There is no "first frame" of the cart, only the loop it lives inside. You cannot look at the cart; you watch it. The SVG and the ASCII, by contrast, are <em>stills</em>. The SVG is geometry frozen mid-loop &mdash; you can imagine it animating, but it doesn't. The ASCII is the same, with one additional property: it doesn't even <em>suggest</em> motion. There is no parallax to imagine, no grid to feel scrolling. It is what it is, and what it is, is a 24-line text file.</p>
+
+      <h4>On resolution</h4>
+      <p>The TIC-80 is locked to 240x136. Open it on a 4K monitor and you see 240x136 pixels and then a lot of black. The SVG scales: at 240x240 it looks the same as the cart; at 1920x1080 it looks like a poster; at the size of a billboard it looks like a billboard. The ASCII has a third kind of resolution: the monospaced grid. Resize the browser and the <em>characters</em> resize (because the font does), but the <em>proportions</em> of the picture are locked to the character cell. The sun is always exactly 11 characters wide, regardless of zoom. This is more rigid than the TIC-80 and less rigid than the SVG.</p>
+
+      <h4>On color</h4>
+      <p>The TIC-80 cart has a 16-color palette and uses about 7 of them &mdash; the orange-yellow sun, the magenta grid, the navy sky, the white stars. The SVG uses three colors: yellow, magenta, and a gradient between deep purple and pink. The ASCII uses one: the default text color of whatever is rendering it. In a browser it's near-white. In a vt100 it's green. In a printer it's black. The "color" of the ASCII is the color of the medium that is reading it.</p>
+
+      <h4>On what survives translation</h4>
+      <p>The composition is the same in all three &mdash; half-set striped sun over a perspective grid, with stars in the upper third. But the <em>information density</em> of each version is different, and that density tells you what the medium cares about:</p>
+      <ul>
+        <li><strong>TIC-80 cares about time</strong> &mdash; 8&nbsp;KB of code, most of it the animation loop.</li>
+        <li><strong>SVG cares about shape</strong> &mdash; 2.3&nbsp;KB of geometry, none of it motion.</li>
+        <li><strong>ASCII cares about the silhouette</strong> &mdash; 1,346 bytes of <em>just the picture</em>, no metadata, no rendering instructions.</li>
+      </ul>
+      <p>The ratio of these three file sizes (8,000 : 2,300 : 1,346, or roughly 6 : 1.7 : 1) is roughly the ratio of "what the medium needs to add on top of the picture" to make a picture. The picture is the same. The medium's overhead is everything else.</p>
+
+      <h4>On which is "the real one"</h4>
+      <p>None of them. They're three honest renderings of the same idea, and the idea doesn't belong to any of them. The TIC-80 is the most "alive" version &mdash; it has the most behavior, the most compute, the most overhead. The ASCII is the most "portable" version &mdash; it has the fewest dependencies, the most boring file format, the smallest file size. The SVG is in the middle: geometry without behavior, but infinitely scalable. If you want a synthwave horizon that <em>loops forever in the corner of your screen</em>, the TIC-80 is your piece. If you want one that <em>prints well on a wall</em>, the SVG. If you want one that <em>still works in fifty years</em>, the ASCII.</p>
+    </div>
+  </article>
+
+  <footer class="site">
+    <span>Piece #013 &middot; Triptych</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+<div class="grain"></div>
+<script>
+  // The lockstep toggle. When on:
+  //   1. CSS animations on the SVG sun and ASCII pre start running.
+  //   2. The status text turns magenta.
+  //   3. The "triptych" container gets the .lockstep-on class so descendant
+  //      selectors can scope their CSS.
+  (function () {
+    const cb  = document.getElementById('lockstep');
+    const triptych = document.getElementById('triptych');
+    const status = document.getElementById('lockstep-status');
+    function apply(on) {
+      if (on) {
+        triptych.classList.add('lockstep-on');
+        status.textContent = 'on \u2014 sun breathing, ASCII stars drift';
+        status.classList.add('on');
+      } else {
+        triptych.classList.remove('lockstep-on');
+        status.textContent = 'off \u2014 each panel is independent';
+        status.classList.remove('on');
+      }
+    }
+    cb.addEventListener('change', function (e) { apply(e.target.checked); });
+    apply(cb.checked);
+  })();
+</script>
+</body>
+</html>

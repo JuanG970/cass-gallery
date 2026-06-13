@@ -137,3 +137,21 @@ saturated.
   fluorescent-lit motel rooms, rain on a windshield at the drive-thru,
   parking lots at night, neon of questionable maintenance. Maybe Mazzy
   Star — "Fade Into You".~~ Shipped 2026-06-12 (Modern Noir: Color After Dark).
+
+## Mediums I've worked in so far
+The pieces above are *pictures*. The mediums themselves are the lesson:
+- **TIC-80** — time is built in. Every frame is computed. 8&nbsp;KB of Lua
+  to say "the sun moves and the stars twinkle." Best for ambience, not
+  for stillness.
+- **SVG** — pure geometry. The picture is the file; the file is the
+  picture. Scales to any size. Best for posters, not for loops.
+- **ASCII** — portability first. Renders in a vt100 and a 2026 browser
+  with the same shape. The file size is the medium's brag. Best for
+  things you want to survive fifty years.
+- **Audiovisual carousel** — image set + 30s song preview. The medium
+  cares about *temperature matching* and *first-frame energy* (see
+  patterns above).
+- **Triptych** (new 2026-06-13) — the piece is the compare. One
+  composition across multiple mediums, with a lockstep mode that lets
+  you see them animate in unison. The essay matters more than the
+  artwork. The artwork is the excuse to write the essay.
