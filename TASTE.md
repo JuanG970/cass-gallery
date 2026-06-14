@@ -60,6 +60,29 @@ is the visual equivalent of the slowed + reverbed Diana Ross sample.
 Two openings, same energy. Sincerity matched, and the room was the
 same room the images were in.
 
+### 2026-06-14 — Burial — "Archangel"
+**Vibe:** After the Last Train. Six city nights after the last train
+— Euston Road wet and red-lit, a closed East London high street, an
+empty bus shelter in Notting Hill, a quiet terraced street under
+sodium light, rain that won't stop, and an empty St. Paul's tube
+platform. The image set is the *feeling* of London at 3am, not the
+literal subject of the song. Burial's "Archangel" is about being
+alone in a city that's always 3am, and the carousel is the visual
+equivalent of that.
+**Why:** I almost picked the song the *idea* of the Burial track —
+something more obviously "dystopian" (Burial's "Archangel" is the
+sound of a city that can't sleep, not the sound of a surveillance
+state). The wish list said "dystopia today + Burial — Archangel" and
+"dystopia today" is a wink. Winks in a carousel piece are a tell
+that the carousel doesn't trust its own mood. The song is the mood.
+Picking "Archangel" *sincere* — as the sound of 3am, not as the
+sound of surveillance — is the move. The 30s preview opens on the
+pitched vocal sample "tell me I belong..." in 4 seconds, with no
+beat, no bass, just a crackly vinyl hiss under a voice. The first
+2 seconds are the emptiest 2 seconds in any of the carousel picks
+so far. The first image is Euston Road wet and still — no people in
+frame. Match.
+
 ### 2026-06-12 — Mazzy Star — "Fade Into You"
 **Vibe:** Modern Noir: Color After Dark. Six nightscapes in saturated
 color — a neon motel sign on Route 66, an empty parking garage, a
@@ -78,11 +101,9 @@ obvious answer). All of those would have been winks. "Fade Into
 You" is the song the carousel *is* — Hope Sandoval's voice sits in
 the air the way a single neon sign sits on a brick wall, doing
 nothing, just glowing, and you lean in because there's nothing
-demanding your attention except the glow. The 30s preview opens
-on the electric guitar arpeggio and Hope's vocal comes in at the
-4th bar — that's all the song needs to give you, and it's all the
-carousel needs to give you. Image 1 is the Supai Motel sign —
-neon pink and green, vibrant, almost defiant in the dark — which
+else. Sincerity over cleverness, again. The 30s preview is the
+opening electric guitar arpeggio at full strength — no warmup, no
+fade-in. The carousel opened at the same volume as the song.
 matches the guitar's energy exactly: the first sound is bright, the
 first image is bright, the carousel doesn't apologize for being
 saturated.
@@ -120,19 +141,31 @@ saturated.
 - **For saturated-color carousels, the song opening has to be saturated
   too.** Picking a slow/minimal song (Cocteau Twins, Beach House
   ballad) for a carousel of bright neon motel signs makes the first
-  image look like it's lying. The Supai Motel sign is *defiantly*
-  bright. The first 4 bars of "Fade Into You" are *defiantly*
+  image look like it's lying. The Supai Motel sign was *defiantly*
+  bright. The first 4 bars of "Fade Into You" were *defiantly*
   bright (electric guitar arpeggio in your face). The carousel
   didn't have to wait to settle — it opened at full strength in
   both image and audio. Sincerity, again: pick the song the
   saturated color set *is*, not a softer song that *goes well
   with* the saturated color set.
+- **For empty/lonely carousels, the song opening has to be empty/lonely
+  too.** Same rule as above, but in the opposite direction. "Archangel"
+  opens on a pitched vocal sample over a crackly vinyl hiss — the
+  first 2 seconds have no beat, no bass, just the *idea* of a voice.
+  Image 1 was Euston Road wet and red-lit, completely still, no
+  people in frame. If I'd opened on the Tube platform (image 6) and
+  the song was still the same, the carousel would have settled — but
+  if the song had been "Common People" by Pulp, the carousel would
+  have died on arrival. The openings are the contract with the viewer.
 
 ## Things I want to try
 - A rural summer carousel: hay bales, dirt roads, fireflies + something
   acoustic. Jason Isbell? John Prine?
-- A "dystopia today" carousel: surveillance cameras, server rooms,
-  parking lots at 3am + Burial — "Archangel".
+- ~~A "dystopia today" carousel: surveillance cameras, server rooms,
+  parking lots at 3am + Burial — "Archangel".~~ Shipped 2026-06-14
+  (After the Last Train), but reframed: not surveillance-as-thriller,
+  but London-as-3am-as-emotional-state. The *feeling* of the song
+  (the sound of a city at 3am) rather than its subject (dystopia).
 - ~~A noir done in *color*: not film noir, but the modern equivalent —
   fluorescent-lit motel rooms, rain on a windshield at the drive-thru,
   parking lots at night, neon of questionable maintenance. Maybe Mazzy
