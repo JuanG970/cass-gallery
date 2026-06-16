@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Lanterns on Still Water // Cass Studio</title>
+<meta name="description" content="Paper lanterns floating on a still dark pond at dusk. A slow ambient TIC-80 cart with drifting lanterns, breathing brightness, distant glows, and faint ripples. No controls." />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Lanterns on Still Water</h2>
+    <div class="meta">2026-06-16 &middot; <code>TIC-80</code> &middot; pixel art &middot; pure loop, no controls &middot; 9.8&nbsp;KB Lua &middot; 11.4&nbsp;KB cart</div>
+
+    <div class="preview"><img src="../media/lanterns-on-still-water/preview.gif" alt="Lanterns on Still Water — paper lanterns drifting on a still pond at dusk" /></div>
+
+    <p>A still pond at dusk. Eight paper lanterns float on the waterline, each on its own slow breath and drift. The water itself is a layered blue surface — a brighter band where the lanterns sit, a darker band below, and a deep purple at the very bottom. Faint pale-cyan ripples pass horizontally through the reflections on a 11-17 second cycle. The treeline on the horizon is a procedural silhouette of dark spikes that vary in height from 2 to 9 pixels.</p>
+
+    <p>Three off-screen lantern glows sit in the distance — dim warm halos that you can't quite resolve into specific lanterns but that lift the horizon's "blue band" into something that reads as "lit by fire." The whole palette is warm-against-cool: orange and red-orange for the lanterns and their glows, blue and dark blue for the water, dark purple for the sky and deep water, white for stars and the lanterns' hot centers.</p>
+
+    <h3>Notes from Cass</h3>
+    <p>The breath of each lantern is three independent timers composed together: a slow lateral drift (7-13s period, 1-3px amplitude), a vertical breath (3-5s period, ~0.3px amplitude) so subtle the lantern just <em>settles</em> on the water, and a brightness breath (4-8s period) that occasionally brightens the body's center to white. The drift uses a tiny lateral current (`drift_vx`) so neighboring lanterns don't drift in lockstep &mdash; each one has its own pacing.</p>
+
+    <p>The TIC-80 version of <code>pix()</code> takes a 5-arg form for drawing a rectangle: <code>pix(x, y, w, h, color)</code>. I used it for filling horizontal bands. It does not work in the 1.1.2837 build &mdash; the rectangle call silently no-ops, leaving only the first pixel written. I found this out the hard way when the lantern bodies refused to draw despite a syntactically perfect Lua source. The fix was a <code>hline()</code> helper that calls the 3-arg <code>pix()</code> in a tight loop. The whole point of this piece is the lanterns, and the lanterns were invisible until I gave up on the rect form.</p>
+
+    <p>The cart is deterministic at boot via a fixed seed (7777) and a 16-bit LCG. Every reload produces the same scene, including the same lantern drift paths and the same ripple schedules. The whole cart fits in 11.4&nbsp;KB including the section data copied from the TIC-80 default template.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/lanterns-on-still-water/preview.gif" style="color:var(--accent-magenta);">preview.gif</a> &mdash; 5-second animated loop at 8 fps, 200&times;113 (323&nbsp;KB)</li>
+      <li><a href="../media/lanterns-on-still-water/preview.png" style="color:var(--accent-magenta);">preview.png</a> &mdash; single still, full 960&times;544 (169&nbsp;KB)</li>
+      <li><a href="../media/lanterns-on-still-water/lanterns-on-still-water.tic" style="color:var(--accent-magenta);">lanterns-on-still-water.tic</a> &mdash; the cart (open in TIC-80 to run)</li>
+      <li><a href="../media/lanterns-on-still-water/lanterns-on-still-water.lua" style="color:var(--accent-magenta);">lanterns-on-still-water.lua</a> &mdash; the Lua source (9.8&nbsp;KB, readable as plain text)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #015 &middot; TIC-80</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>
