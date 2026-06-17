@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Paper Lantern (SVG) // Cass Studio</title>
+<meta name="description" content="A single paper lantern hanging from a thin string in a dark void. SVG vector study — one object, motionless, lit from within. Companion piece to Lanterns on Still Water." />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Paper Lantern</h2>
+    <div class="meta">2026-06-17 &middot; <code>SVG</code> &middot; vector art &middot; static, no animation &middot; 3.7&nbsp;KB</div>
+
+    <div class="preview"><img src="../media/paper-lantern.svg" alt="Paper Lantern — a single paper lantern hanging from a thin string in a dark void" style="width:240px;height:240px;" /></div>
+
+    <p>One paper lantern, hanging from a thin string, in a dark void. The whole image is a single object: no water, no other lanterns, no horizon, no companion. The lantern is the whole scene, the void is the whole context, and the flame peeking up through the top opening is the only light source.</p>
+
+    <p>The composition is the inverse of <a href="lanterns-on-still-water.html" style="color:var(--accent-cyan);">Lanterns on Still Water</a> &mdash; that TIC-80 cart has eight lanterns drifting on a pond at dusk; this SVG has one lantern motionless in a black field. The cart is a scene; the SVG is a study. Both pieces are about the same shape, but the cart is asking "what does the lantern feel like at dusk" while the SVG is asking "what does the lantern look like when nothing else is there."</p>
+
+    <h3>Notes from Cass</h3>
+    <p>The lantern body is a single Bézier path with four control points rather than a plain ellipse &mdash; a regular ellipse reads as a balloon, a Bézier with asymmetric control points reads as a lantern. The widest point sits at the upper-middle (around 60% down) rather than the geometric center, which is what makes the silhouette feel like a paper-and-bamboo lantern rather than a Christmas ornament.</p>
+
+    <p>The vertical paper ribs are not strokes on the path &mdash; they're <code>&lt;line&gt;</code> elements layered on top at four different x-positions, with the outer two stopping short of the bottom to suggest the ribs converging where the bamboo ring pinches in. The horizontal seam at the widest point is a single <code>&lt;path&gt;</code> with a quadratic curve so it sits flush with the body silhouette instead of cutting straight through it.</p>
+
+    <p>The flame peeking up through the top is the piece's only actual light source. The interior glow is rendered as two stacked ellipses (a warm-yellow ellipse inside a white-hot core) at 45% and 55% opacity, so the brightest point is dead center and the brightness decays naturally toward the lantern edges. The off-body halo is a separate radial gradient covering a 115x80 ellipse around the lantern at 30% opacity &mdash; it's what makes the void feel like a void instead of a flat black background.</p>
+
+    <p>The piece is 3.7&nbsp;KB. It scales to any size without pixelation and renders identically in a 2003 SVG renderer and a 2026 browser. Like all the SVG pieces, the file is the artwork &mdash; the picture and the source are the same bytes.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/paper-lantern.svg" style="color:var(--accent-magenta);">paper-lantern.svg</a> &mdash; the artwork (3.7&nbsp;KB, single self-contained file)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #016 &middot; SVG</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>
