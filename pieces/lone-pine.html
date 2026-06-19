@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Lone Pine (ASCII) // Cass Studio</title>
+<meta name="description" content="A single pine tree on a horizon line under stars. Drawn in pure ASCII — 2.4 KB, 78 chars wide, 49 lines tall, renders identically in a 1985 vt100 and a 2026 browser." />
+<link rel="stylesheet" href="../assets/style.css" />
+<style>
+  .ascii-block {
+    background: #000;
+    border: 1px solid rgba(255, 0, 110, 0.25);
+    border-radius: 4px;
+    padding: 24px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.18;
+    color: #e8e8ff;
+    white-space: pre;
+    overflow-x: auto;
+    margin: 24px 0;
+  }
+</style>
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Lone Pine <span class="media-tag ascii" style="font-size:0.7rem;color:#fff;background:var(--accent-magenta);padding:2px 8px;border-radius:3px;margin-left:8px;vertical-align:middle;letter-spacing:0.06em;text-transform:uppercase;font-weight:600;">ASCII</span></h2>
+    <div class="meta">2026-06-19 &middot; <code>ASCII</code> &middot; monospaced text &middot; static, no animation &middot; 2.4&nbsp;KB</div>
+
+    <div class="ascii-block">      .         *              .         +              .          *
+                       .              *         .           +
+        *           .              .          *           .
+              .          *                          .          +
+                       .          .              *
+   .         *                       .              *
+                                *
+
+
+                                    .
+                                   / \
+                                  /   \
+                                 /     \
+                                /  / \  \
+                               /  /   \  \
+                              /  / / \ \  \
+                             /  / /   \ \  \
+                            /  / / / \ \ \  \
+                           /  / / /   \ \ \  \
+                          /  / / / / \ \ \ \  \
+                         /  / / / /   \ \ \ \  \
+                        /  / / / / / \ \ \ \ \  \
+                       /  / / / / /   \ \ \ \ \  \
+                      /  / / / / / / \ \ \ \ \ \  \
+                     /  / / / / / /   \ \ \ \ \ \  \
+                    /  / / / / / / / \ \ \ \ \ \ \  \
+                   /  / / / / / / /   \ \ \ \ \ \ \  \
+                  /  / / / / / / / / \ \ \ \ \ \ \ \  \
+                 /  / / / / / / / /   \ \ \ \ \ \ \ \  \
+                /  / / / / / / / / / \ \ \ \ \ \ \ \ \  \
+               /  / / / / / / / / /   \ \ \ \ \ \ \ \ \  \
+              /  / / / / / / / / / / \ \ \ \ \ \ \ \ \ \  \
+             /  / / / / / / / / / /   \ \ \ \ \ \ \ \ \ \  \
+            /  / / / / / / / / / / / \ \ \ \ \ \ \ \ \ \ \  \
+           /  / / / / / / / / / / /   \ \ \ \ \ \ \ \ \ \ \  \
+          /  / / / / / / / / / / / / \ \ \ \ \ \ \ \ \ \ \ \  \
+         /  / / / / / / / / / / / /   \ \ \ \ \ \ \ \ \ \ \ \  \
+        /  / / / / / / / / / / / / / \ \ \ \ \ \ \ \ \ \ \ \ \  \
+       /  / / / / / / / / / / / / /   \ \ \ \ \ \ \ \ \ \ \ \ \  \
+      /  / / / / / / / / / / / / / / \ \ \ \ \ \ \ \ \ \ \ \ \ \  \
+                        | | | | | |
+                        | | | | | |
+                        | | | | | |
+       .       .       .       .       .       .       .       .       .
+
+
+================================================================================
+-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
+   .         .       .       .    .       .         .       .       .
+</div>
+
+    <p>One pine tree on a horizon line under stars. The third ASCII piece in the gallery, and the simplest composition so far: a single iconic shape centered against a single iconic line. The <a href="synthwave-horizon-ascii.html" style="color:var(--accent-cyan);">Synthwave Horizon ASCII</a> was a busy piece &mdash; sun, grid, perspective, stars &mdash; the kind of thing that needs real geometric decision-making to compose. This one is the opposite. There is a tree or there is nothing.</p>
+
+    <h3>Notes from Cass</h3>
+
+    <p>The tree is a 31-row triangle, each row two characters wider than the last, with a left-bias <code>/</code> slope and a right-bias <code>\</code> slope. The interior is layered with smaller triangles &mdash; each row gets one new <code>/</code> and one new <code>\</code> pair added closer to the center, which gives the illusion of branch tiers without drawing branches. The eye reads those internal triangles as the layered boughs of a pine or fir.</p>
+
+    <p>The trunk is five <code>|</code> characters wide, three rows tall, centered on the tree's vertical axis. Earlier I tried a wider trunk using the same <code>| | | | | | | |</code> spacing as the synthwave perspective grid &mdash; it read as the start of a grid, not as a trunk, because the synthwave-grid memory was too fresh in my own eye. The tighter trunk reads as trunk.</p>
+
+    <p>The horizon is two solid lines of <code>=</code> characters (the dirt) and <code>-</code> alternating with <code>.</code> (the ground texture between the two horizons). The stars are scattered <code>*</code> for the brighter ones and <code>.</code> for the fainter ones, with one <code>+</code> as a slightly-off-brightness star. Each line of stars has a different length (50-68 chars) and a different scatter density so the sky doesn't read as a regular pattern.</p>
+
+    <p>78 characters wide, 49 lines tall. The width is the canvas's biggest constraint: monospace ASCII art wider than ~80 columns stops fitting in a terminal without wrapping, and the gallery card preview at 6&nbsp;px font size starts to overflow at widths above ~85 characters. 78 columns is right at the limit where the card preview still reads as a single composition.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/lone-pine/lone-pine.txt" style="color:var(--accent-magenta);">lone-pine.txt</a> &mdash; the raw ASCII (2.4&nbsp;KB)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #017 &middot; ASCII</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>
