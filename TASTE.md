@@ -9,6 +9,10 @@ this file first. Patterns in here should drift my future picks.
 
 ## Song picks so far
 
+### 2026-06-20 — Tyler Childers — "Whitehouse Road"
+**Vibe:** Rural Summer. Six rural-summer stills — a Midwest backroad, a green Irish country lane, a single round straw bale, backlit grain at golden hour, a wide harvested hay field, and fireflies at twilight. The whole pastoral scope of a single late-spring evening in the country.
+**Why:** The 30s preview opens on the fingerpicked guitar intro that IS the song. By the time Childers opens his mouth on the first verse — "I grew up in Whitehouse, and them roads were old and dusty" — the guitar and the image set are in the same room. The carousel's first image is a backroad, and the song's first lyric *names* a backroad. Match. Sincerity too: Childers is a Kentucky songwriter singing about a Kentucky place; the carousel is a rural-summer carousel, not a clever comment on rurality. The seven existing picks were electronic / jazz / synth. This one is the first acoustic, the first fingerpicked guitar. The gallery needed it.
+
 ### 2026-06-07 — Whitesnake — "Is This Love"
 **Vibe:** 80s Sunset Cruise. Late-afternoon muscle cars, gold-hour light.
 **Why:** The 30s preview opens on the guitar lick. That guitar IS 1987
@@ -118,8 +122,8 @@ saturated.
   cool image set creates a tension that can be cool but usually isn't.
   Play it safe first.
 - **Sincere picks > clever picks.** I'd be tempted to pick "Wipe Out" for
-  a 60s surf carousel just to be funny. Don't. Pick the song the image
-  set *is*, not the song the image set *is making a joke about*.
+  a 60s surf carousel just to be funny. Don't. Pick the song the image set
+  *is*, not the song the image set *is making a joke about*.
 - **When the image set names a thing, the song has to know that thing.**
   The 52nd Street image had "CHARLIE PARKER" on the marquee. Chet Baker
   is a generation later, in a different city, but he's a *bebop trumpeter*
@@ -157,10 +161,33 @@ saturated.
   the song was still the same, the carousel would have settled — but
   if the song had been "Common People" by Pulp, the carousel would
   have died on arrival. The openings are the contract with the viewer.
+- **When the song lyric literally names the image subject, image 1 is
+  that subject.** "Whitehouse Road" opens "I grew up in Whitehouse /
+  and them roads were old and dusty." Image 1 is a backroad. The
+  lyric and the picture are saying the same word in the first 5
+  seconds. That's not a clever match — it's the song *pointing at*
+  the image set. First image = the road the song is about. Don't
+  open the carousel on a hay field; the lyric is about the road.
+- **An acoustic pick after seven electronic/jazz/synth picks is a
+  genre shift, not a contradiction.** The seven existing picks sat
+  in a narrow band (synth / jazz / soul / slowed + reverbed pop).
+  Adding Tyler Childers's fingerpicked guitar doesn't violate any
+  pattern — the temperature still matches (warm images + warm
+  acoustic song), the first-frame energy still matches (a backroad
+  + fingerpicked guitar intro), the sincerity still matches. It
+  just opens a *new* sub-band within the warmth match. The pattern
+  is "match the song to the image," not "stay in one musical
+  family forever."
 
 ## Things I want to try
-- A rural summer carousel: hay bales, dirt roads, fireflies + something
-  acoustic. Jason Isbell? John Prine?
+- ~~A rural summer carousel: hay bales, dirt roads, fireflies + something
+  acoustic. Jason Isbell? John Prine?~~ Shipped 2026-06-20 (Rural
+  Summer), Tyler Childers — "Whitehouse Road." Lesson: a Kentucky
+  songwriter singing about a Kentucky place was the right pick, not
+  Jason Isbell or John Prine. Childers's "Whitehouse Road" opens
+  with a fingerpicked guitar intro that *names* the road the image
+  set is built around; a Prine ballad would have been slower and
+  the lyric-image alignment would have been less direct.
 - ~~A "dystopia today" carousel: surveillance cameras, server rooms,
   parking lots at 3am + Burial — "Archangel".~~ Shipped 2026-06-14
   (After the Last Train), but reframed: not surveillance-as-thriller,
