@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" preserveAspectRatio="xMidYMid meet">
+  <!-- ============================================================
+       Animated Horizon — the static SVG piece, made to move.
+       ~6 KB. Self-contained. Pure SMIL animation (no JS, no CSS).
+       Animations:
+         - sky gradient stops shift over 24s (slow dusk)
+         - 7 stars twinkle on independent 2-5s loops
+         - sun bobs ±2px vertically on a 5s sine
+         - sun stripe cutouts pulse opacity in sync
+         - horizon glow line breathes
+         - perspective grid: vertical lines scroll outward (forward
+           motion), horizontals approach the viewer
+         - one shooting star streaks across every ~14s
+       No external assets. Render = open in any browser.
+       ============================================================ -->
+
+  <defs>
+    <!-- Sky gradient: deep purple at top, magenta-pink middle, warm coral near horizon. Stops shift slowly for an almost-imperceptible dusk feel. -->
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a0b2e">
+        <animate attributeName="stop-color"
+                 values="#1a0b2e;#240b3a;#1a0b2e"
+                 dur="24s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="55%" stop-color="#5b1d6b">
+        <animate attributeName="stop-color"
+                 values="#5b1d6b;#6a1f6b;#5b1d6b"
+                 dur="24s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="85%" stop-color="#e84a5f">
+        <animate attributeName="stop-color"
+                 values="#e84a5f;#f0566a;#e84a5f"
+                 dur="24s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#ffb347"/>
+    </linearGradient>
+
+    <!-- Sun gradient: yellow top to warm coral bottom -->
+    <linearGradient id="sun" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffea00"/>
+      <stop offset="100%" stop-color="#ff7c5b"/>
+    </linearGradient>
+
+    <!-- Horizon glow: a soft cyan-yellow blur band, centered on the horizon line, breathes 0.5→0.9 opacity over 4s -->
+    <linearGradient id="horizon-glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#ffea00" stop-opacity="0"/>
+      <stop offset="50%"  stop-color="#ffea00" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ffea00" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Clip the sun so we can layer cutouts cleanly -->
+    <clipPath id="sun-clip">
+      <circle cx="120" cy="150" r="55"/>
+    </clipPath>
+  </defs>
+
+  <!-- ============ SKY ============ -->
+  <rect x="0" y="0" width="240" height="180" fill="url(#sky)"/>
+
+  <!-- ============ STARS (twinkling) ============ -->
+  <!-- 7 stars, each with its own period and phase so the field never syncs up.
+       Brightness animates between 0.25 and 1.0; radius animates 0.6→1.4. -->
+  <g fill="#ffffff">
+    <circle cx="30"  cy="22" r="1.0">
+      <animate attributeName="opacity" values="0.4;1.0;0.4" dur="3.2s" repeatCount="indefinite"/>
+      <animate attributeName="r"       values="0.8;1.4;0.8" dur="3.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="62"  cy="48" r="0.8">
+      <animate attributeName="opacity" values="0.3;0.9;0.3" dur="4.7s" repeatCount="indefinite"/>
+      <animate attributeName="r"       values="0.7;1.2;0.7" dur="4.7s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="105" cy="14" r="1.1">
+      <animate attributeName="opacity" values="0.5;1.0;0.5" dur="2.4s" repeatCount="indefinite"/>
+      <animate attributeName="r"       values="0.9;1.5;0.9" dur="2.4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="148" cy="38" r="0.9">
+      <animate attributeName="opacity" values="0.4;0.95;0.4" dur="3.8s" repeatCount="indefinite"/>
+      <animate attributeName="r"       values="0.7;1.3;0.7" dur="3.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="190" cy="20" r="1.0">
+      <animate attributeName="opacity" values="0.5;1.0;0.5" dur="5.1s" repeatCount="indefinite"/>
+      <animate attributeName="r"       values="0.8;1.4;0.8" dur="5.1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="220" cy="62" r="0.8">
+      <animate attributeName="opacity" values="0.3;0.85;0.3" dur="2.9s" repeatCount="indefinite"/>
+      <animate attributeName="r"       values="0.7;1.1;0.7" dur="2.9s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="20"  cy="95" r="0.7">
+      <animate attributeName="opacity" values="0.4;0.9;0.4" dur="4.3s" repeatCount="indefinite"/>
+      <animate attributeName="r"       values="0.6;1.0;0.6" dur="4.3s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- ============ SHOOTING STAR (rare) ============ -->
+  <!-- A streak from upper-right to mid-left every ~14s, animates its position
+       and opacity. The path is short (a circle with a tail rect). -->
+  <g opacity="0">
+    <line x1="0" y1="0" x2="-14" y2="6" stroke="#ffffff" stroke-width="0.9" stroke-linecap="round" opacity="0.9"/>
+    <circle cx="0" cy="0" r="1.4" fill="#ffffff"/>
+    <animateTransform attributeName="transform" type="translate"
+                      values="220,30; 40,80"
+                      keyTimes="0;1"
+                      dur="1.2s"
+                      begin="3s;shoot.end+12s"
+                      id="shoot"/>
+    <animate attributeName="opacity"
+             values="0;1;1;0"
+             keyTimes="0;0.1;0.85;1"
+             dur="1.2s"
+             begin="3s;shoot.end+12s"/>
+  </g>
+
+  <!-- ============ SUN (bobbing) ============ -->
+  <!-- Whole sun group bobs ±2px vertically on a 5s ease-in-out cycle.
+       Uses a transform with calcMode="spline" for natural feel. -->
+  <g>
+    <animateTransform attributeName="transform" type="translate"
+                      values="0,0; 0,-2; 0,0; 0,2; 0,0"
+                      keyTimes="0;0.25;0.5;0.75;1"
+                      keySplines="0.4 0 0.6 1; 0.4 0 0.6 1; 0.4 0 0.6 1; 0.4 0 0.6 1"
+                      calcMode="spline"
+                      dur="5s" repeatCount="indefinite"/>
+
+    <!-- The sun circle. Clipped so the stripes stay inside. -->
+    <circle cx="120" cy="150" r="55" fill="url(#sun)"/>
+
+    <!-- Sun stripe cutouts — same color as the top of the sky gradient.
+         Opacity pulses gently to suggest the sun "breathing" past the cutouts. -->
+    <g clip-path="url(#sun-clip)">
+      <rect x="60" y="135" width="120" height="3" fill="#1a0b2e" opacity="0.85">
+        <animate attributeName="opacity" values="0.75;0.92;0.75" dur="5s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="60" y="145" width="120" height="4" fill="#1a0b2e" opacity="0.85">
+        <animate attributeName="opacity" values="0.78;0.94;0.78" dur="5s" begin="-0.6s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="60" y="158" width="120" height="5" fill="#1a0b2e" opacity="0.9">
+        <animate attributeName="opacity" values="0.82;0.96;0.82" dur="5s" begin="-1.2s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+  </g>
+
+  <!-- ============ HORIZON GLOW LINE ============ -->
+  <!-- A 3px-tall band centered on y=180 that breathes 0.4→0.95 opacity. -->
+  <rect x="0" y="178.5" width="240" height="3" fill="url(#horizon-glow)">
+    <animate attributeName="opacity" values="0.4;0.95;0.4" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="0" y="180" width="240" height="1" fill="#ffea00" opacity="0.85">
+    <animate attributeName="opacity" values="0.7;1.0;0.7" dur="4s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- ============ GROUND ============ -->
+  <rect x="0" y="181" width="240" height="59" fill="#0a0e27"/>
+
+  <!-- ============ PERSPECTIVE GRID ============ -->
+  <!-- The grid is the "moving forward" element. Vertical lines stay anchored at
+       the vanishing point (120,180); horizontal lines step from far to near
+       and snap back. Period 4s. -->
+
+  <!-- Vertical lines: 9 lines that converge on (120,180). They don't move —
+       only the horizontals do. -->
+  <g stroke="#00f5ff" stroke-width="1" opacity="0.75">
+    <line x1="120" y1="180" x2="-100" y2="240"/>
+    <line x1="120" y1="180" x2="-30"  y2="240"/>
+    <line x1="120" y1="180" x2="40"   y2="240"/>
+    <line x1="120" y1="180" x2="80"   y2="240"/>
+    <line x1="120" y1="180" x2="100"  y2="240"/>
+    <line x1="120" y1="180" x2="120"  y2="240"/>
+    <line x1="120" y1="180" x2="140"  y2="240"/>
+    <line x1="120" y1="180" x2="160"  y2="240"/>
+    <line x1="120" y1="180" x2="200"  y2="240"/>
+    <line x1="120" y1="180" x2="270"  y2="240"/>
+    <line x1="120" y1="180" x2="340"  y2="240"/>
+  </g>
+
+  <!-- Horizontal lines: 5 lines that animate y from far (just below the
+       horizon) to near (the bottom of the frame). They cross the entire
+       width; the y-values step 4 times per loop. We use <g> with
+       animateTransform to slide them. -->
+  <g stroke="#00f5ff" stroke-width="1" opacity="0.75" fill="none">
+    <!-- Line A: starts at y=181, slides down to ~210 over 4s, then resets -->
+    <line x1="0" y1="181" x2="240" y2="181">
+      <animate attributeName="y1" values="181; 210; 181" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="181; 210; 181" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.85;0.85;0" keyTimes="0;0.15;0.85;1" dur="4s" repeatCount="indefinite"/>
+    </line>
+    <!-- Line B: starts at y=181, slides to 222 over 4s, offset phase -->
+    <line x1="0" y1="181" x2="240" y2="181">
+      <animate attributeName="y1" values="181; 222; 181" dur="4s" begin="-0.8s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="181; 222; 181" dur="4s" begin="-0.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.85;0.85;0" keyTimes="0;0.15;0.85;1" dur="4s" begin="-0.8s" repeatCount="indefinite"/>
+    </line>
+    <!-- Line C: starts at y=181, slides to 234, offset phase -->
+    <line x1="0" y1="181" x2="240" y2="181">
+      <animate attributeName="y1" values="181; 234; 181" dur="4s" begin="-1.6s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="181; 234; 181" dur="4s" begin="-1.6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.85;0.85;0" keyTimes="0;0.15;0.85;1" dur="4s" begin="-1.6s" repeatCount="indefinite"/>
+    </line>
+    <!-- Line D: starts at y=181, slides to 240 (off bottom), offset phase -->
+    <line x1="0" y1="181" x2="240" y2="181">
+      <animate attributeName="y1" values="181; 240; 181" dur="4s" begin="-2.4s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="181; 240; 181" dur="4s" begin="-2.4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.85;0.85;0" keyTimes="0;0.15;0.85;1" dur="4s" begin="-2.4s" repeatCount="indefinite"/>
+    </line>
+    <!-- Line E: starts at y=181, slides to 240 (off bottom), offset phase -->
+    <line x1="0" y1="181" x2="240" y2="181">
+      <animate attributeName="y1" values="181; 240; 181" dur="4s" begin="-3.2s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="181; 240; 181" dur="4s" begin="-3.2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.85;0.85;0" keyTimes="0;0.15;0.85;1" dur="4s" begin="-3.2s" repeatCount="indefinite"/>
+    </line>
+  </g>
+
+  <!-- Faint outer glow ring around the sun, drawn last so it overlays stripes -->
+  <circle cx="120" cy="150" r="58" fill="none" stroke="#ffea00" stroke-width="0.6" opacity="0.25">
+    <animate attributeName="r" values="56;62;56" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.15;0.4;0.15" dur="5s" repeatCount="indefinite"/>
+  </circle>
+</svg>

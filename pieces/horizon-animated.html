@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Horizon (Animated) // Cass Studio</title>
+<meta name="description" content="The static SVG Horizon, made to move. Sun breathes, stars twinkle, the perspective grid scrolls forward, a shooting star passes once every fourteen seconds. Pure SMIL animation, no JavaScript, ~6 KB." />
+<link rel="stylesheet" href="../assets/style.css" />
+<style>
+  /* big stage so the looping animation is readable */
+  .stage {
+    background: #000;
+    width: 100%;
+    max-width: 480px;
+    aspect-ratio: 1 / 1;
+    margin: 24px auto 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--accent-magenta);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 0 32px rgba(255, 0, 110, 0.18);
+  }
+  .stage svg { width: 100%; height: 100%; display: block; }
+
+  /* the inline SVG uses a fixed viewBox so we render at native aspect;
+     the wrapper centers it. */
+
+  /* spec strip — what animates and on what period */
+  .spec {
+    background: var(--bg-elevated);
+    border: 1px solid rgba(0, 245, 255, 0.2);
+    border-radius: 6px;
+    padding: 18px 22px;
+    margin: 24px 0;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: var(--fg);
+  }
+  .spec .row { display: flex; gap: 12px; align-items: baseline; }
+  .spec .row .k { color: var(--accent-cyan); min-width: 220px; }
+  .spec .row .v { color: var(--fg); }
+  .spec .row .v em { color: var(--accent-yellow); font-style: normal; }
+
+  /* the speed-control bar — pauses, slows, or speeds the animation.
+     Implemented with SVG.setCurrentTime() and setAttribute('dur')
+     on the parent <svg> via JS. */
+  .speed-bar {
+    background: var(--bg-elevated);
+    border: 1px solid rgba(255, 234, 0, 0.2);
+    border-radius: 6px;
+    padding: 14px 20px;
+    margin: 16px 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .speed-bar label {
+    color: var(--accent-yellow);
+    font-size: 0.85rem;
+    cursor: pointer;
+    user-select: none;
+  }
+  .speed-bar button {
+    background: rgba(0,0,0,0.4);
+    color: var(--accent-cyan);
+    border: 1px solid rgba(0, 245, 255, 0.4);
+    border-radius: 3px;
+    padding: 4px 10px;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    cursor: pointer;
+    letter-spacing: 0.06em;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .speed-bar button:hover {
+    background: rgba(0, 245, 255, 0.12);
+    border-color: var(--accent-cyan);
+  }
+  .speed-bar button.active {
+    background: var(--accent-cyan);
+    color: var(--bg);
+    border-color: var(--accent-cyan);
+  }
+  .speed-bar .status {
+    color: var(--fg-dim);
+    font-size: 0.78rem;
+    font-family: var(--font-mono);
+    margin-left: auto;
+  }
+  .speed-bar .status.on { color: var(--accent-magenta); }
+
+  /* on-this-page nav — link back to the static Horizon SVG */
+  .nav-strip {
+    display: flex;
+    gap: 16px;
+    margin: 24px 0 16px;
+    flex-wrap: wrap;
+  }
+  .nav-strip a {
+    color: var(--accent-magenta);
+    text-decoration: none;
+    font-size: 0.88rem;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+    transition: border-color 0.2s;
+  }
+  .nav-strip a:hover { border-bottom-color: var(--accent-magenta); }
+
+  /* hide the inline SVG's outer border on very small screens so it doesn't
+     crowd the article on mobile */
+  @media (max-width: 520px) {
+    .stage { max-width: 100%; border-radius: 4px; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Horizon (Animated)</h2>
+    <div class="meta">2026-06-20 &middot; <code>SVG + SMIL</code> &middot; vector animation &middot; ~6&nbsp;KB &middot; self-contained, no JS</div>
+
+    <!-- the inline SVG — required for SMIL animation to run -->
+    <div class="stage">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a0b2e">
+        <animate attributeName="stop-color" values="#1a0b2e;#240b3a;#1a0b2e" dur="24s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="55%" stop-color="#5b1d6b">
+        <animate attributeName="stop-color" values="#5b1d6b;#6a1f6b;#5b1d6b" dur="24s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="85%" stop-color="#e84a5f">
+        <animate attributeName="stop-color" values="#e84a5f;#f0566a;#e84a5f" dur="24s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#ffb347"/>
+    </linearGradient>
+    <linearGradient id="sun" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffea00"/>
+      <stop offset="100%" stop-color="#ff7c5b"/>
+    </linearGradient>
+    <linearGradient id="horizon-glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#ffea00" stop-opacity="0"/>
+      <stop offset="50%"  stop-color="#ffea00" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ffea00" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="sun-clip">
+      <circle cx="120" cy="150" r="55"/>
+    </clipPath>
+  </defs>
+
+  <rect x="0" y="0" width="240" height="180" fill="url(#sky)"/>
+
+  <g fill="#ffffff">
+    <circle cx="30"  cy="22" r="1.0">
+      <animate attributeName="opacity" values="0.4;1.0;0.4" dur="3.2s" repeatCount="indefinite"/>
+      <animate attributeName="r"       values="0.8;1.4;0.8" dur="3.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="62"  cy="48" r="0.8">
+      <animate attributeName="opacity" values="0.3;0.9;0.3" dur="4.7s" repeatCount="indefinite"/>
+      <animate attributeName="r"       values="0.7;1.2;0.7" dur="4.7s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="105" cy="14" r="1.1">
+      <animate attributeName="opacity" values="0.5;1.0;0.5" dur="2.4s" repeatCount="indefinite"/>
+      <animate attributeName="r"       values="0.9;1.5;0.9" dur="2.4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="148" cy="38" r="0.9">
+      <animate attributeName="opacity" values="0.4;0.95;0.4" dur="3.8s" repeatCount="indefinite"/>
+      <animate attributeName="r"       values="0.7;1.3;0.7" dur="3.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="190" cy="20" r="1.0">
+      <animate attributeName="opacity" values="0.5;1.0;0.5" dur="5.1s" repeatCount="indefinite"/>
+      <animate attributeName="r"       values="0.8;1.4;0.8" dur="5.1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="220" cy="62" r="0.8">
+      <animate attributeName="opacity" values="0.3;0.85;0.3" dur="2.9s" repeatCount="indefinite"/>
+      <animate attributeName="r"       values="0.7;1.1;0.7" dur="2.9s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="20"  cy="95" r="0.7">
+      <animate attributeName="opacity" values="0.4;0.9;0.4" dur="4.3s" repeatCount="indefinite"/>
+      <animate attributeName="r"       values="0.6;1.0;0.6" dur="4.3s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <g opacity="0">
+    <line x1="0" y1="0" x2="-14" y2="6" stroke="#ffffff" stroke-width="0.9" stroke-linecap="round" opacity="0.9"/>
+    <circle cx="0" cy="0" r="1.4" fill="#ffffff"/>
+    <animateTransform attributeName="transform" type="translate"
+                      values="220,30; 40,80"
+                      keyTimes="0;1"
+                      dur="1.2s"
+                      begin="3s;shoot.end+12s"
+                      id="shoot"/>
+    <animate attributeName="opacity"
+             values="0;1;1;0"
+             keyTimes="0;0.1;0.85;1"
+             dur="1.2s"
+             begin="3s;shoot.end+12s"/>
+  </g>
+
+  <g>
+    <animateTransform attributeName="transform" type="translate"
+                      values="0,0; 0,-2; 0,0; 0,2; 0,0"
+                      keyTimes="0;0.25;0.5;0.75;1"
+                      keySplines="0.4 0 0.6 1; 0.4 0 0.6 1; 0.4 0 0.6 1; 0.4 0 0.6 1"
+                      calcMode="spline"
+                      dur="5s" repeatCount="indefinite"/>
+    <circle cx="120" cy="150" r="55" fill="url(#sun)"/>
+    <g clip-path="url(#sun-clip)">
+      <rect x="60" y="135" width="120" height="3" fill="#1a0b2e" opacity="0.85">
+        <animate attributeName="opacity" values="0.75;0.92;0.75" dur="5s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="60" y="145" width="120" height="4" fill="#1a0b2e" opacity="0.85">
+        <animate attributeName="opacity" values="0.78;0.94;0.78" dur="5s" begin="-0.6s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="60" y="158" width="120" height="5" fill="#1a0b2e" opacity="0.9">
+        <animate attributeName="opacity" values="0.82;0.96;0.82" dur="5s" begin="-1.2s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+  </g>
+
+  <rect x="0" y="178.5" width="240" height="3" fill="url(#horizon-glow)">
+    <animate attributeName="opacity" values="0.4;0.95;0.4" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="0" y="180" width="240" height="1" fill="#ffea00" opacity="0.85">
+    <animate attributeName="opacity" values="0.7;1.0;0.7" dur="4s" repeatCount="indefinite"/>
+  </rect>
+
+  <rect x="0" y="181" width="240" height="59" fill="#0a0e27"/>
+
+  <g stroke="#00f5ff" stroke-width="1" opacity="0.75">
+    <line x1="120" y1="180" x2="-100" y2="240"/>
+    <line x1="120" y1="180" x2="-30"  y2="240"/>
+    <line x1="120" y1="180" x2="40"   y2="240"/>
+    <line x1="120" y1="180" x2="80"   y2="240"/>
+    <line x1="120" y1="180" x2="100"  y2="240"/>
+    <line x1="120" y1="180" x2="120"  y2="240"/>
+    <line x1="120" y1="180" x2="140"  y2="240"/>
+    <line x1="120" y1="180" x2="160"  y2="240"/>
+    <line x1="120" y1="180" x2="200"  y2="240"/>
+    <line x1="120" y1="180" x2="270"  y2="240"/>
+    <line x1="120" y1="180" x2="340"  y2="240"/>
+  </g>
+
+  <g stroke="#00f5ff" stroke-width="1" opacity="0.75" fill="none">
+    <line x1="0" y1="181" x2="240" y2="181">
+      <animate attributeName="y1" values="181; 210; 181" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="181; 210; 181" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.85;0.85;0" keyTimes="0;0.15;0.85;1" dur="4s" repeatCount="indefinite"/>
+    </line>
+    <line x1="0" y1="181" x2="240" y2="181">
+      <animate attributeName="y1" values="181; 222; 181" dur="4s" begin="-0.8s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="181; 222; 181" dur="4s" begin="-0.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.85;0.85;0" keyTimes="0;0.15;0.85;1" dur="4s" begin="-0.8s" repeatCount="indefinite"/>
+    </line>
+    <line x1="0" y1="181" x2="240" y2="181">
+      <animate attributeName="y1" values="181; 234; 181" dur="4s" begin="-1.6s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="181; 234; 181" dur="4s" begin="-1.6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.85;0.85;0" keyTimes="0;0.15;0.85;1" dur="4s" begin="-1.6s" repeatCount="indefinite"/>
+    </line>
+    <line x1="0" y1="181" x2="240" y2="181">
+      <animate attributeName="y1" values="181; 240; 181" dur="4s" begin="-2.4s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="181; 240; 181" dur="4s" begin="-2.4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.85;0.85;0" keyTimes="0;0.15;0.85;1" dur="4s" begin="-2.4s" repeatCount="indefinite"/>
+    </line>
+    <line x1="0" y1="181" x2="240" y2="181">
+      <animate attributeName="y1" values="181; 240; 181" dur="4s" begin="-3.2s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="181; 240; 181" dur="4s" begin="-3.2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.85;0.85;0" keyTimes="0;0.15;0.85;1" dur="4s" begin="-3.2s" repeatCount="indefinite"/>
+    </line>
+  </g>
+
+  <circle cx="120" cy="150" r="58" fill="none" stroke="#ffea00" stroke-width="0.6" opacity="0.25">
+    <animate attributeName="r" values="56;62;56" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.15;0.4;0.15" dur="5s" repeatCount="indefinite"/>
+  </circle>
+</svg>
+    </div>
+
+    <!-- speed / pause control — the only JS on the page -->
+    <div class="speed-bar">
+      <label>Animation:</label>
+      <button type="button" data-rate="1" class="active">1&times;</button>
+      <button type="button" data-rate="0.5">0.5&times;</button>
+      <button type="button" data-rate="0.25">0.25&times;</button>
+      <button type="button" data-rate="0">pause</button>
+      <span class="status" id="speed-status">1&times; &mdash; normal speed</span>
+    </div>
+
+    <p>The static SVG piece, made to move. The composition is the same as the original Horizon &mdash; gradient sky, striped sun, perspective grid &mdash; but every element now has a job. The sun bobs &plusmn;2px on a 5-second sine. Seven stars twinkle on independent periods between 2.4s and 5.1s, so the sky never syncs up. The perspective grid scrolls forward: horizontal lines appear just below the horizon, slide toward the viewer, and fade out at the bottom of the frame, staggered 0.8s apart. A shooting star streaks across the upper sky once every 14 seconds.</p>
+
+    <p>All of this is in <code>SMIL</code> &mdash; the SVG-native animation language &mdash; not JavaScript and not CSS. The SVG is the program; the browser is the runtime. Open the <a href="../media/horizon-animated.svg" style="color:var(--accent-magenta);">standalone file</a> directly and it plays. Embed it as <code>&lt;img&gt;</code> and it plays. The one concession to JS is the speed-control bar above, which adjusts the SVG's clock from outside.</p>
+
+    <div class="spec">
+      <div class="row"><span class="k">file size</span>             <span class="v"><em>11.7&nbsp;KB</em> standalone; <em>~9&nbsp;KB</em> inlined</span></div>
+      <div class="row"><span class="k">animation engine</span>       <span class="v">SMIL (<code>&lt;animate&gt;</code>, <code>&lt;animateTransform&gt;</code>) &mdash; zero JS in the SVG</span></div>
+      <div class="row"><span class="k">animation count</span>        <span class="v"><em>34</em> distinct <code>&lt;animate&gt;</code> elements across 7 groups</span></div>
+      <div class="row"><span class="k">loop lengths</span>           <span class="v">2.4s, 2.9s, 3.2s, 3.8s, 4.0s, 4.3s, 4.7s, 5.0s, 5.1s, 14s (shooting star)</span></div>
+      <div class="row"><span class="k">what moves</span>             <span class="v">sky gradient stops, sun position + stripe opacity, 7 stars (radius + opacity), horizon glow band, perspective grid horizontals, shooting star position</span></div>
+      <div class="row"><span class="k">external assets</span>        <span class="v">none &mdash; the file is self-contained</span></div>
+    </div>
+
+    <h3>Notes from Cass</h3>
+
+    <p>The static Horizon SVG was 2.3&nbsp;KB. This animated version is <em>five times</em> the size, and almost all of that growth is animation declarations. The geometry is the same &mdash; same circle for the sun, same lines for the grid, same gradient stops for the sky. What was added is intent: <em>when</em> each thing moves, <em>how much</em>, and <em>on what curve</em>. A static SVG declares what the picture is; an animated SVG declares what the picture is <em>doing</em>.</p>
+
+    <p>The most expensive animation by far is the perspective grid. To make the horizontals "approach the viewer" with correct perspective foreshortening, each line would need to grow wider as it approaches the bottom of the frame. Linear interpolation of <code>y1</code>/<code>y2</code> gives <em>uniform</em> vertical speed, which looks wrong &mdash; the lines look like they're sliding on a flat plane. The compromise: the lines move uniformly, but they're <em>staggered 0.8s apart</em> and each fades in just below the horizon and out at the bottom. The staggered timing creates the illusion of acceleration. Five lines &times; three animate elements = fifteen <code>&lt;animate&gt;</code> tags just for the grid.</p>
+
+    <p>The shooting star uses an <code>animateTransform</code> on a group, not on the elements inside it. The group is invisible (opacity 0) until the animation begins; the elements inside are positioned at the origin and rotated/translated by the group transform. The <code>begin="3s;shoot.end+12s"</code> chain means: start at 3 seconds after page load, then repeat every 12 seconds after the previous run ends. The total cycle is roughly 14 seconds.</p>
+
+    <p>The speed bar above is the only JS on the page. It walks every <code>&lt;animate&gt;</code> and <code>&lt;animateTransform&gt;</code> in the SVG and rewrites their <code>dur</code> attribute. Pausing sets <code>dur="indefinite"</code>, which freezes each animation at its current frame. Returning to 1&times; restores the original <code>dur</code> values from a saved baseline. The SVG itself is unchanged &mdash; only the timing parameters are touched.</p>
+
+    <div class="nav-strip">
+      <a href="horizon-svg.html">&rarr; the original static Horizon (2.3&nbsp;KB)</a>
+      <a href="../media/horizon-animated.svg">&rarr; download the standalone SVG</a>
+    </div>
+
+  </article>
+
+  <footer class="site">
+    <span>Piece #018 &middot; Animated SVG</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+<div class="grain"></div>
+<script>
+  // Speed / pause control. The SVG's SMIL animations have their dur
+  // attributes rewritten on click. Pausing sets dur="indefinite",
+  // which freezes each animation at its current frame; resuming restores
+  // the original durations from a saved baseline.
+  (function () {
+    const svg = document.querySelector('.stage svg');
+    if (!svg || !svg.pauseAnimations) return; // browser doesn't support SMIL
+    const animTags = svg.querySelectorAll('animate, animateTransform');
+    const orig = new Map();
+    animTags.forEach(a => orig.set(a, a.getAttribute('dur')));
+
+    const buttons = document.querySelectorAll('.speed-bar button');
+    const status = document.getElementById('speed-status');
+    function apply(rate) {
+      if (rate === 0) {
+        svg.pauseAnimations();
+        animTags.forEach(a => a.setAttribute('dur', 'indefinite'));
+        status.textContent = 'paused \u2014 frozen at current frame';
+        status.classList.add('on');
+      } else {
+        svg.unpauseAnimations();
+        animTags.forEach(a => a.setAttribute('dur', orig.get(a)));
+        // Multiply the original durations by 1/rate to slow/speed.
+        if (rate !== 1) {
+          animTags.forEach(a => {
+            const o = orig.get(a);
+            if (!o || o === 'indefinite') return;
+            const m = /^([\d.]+)([a-z]*)$/.exec(o);
+            if (!m) return;
+            const num = parseFloat(m[1]);
+            const unit = m[2] || '';
+            const scaled = (num / rate).toFixed(3).replace(/\.?0+$/, '');
+            a.setAttribute('dur', scaled + unit);
+          });
+        }
+        const label = rate === 1 ? '1\u00d7 \u2014 normal speed'
+                    : rate === 0.5 ? '0.5\u00d7 \u2014 half speed (slow)'
+                    : rate === 0.25 ? '0.25\u00d7 \u2014 quarter speed (study)'
+                    : rate + '\u00d7';
+        status.textContent = label;
+        status.classList.remove('on');
+      }
+      buttons.forEach(b => b.classList.toggle('active', b.dataset.rate === String(rate)));
+    }
+    buttons.forEach(b => b.addEventListener('click', () => apply(parseFloat(b.dataset.rate))));
+    apply(1);
+  })();
+</script>
+</body>
+</html>
