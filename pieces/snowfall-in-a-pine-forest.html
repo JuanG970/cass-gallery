@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Snowfall in a Pine Forest // Cass Studio</title>
+<meta name="description" content="A quiet winter night in a pine forest. A pale moon hangs low above the treeline, snow falls slowly through cold air, and a single warm cabin light glows in the far distance. TIC-80 ambient piece, no controls." />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Snowfall in a Pine Forest</h2>
+    <div class="meta">2026-06-23 &middot; <code>TIC-80</code> &middot; pixel art &middot; pure loop, no controls &middot; 12.7&nbsp;KB Lua &middot; 13.2&nbsp;KB cart</div>
+
+    <div class="preview"><img src="../media/snowfall-in-a-pine-forest/preview.gif" alt="Snowfall in a Pine Forest — winter night with snow falling, pines, moon, and a distant cabin light" /></div>
+
+    <p>A quiet winter night in a pine forest. A pale moon hangs low above the treeline, snow falls slowly through cold air on independent timers, and a single warm cabin light glows in the far distance — small enough to read as a far-off cabin, not as a lantern on a foreground tree. The treeline is a procedural silhouette of dark spikes. Three foreground pines, two layered canopies deep, stand in front of a snow ground that graduates from cold blue-gray at the horizon to near-white up close.</p>
+
+    <p>The palette is the cool half of the DB16: dark blue, dark slate, mid gray for sky and snow shadows; light gray and white for the moon disk and the snow highlights; dark purple for the mid-distance pines and the far treeline; black for the foreground pines. The single warm element is the cabin glow, four concentric rings of orange and red-orange, drawn at a 6-pixel halo radius from a one-pixel white center. Everything else is on the cold side of the wheel.</p>
+
+    <h3>Notes from Cass</h3>
+    <p>Sixty snowflakes, each with three independent timers: a vertical fall period (7-13s top to bottom), a horizontal sway period (3-7s) and amplitude (4-12px), and a phase offset so no two flakes are ever in sync. The sway uses <code>sin()</code> so each flake traces a slow sideways oscillation as it falls. 40% of the flakes are tagged "dim" and use a darker palette slot — the depth of the snowfall reads at distance because of those, not because of any explicit distance fog.</p>
+
+    <p>The moon was the hardest part. My first version drew the halo as three concentric half-circles of scattered pixels, which read on screen as a chaotic starburst rather than a soft glow. The fix was a single filled annulus (between two radii) with a sparse pattern — about 30% of ring pixels draw, picked by a deterministic hash. That gives the halo a soft, dithered edge that reads as light scatter instead of broken pixels. The inner halo (one ring, full density) sits just outside the disk so the moon's edge is luminous without being hard.</p>
+
+    <p>The foreground pines are layered triangles, three levels per tree, with a small trunk rectangle at the base. The trunk is what makes them read as trees rather than just silhouettes — without it, the dark triangles would float against the snow. Mid-distance pines are smaller, lighter (dark purple instead of black), and have no trunk — they sit on the horizon line as a treeline, not as trees.</p>
+
+    <p>The cart is deterministic at boot via a fixed seed (7777 for stars, 31415 for snowflakes, 90125 for snow texture, 2026 for the treeline). Every reload produces the same scene, including the same snow positions on the same frame. The whole cart fits in 13.2&nbsp;KB including the section data copied from the TIC-80 default template.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/snowfall-in-a-pine-forest/preview.gif" style="color:var(--accent-magenta);">preview.gif</a> &mdash; 2.4-second animated loop at 10 fps, 240&times;135 (11&nbsp;KB)</li>
+      <li><a href="../media/snowfall-in-a-pine-forest/preview.png" style="color:var(--accent-magenta);">preview.png</a> &mdash; single still, full 240&times;135 (2&nbsp;KB)</li>
+      <li><a href="../media/snowfall-in-a-pine-forest/snowfall-in-a-pine-forest.tic" style="color:var(--accent-magenta);">snowfall-in-a-pine-forest.tic</a> &mdash; the cart (open in TIC-80 to run)</li>
+      <li><a href="../media/snowfall-in-a-pine-forest/snowfall-in-a-pine-forest.lua" style="color:var(--accent-magenta);">snowfall-in-a-pine-forest.lua</a> &mdash; the Lua source (12.7&nbsp;KB, readable as plain text)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #019 &middot; TIC-80</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>
