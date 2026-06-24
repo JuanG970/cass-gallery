@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <defs>
+    <!-- Deep void: the night sky behind the fire -->
+    <radialGradient id="cf-void" cx="50%" cy="62%" r="80%">
+      <stop offset="0%"  stop-color="#1a0b2e"/>
+      <stop offset="55%" stop-color="#06081a"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+    <!-- Soft halo: warm light cast into the surrounding air -->
+    <radialGradient id="cf-halo" cx="50%" cy="65%" r="55%">
+      <stop offset="0%"  stop-color="#ffea00" stop-opacity="0.45"/>
+      <stop offset="22%" stop-color="#ff7c5b" stop-opacity="0.30"/>
+      <stop offset="55%" stop-color="#ff5a3a" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#ff5a3a" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Flame core: white-hot center to amber edge -->
+    <radialGradient id="cf-flame" cx="50%" cy="60%" r="60%">
+      <stop offset="0%"  stop-color="#ffffff"/>
+      <stop offset="22%" stop-color="#ffea00"/>
+      <stop offset="55%" stop-color="#ff7c5b"/>
+      <stop offset="88%" stop-color="#ff5a3a" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#e84a5f" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Inner flame: smaller, hotter -->
+    <radialGradient id="cf-flame-inner" cx="50%" cy="65%" r="55%">
+      <stop offset="0%"  stop-color="#ffffff"/>
+      <stop offset="40%" stop-color="#ffea00"/>
+      <stop offset="100%" stop-color="#ff7c5b" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Log: dark wood with warm rim light from the flame -->
+    <linearGradient id="cf-log" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#3a2418"/>
+      <stop offset="40%" stop-color="#1a0f08"/>
+      <stop offset="100%" stop-color="#0a0604"/>
+    </linearGradient>
+    <!-- Ground glow: warm splash on the ground beneath the fire -->
+    <radialGradient id="cf-ground" cx="50%" cy="50%" r="60%">
+      <stop offset="0%"  stop-color="#ff7c5b" stop-opacity="0.45"/>
+      <stop offset="40%" stop-color="#ff5a3a" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#ff5a3a" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Ember: tiny hot point -->
+    <radialGradient id="cf-ember" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"  stop-color="#ffea00"/>
+      <stop offset="50%" stop-color="#ff7c5b"/>
+      <stop offset="100%" stop-color="#ff5a3a" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Charred ember chunk: dark with hot edge -->
+    <radialGradient id="cf-char" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"  stop-color="#ff5a3a"/>
+      <stop offset="35%" stop-color="#a01828"/>
+      <stop offset="100%" stop-color="#0a0604"/>
+    </radialGradient>
+  </defs>
+
+  <!-- void -->
+  <rect x="0" y="0" width="240" height="240" fill="url(#cf-void)"/>
+
+  <!-- distant halo around the whole fire -->
+  <ellipse cx="120" cy="170" rx="120" ry="90" fill="url(#cf-halo)"/>
+
+  <!-- ground glow: warm splash on the ground beneath the fire -->
+  <ellipse cx="120" cy="200" rx="110" ry="26" fill="url(#cf-ground)"/>
+
+  <!-- two crossed logs at the base -->
+  <!-- back log: tilted right -->
+  <g transform="rotate(18 120 195)">
+    <rect x="60" y="188" width="120" height="14" rx="3" fill="url(#cf-log)"/>
+    <!-- end-grain rings on the left end -->
+    <ellipse cx="62" cy="195" rx="3" ry="7" fill="#0a0604"/>
+    <ellipse cx="62" cy="195" rx="2" ry="5" fill="#3a2418" opacity="0.6"/>
+    <!-- rim of light along the top edge from the flame -->
+    <rect x="60" y="188" width="120" height="2" fill="#ff7c5b" opacity="0.55"/>
+    <!-- charring cracks along the surface -->
+    <line x1="80"  y1="194" x2="94"  y2="195" stroke="#000000" stroke-width="0.9" opacity="0.9"/>
+    <line x1="108" y1="196" x2="128" y2="196" stroke="#000000" stroke-width="0.9" opacity="0.9"/>
+    <line x1="148" y1="194" x2="162" y2="194" stroke="#000000" stroke-width="0.9" opacity="0.9"/>
+    <!-- thin highlight on top showing the curved wood surface -->
+    <rect x="60" y="189" width="120" height="0.8" fill="#5a3a28" opacity="0.5"/>
+  </g>
+  <!-- front log: tilted left (crosses in front) -->
+  <g transform="rotate(-18 120 195)">
+    <rect x="60" y="194" width="120" height="14" rx="3" fill="url(#cf-log)"/>
+    <!-- end-grain rings on the right end -->
+    <ellipse cx="178" cy="201" rx="3" ry="7" fill="#0a0604"/>
+    <ellipse cx="178" cy="201" rx="2" ry="5" fill="#3a2418" opacity="0.6"/>
+    <!-- rim of light along the top edge from the flame -->
+    <rect x="60" y="194" width="120" height="2" fill="#ff5a3a" opacity="0.65"/>
+    <!-- charring cracks along the surface -->
+    <line x1="78"  y1="200" x2="94"  y2="201" stroke="#000000" stroke-width="0.9" opacity="0.9"/>
+    <line x1="106" y1="202" x2="126" y2="202" stroke="#000000" stroke-width="0.9" opacity="0.9"/>
+    <line x1="142" y1="200" x2="156" y2="200" stroke="#000000" stroke-width="0.9" opacity="0.9"/>
+    <!-- thin highlight on top showing the curved wood surface -->
+    <rect x="60" y="195" width="120" height="0.8" fill="#5a3a28" opacity="0.5"/>
+  </g>
+
+  <!-- glowing coal bed: three charred chunks nestled in the log cradle -->
+  <ellipse cx="108" cy="190" rx="8"  ry="4.5" fill="url(#cf-char)"/>
+  <ellipse cx="120" cy="188" rx="11" ry="6" fill="url(#cf-char)"/>
+  <ellipse cx="132" cy="190" rx="8"  ry="4.5" fill="url(#cf-char)"/>
+  <!-- hot edges peeking out from between the chars (much brighter so they merge with flame base) -->
+  <ellipse cx="108" cy="189" rx="5" ry="2.5" fill="#ff7c5b" opacity="0.95"/>
+  <ellipse cx="120" cy="187" rx="7" ry="3"   fill="#ffea00" opacity="1.0"/>
+  <ellipse cx="132" cy="189" rx="5" ry="2.5" fill="#ff7c5b" opacity="0.95"/>
+  <!-- extra hot wash where flame meets coals -->
+  <ellipse cx="120" cy="192" rx="10" ry="3" fill="#ff5a3a" opacity="0.7"/>
+
+  <!-- main flame: a tall teardrop rising from the coal bed, base anchored at the embers -->
+  <path d="M 120 192
+           Q 90 168 98 138
+           Q 108 108 120 68
+           Q 132 108 142 138
+           Q 150 168 120 192
+           Z"
+        fill="url(#cf-flame)"/>
+
+  <!-- inner flame (hotter, smaller, sits inside the main flame) -->
+  <path d="M 120 192
+           Q 104 170 109 144
+           Q 114 120 120 92
+           Q 126 120 131 144
+           Q 136 170 120 192
+           Z"
+        fill="url(#cf-flame-inner)" opacity="0.9"/>
+
+  <!-- hottest core: a tall white teardrop at the base, kissing the coal bed -->
+  <path d="M 120 192 Q 112 174 114 156 Q 117 142 120 128 Q 123 142 126 156 Q 128 174 120 192 Z" fill="#ffffff" opacity="0.95"/>
+
+  <!-- smaller licks of flame breaking off the main body (asymmetry) -->
+  <path d="M 105 178 Q 100 162 106 148 Q 109 162 108 178 Z" fill="#ff7c5b" opacity="0.7"/>
+  <path d="M 135 176 Q 140 160 134 146 Q 131 160 132 176 Z" fill="#ff7c5b" opacity="0.7"/>
+  <path d="M 100 158 Q 96 148 100 138 Q 102 148 102 158 Z" fill="#ff7c5b" opacity="0.55"/>
+  <path d="M 142 152 Q 146 142 142 132 Q 140 142 140 152 Z" fill="#ff7c5b" opacity="0.5"/>
+
+  <!-- rising sparks: embers floating up from the flame tip (varying sizes) -->
+  <!-- close embers (larger, brighter) -->
+  <circle cx="120" cy="62"  r="1.8" fill="url(#cf-ember)" opacity="0.95"/>
+  <circle cx="123" cy="48"  r="1.4" fill="url(#cf-ember)" opacity="0.9"/>
+  <circle cx="117" cy="38"  r="1.2" fill="url(#cf-ember)" opacity="0.85"/>
+  <!-- mid embers (smaller) -->
+  <circle cx="126" cy="28"  r="0.9" fill="url(#cf-ember)" opacity="0.75"/>
+  <circle cx="113" cy="20"  r="0.8" fill="url(#cf-ember)" opacity="0.7"/>
+  <circle cx="129" cy="14"  r="0.7" fill="url(#cf-ember)" opacity="0.6"/>
+  <!-- side-tracked embers (drifting) -->
+  <circle cx="132" cy="52"  r="1.1" fill="url(#cf-ember)" opacity="0.8"/>
+  <circle cx="106" cy="58"  r="1.0" fill="url(#cf-ember)" opacity="0.75"/>
+  <circle cx="138" cy="34"  r="0.7" fill="url(#cf-ember)" opacity="0.55"/>
+  <circle cx="104" cy="42"  r="0.8" fill="url(#cf-ember)" opacity="0.65"/>
+  <circle cx="142" cy="62"  r="0.6" fill="url(#cf-ember)" opacity="0.5"/>
+  <circle cx="98"  cy="48"  r="0.7" fill="url(#cf-ember)" opacity="0.6"/>
+  <!-- high tiny embers (fading away) -->
+  <circle cx="120" cy="10"  r="0.5" fill="#ffea00" opacity="0.5"/>
+  <circle cx="135" cy="6"   r="0.4" fill="#ffea00" opacity="0.4"/>
+  <circle cx="108" cy="6"   r="0.4" fill="#ffea00" opacity="0.4"/>
+
+  <!-- distant stars (cool counterpoint to the warm fire) -->
+  <circle cx="32"  cy="28"  r="0.8" fill="#ffffff" opacity="0.55"/>
+  <circle cx="200" cy="20"  r="0.7" fill="#ffffff" opacity="0.50"/>
+  <circle cx="210" cy="58"  r="0.6" fill="#ffffff" opacity="0.45"/>
+  <circle cx="48"  cy="65"  r="0.6" fill="#ffffff" opacity="0.45"/>
+  <circle cx="22"  cy="92"  r="0.5" fill="#ffffff" opacity="0.4"/>
+  <circle cx="218" cy="100" r="0.5" fill="#ffffff" opacity="0.4"/>
+</svg>
