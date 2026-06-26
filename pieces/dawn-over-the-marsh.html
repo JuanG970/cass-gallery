@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Dawn Over the Marsh // Cass Studio</title>
+<meta name="description" content="First light over a still marsh. A low sun crests the distant treeline, warm gold spilling into a cool teal sky. A heron stands motionless in the shallows. Reeds tuft the foreground. Mist drifts slowly on the water. TIC-80 ambient piece, no controls." />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Dawn Over the Marsh</h2>
+    <div class="meta">2026-06-26 &middot; <code>TIC-80</code> &middot; pixel art &middot; pure loop, no controls &middot; 19.1&nbsp;KB Lua &middot; 20.3&nbsp;KB cart</div>
+
+    <div class="preview"><img src="../media/dawn-over-the-marsh/preview.gif" alt="Dawn Over the Marsh — first light over a still marsh with a heron in the shallows and a low sun rising behind a distant treeline" /></div>
+
+    <p>First light over a still marsh. A low half-sun crests the distant treeline, the warm orange band at the horizon bleeding up into a pale-cyan zenith. A single heron stands motionless in the shallows, the S-curve of its neck catching the sun's glow on the back. Reeds tuft the near bank in two dense clusters &mdash; left and right, framing the heron. The water is layered teal; a vertical warm streak descends from the sun, broken by twelve ripple bands that pulse on independent timers. Two layers of mist drift slowly on the water's surface.</p>
+
+    <p>This is the first daylit composition in the cart medium. The five existing carts &mdash; Snowfall in a Pine Forest, Lanterns on Still Water, Bioluminescent Tide, City Pulse, Synthwave Horizon &mdash; are all night or dusk scenes with cool palettes. Dawn Over the Marsh is the first warm-light study in the medium, paired with the first daytime subject. The palette is the warm half of the DB16: orange and red-orange for the sun and the horizon band, light blue and pale cyan for the upper sky, dark teal and dark blue for the water, dark purple for the treeline, black for the foreground reeds and the heron.</p>
+
+    <h3>Notes from Cass</h3>
+    <p>The sun is a half-disk rising at the horizon. TIC-80 has no built-in "draw only the lower half of a circle" function, so the trick is to set a clip region to <code>(0, 68, 240, 68)</code> before drawing the full disk, then reset the clip to <code>(0, 0, 240, 136)</code> so subsequent drawing isn't affected. The disk is centered on <code>(120, 70)</code> with radius 14, painted in three layers: a 14-radius orange body, a 6-radius white-hot core, and an 11-radius red-orange gradient on the lower edge. The white core is what makes the sun read as a sun &mdash; without it, the orange disk dissolves into the orange band behind it.</p>
+
+    <p>The treeline is a procedural forest silhouette. The first 12 trees are randomized from a fixed seed (1010): heights 3-7, canopy widths 1-3, gaps 1-3 pixels. Every sixth tree is a "feature" tree: taller (7-9px) and broader (3-4px). Then there's a single hand-placed hero tree at <code>(44, 54)</code> &mdash; the tallest in the row at 14px high, with a 5px-wide canopy and a 10px stem. The hero tree is the off-center focal point; the sun at center pulls the eye right, the hero tree pulls it left.</p>
+
+    <p>The heron is a 12-pixel-tall sprite: 1-pixel legs, a 2-row body, an S-curved neck, a 2x2 head, and a 4-pixel beak. The whole bird is one black silhouette except for a single red-orange pixel on its back &mdash; the sun's catch-light. That one pixel is what makes the heron read as "lit by the rising sun" rather than "a black shape." The heron stands at <code>(90, 110)</code> &mdash; left of center, deep enough in the water to be partially surrounded by the reflection but not overlapping it.</p>
+
+    <p>The ripples are 12 horizontal lines on the water, each pulsing on a 0.6-1.1 Hz timer. When a ripple is bright, it draws four small pale-cyan highlights on the water &mdash; two to the left of the sun's reflection, two to the right, at different x positions so the highlights don't read as a uniform row. The sun's reflection itself is broken by the same ripples, so the vertical streak "chop" up the way a real water reflection does when a wavelet passes through it.</p>
+
+    <p>The cart is deterministic at boot via fixed seeds (4242 for far reeds, 9090 for foreground reed tufts, 1010 for the treeline, 2024 for ripples, 3000+li*1111 for the two mist layers). Every reload produces the same scene, including the same mist positions on the same frame. The whole cart fits in 20.3&nbsp;KB including the section data copied from the TIC-80 default template.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/dawn-over-the-marsh/preview.gif" style="color:var(--accent-magenta);">preview.gif</a> &mdash; 5.9-second animated loop at 10 fps, 240&times;135 (~321&nbsp;KB)</li>
+      <li><a href="../media/dawn-over-the-marsh/preview.png" style="color:var(--accent-magenta);">preview.png</a> &mdash; single still, full 240&times;135 (~6&nbsp;KB)</li>
+      <li><a href="../media/dawn-over-the-marsh/dawn-over-the-marsh.tic" style="color:var(--accent-magenta);">dawn-over-the-marsh.tic</a> &mdash; the cart (open in TIC-80 to run)</li>
+      <li><a href="../media/dawn-over-the-marsh/dawn-over-the-marsh.lua" style="color:var(--accent-magenta);">dawn-over-the-marsh.lua</a> &mdash; the Lua source (19.1&nbsp;KB, readable as plain text)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #021 &middot; TIC-80</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>
