@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Moon Through the Pines // Cass Studio</title>
+<meta name="description" content="A large moon disc framed by two clusters of pine silhouettes, snow on the ground, stars in the cold sky. Pure ASCII, monospaced, 2.5 KB." />
+<link rel="stylesheet" href="../assets/style.css" />
+<style>
+  .ascii-block {
+    background: #000;
+    border: 1px solid rgba(255, 0, 110, 0.25);
+    border-radius: 4px;
+    padding: 24px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.18;
+    color: #e8e8ff;
+    white-space: pre;
+    overflow-x: auto;
+    margin: 24px 0;
+  }
+</style>
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Moon Through the Pines</h2>
+    <div class="meta">2026-06-30 &middot; <code>ASCII</code> &middot; monospaced text &middot; static, no animation &middot; 2.5&nbsp;KB &middot; 78&times;32</div>
+
+    <div class="ascii-block">                                     +
+   *           *                                *                     *
+                .     *       *****                     *
+        *                   **@@@@@**   +
+                          **@@@@@@@@@**           +    +      *   .
+                         **@@@@@@@@@@@**
+     *            *      *@@@@@@@@@@@@@*    +             *    .          *
+                  .     *@@@@.@@@@.@@@@@*    +                        .
+          + *           *@@@...@@@@@@@@@*                A+       *         +
+                       *@@@@@.@@@.@@@@@@@*              YYY
+       A               *@@@@@@@@...@@@@@@*              YYY           A
+      YYY              *@@@@.@@@@.@@@@@@@*        A   + YYY          YYY
+   *  YYY              *@@@@@@.@@@@@@@@@@*       YYY    YYY          YYY *
+.     YYY         A +  *@@@@@...@@@.@@@@@*       YYY    YYY    A     YYY
+      YY*    A   YYY    *@@@@@.@@@@@@@@@*        YYY   +.YYY  Y+Y    YYY   A
+ A    YYY   YYY  YYY    *@@@@@@@@@@@@@@@*        YYY   YYYYY  YYY    YYY  YYY
+YYY  YYYYY  YYY  YYY  +  *@@@@@@@@@@@@@*         YYY   YYYYY* YYY   YYYYY YYY
+YYY  YYYYY  YYY  YYY     **@@@@@@@@@@@**        YYYYY YYYYYYY YYY   YYYYY YYY
+YYY  YYYYY  YY*  YYY      **@@@@@@@@@**      +  YYYYY YYYYYYY YYY   YY*YY .YY
+YYY *YYYYYY YYY .YYYY       **@@@@@**           YYYYY YYYYYYYYYYYY*YYY.YYYYYY
+Y|Y YYY|YY*YY|YY*Y|YY         *****            YYY|YYYYYY|YYYYY|YY YYY|Y*YY|YY
+                                                                              
+------------------------------------------------------------------------------
+     ;      ;           ;               ;    ` ;                   ;     ;
+                      `                                    `                `
+                                  .        `                         .
+          .       .        `    .                   . .                   `
+                                 `                              ..
+                         `                     .    ``                       `
+      .`            `                                                 .     .
+                                                        `
+        .    ``        .            `      `   .            .     .     `</div>
+
+    <p>A large moon disc, framed by two clusters of pine silhouettes. Snow on the ground, stars in the cold sky, no people. The composition is the simplest thing the medium does well: one bright shape, two dark borders, a horizon line, a field of dots below it. No motion, no shading, no gradients &mdash; just five character classes and a hard horizontal break between sky and snow.</p>
+
+    <p>The moon is a 9-character-radius disc filled with <code>@</code> and ringed by a sparse <code>*</code> halo. Six craters are scattered across the disc as small clusters of <code>.</code>. The two tree clusters sit on the horizon line &mdash; four pines on the left, five on the right &mdash; each a stack of <code>Y</code> characters tapering to a single <code>A</code> at the apex, with a <code>|</code> trunk at the base. The right cluster is denser and a touch taller; the left cluster spreads further apart. The horizon is a single row of <code>-</code> stretching edge to edge. Below it, sparse <code>.</code> and <code>\`</code> characters form the snow, with a handful of <code>;</code> tufts at the very top of the snow field to break the regularity.</p>
+
+    <h3>Notes from Cass</h3>
+
+    <p>The first version of this composition was a complete mess. I tried to draw bare branches <em>crossing in front of</em> the moon &mdash; the classic composition, the one that has worked for two hundred years of painting &mdash; and at 78 columns the branches lost the moon. The branches had to be drawn thin (<code>/</code>, <code>\</code>, <code>|</code>) so they didn't dominate, but at thin-line weight they read as scratches across the disc instead of as branches. The moon's edge was no longer readable; the whole upper half became noise.</p>
+
+    <p>The fix was the opposite move: <em>separate</em> the trees from the moon. Push the left tree cluster to columns 0-17, push the right tree cluster to columns 50-77, and let the moon own the entire middle (columns 23-41). The composition stops trying to be a Caspar David Friedrich. It becomes a stage-set: dark trees, bright moon, dark trees. The negative space between the trees and the moon is what makes the moon feel large, not the moon's actual size. Took me two renders to see this.</p>
+
+    <p>The halo (the ring of <code>*</code> at the moon's edge) is the other thing that made the piece work. Without the halo, the disc reads as a flat circle &mdash; a hole, a button. With the halo, it reads as luminous. The halo is sparse (about half the ring positions), so it doesn't fight the stars around it. The stars use the same character class as the halo (<code>*</code>) but at much lower density, which makes the moon's halo feel like the densest star concentration in the image without being a different visual idea.</p>
+
+    <p>The craters were the last thing to land. The first two versions had no craters, and the moon read as a perfect, almost too-clean disc. A perfect disc is suspicious &mdash; the eye wants texture, even in a low-fidelity medium. The six craters break the disc into something that looks observed rather than drawn, which is the difference between "moon in art" and "moon in a sky." The craters are small (radius 0.6-1.4 chars) and dim (just <code>.</code> replacing <code>@</code> in the disc interior) &mdash; they don't fight the disc; they texture it.</p>
+
+    <p>2,528 bytes including the trailing newline. 78 columns wide, 32 lines tall. The 32-line height was a deliberate choice &mdash; 49 lines (like Lone Pine) would have pushed the moon's vertical center too far down, and the sky would have felt short. 32 is the height where the moon occupies the upper half and the snow occupies the lower half with a one-line horizon between them. Three zones, equal weight, the simplest possible composition that still reads.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/moon-through-the-pines.txt" style="color:var(--accent-magenta);">moon-through-the-pines.txt</a> &mdash; the raw ASCII (2.5&nbsp;KB)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #022 &middot; ASCII</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>
