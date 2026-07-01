@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <defs>
+    <radialGradient id="bg" cx="0.5" cy="0.5" r="0.7">
+      <stop offset="0%" stop-color="#1a0b2e"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </radialGradient>
+    <radialGradient id="milky" cx="0.5" cy="0.55" r="0.6">
+      <stop offset="0%" stop-color="#5b1d6b" stop-opacity="0.18"/>
+      <stop offset="60%" stop-color="#5b1d6b" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="brightStar" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="35%" stop-color="#ffea00"/>
+      <stop offset="100%" stop-color="#ffea00" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="brightStarCyan" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="35%" stop-color="#00f5ff"/>
+      <stop offset="100%" stop-color="#00f5ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="brightStarCenter" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="35%" stop-color="#ff006e"/>
+      <stop offset="100%" stop-color="#ff006e" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- background -->
+  <rect x="0" y="0" width="240" height="240" fill="url(#bg)"/>
+
+  <!-- milky way band (subtle) -->
+  <ellipse cx="120" cy="130" rx="220" ry="35" fill="url(#milky)" transform="rotate(-15 120 130)"/>
+
+  <!-- background scatter (small dim stars) -->
+  <g fill="#e8e8ff" opacity="0.6">
+    <circle cx="22" cy="40" r="0.6"/>
+    <circle cx="48" cy="22" r="0.5"/>
+    <circle cx="76" cy="58" r="0.7"/>
+    <circle cx="110" cy="32" r="0.4"/>
+    <circle cx="138" cy="68" r="0.5"/>
+    <circle cx="172" cy="44" r="0.6"/>
+    <circle cx="208" cy="32" r="0.5"/>
+    <circle cx="225" cy="78" r="0.4"/>
+    <circle cx="18" cy="105" r="0.5"/>
+    <circle cx="34" cy="195" r="0.6"/>
+    <circle cx="65" cy="210" r="0.5"/>
+    <circle cx="92" cy="218" r="0.4"/>
+    <circle cx="148" cy="220" r="0.6"/>
+    <circle cx="186" cy="208" r="0.5"/>
+    <circle cx="220" cy="195" r="0.6"/>
+    <circle cx="232" cy="138" r="0.5"/>
+    <circle cx="14" cy="78" r="0.4"/>
+    <circle cx="58" cy="125" r="0.4"/>
+    <circle cx="195" cy="115" r="0.5"/>
+    <circle cx="105" cy="60" r="0.3"/>
+    <circle cx="155" cy="120" r="0.3"/>
+    <circle cx="40" cy="200" r="0.4"/>
+    <circle cx="125" cy="48" r="0.4"/>
+    <circle cx="62" cy="155" r="0.3"/>
+    <circle cx="218" cy="105" r="0.4"/>
+    <circle cx="80" cy="195" r="0.3"/>
+    <circle cx="178" cy="135" r="0.3"/>
+  </g>
+
+  <!-- connecting lines of the W (very subtle, dashed) -->
+  <g stroke="#ffea00" stroke-width="0.4" opacity="0.22" stroke-dasharray="2,2" fill="none">
+    <line x1="40" y1="70" x2="75" y2="170"/>
+    <line x1="75" y1="170" x2="120" y2="100"/>
+    <line x1="120" y1="100" x2="165" y2="170"/>
+    <line x1="165" y1="170" x2="210" y2="70"/>
+  </g>
+
+  <!-- the W's five bright stars with halos -->
+  <g>
+    <!-- star 1: top-left peak of W -->
+    <circle cx="40" cy="70" r="8" fill="url(#brightStar)" opacity="0.9"/>
+    <circle cx="40" cy="70" r="2" fill="#ffffff"/>
+
+    <!-- star 2: bottom-left valley -->
+    <circle cx="75" cy="170" r="9" fill="url(#brightStar)" opacity="0.95"/>
+    <circle cx="75" cy="170" r="2.4" fill="#ffffff"/>
+
+    <!-- star 3: CENTER PEAK (the middle of the W rises) -->
+    <circle cx="120" cy="100" r="11" fill="url(#brightStarCenter)" opacity="1"/>
+    <circle cx="120" cy="100" r="3" fill="#ffffff"/>
+
+    <!-- star 4: bottom-right valley -->
+    <circle cx="165" cy="170" r="9" fill="url(#brightStarCyan)" opacity="0.95"/>
+    <circle cx="165" cy="170" r="2.4" fill="#ffffff"/>
+
+    <!-- star 5: top-right peak -->
+    <circle cx="210" cy="70" r="8" fill="url(#brightStarCyan)" opacity="0.92"/>
+    <circle cx="210" cy="70" r="2" fill="#ffffff"/>
+  </g>
+</svg>
