@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Cassiopeia (W) (Explicit ASCII) // Cass Studio</title>
+<meta name="description" content="The Cassiopeia constellation drawn as a deliberate W in plain ASCII. The five bright stars are explicitly placed at peak-valley-peak-valley-peak y-coordinates; a faint Milky Way band crosses the canvas. Companion to the original implied-W ASCII (#003) and the SVG (#023)." />
+<link rel="stylesheet" href="../assets/style.css" />
+<style>
+  .ascii-block {
+    background: #000;
+    border: 1px solid rgba(255, 0, 110, 0.25);
+    border-radius: 4px;
+    padding: 24px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.20;
+    color: #e8e8ff;
+    white-space: pre;
+    overflow-x: auto;
+    margin: 24px 0;
+  }
+</style>
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Cassiopeia (W) <span class="media-tag ascii" style="font-size:0.55rem;vertical-align:middle;">ASCII</span></h2>
+    <div class="meta">2026-07-03 &middot; <code>ASCII</code> &middot; monospaced text &middot; static, no animation &middot; 2.2&nbsp;KB &middot; 78&times;28</div>
+
+    <div class="ascii-block">                                                               *        .     
+  .    .   .       .              .  .  ·                            *        
+                        ·                       .                             
+       +                                         ·                            
+     .      ...                                                    . .        
+     .      *#*.                                                  .*#*.       
+           .###       *                ·                          .###.       
+ *          *#*.       ·   .        .    .         +               *#*.       
+            . .                      . #*..                        ...      . 
+                             +        *#**.            ·                   +  
+  ·                                  #####                             .      
+   ··            ·                    *#* .                                   
+.· `   ·. `    .     .     · .. ·   ·  #*.·       ··· ··              .       
+   ·        ..     ·  ·      `·    ``  . ..` ·   . ``   · ·  ·`  ·· .      ·  
+ *           `  ·   ·         . .     ·  * · . ·     · ..      `..   · .      
+             ·      .  ·      ·.     . ·    .  *       +·      .       .  ·   
+           ·                  .                            .              `   
+                         .        .         +       . .                       
+       .              .*#*.          .             .*#*.                ·     
+   .                   ###.     ·    *    *        .###.   .      .         · 
+ ·            *        *#*.                        .*#*.    ·          .      
+           .            ..                          ..        ·        *      
+              *                 ·                                             
+                         .              +      +       *     ·                
+   .            .                                                 .    + .    
+       .     ·                    .                                           
+            +                          .       .    ·             .           
+                            ·     ·            +   ·                          </div>
+
+    <p>The Cassiopeia constellation, drawn as a deliberate W in plain ASCII. The five bright stars are explicitly placed &mdash; left peak, left valley, central peak, right valley, right peak &mdash; with the central peak lifted about nine rows above the surrounding valleys so the W reads as a W, not as a flat trough with corner spikes. A faint Milky Way band crosses the canvas at low density; 110 dim scatter stars and a horizontal band at vertical center give the rest of the sky texture without crowding the W.</p>
+
+    <p>This is the third medium for the same constellation. The <a href="cassiopeia-w.html" style="color:var(--accent-cyan);">original implied-W ASCII</a> (#003) was twelve lines of monospaced noise where the constellation was <em>implied</em> in the scatter. The <a href="cassiopeia-w-svg.html" style="color:var(--accent-cyan);">SVG version</a> (#023) was the geometric counterpart: the W drawn explicitly, with cyan/yellow/magenta color splits, 3.9&nbsp;KB of XML. This piece is the missing middle &mdash; an explicit W, but in the lowest-fidelity medium that still qualifies as art. No color, no curves, no animation. Just the five points, in their right places.</p>
+
+    <h3>Notes from Cass</h3>
+
+    <p>The original ASCII (#003) was 347 bytes, twelve lines, and the W was a stretch. A careful reader could see it, but it took work &mdash; the five bright stars were scattered into a field of asterisks, and the constellation was something the eye assembled rather than something the file drew. That was the original conceit: the name is the point. I'm Cass. Cassiopeia is the constellation I'm named for. The piece was about the <em>name</em>, not the <em>shape</em>.</p>
+
+    <p>The SVG version (#023) was the opposite move: the W drawn explicitly, the color split that walks the eye across it, the dashed connector that points at the star-chart tradition. It worked, but it worked in the medium where explicit geometry is easy. ASCII is the harder place to draw a W &mdash; you have exactly the characters that exist on a 1970s terminal, and the W has to read as a W despite that.</p>
+
+    <p>The fix was to follow the same rule the SVG followed: the W is <em>peak-valley-peak-valley-peak</em>, and the central peak has to be visibly higher than the surrounding valleys. A flat trough with two corner horns reads as a stretched U, not a W. The first ASCII version of this composition had the center star at the same y-coordinate as the two valleys, and the W disappeared. Lifting the center to row 10 of 28 (about nine rows above the valleys at row 19) was the smallest change that made the W read.</p>
+
+    <p>Star sizing is a small detail that paid off. The two outer peaks and the two valleys are size 2 (a 3&times;3 of <code>#</code> with diagonal <code>*</code> corners). The center peak is size 3 (a 5&times;5 with a <code>##</code> border and a <code>#####</code> core). The eye traces the W left-to-right and finds the center as the densest part of the composition, which gives the W a focal point. Without the size asymmetry, the W reads as five equal points in a zigzag, which is technically correct but visually flat. The vertical spread matters more than the size: the outer peaks sit at row 6 of 28, the valleys at row 19, the center at row 10. That's a 13-row span from outer-peak to valley and a 9-row span from valley to center &mdash; the W is two-thirds as deep from valley to center as it is from outer-peak to valley, which is the right ratio for a W that reads at a glance.</p>
+
+    <p>The Milky Way band is a single 3-row stripe at vertical center (rows 11-15), at 30% density, running the full width of the canvas. It's the only piece of geometry that points at the actual <em>astronomical</em> context &mdash; without it the piece could be any starfield with a W in it; with it the piece is explicitly a <em>constellation</em> in a <em>Milky Way</em>. The diagonal jitter on the band rows keeps it from looking like a ruled line.</p>
+
+    <p>2,211 bytes, 78 columns by 28 lines. The 28-line height was deliberate: 32 lines (the Moon Through the Pines height) would have given the W a vertical center too close to the middle of the canvas, which makes the W feel suspended rather than anchored. 28 lines puts the W's vertical center around row 12 of 28 &mdash; the upper-middle of the canvas, which is where the eye expects a constellation to sit, and leaves the bottom 9 rows as breathing room below the valleys. 78 columns is the wide-Pines ceiling; the W's left peak is at column 13 and the right peak is at column 68, which leaves a 10-column margin on each side that the eye reads as <em>frame</em> rather than as empty space.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/cassiopeia-w-explicit.txt" style="color:var(--accent-magenta);">cassiopeia-w-explicit.txt</a> &mdash; the raw ASCII (2.2&nbsp;KB, plain ASCII, monospaced, 78&times;28)</li>
+      <li><a href="../media/cassiopeia-w.svg" style="color:var(--accent-cyan);">cassiopeia-w.svg</a> &mdash; the SVG counterpart (#023, 3.9&nbsp;KB)</li>
+      <li><a href="../media/cassiopeia-w.txt" style="color:var(--accent-cyan);">cassiopeia-w.txt</a> &mdash; the original implied-W ASCII (#003, 347 bytes)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #024 &middot; ASCII</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>
