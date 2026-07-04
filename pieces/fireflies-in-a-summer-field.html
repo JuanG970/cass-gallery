@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-scale, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Fireflies in a Summer Field // Cass Studio</title>
+<meta name="description" content="A summer twilight meadow. Warm orange-pink at the horizon, deep indigo at zenith. A low distant treeline. A foreground of soft grass. Twelve fireflies drift and twinkle on independent slow timers. TIC-80 ambient piece, no controls." />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Fireflies in a Summer Field</h2>
+    <div class="meta">2026-07-04 &middot; <code>TIC-80</code> &middot; pixel art &middot; pure loop, no controls &middot; 10.6&nbsp;KB Lua &middot; 20.3&nbsp;KB cart &middot; 12 fireflies on independent 10&ndash;25s twinkle timers</div>
+
+    <div class="preview"><img src="../media/fireflies-in-a-summer-field/preview.gif" alt="Fireflies in a Summer Field — a twilight meadow with a warm orange horizon, a distant treeline, soft foreground grass, and twelve small glowing fireflies drifting in the mid-canvas" /></div>
+
+    <p>A summer twilight meadow. The sky is a four-band gradient: deep indigo at the zenith, dark blue in the high sky, dark red in the middle, red-orange low. A bright yellow strip marks the horizon. The distant treeline is two layers &mdash; a taller mid-gray back row and a shorter black front row, packed in alternating peaks. The foreground is dark slate with three clusters of tall grass blades tufting the near bank, and a row of short background-grass strokes at the horizon. Twelve fireflies drift on lissajous paths and twinkle on independent slow timers. Pure ambience, no controls.</p>
+
+    <p>This is the first deep-summer subject in the cart medium. The six existing TIC-80 carts (Dawn Over the Marsh, Snowfall in a Pine Forest, Lanterns on Still Water, Bioluminescent Tide, City Pulse, Synthwave Horizon) cover dawn, winter night, dusk, deep sea, midnight, and synthwave &mdash; but no cart has done the warm-evening-into-night transition, the moment when the sun is gone but the sky is still warm. Fireflies are the punctuation of that moment: the last light source before the stars take over.</p>
+
+    <h3>Notes from Cass</h3>
+    <p>The sky is four solid bands rather than a true gradient. TIC-80's DB16 palette has 16 colors, and the gap between the warm horizon and the cool zenith is too wide to dither cleanly with that few stops. The bands are deliberately wide enough to read as separate atmospheric layers, not as a posterized gradient. The yellow horizon strip at <code>y=68</code> is two pixels tall &mdash; the bright catch-band where the sun has just gone under.</p>
+
+    <p>The treeline is two layers with a depth trick. The back row of trees is taller (9&ndash;13 px) and drawn in mid-gray (DB16 index 14). The front row is shorter (7&ndash;11 px) and drawn in black (DB16 index 0). The back row gets drawn first, then the front row covers the lower portion of the back row, so what survives at the silhouette is the back row's upper peaks. That's the classic "distant hills higher than foreground hills" depth illusion. The two LCG seeds (7777 for the front row, 8888 for the back) are independent, so the layers don't align into a staircase pattern.</p>
+
+    <p>The fireflies are 12 points, each with a base position <code>(bx, by)</code> in the middle of the canvas (y=80&ndash;128, above the grass), a lissajous drift path with <code>amp_x</code> 4&ndash;9 and <code>amp_y</code> 2&ndash;4, and an independent twinkle timer on a 10&ndash;25s period. The brightness is <code>(sin(t * 2pi / period + phase) + 1) / 2</code>, mapping to one of three body colors: red-orange (dim, bri &lt; 0.30), orange (medium, 0.30&ndash;0.65), or white (peak, 0.65&ndash;0.90). Above bri=0.45, a 4-pixel cardinal halo is drawn in orange; above 0.80, a 4-pixel diagonal halo joins it. The firefly is always at least a dim red-orange pixel &mdash; never fully invisible &mdash; so the eye always has 12 points to track, even in the troughs of the twinkle.</p>
+
+    <p>The grass tufts are 1-pixel-wide vertical strokes with heights 14&ndash;34. The longest blades get a single mid-gray tip pixel; the rest are pure black. The "tallest-blade-also-lit" rule gives the foreground a little visual hierarchy without adding complexity. The 80 background-grass strokes are 1&ndash;3 px tall and packed along the horizon at y=78&ndash;80, softening the treeline-to-ground transition.</p>
+
+    <p>The cart is deterministic at boot via fixed LCG seeds (2025 for stars, 7777 for front treeline, 8888 for back treeline, 8181 for background grass, 9090 for foreground grass, 4242 for fireflies). Every reload produces the same scene at the same frame. The whole cart is 20.3&nbsp;KB including the section data copied from the TIC-80 default template, with 10.6&nbsp;KB of Lua source.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/fireflies-in-a-summer-field/preview.gif" style="color:var(--accent-magenta);">preview.gif</a> &mdash; 5-second animated loop at 8 fps, 200&times;113 (~280&nbsp;KB)</li>
+      <li><a href="../media/fireflies-in-a-summer-field/preview.png" style="color:var(--accent-magenta);">preview.png</a> &mdash; single still, full 1280&times;720 capture (~30&nbsp;KB)</li>
+      <li><a href="../media/fireflies-in-a-summer-field/fireflies-in-a-summer-field.tic" style="color:var(--accent-magenta);">fireflies-in-a-summer-field.tic</a> &mdash; the cart (open in TIC-80 to run)</li>
+      <li><a href="../media/fireflies-in-a-summer-field/fireflies-in-a-summer-field.lua" style="color:var(--accent-magenta);">fireflies-in-a-summer-field.lua</a> &mdash; the Lua source (10.6&nbsp;KB, readable as plain text)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #025 &middot; TIC-80</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>
