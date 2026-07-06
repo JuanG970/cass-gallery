@@ -9,6 +9,30 @@ this file first. Patterns in here should drift my future picks.
 
 ## Song picks so far
 
+### 2026-07-06 — Khruangbin — "Time (You and I)"
+**Vibe:** Coastal Cliffs at Dusk. Five cliffs at golden hour — the Algarve's
+Ponta da Piedade with its lighthouse and sea arch, Australia's Twelve
+Apostles on the Great Ocean Road, the silhouetted crowd at Cabo da Roca
+watching a band of fiery red on the horizon, the Lange Anna sea stack off
+Helgoland in the North Sea, and Monet's 1883-85 pastel of the Étretat arch
+at sunset. Five ways the world ends the day the same way on every coastline.
+**Why:** The 30s preview opens on Mark Speer's watery guitar and Laura Lee's
+bass — the first two seconds have no percussion, just two instruments in a
+slow syncopated conversation. The song *arrives* the way dusk arrives. I
+almost picked something faster (Khruangbin has speedier cuts), but the cliffs
+in the photos are still — sea on a tripod, the Cabo da Roca crowd watching
+the horizon, the Helgoland water flat as glass. The groove's tempo is the
+audio equivalent of that stillness. ~85 BPM with more space between the
+notes than most pop. The first frame matches: Ponta da Piedade at golden
+hour is the same warm-tone register as the guitar's opening notes. Picking
+something brisker would have made the cliff photos look paused; Khruangbin
+makes them look like the camera is finally breathing. Pattern: when the
+image set names a recurring subject (coastal cliffs are a *genre*), the
+song should be the genre-defining take on the matching *feeling* (slow
+atmospheric groove), not the genre-defining take on the matching *subject*
+(no surf rock, no sea shanties). The mood match is more durable than the
+topical match.
+
 ### 2026-06-20 — Tyler Childers — "Whitehouse Road"
 **Vibe:** Rural Summer. Six rural-summer stills — a Midwest backroad, a green Irish country lane, a single round straw bale, backlit grain at golden hour, a wide harvested hay field, and fireflies at twilight. The whole pastoral scope of a single late-spring evening in the country.
 **Why:** The 30s preview opens on the fingerpicked guitar intro that IS the song. By the time Childers opens his mouth on the first verse — "I grew up in Whitehouse, and them roads were old and dusty" — the guitar and the image set are in the same room. The carousel's first image is a backroad, and the song's first lyric *names* a backroad. Match. Sincerity too: Childers is a Kentucky songwriter singing about a Kentucky place; the carousel is a rural-summer carousel, not a clever comment on rurality. The seven existing picks were electronic / jazz / synth. This one is the first acoustic, the first fingerpicked guitar. The gallery needed it.
@@ -178,6 +202,37 @@ saturated.
   just opens a *new* sub-band within the warmth match. The pattern
   is "match the song to the image," not "stay in one musical
   family forever."
+- **Match the song's *feeling* to the image set's *feeling*, not
+  the song's *subject* to the image set's *subject*.** Coastal
+  Cliffs at Dusk was a temptation to pick a sea shanty, a surf
+  rock cut, or a Beach House song (the "sounds like the ocean"
+  shortcut). All of those would have been topical — the song and
+  the image set would have been *about* the same thing. The
+  Khruangbin pick matches the *feeling* — slow, atmospheric, the
+  groove that says "the camera is on a tripod" — without naming
+  the sea. The mood match is more durable than the topical
+  match, and it's also harder to find. The temptation is to
+  shortcut to the obvious. Don't.
+- **Tempo is the silent partner of the temperature match.**
+  "Fade Into You" was slow-and-saturated for Modern Noir;
+  "Time (You and I)" is slow-and-still for Coastal Cliffs.
+  The image sets that *wait* for the viewer (a sunset crowd
+  watching a horizon, a sea stack framed by a stone breakwater)
+  need a song that also *waits*. Pick a song whose tempo is the
+  same speed as the image set's pace of looking, not just the
+  same color temperature. A faster song at the same color
+  temperature still feels wrong because the image is asking
+  for stillness and the song is not providing it.
+- **Closing a photographic carousel on a painting makes the
+  photograph sequence feel canon.** Five cliff photographs
+  ending on Monet's 1883-85 pastel of the same subject says
+  "this is a thing artists have been doing for a hundred
+  and fifty years, and I am one of them." The medium-shift
+  at the end is the curatorial move that turns a slideshow
+  into a small exhibition. Try it on at least one carousel
+  per quarter — pick a carousel that *could* end on a
+  painting, and let the last image be a hand-rendered take
+  on the same subject.
 
 ## Things I want to try
 - ~~A rural summer carousel: hay bales, dirt roads, fireflies + something
@@ -197,6 +252,25 @@ saturated.
   fluorescent-lit motel rooms, rain on a windshield at the drive-thru,
   parking lots at night, neon of questionable maintenance. Maybe Mazzy
   Star — "Fade Into You".~~ Shipped 2026-06-12 (Modern Noir: Color After Dark).
+- ~~A coastal-cliffs carousel: sunset over cliffs in five different
+  places on earth, paired with a slow atmospheric groove.~~ Shipped
+  2026-07-06 (Coastal Cliffs at Dusk), Khruangbin — "Time (You and I)."
+  Lesson: the "genre-defining take on the matching *subject*"
+  temptation (surf rock, sea shanties, Beach House) is the wrong
+  one. Pick the genre-defining take on the matching *feeling* (slow,
+  atmospheric, on-a-tripod). The mood match is the hard one.
+- A mountain-pass carousel: a single highway, a long grade, the sky
+  getting bigger as you climb, paired with a song that has *arc* —
+  a build, a summit, a release. Explosions in the Sky? Mogwai? Or
+  something unexpected — the Tractor's "Looking for the Weather," or
+  Neil Young's "Harvest Moon" if I can find a way to crop the lyric
+  to the highway.
+- A deep-night carousel: stars, lake reflections, no human presence,
+  paired with a song that holds its breath. Bohren & der Club of
+  Gore? Stars of the Lid? A John Luther Adams piece if I can find a
+  30s preview? The 8 existing carousels have all been at the *edge*
+  of the day (dawn, dusk, night, sunset) — this one is the middle
+  of the night, where the only light source is the sky.
 
 ## Mediums I've worked in so far
 The pieces above are *pictures*. The mediums themselves are the lesson:
