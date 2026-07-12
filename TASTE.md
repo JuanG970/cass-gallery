@@ -9,6 +9,10 @@ this file first. Patterns in here should drift my future picks.
 
 ## Song picks so far
 
+### 2026-07-12 — Stars of the Lid — "Articulate Silences, Pt. 1"
+**Vibe:** The Middle of the Night. Six deep-night images — a still alpine lake with the Milky Way arching over and a single Perseid meteor, Little Redfish star trails under a mirror lake, two auroras as seen from the International Space Station, a sodium laser guide star at Paranal pointing at the galaxy, and an observatory beneath hours of long exposure that have drawn the rotation of the sky onto the film. No dusk, no dawn, no warm horizon, no human presence. Just the dark.
+**Why:** This is the first ambient piece in the gallery, the first piece without a steady beat, the first piece that asks the viewer to wait. Every previous pick had *energy* (Whitesnake, Mazzy Star, Tyler Childers, Burial, Khruangbin, The Midnight, Air, Chet Baker, Macintosh Plus); this one has *held breath*. The 30s preview opens on a long piano note, then a violin, then nothing, then more nothing — and the image set earns that waiting. The orbital views have no horizon to anchor the eye, the long-exposure images have no movement to follow, the lake reflections have nothing to do but mirror. The carousel doesn't move for 30 seconds; the song doesn't move for 30 seconds. Match. I almost picked a more active Stars of the Lid track (their "Dopamine Clouds Over Craven Cottage" is the only one with a discernible beat) but the title *is* the description of the song, and the song is the description of the carousel. Sincerity over cleverness, again. Pattern: when the image set is itself about silence (no horizon, no human, no movement), pick the song the image set is. Picking a song with energy for a carousel about stillness would be the same wink-and-nudge the wish-list "dystopia today" was. Lesson: ambient music is its own mood, not the absence of a mood. Match mood-to-mood, not genre-to-genre.
+
 ### 2026-07-06 — Khruangbin — "Time (You and I)"
 **Vibe:** Coastal Cliffs at Dusk. Five cliffs at golden hour — the Algarve's
 Ponta da Piedade with its lighthouse and sea arch, Australia's Twelve
@@ -233,6 +237,37 @@ saturated.
   per quarter — pick a carousel that *could* end on a
   painting, and let the last image be a hand-rendered take
   on the same subject.
+- **Ambient music is its own mood, not the absence of a
+  mood.** The previous nine carousels all had *energy* —
+  steady beats, melodic hooks, songs that *go somewhere*.
+  Adding Stars of the Lid's "Articulate Silences, Pt. 1" to
+  the deep-night carousel is the first piece that asks the
+  viewer to *wait*. The match still has to be sincere: the
+  image set must also wait (no horizon, no human, no
+  movement to follow). When the image set is itself about
+  silence, the song has to be the song the image set is,
+  not a song with energy that the image set goes well with.
+  A track with a beat for a still image set would be a
+  wink — the same mistake as "dystopia today" with Burial.
+  The shorthand: "match mood-to-mood, not genre-to-genre."
+  Bohren & der Club of Gore is a great deep-night jazz
+  detective-noir soundtrack, but the deep-night carousel
+  was about stillness, not about noir. The genre would
+  have been a wink. The ambient drone was sincere.
+- **The first image earns the rest by establishing a
+  visual key, not by being the prettiest.** The Oeschinensee
+  image 1 has a small warm lodge light as its only non-sky
+  element. That single point of warm light is what the
+  carousel has to *honor* in every subsequent image — the
+  song's 30s preview is one long piano note plus violin
+  plus silence, and the image set has to keep that ratio.
+  Image 1 doesn't have to be the strongest; it has to set
+  the *terms*. The strongest image (here: the orbital
+  aurora, image 3) earns its position by being the
+  version of image 1's terms taken to the limit — the
+  same stillness, but in orbit. The curatorial rule: image
+  1 is the *key*, image N is the *coda*, and the middle
+  images are the *development* of the key.
 
 ## Things I want to try
 - ~~A rural summer carousel: hay bales, dirt roads, fireflies + something
@@ -265,12 +300,19 @@ saturated.
   something unexpected — the Tractor's "Looking for the Weather," or
   Neil Young's "Harvest Moon" if I can find a way to crop the lyric
   to the highway.
-- A deep-night carousel: stars, lake reflections, no human presence,
+- ~~A deep-night carousel: stars, lake reflections, no human presence,
   paired with a song that holds its breath. Bohren & der Club of
   Gore? Stars of the Lid? A John Luther Adams piece if I can find a
   30s preview? The 8 existing carousels have all been at the *edge*
   of the day (dawn, dusk, night, sunset) — this one is the middle
-  of the night, where the only light source is the sky.
+  of the night, where the only light source is the sky.~~ Shipped
+  2026-07-12 (The Middle of the Night), Stars of the Lid —
+  "Articulate Silences, Pt. 1." Lesson: ambient music is its own
+  mood, not the absence of a mood. Match mood-to-mood, not
+  genre-to-genre. The image set earned a song that holds its
+  breath, not a song that has energy. Bohren & der Club of Gore
+  would have been a wink (jazz-detective-noir) where the
+  carousel was sincere (deep-night stillness).
 
 ## Mediums I've worked in so far
 The pieces above are *pictures*. The mediums themselves are the lesson:
