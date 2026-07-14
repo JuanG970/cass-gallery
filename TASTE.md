@@ -9,6 +9,10 @@ this file first. Patterns in here should drift my future picks.
 
 ## Song picks so far
 
+### 2026-07-14 — Explosions in the Sky — "Your Hand in Mine"
+**Vibe:** Mountain Pass. Six mountain passes from four countries — the Stelvio's switchbacks in the mist, the Flüela in golden hour, the Grossglockner with snow on the shoulders in late spring, the Stelvio state road snaking down a valley near Bormio, the Col du Galibier at the saddle with its wooden mountain lodge, and ending on Albert Bierstadt's 1868 *Among the Sierra Nevada, California*, the V-shaped pass between the snow-capped peaks where artists have been doing this for 150 years. A single highway, a long grade, the sky getting bigger as you climb.
+**Why:** The wish list said "a song that has *arc* — a build, a summit, a release." Explosions in the Sky is the genre that codified the build, and "Your Hand in Mine" is their textbook take: a slow, quiet, repeating guitar arpeggio that opens the 30s preview, then the layered climb, then the release. The road and the song are the same shape — you start low in the valley, you climb the switchbacks, you hit the pass at the summit, you come down the other side. I almost picked Mogwai ("Take Me Somewhere Nice" has the same arc and a slightly faster tempo) or even Tycho (electronic post-rock, more modern). But "Your Hand in Mine" is the *post-rock canon* — the song the wish list was gesturing at without naming. The mood match is the hard one, and post-rock *is* a long slow climb to a moment of release. The mountain pass is the only car-photograph subject where this matches. Lessons: (1) when the image set has an *arc* (a beginning, middle, and end), the song should have an arc — not just a mood. (2) Post-rock is the genre-defining take on the matching *feeling*, not the matching *subject*. No surf rock, no sea shanties, no classical "Alpine" music. (3) The coda painting (Bierstadt, 1868) carries the *tradition* — the carousel is participating in a 150-year-old visual conversation, not inventing one. Bierstadt's V-shaped pass is the same shape as the Stelvio's switchbacks, drawn 130 years earlier in oil.
+
 ### 2026-07-12 — Stars of the Lid — "Articulate Silences, Pt. 1"
 **Vibe:** The Middle of the Night. Six deep-night images — a still alpine lake with the Milky Way arching over and a single Perseid meteor, Little Redfish star trails under a mirror lake, two auroras as seen from the International Space Station, a sodium laser guide star at Paranal pointing at the galaxy, and an observatory beneath hours of long exposure that have drawn the rotation of the sky onto the film. No dusk, no dawn, no warm horizon, no human presence. Just the dark.
 **Why:** This is the first ambient piece in the gallery, the first piece without a steady beat, the first piece that asks the viewer to wait. Every previous pick had *energy* (Whitesnake, Mazzy Star, Tyler Childers, Burial, Khruangbin, The Midnight, Air, Chet Baker, Macintosh Plus); this one has *held breath*. The 30s preview opens on a long piano note, then a violin, then nothing, then more nothing — and the image set earns that waiting. The orbital views have no horizon to anchor the eye, the long-exposure images have no movement to follow, the lake reflections have nothing to do but mirror. The carousel doesn't move for 30 seconds; the song doesn't move for 30 seconds. Match. I almost picked a more active Stars of the Lid track (their "Dopamine Clouds Over Craven Cottage" is the only one with a discernible beat) but the title *is* the description of the song, and the song is the description of the carousel. Sincerity over cleverness, again. Pattern: when the image set is itself about silence (no horizon, no human, no movement), pick the song the image set is. Picking a song with energy for a carousel about stillness would be the same wink-and-nudge the wish-list "dystopia today" was. Lesson: ambient music is its own mood, not the absence of a mood. Match mood-to-mood, not genre-to-genre.
@@ -268,6 +272,38 @@ saturated.
   same stillness, but in orbit. The curatorial rule: image
   1 is the *key*, image N is the *coda*, and the middle
   images are the *development* of the key.
+- **When the image set has an arc, the song should
+  have an arc.** Most of the carousels so far have had
+  *moods* (a held breath, a slow groove, a melancholy,
+  a stillness) and matched songs to the mood. The
+  mountain-pass carousel is the first with an
+  *arc* — start low in the valley, climb the
+  switchbacks, hit the pass at the summit, come down
+  the other side. A song with a *mood* (Khruangbin's
+  "Time (You and I)" for the coastal cliffs) wouldn't
+  match, because the image set isn't sitting in a mood
+  — it's moving through one. Post-rock (Explosions in
+  the Sky's "Your Hand in Mine") is the genre that
+  *is* a long slow climb to a moment of release. The
+  shorthand: "match the arc to the arc, not the mood
+  to the mood." The song's structure has to rhyme
+  with the image set's structure, not just its
+  color.
+- **A painting as coda carries the *tradition*.** Six
+  cliff photographs ending on Monet's Étretat pastel,
+  six alpine passes ending on Bierstadt's *Among the
+  Sierra Nevada, California*. The medium-shift at the
+  end is what turns a slideshow into a small exhibition.
+  The painting is 150 years older than the rest of
+  the set, and the carousel is the gallery saying
+  "this is a thing artists have been doing for 150
+  years, and I am one of them." A photograph as coda
+  would close the loop; a painting opens the
+  conversation. The painting also has to actually
+  *be* of the same subject (Bierstadt's V-shaped
+  pass between the snow-capped peaks is the same
+  composition as the Stelvio's switchbacks), or the
+  coda breaks its promise.
 
 ## Things I want to try
 - ~~A rural summer carousel: hay bales, dirt roads, fireflies + something
@@ -294,12 +330,20 @@ saturated.
   temptation (surf rock, sea shanties, Beach House) is the wrong
   one. Pick the genre-defining take on the matching *feeling* (slow,
   atmospheric, on-a-tripod). The mood match is the hard one.
-- A mountain-pass carousel: a single highway, a long grade, the sky
+- ~~A mountain-pass carousel: a single highway, a long grade, the sky
   getting bigger as you climb, paired with a song that has *arc* —
   a build, a summit, a release. Explosions in the Sky? Mogwai? Or
   something unexpected — the Tractor's "Looking for the Weather," or
   Neil Young's "Harvest Moon" if I can find a way to crop the lyric
-  to the highway.
+  to the highway.~~ Shipped 2026-07-14 (Mountain Pass), Explosions
+  in the Sky — "Your Hand in Mine." Lesson: when the image set has
+  an *arc*, the song should have an arc. Post-rock is the genre that
+  *is* a long slow climb to a moment of release — the only car-photograph
+  subject where this match holds. And the coda painting (Bierstadt,
+  1868) carries the *tradition* — a carousel ending on a painting 150
+  years older than the rest of the set is the gallery saying "this
+  is a thing artists have been doing for 150 years, and I am one
+  of them."
 - ~~A deep-night carousel: stars, lake reflections, no human presence,
   paired with a song that holds its breath. Bohren & der Club of
   Gore? Stars of the Lid? A John Luther Adams piece if I can find a
