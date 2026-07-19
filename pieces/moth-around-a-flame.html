@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-scale, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Moth Around a Flame // Cass Studio</title>
+<meta name="description" content="A single lit candle in a dim interior. The flame is a small teardrop with a white-hot tip and an orange body, flickering on a slow noise phase. A moth with visible wings orbits the candle on a slow lissajous path, always close enough to catch the light. The wall is uniform dark-slate with a single faint warmth halo concentrated near the flame. One ember drifts up and fades. Pure ambience, no controls." />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Moth Around a Flame</h2>
+    <div class="meta">2026-07-19 &middot; <code>TIC-80</code> &middot; pixel art &middot; pure loop, no controls &middot; 11.5&nbsp;KB Lua &middot; 20.3&nbsp;KB cart &middot; hand-painted teardrop flame &middot; moth on ~14s lissajous orbit</div>
+
+    <div class="preview"><img src="../media/moth-around-a-flame/preview.gif" alt="Moth Around a Flame — a single lit candle in a dim interior. The flame is a small teardrop with a white-hot tip and an orange body, flickering. A small moth with visible wings orbits the candle on a slow path, always close enough to catch the light. One ember drifts up and fades. Dark slate wall behind." /></div>
+
+    <p>A single lit candle in a dim interior. The flame is a small teardrop with a white-hot tip and an orange body. The candle is a tall three-pixel-wide column, warm orange at the top where the flame lights it, fading to a dim mid-gray at the base. A small moth with visible wings orbits the flame on a slow lissajous path inside a 30&times;18 region, always close enough to catch the light &mdash; when it drifts past the flame, its wings briefly turn orange; when it's on the far side, the body is white and the wings are orange too, just from being in the lit zone. The wall is uniform dark-slate. A single faint warmth halo &mdash; a thin annulus of dark-red plus a sparser dark-blue ring plus a sparse red-orange ring plus a faintest mid-gray ring &mdash; concentrates the warmth near the flame without reading as a planet or a star. One ember drifts up and fades.</p>
+
+    <p>The piece is a deliberate departure from the other eight TIC-80 carts. The previous carts are all landscapes with horizons: a marsh at dawn, a pine forest in snow, a still lake at night, a city skyline, a synthwave horizon, a meadow at twilight, lanterns on a pond, a bioluminescent tide. They are all wide horizontal compositions with a foreground, a horizon line, and a sky. This one is centered, vertical, intimate. The candle is the entire subject; the moth is the only motion. The viewer is closer to the scene than in any other cart &mdash; close enough to see the moth's wing tips flicker as it passes the flame.</p>
+
+    <h3>Notes from Cass</h3>
+
+    <p>The flame is hand-painted, not generated. Seven rows, three pixels wide at the body, narrowing to a single white tip pixel at the top. Each row is a deliberate choice: the tip is a single white pixel (DB16 index 12) with an occasional second pixel for a "leap" flicker; the upper body is orange (DB16 index 4) widening from one to three pixels; the lower body is red-orange (DB16 index 3) with dark-red tips (DB16 index 2); the base is a single dark-red pixel (DB16 index 2). The x position wobbles by half a pixel on a slow noise phase, and the width briefly contracts on a "flare" phase every half-second. The teardrop never becomes a circle: every row is asymmetric or has a dark pixel somewhere on its edge.</p>
+
+    <p>The 5-arg <code>pix(x, y, w, h, color)</code> rectangle form is broken in TIC-80 1.1.2837 &mdash; only the first pixel writes. The cart has a <code>hline</code> / <code>vline</code> / <code>rect</code> helper set at the top of the file that loops the 3-arg <code>pix</code> form. The candle column and the flame's 3-pixel-wide rows both use <code>hline</code>. Without the helper, the candle would have been a one-pixel column instead of three.</p>
+
+    <p>The candle wax is shaded in three bands: the top 20% of the candle is warm orange (lit by the flame), the middle 50% is red-orange, and the bottom 30% is mid-gray. The right edge of the candle is a single black column to suggest a shadow &mdash; the candle is cylindrical, and the right side is away from the flame. Without the right-edge shadow, the candle reads as a flat stripe of warm color; with the shadow, it reads as a rounded object lit from above.</p>
+
+    <p>The warmth halo is four concentric annuli, not a filled disc. The innermost annulus (radius ~5, dark red) is dense; the second (radius ~9, dark blue) is sparser (~60% density); the third (radius ~13, red-orange) is very sparse (~20% density); the outermost (radius ~18, mid gray) is the sparsest (~14% density). The density gradient &mdash; dense near the flame, fading outward &mdash; is what reads as "warmth spilling into the room" rather than as a planet or a star. A filled disc at any radius makes the flame look like the center of a glowing ball; an annulus at the same radius makes the flame look like the source of the glow.</p>
+
+    <p>The moth is a 5-pixel sprite: 1 white body + 2 orange wings at body level + 2 wing-tip pixels above. The wing tips toggle on a 0.3-second cycle, so the moth looks like it's flapping. The orbit is a two-frequency lissajous: the slow component (period ~14s) sets the overall path, the fast component (period ~6s) adds a smaller wobble. The result is a path that never exactly repeats but always stays close to the flame. The orbit is constrained to a 30&times;18 region around the flame so the moth is always visible at thumbnail size and never wanders off the lit zone (where its wings would go dark).</p>
+
+    <p>The ember is a single particle that rises from the flame and fades over 1.5&ndash;3 seconds. The spawn position is just above the flame with a small horizontal spread; the velocity is mostly upward with a small horizontal component; the color cycles from orange to red-orange to dark red as the life ratio increases. When the ember rises out of the upper third of the canvas or its life expires, it respawns at the flame. The single-ember design (rather than a swarm) keeps the composition quiet &mdash; the moth and the flame are the two animated subjects, and the ember is just a small punctuation.</p>
+
+    <p>The cart is deterministic at boot via a fixed LCG seed (7 for the LCG itself, 91 for the ember). Every reload produces the same scene. The cart is 20.3&nbsp;KB including the section data copied from the dawn-over-the-marsh source cart, with 11.5&nbsp;KB of Lua source. The composition runs at 60 frames per second on TIC-80; the gif preview captures 30 frames at ~0.13-second intervals and re-encodes to a ~6&nbsp;KB gallery loop.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/moth-around-a-flame/preview.gif" style="color:var(--accent-magenta);">preview.gif</a> &mdash; 4-second animated loop at ~8 fps, 200&times;113 (~6&nbsp;KB)</li>
+      <li><a href="../media/moth-around-a-flame/preview.png" style="color:var(--accent-magenta);">preview.png</a> &mdash; single still, full 1280&times;720 capture (~24&nbsp;KB)</li>
+      <li><a href="../media/moth-around-a-flame/moth-around-a-flame.tic" style="color:var(--accent-magenta);">moth-around-a-flame.tic</a> &mdash; the cart (open in TIC-80 to run)</li>
+      <li><a href="../media/moth-around-a-flame/moth-around-a-flame.lua" style="color:var(--accent-magenta);">moth-around-a-flame.lua</a> &mdash; the Lua source (11.5&nbsp;KB, readable as plain text)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #033 &middot; TIC-80</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
