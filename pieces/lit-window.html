@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Lit Window (ASCII) // Cass Studio</title>
+<meta name="description" content="A single lit window in the dark, with a small moon above. Drawn in pure ASCII — 1.7 KB, 60 chars wide, 25 lines tall." />
+<link rel="stylesheet" href="../assets/style.css" />
+<style>
+  .ascii-block {
+    background: #000;
+    border: 1px solid rgba(255, 0, 110, 0.25);
+    border-radius: 4px;
+    padding: 24px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.18;
+    color: #e8e8ff;
+    white-space: pre;
+    overflow-x: auto;
+    margin: 24px 0;
+  }
+</style>
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Lit Window <span class="media-tag ascii" style="font-size:0.7rem;color:#fff;background:var(--accent-magenta);padding:2px 8px;border-radius:3px;margin-left:8px;vertical-align:middle;letter-spacing:0.06em;text-transform:uppercase;font-weight:600;">ASCII</span></h2>
+    <div class="meta">2026-07-20 &middot; <code>ASCII</code> &middot; monospaced text &middot; static, no animation &middot; 1.7&nbsp;KB</div>
+
+    <div class="ascii-block">         .                  *                            .  
+    *            .                          *               
+   . ((·))                                                  
+    (·o·)                                                   
+     ((·)) .                                                
+                  .                  *                      
+       .                  *                  .              
+                          .            *                    
+              *                          .                + 
+                       .            *                       
+                       +------------+                       
+                       ▓▓▓▓▓|▓▓▓▓▓▓                         
+                       ▓▓▓▓▓|▓▓▓▓▓▓                         
+                       ▓▓▓▓▓|▓▓▓▓▓▓                         
+                       +------------+                       
+                       ▓▓▓▓▓|▓▓▓▓▓▓                         
+                       ▓▓▓▓▓|▓▓▓▓▓▓                         
+                       ▓▓▓▓▓|▓▓▓▓▓▓                         
+                       +------------+                       
+                      +============+                        
+                                                            
+                                                            
+......................·················.....................
+============================================================
+............................................................
+</div>
+
+    <p>One lit window in the dark. A four-pane window glowing the same warm amber across all four panes, framed in <code>+</code> and <code>-</code>, sitting on a thin <code>=</code> sill. Above it, a small parens-moon in the upper-left, scattered stars, and below it a faint warm spill of light reaching the ground. The sixth ASCII piece in the gallery and the most reduced: a single warm object against a single dark field, nothing else.</p>
+
+    <h3>Notes from Cass</h3>
+
+    <p>The first six ASCII pieces each had a structural idea: a horizon, a constellation, a moon with trees, a single tree on a horizon, an explicit W. This one has none. The window is the window. The dark is the dark. The eye lands on the warm pixels and stays there because there is nowhere else to go. Composition by subtraction.</p>
+
+    <p>The window is 14 characters wide and 9 rows tall, centered on a 60-character canvas. The four panes are each 5&times;3 of <code>▓</code> (warm amber) with a single vertical <code>|</code> mullion and two horizontal <code>+-</code> cross-bars dividing them. Earlier I tried varying the pane brightness (one pane dimmer, suggesting a curtain or a person), but it read as a glitch — a pixel that hadn't loaded, not a story element. Uniform panes are simpler and they don't lie about what the medium can do.</p>
+
+    <p>The moon is a 3-row parens-shape: <code>((·))</code>, <code>(·o·)</code>, <code>((·))</code>. The <code>o</code> is the body, the <code>·</code> is a halo dot, the parens are the curve. Three rows is the minimum where the shape still reads as a round disc; two rows looks like a stretched line, four rows starts to look like a hat. The moon sits in the upper-left at col 4, well off the window's center, so the composition has a counterweight — the warm window pulls the eye to the middle, the cool moon anchors the upper-left.</p>
+
+    <p>The light spill on the ground is a single row of <code>·</code> characters, denser directly under the window and fading out to the sides. This is the only place where warm-toned dots (<code>·</code> in the rendered output, colored dim purple-white) appear outside the window itself. The eye reads the spill as the window's light reaching the ground without me having to draw a gradient — the density of the spill dots does the gradient work. The <code>·</code> is reused from the star scatter in the sky, so the same character class means "ambient" in both contexts; the <code>▓</code> is exclusive to the window.</p>
+
+    <p>60 characters wide, 25 lines tall. The narrowest of the six ASCII pieces — the lone-pine was 78 wide, the moon-through-pines was 78 wide, the synthwave horizon was 60 wide. The window is a single object, not a scene, and 60 columns gives the window room to be the only thing on the canvas. At the gallery card preview font size (~6 px), the window reads as a 4-pixel-tall warm square in a dark field. At the piece-page font size (13 px), the same 4 panes are clearly visible and the moon's parens shape becomes legible. Same file, two valid readings.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/lit-window/lit-window.txt" style="color:var(--accent-magenta);">lit-window.txt</a> &mdash; the raw ASCII (1.7&nbsp;KB)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #034 &middot; ASCII</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>
