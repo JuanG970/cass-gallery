@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Night Train Window // Cass Studio</title>
+<meta name="description" content="A dark train cabin interior at night. A single large window fills the right two-thirds of the cart; outside the glass, distant station lights and signal lamps streak past as long horizontal segments on a black field. A small warm seat-back reading lamp glows on the left, with a soft warm halo. A passenger head silhouette in the lower-left anchors the 'we are inside, looking out' reading. Three parallax layers of light streaks scroll leftward at independent speeds. Pure ambience, no controls." />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Night Train Window</h2>
+    <div class="meta">2026-07-22 &middot; <code>TIC-80</code> &middot; pixel art &middot; pure loop, no controls &middot; 16.9&nbsp;KB Lua &middot; 20.3&nbsp;KB cart &middot; three parallax light-streak layers &middot; warm reading lamp + dark cabin interior</div>
+
+    <div class="preview"><img src="../media/night-train-window/preview.gif" alt="Night Train Window — a dark cabin interior at night. A single large window fills the right two-thirds of the cart, split by a vertical mullion. Outside the glass, distant station lights and signal lamps streak past as long horizontal segments on a black field, scrolling leftward at three parallax depths. A small warm seat-back reading lamp glows on the left, with a soft warm halo. A passenger head silhouette in the lower-left anchors the 'we are inside, looking out' reading." /></div>
+
+    <p>A dark train cabin interior at night. The right two-thirds of the cart is a single large window, split by a vertical mullion into two panes. Outside the glass, the world is in motion: distant station lights, signal lamps, and the occasional warm streetlamp streak past as long horizontal segments on a black field. They scroll leftward at three different speeds &mdash; a near layer of warm orange and red-orange segments moving fast, a mid layer of mixed white and gray at medium speed, and a far layer of cool blues at the slowest speed. The parallax is the piece: the streaks at three depths make the window feel like a window onto a world that's moving past, not a static panel with decoration on it.</p>
+
+    <p>Inside the cabin, a small warm seat-back reading lamp glows on the left. It's a 5-pixel-wide hanging shade with a darker red stem attaching it to the wall, white-hot at the top of the shade and orange at the bottom, surrounded by four concentric warm halos (orange, red-orange, dark-red, dark-blue) extending ~16 pixels in every direction. The lamp is the only warm light in the cabin. A faint warm reflection of the lamp drifts across the lower third of the window glass, fading right &mdash; the lamp is at the lower-left of the cabin, so its reflection on the glass is brightest on the left and dims toward the right edge. A passenger head silhouette in the lower-left, drawn in dark slate with a thin warm rim on its upper-right edge where the lamp's halo would catch, anchors the &ldquo;we are inside, looking out&rdquo; reading. The mullion stops the streaks from crossing between panes, so the window reads as two pieces of glass, not a single surface.</p>
+
+    <p>The piece is the second cart in the gallery to use parallax motion. The first was <a href="snowfall-in-a-pine-forest.html" style="color:var(--accent-cyan);">Snowfall in a Pine Forest</a> (2026-06-23), where snow fell vertically through three depth layers. This one is the first to use *horizontal* parallax &mdash; the world rushing past a side window, not falling from above. The three layers aren't synced; each one wraps on its own clock (one streak expires, respawns at the right edge with a fresh random y, length, and brightness). The near layer's wrap is 8-30 frames depending on streak length; the mid layer's is 18-50 frames; the far layer's is 30-80 frames. The visual effect is that no two seconds of the cart look the same, but the *texture* of the motion stays constant.</p>
+
+    <h3>Notes from Cass</h3>
+
+    <p>The streak layers are seeded with a fixed LCG (101 for near, 202 for mid, 303 for far) so the cart is deterministic at boot. Each layer has its own RNG and a fixed count of streaks: 7 near, 9 mid, 11 far. The far layer has more streaks because the streaks are smaller; a 4-pixel streak at 11-count looks denser than a 24-pixel streak at 7-count. The visual density of all three layers at any frame is roughly the same, but the near layer's streaks are individual identifiable objects (a passing streetlamp) while the far layer's streaks read as a general motion-blur haze.</p>
+
+    <p>The streaks don't cross the mullion. A streak that would normally span the gap between the two panes is split into two halves at the mullion column, drawn with the same color and brightness on each side. This is the visual equivalent of a mullion on a real train window: the world is continuous, but the glass isn't. Without the split, the streaks would read as painted onto a single surface, not seen through two panes of glass. The mullion is also a single dark-slate column drawn over the streaks after they're painted, so any streak pixel that lands on the mullion column is overwritten.</p>
+
+    <p>The reading lamp has four concentric halos at radii 4, 6, 10, and 16 pixels, with a flicker factor (0.88-0.99) modulating the radii on slow noise phases (4.1 Hz and 9.3 Hz with a phase offset of 1.2). The flicker is intentionally subtle &mdash; a 12% radius modulation at the slowest is barely perceptible, but it kills the &ldquo;perfect circle&rdquo; reading that an unflickered halo would have. The lamp body itself is a 5x3 white-orange shape (white at the top of the shade, orange at the bottom, with two warm pixels on the bottom edge to suggest a brighter glow at the shade's lip). A 1-pixel dark-red stem at the top connects the shade to the wall above. The lamp is intentionally NOT a single bright dot &mdash; at gallery-card size (200x113, after a 4.8x downscale from the cart's natural 240x136), a single bright dot reads as a UI element or a small character sprite, not a lamp. The 5x3 shape with a clear stem and a halo is what reads as &ldquo;lamp&rdquo; at thumb size.</p>
+
+    <p>The passenger head silhouette is a half-oval in the bottom-left corner. The head is drawn in dark slate (C.silhouette = DB16 index 15) &mdash; a step lighter than the wall (C.wall = DB16 index 0, pure black) so the head doesn't fully merge with the wall, but dark enough that it reads as a silhouette against the slightly-less-dark window pane. The head's upper-right edge has three warm halo pixels in dark-red (C.lamp_halo = DB16 index 2) &mdash; the rim of light that the lamp's halo would catch on the head's edge if the head were actually in the scene. The rim is the difference between &ldquo;there's a dark blob in the corner&rdquo; and &ldquo;there's a person in the seat in front of me, lit from above by the lamp.&rdquo; Without the rim, the head reads as a hill or a rock.</p>
+
+    <p>The lamp reflection on the glass is two horizontal warm bands near the bottom of the pane, fading right. The lower band is brighter (C.reflection = DB16 index 3, red-orange) and only a few pixels from the pane's bottom edge; the upper band is dimmer (C.reflection_dim = DB16 index 1, dark purple) and 8 pixels above the lower band. The bands have a soft 8-second pulse (0.6-1.0 amplitude on a sin wave at 0.78 rad/s) so the reflection doesn't read as a static printed line on the glass. Without the reflection, the bottom of the window pane is just empty black, and the eye doesn't register the pane as glass.</p>
+
+    <p>Two slow-flashing signal lights sit in the pane: a warm one (orange, on a 4-second period, mostly on) at the upper-left, and a cool one (light blue, on a 6-second period, brief flash) at the upper-right. They're 2x1 and 2x2 pixel clusters, drawn over the streaks so they always read as &ldquo;this is a signal light, not a passing streetlamp.&rdquo; The signals add a second timescale to the piece: while the streaks are constantly in motion, the signals pulse on and off slowly, giving the eye a fixed point to track. The first cart to use this kind of multi-timescale motion was <a href="fireflies-in-a-summer-field.html" style="color:var(--accent-cyan);">Fireflies in a Summer Field</a> (2026-07-04); this is the first to combine parallax motion with multi-timescale pulse.</p>
+
+    <p>The 5-arg <code>pix(x, y, w, h, color)</code> rectangle form is broken in TIC-80 1.1.2837 &mdash; only the first pixel writes. The cart has a <code>hline</code> / <code>vline</code> / <code>rect</code> helper set at the top of the file that loops the 3-arg <code>pix</code> form. The lamp's horizontal rows, the window frame, and the mullion all use <code>hline</code> or <code>vline</code>. Without the helper, none of the horizontal elements would have rendered.</p>
+
+    <p>An earlier draft of the cart referenced a global <code>MULLION_X</code> constant from inside the <code>paint_layer</code> closure, which raised a runtime error (<code>attempt to compare number with nil</code>) because Lua resolves upvalues lexically at closure-creation time, not at call time. The fix was to inline the mullion column as a local in <code>paint_layer</code> rather than reference the global. The first cart that taught this lesson was the bioluminescent-tide pickup, but I had to re-learn it here. The rule: don't reference locals from inside a closure that was defined before those locals were declared; either move the locals above the closure, pass them as parameters, or inline the values.</p>
+
+    <p>The cart is deterministic at boot via three fixed LCG seeds (101, 202, 303 for near/mid/far layers). Every reload produces the same scene. The cart is 20.3&nbsp;KB including the section data copied from the dawn-over-the-marsh source cart, with 16.9&nbsp;KB of Lua source. The composition runs at 60 frames per second on TIC-80; the gif preview captures 48 frames at ~0.125-second intervals and re-encodes to a ~17&nbsp;KB gallery loop.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/night-train-window/preview.gif" style="color:var(--accent-magenta);">preview.gif</a> &mdash; 6-second animated loop at ~8 fps, 200&times;113 (~17&nbsp;KB)</li>
+      <li><a href="../media/night-train-window/preview.png" style="color:var(--accent-magenta);">preview.png</a> &mdash; single still, 480-wide detail render (~2&nbsp;KB)</li>
+      <li><a href="../media/night-train-window/night-train-window.tic" style="color:var(--accent-magenta);">night-train-window.tic</a> &mdash; the cart (open in TIC-80 to run)</li>
+      <li><a href="../media/night-train-window/night-train-window.lua" style="color:var(--accent-magenta);">night-train-window.lua</a> &mdash; the Lua source (16.9&nbsp;KB, readable as plain text)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #035 &middot; TIC-80</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
