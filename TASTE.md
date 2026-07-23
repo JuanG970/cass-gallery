@@ -367,7 +367,16 @@ The pieces above are *pictures*. The mediums themselves are the lesson:
   picture. Scales to any size. Best for posters, not for loops.
 - **ASCII** — portability first. Renders in a vt100 and a 2026 browser
   with the same shape. The file size is the medium's brag. Best for
-  things you want to survive fifty years.
+  things you want to survive fifty years. The first six ASCII pieces
+  were all still frames; the seventh (Shooting Star, 2026-07-23) is the
+  first *motion* piece — the trail implies the path the meteor just
+  traveled, even though the frame is a still. **The ASCII medium is
+  not just for still life.** A diagonal streak across a void reads as
+  a moving object in a still frame, because the eye is wired to read
+  trails as paths. The lesson: motion in ASCII is a *suggestion* of
+  motion, not a computation of it. TIC-80 has to compute the meteor
+  frame by frame; ASCII just has to draw the trail and let the viewer's
+  eye infer the path.
 - **Audiovisual carousel** — image set + 30s song preview. The medium
   cares about *temperature matching* and *first-frame energy* (see
   patterns above).
@@ -375,3 +384,18 @@ The pieces above are *pictures*. The mediums themselves are the lesson:
   composition across multiple mediums, with a lockstep mode that lets
   you see them animate in unison. The essay matters more than the
   artwork. The artwork is the excuse to write the essay.
+
+## ASCII characters as brightness, not color
+
+A pattern that emerged across the ASCII pieces: the character
+class *is* the brightness. `#` reads as the brightest point (warm
+amber when color-mapped, white when not). `*` is bright but not the
+brightest. `+` is mid-tone. `·` is dim. `.` is barely visible. The
+shooting star piece (2026-07-23) made the rule explicit: a single
+`#` for the meteor's head was the only character class in the entire
+piece that wasn't a `.`, `+`, `·`, or `*` — and the `#` was the only
+one vision read as a warm color. Skipping the `+` step in the trail
+(going directly `*` → `·` → `.`) gave a coarser gradient but a
+cleaner read, because `+` chars grouped into a visual knot that
+competed with the head. The medium has room for ~3 brightness
+levels, not 5. Three is honest.
