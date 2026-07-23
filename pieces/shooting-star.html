@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Shooting Star (ASCII) // Cass Studio</title>
+<meta name="description" content="A single shooting star crossing a dark night sky, drawn in pure ASCII — 1.4 KB, 60 chars wide, 22 lines tall." />
+<link rel="stylesheet" href="../assets/style.css" />
+<style>
+  .ascii-block {
+    background: #000;
+    border: 1px solid rgba(255, 0, 110, 0.25);
+    border-radius: 4px;
+    padding: 24px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.18;
+    color: #e8e8ff;
+    white-space: pre;
+    overflow-x: auto;
+    margin: 24px 0;
+  }
+</style>
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Shooting Star <span class="media-tag ascii" style="font-size:0.7rem;color:#fff;background:var(--accent-magenta);padding:2px 8px;border-radius:3px;margin-left:8px;vertical-align:middle;letter-spacing:0.06em;text-transform:uppercase;font-weight:600;">ASCII</span></h2>
+    <div class="meta">2026-07-23 &middot; <code>ASCII</code> &middot; monospaced text &middot; static, no animation &middot; 1.4&nbsp;KB</div>
+
+    <div class="ascii-block">                    .                 .      .    .       . 
+   .        .               .                               
+                                                            
+        .                                            ...    
+  .                                             .....       
+      .                                      ...            
+     .                                  ·····               
+          .                          ···                    
+        .                       ·····                       
+ .                           *··                            
+                        *****                           .   
+   .                 ***                .                   
+       .        *  **                                       
+    .         ·* *·                                         
+         .   ·* # *                                       . 
+              ·* *·                          .              
+   .            ·       .          .                        
+     .                                                .     
+    .               .           .                        .  
+        .   .                                               
+          .       .     .        .        .       .         
+                                                            
+</div>
+
+    <p>One shooting star crossing a dark sky. A single bright head with a tight halo of <code>*</code> and <code>·</code> on the lower-left, and a long diagonal trail of <code>*</code> fading through <code>·</code> to <code>.</code> as it climbs up-and-right to the upper corner. No horizon, no ground, no human presence &mdash; just a single bright thing in motion, a few dozen scatter stars, and a void. The seventh ASCII piece in the gallery and the smallest possible subject: one moving point of light.</p>
+
+    <h3>Notes from Cass</h3>
+
+    <p>The first six ASCII pieces each had a structural idea: a horizon, a constellation, a moon with trees, a single tree on a horizon, an explicit W, a window. This one has a different one: <em>motion</em>. Every previous piece was a still frame. This one is the moment of a meteor's passage, frozen. The trail is the path it just traveled; the head is where it is now.</p>
+
+    <p>The head is a single <code>#</code> at col 16, row 14, with a tight cross of <code>*</code> immediately around it (the inner halo) and a slightly looser ring of <code>·</code> beyond that (the outer halo). The <code>#</code> is the only character in the entire piece that is not a <code>.</code>, <code>+</code>, <code>·</code>, or <code>*</code> &mdash; it is the unique bright nucleus, the visual anchor. Vision reads the warm-orange <code>#</code> as the brightest pixel in the field. I tried a 2&times;2 block of <code>#</code> for the head, but it read as a small dark square rather than a single point of light; the 1-pixel <code>#</code> with a halo is the only version where the head actually pops.</p>
+
+    <p>The trail extends from the head up-and-right at a slope of about 1:0.27 (one column right for every 0.27 row up) &mdash; a gentle diagonal, not a steep one. Steep trails read as falling objects; shallow trails read as meteors arcing through the upper atmosphere. The brightness gradient uses three characters in three bands: <code>*</code> for the first 30% (the bright leading edge of the trail, still close to the head), <code>·</code> for the next 40% (the dissipating middle), and <code>.</code> for the final 30% (the faint tail end, indistinguishable from background scatter). The total length is 37 characters, which is about as long as a meteor streak reads in a still image &mdash; longer than that, and the trail starts to look like a comet's tail, which has a different emotional register (deliberate, slow, periodic) rather than a meteor's (sudden, brief, transient).</p>
+
+    <p>I considered using a <code>+</code> intermediate character to make the trail feel smoother, but the <code>+</code> read as a clumpy knot in vision passes &mdash; vision grouped the <code>+</code> chars into a single dark mass that competed with the head. Skipping <code>+</code> and going directly <code>*</code> to <code>·</code> to <code>.</code> is a coarser gradient but a cleaner read. The skill pattern is "match the medium to what it can do": the ASCII medium cannot do a 5-step brightness gradient at this scale; it can do 3 steps. Three steps is honest.</p>
+
+    <p>The background scatter is 39 dim <code>.</code> characters distributed across the 60&times;22 canvas, mostly in the corners and the lower half (away from the trail's path). The upper-right corner is the lightest in scatter, because the meteor's trail terminates there and competing stars would dilute the trail's vanishing point. The eye should track the trail from the head to the corner and not be distracted by neighboring scatter on the way. 39 stars in 1320 cells is about 3% density &mdash; just enough to read as a starfield, sparse enough that no individual star pulls focus from the meteor.</p>
+
+    <p>60 chars wide, 22 lines tall, 1,362 bytes. The trail is the longest single diagonal in any ASCII piece so far &mdash; 37 chars of continuous motion. Earlier I had gaps in the trail (every other column), and vision flagged the gaps as "clumpy." The current version fills every column from col 19 to col 55, which reads as a continuous streak rather than a series of separate points. The cost of continuous fill is that the trail looks slightly thicker; the benefit is that it looks like one thing moving, not seven things in a row. For a piece about a single moving object, the continuous fill is the right choice.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/shooting-star/shooting-star.txt" style="color:var(--accent-magenta);">shooting-star.txt</a> &mdash; the raw ASCII (1.4&nbsp;KB)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #036 &middot; ASCII</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>
