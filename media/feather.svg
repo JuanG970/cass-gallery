@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <defs>
+    <!-- The feather barbs: a soft warm gradient, slightly cooler at the tip -->
+    <linearGradient id="feather-barb" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#e8d4a8"/>
+      <stop offset="40%" stop-color="#c8a878"/>
+      <stop offset="100%" stop-color="#5a3818"/>
+    </linearGradient>
+    <!-- The shaft (rachis): a pale, slightly tapered line -->
+    <linearGradient id="feather-shaft" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#f8f0d8"/>
+      <stop offset="50%" stop-color="#d8c098"/>
+      <stop offset="100%" stop-color="#8a6840"/>
+    </linearGradient>
+    <!-- The faint halo around the feather: very subtle warm wash -->
+    <radialGradient id="feather-halo" cx="50%" cy="50%" r="65%">
+      <stop offset="0%"  stop-color="#a08868" stop-opacity="0.12"/>
+      <stop offset="55%" stop-color="#5a3818" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#5a3818" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- dark field, with a very subtle warm wash centered on the feather -->
+  <rect x="0" y="0" width="240" height="240" fill="#0a0e27"/>
+  <ellipse cx="120" cy="120" rx="115" ry="115" fill="url(#feather-halo)"/>
+
+  <!-- the feather. Tilted 22 degrees clockwise.
+       Design: a more symmetric feather vane. The asymmetry is now SUBTLE
+       (right side barbs about 80% as long as left), not extreme. The
+       barbs are denser overall so the vane reads as a continuous surface
+       rather than a skeleton. -->
+  <g transform="rotate(-22 120 120)">
+
+    <!-- LEFT-SIDE barbs (fuller) -->
+    <g stroke="url(#feather-barb)" stroke-width="1.1" fill="none" stroke-linecap="round" opacity="0.88">
+      <path d="M 120 12 Q 113 12 102 12"/>
+      <path d="M 120 18 Q 110 18 96 18"/>
+      <path d="M 120 24 Q 106 24 88 24"/>
+      <path d="M 120 30 Q 102 30 80 30"/>
+      <path d="M 120 36 Q 100 36 76 38"/>
+      <path d="M 120 44 Q 100 44 76 46"/>
+      <path d="M 120 52 Q 100 52 74 54"/>
+      <path d="M 120 60 Q 100 60 72 62"/>
+      <path d="M 120 68 Q 100 68 70 70"/>
+      <path d="M 120 76 Q 100 76 68 78"/>
+      <path d="M 120 84 Q 100 84 66 86"/>
+      <path d="M 120 92 Q 100 92 64 94"/>
+      <path d="M 120 100 Q 100 100 64 102"/>
+      <path d="M 120 108 Q 100 108 66 110"/>
+      <path d="M 120 116 Q 100 116 68 118"/>
+      <path d="M 120 124 Q 100 124 72 126"/>
+      <path d="M 120 132 Q 100 132 76 134"/>
+      <path d="M 120 140 Q 100 140 80 142"/>
+      <path d="M 120 148 Q 100 148 84 150"/>
+      <path d="M 120 156 Q 102 156 88 158"/>
+      <path d="M 120 164 Q 104 164 92 166"/>
+      <path d="M 120 172 Q 108 172 96 174"/>
+      <path d="M 120 180 Q 114 180 102 182"/>
+      <path d="M 120 188 Q 118 188 108 190"/>
+    </g>
+
+    <!-- RIGHT-SIDE barbs (denser, only slightly shorter than left) -->
+    <g stroke="url(#feather-barb)" stroke-width="1.1" fill="none" stroke-linecap="round" opacity="0.88">
+      <path d="M 120 14 Q 124 14 132 14"/>
+      <path d="M 120 20 Q 126 20 134 20"/>
+      <path d="M 120 26 Q 128 26 138 26"/>
+      <path d="M 120 32 Q 130 32 142 32"/>
+      <path d="M 120 38 Q 132 38 144 38"/>
+      <path d="M 120 46 Q 134 46 148 46"/>
+      <path d="M 120 54 Q 136 54 152 54"/>
+      <path d="M 120 62 Q 138 62 156 62"/>
+      <path d="M 120 70 Q 140 70 160 70"/>
+      <path d="M 120 78 Q 142 78 162 78"/>
+      <path d="M 120 86 Q 144 86 162 86"/>
+      <path d="M 120 94 Q 144 94 162 94"/>
+      <path d="M 120 102 Q 144 102 162 102"/>
+      <path d="M 120 110 Q 144 110 162 110"/>
+      <path d="M 120 118 Q 144 118 162 118"/>
+      <path d="M 120 126 Q 144 126 160 126"/>
+      <path d="M 120 134 Q 142 134 158 134"/>
+      <path d="M 120 142 Q 140 142 154 142"/>
+      <path d="M 120 150 Q 138 150 150 150"/>
+      <path d="M 120 158 Q 136 158 146 158"/>
+      <path d="M 120 166 Q 134 166 144 166"/>
+      <path d="M 120 174 Q 130 174 140 174"/>
+      <path d="M 120 182 Q 128 182 136 182"/>
+    </g>
+
+    <!-- additional finer barbs (very thin) layered on top to suggest barbules
+         and add density to both sides. -->
+    <g stroke="#f0e0b8" stroke-width="0.5" fill="none" stroke-linecap="round" opacity="0.50">
+      <!-- left side, between the main barbs -->
+      <path d="M 120 26 Q 108 26 96 26"/>
+      <path d="M 120 40 Q 100 40 80 42"/>
+      <path d="M 120 56 Q 100 56 78 58"/>
+      <path d="M 120 72 Q 100 72 70 74"/>
+      <path d="M 120 88 Q 100 88 64 90"/>
+      <path d="M 120 104 Q 100 104 64 106"/>
+      <path d="M 120 120 Q 100 120 70 122"/>
+      <path d="M 120 136 Q 100 136 78 138"/>
+      <path d="M 120 152 Q 102 152 86 154"/>
+      <path d="M 120 168 Q 106 168 92 170"/>
+      <!-- right side, between the main barbs -->
+      <path d="M 120 28 Q 128 28 138 28"/>
+      <path d="M 120 42 Q 132 42 146 42"/>
+      <path d="M 120 58 Q 136 58 154 58"/>
+      <path d="M 120 74 Q 140 74 158 74"/>
+      <path d="M 120 90 Q 144 90 160 90"/>
+      <path d="M 120 106 Q 144 106 160 106"/>
+      <path d="M 120 122 Q 144 122 158 122"/>
+      <path d="M 120 138 Q 142 138 154 138"/>
+      <path d="M 120 154 Q 138 154 148 154"/>
+      <path d="M 120 170 Q 132 170 142 170"/>
+    </g>
+
+    <!-- the rachis (shaft): a thin, slightly curved line from the tip down to the base. -->
+    <path d="M 121 6
+             C 122 60 122 130 121 196"
+          fill="none"
+          stroke="url(#feather-shaft)"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          opacity="0.95"/>
+
+    <!-- the calamus (quill) — a small darker extension below the barbs -->
+    <line x1="121" y1="196" x2="121" y2="220"
+          stroke="#3a2410" stroke-width="2.0" stroke-linecap="round" opacity="0.90"/>
+
+    <!-- the tip glint: a tiny bright point at the very top of the feather -->
+    <circle cx="121" cy="6" r="2.0" fill="#ffffff" opacity="0.95"/>
+    <!-- and a softer halo around the glint -->
+    <circle cx="121" cy="6" r="5" fill="#f4ecd8" opacity="0.22"/>
+
+  </g>
+
+  <!-- a few very faint warm dust motes in the dark field,
+       suggesting the feather is suspended in a quiet, still air. -->
+  <circle cx="22" cy="40" r="0.6" fill="#f4ecd8" opacity="0.25"/>
+  <circle cx="220" cy="200" r="0.5" fill="#f4ecd8" opacity="0.22"/>
+  <circle cx="14" cy="180" r="0.5" fill="#f4ecd8" opacity="0.18"/>
+  <circle cx="226" cy="34" r="0.4" fill="#f4ecd8" opacity="0.20"/>
+</svg>
