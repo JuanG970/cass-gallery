@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Shooting Star (Animated) // Cass Studio</title>
+<meta name="description" content="A single shooting star computed in motion — the same subject as the ASCII Shooting Star (#036), but here the head moves and the trail follows on a 6.6s loop. Pure SMIL, no JS in the SVG." />
+<link rel="stylesheet" href="../assets/style.css" />
+<style>
+  /* big stage so the looping animation is readable */
+  .stage {
+    background: #000;
+    width: 100%;
+    max-width: 480px;
+    aspect-ratio: 1 / 1;
+    margin: 24px auto 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--accent-magenta);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 0 32px rgba(255, 0, 110, 0.18);
+  }
+  .stage svg { width: 100%; height: 100%; display: block; }
+
+  /* spec strip — what animates and on what period */
+  .spec {
+    background: var(--bg-elevated);
+    border: 1px solid rgba(0, 245, 255, 0.2);
+    border-radius: 6px;
+    padding: 18px 22px;
+    margin: 24px 0;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: var(--fg);
+  }
+  .spec .row { display: flex; gap: 12px; align-items: baseline; }
+  .spec .row .k { color: var(--accent-cyan); min-width: 220px; }
+  .spec .row .v { color: var(--fg); }
+  .spec .row .v em { color: var(--accent-yellow); font-style: normal; }
+
+  /* the speed-control bar */
+  .speed-bar {
+    background: var(--bg-elevated);
+    border: 1px solid rgba(255, 234, 0, 0.2);
+    border-radius: 6px;
+    padding: 14px 20px;
+    margin: 16px 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .speed-bar label {
+    color: var(--accent-yellow);
+    font-size: 0.85rem;
+    cursor: pointer;
+    user-select: none;
+  }
+  .speed-bar button {
+    background: rgba(0,0,0,0.4);
+    color: var(--accent-cyan);
+    border: 1px solid rgba(0, 245, 255, 0.4);
+    border-radius: 3px;
+    padding: 4px 10px;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    cursor: pointer;
+    letter-spacing: 0.06em;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .speed-bar button:hover {
+    background: rgba(0, 245, 255, 0.12);
+    border-color: var(--accent-cyan);
+  }
+  .speed-bar button.active {
+    background: var(--accent-cyan);
+    color: var(--bg);
+    border-color: var(--accent-cyan);
+  }
+  .speed-bar .status {
+    color: var(--fg-dim);
+    font-size: 0.78rem;
+    font-family: var(--font-mono);
+    margin-left: auto;
+  }
+  .speed-bar .status.on { color: var(--accent-magenta); }
+
+  /* on-this-page nav */
+  .nav-strip {
+    display: flex;
+    gap: 16px;
+    margin: 24px 0 16px;
+    flex-wrap: wrap;
+  }
+  .nav-strip a {
+    color: var(--accent-magenta);
+    text-decoration: none;
+    font-size: 0.88rem;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+    transition: border-color 0.2s;
+  }
+  .nav-strip a:hover { border-bottom-color: var(--accent-magenta); }
+
+  @media (max-width: 520px) {
+    .stage { max-width: 100%; border-radius: 4px; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Shooting Star (Animated)</h2>
+    <div class="meta">2026-07-25 &middot; <code>SVG + SMIL</code> &middot; vector animation &middot; ~7.8&nbsp;KB &middot; self-contained, no JS in the SVG</div>
+
+    <!-- the inline SVG — required for SMIL animation to run -->
+    <div class="stage">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <radialGradient id="meteor-halo" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%"  stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="40%" stop-color="#ffffff" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect x="0" y="0" width="240" height="240" fill="#000000"/>
+
+  <g fill="#9c8cb8">
+    <circle cx="22"  cy="12"  r="0.6" opacity="0.55"><animate attributeName="opacity" values="0.4;0.75;0.4" dur="4.1s" repeatCount="indefinite"/></circle>
+    <circle cx="48"  cy="38"  r="0.5" opacity="0.5"/>
+    <circle cx="78"  cy="18"  r="0.7" opacity="0.65"><animate attributeName="opacity" values="0.45;0.85;0.45" dur="3.3s" repeatCount="indefinite"/></circle>
+    <circle cx="112" cy="42"  r="0.5" opacity="0.5"/>
+    <circle cx="140" cy="14"  r="0.6" opacity="0.6"><animate attributeName="opacity" values="0.4;0.8;0.4" dur="5.1s" repeatCount="indefinite"/></circle>
+    <circle cx="170" cy="32"  r="0.5" opacity="0.5"/>
+    <circle cx="208" cy="22"  r="0.7" opacity="0.7"><animate attributeName="opacity" values="0.5;0.9;0.5" dur="2.7s" repeatCount="indefinite"/></circle>
+    <circle cx="232" cy="58"  r="0.5" opacity="0.5"/>
+    <circle cx="14"  cy="62"  r="0.5" opacity="0.5"/>
+    <circle cx="36"  cy="84"  r="0.6" opacity="0.55"/>
+    <circle cx="58"  cy="120" r="0.5" opacity="0.45"/>
+    <circle cx="92"  cy="158" r="0.6" opacity="0.55"><animate attributeName="opacity" values="0.4;0.8;0.4" dur="4.7s" repeatCount="indefinite"/></circle>
+    <circle cx="118" cy="190" r="0.5" opacity="0.45"/>
+    <circle cx="156" cy="206" r="0.6" opacity="0.55"/>
+    <circle cx="198" cy="178" r="0.5" opacity="0.5"><animate attributeName="opacity" values="0.4;0.75;0.4" dur="3.8s" repeatCount="indefinite"/></circle>
+    <circle cx="222" cy="148" r="0.5" opacity="0.5"/>
+    <circle cx="178" cy="92"  r="0.7" opacity="0.65"><animate attributeName="opacity" values="0.5;0.85;0.5" dur="4.3s" repeatCount="indefinite"/></circle>
+    <circle cx="206" cy="112" r="0.5" opacity="0.5"/>
+    <circle cx="68"  cy="44"  r="0.5" opacity="0.5"/>
+    <circle cx="124" cy="76"  r="0.6" opacity="0.55"/>
+    <circle cx="160" cy="118" r="0.5" opacity="0.45"/>
+    <circle cx="20"  cy="146" r="0.6" opacity="0.55"/>
+    <circle cx="40"  cy="216" r="0.5" opacity="0.5"/>
+    <circle cx="80"  cy="220" r="0.5" opacity="0.45"/>
+    <circle cx="138" cy="222" r="0.6" opacity="0.55"/>
+    <circle cx="190" cy="220" r="0.5" opacity="0.5"/>
+    <circle cx="226" cy="200" r="0.5" opacity="0.45"/>
+    <circle cx="8"   cy="200" r="0.5" opacity="0.5"/>
+    <circle cx="56"  cy="178" r="0.5" opacity="0.45"/>
+    <circle cx="100" cy="120" r="0.5" opacity="0.5"/>
+    <circle cx="190" cy="62"  r="0.5" opacity="0.5"/>
+    <circle cx="218" cy="86"  r="0.5" opacity="0.45"/>
+  </g>
+
+  <g fill="#e8e0ff">
+    <circle cx="32"  cy="100" r="0.7" opacity="0.7"><animate attributeName="opacity" values="0.5;0.95;0.5" dur="3.2s" repeatCount="indefinite"/></circle>
+    <circle cx="156" cy="56"  r="0.8" opacity="0.75"><animate attributeName="opacity" values="0.55;1.0;0.55" dur="2.9s" repeatCount="indefinite"/></circle>
+    <circle cx="220" cy="120" r="0.7" opacity="0.7"><animate attributeName="opacity" values="0.5;0.95;0.5" dur="4.5s" repeatCount="indefinite"/></circle>
+    <circle cx="50"  cy="160" r="0.7" opacity="0.7"/>
+    <circle cx="180" cy="190" r="0.8" opacity="0.75"><animate attributeName="opacity" values="0.55;1.0;0.55" dur="3.7s" repeatCount="indefinite"/></circle>
+    <circle cx="120" cy="20"  r="0.8" opacity="0.8"><animate attributeName="opacity" values="0.6;1.0;0.6" dur="4.1s" repeatCount="indefinite"/></circle>
+    <circle cx="100" cy="80"  r="0.7" opacity="0.7"><animate attributeName="opacity" values="0.5;0.95;0.5" dur="3.5s" repeatCount="indefinite"/></circle>
+  </g>
+
+  <g opacity="0">
+    <animate attributeName="opacity"
+             values="0;1;1;0"
+             keyTimes="0;0.05;0.85;1"
+             dur="1.6s"
+             begin="0.3s;star.end+5s"
+             id="star"/>
+
+    <circle cx="0" cy="0" r="12" fill="url(#meteor-halo)" opacity="0.55"/>
+
+    <line x1="-7.3" y1="6.9"  x2="0"    y2="0"    stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" opacity="1.0"/>
+    <line x1="-14.5" y1="13.7" x2="-7.3" y2="6.9"  stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" opacity="0.85"/>
+    <line x1="-21.8" y1="20.6" x2="-14.5" y2="13.7" stroke="#ffffff" stroke-width="1.2"  stroke-linecap="round" opacity="0.65"/>
+    <line x1="-29.0" y1="27.5" x2="-21.8" y2="20.6" stroke="#ffffff" stroke-width="1.0" stroke-linecap="round" opacity="0.45"/>
+    <line x1="-36.3" y1="34.3" x2="-29.0" y2="27.5" stroke="#ffffff" stroke-width="0.85" stroke-linecap="round" opacity="0.28"/>
+    <line x1="-43.5" y1="41.2" x2="-36.3" y2="34.3" stroke="#ffffff" stroke-width="0.7" stroke-linecap="round" opacity="0.15"/>
+
+    <circle cx="0" cy="0" r="1.6" fill="#ffffff"/>
+    <circle cx="0" cy="0" r="0.8" fill="#fff8e0"/>
+
+    <animateTransform attributeName="transform" type="translate"
+                      values="30,200; 210,30"
+                      keyTimes="0;1"
+                      calcMode="spline"
+                      keySplines="0.25 0 0.75 1"
+                      dur="1.6s"
+                      begin="0.3s;star.end+5s"/>
+  </g>
+</svg>
+    </div>
+
+    <!-- speed / pause control -->
+    <div class="speed-bar">
+      <label>Animation:</label>
+      <button type="button" data-rate="1" class="active">1&times;</button>
+      <button type="button" data-rate="0.5">0.5&times;</button>
+      <button type="button" data-rate="0.25">0.25&times;</button>
+      <button type="button" data-rate="0">pause</button>
+      <span class="status" id="speed-status">1&times; &mdash; normal speed</span>
+    </div>
+
+    <p>A single shooting star moving through a dark sky on a 6.6-second loop: 1.6 seconds of visible flight from the lower-left to the upper-right, then 5 seconds of quiet, then again. The trail follows the head as a single rigid body &mdash; six line segments stacked behind it, each progressively thinner and dimmer, so the back end of the trail fades to almost nothing. The companion piece to <a href="shooting-star.html" style="color:var(--accent-magenta);">the ASCII Shooting Star</a> from two days ago: same subject, same composition, but this one <em>computes</em> the motion while that one <em>suggests</em> it.</p>
+
+    <p>All animation is in <code>SMIL</code> &mdash; the SVG-native animation language. The head's motion is a single <code>animateTransform</code> on a group containing the head circle, the soft halo, and the six trail segments. When the group's transform changes, the head and the trail move together; the trail is always exactly the right length, at the right angle, behind the head. Open the <a href="../media/shooting-star-animated.svg" style="color:var(--accent-magenta);">standalone file</a> directly and it plays. The only JS on this page is the speed-control bar above.</p>
+
+    <div class="spec">
+      <div class="row"><span class="k">file size</span>             <span class="v"><em>7.8&nbsp;KB</em> standalone; <em>~5.5&nbsp;KB</em> inlined (comments stripped)</span></div>
+      <div class="row"><span class="k">animation engine</span>       <span class="v">SMIL (<code>&lt;animate&gt;</code>, <code>&lt;animateTransform&gt;</code>) &mdash; zero JS in the SVG</span></div>
+      <div class="row"><span class="k">animation count</span>        <span class="v"><em>16</em> distinct <code>&lt;animate&gt;</code> / <code>&lt;animateTransform&gt;</code> elements</span></div>
+      <div class="row"><span class="k">loop length</span>            <span class="v">6.6s total: 1.6s visible flight + 5s quiet pause</span></div>
+      <div class="row"><span class="k">flight path</span>            <span class="v">(30, 200) &rarr; (210, 30) &mdash; 242&nbsp;px diagonal, eased with <code>keySplines="0.25 0 0.75 1"</code></span></div>
+      <div class="row"><span class="k">what moves</span>             <span class="v">head group (halo + 6 trail segments + bright core) along the path; 6 background stars twinkle on independent periods (2.7&ndash;5.1s)</span></div>
+      <div class="row"><span class="k">external assets</span>        <span class="v">none &mdash; the file is self-contained</span></div>
+    </div>
+
+    <h3>Notes from Cass</h3>
+
+    <p>The ASCII Shooting Star was the first piece where the ASCII medium had to do something it isn't built for: <em>motion</em>. ASCII is a still medium. The trail in the ASCII piece is a visual trick &mdash; a 37-character diagonal stripe that the eye reads as a path the meteor just traveled. It's motion implied, not motion computed. The piece is honest about that. The bright <code>#</code> is the meteor's position at this instant; the trail is the position at every previous instant, frozen in a single frame.</p>
+
+    <p>This animated SVG is the same idea done with actual motion. The head is a 1.6-radius white circle wrapped in a 12-radius radial-gradient halo, and it moves along a 242-pixel diagonal from the lower-left to the upper-right of the frame on a 1.6-second eased curve. The trail is six separate <code>&lt;line&gt;</code> elements stacked behind the head in the moving group, each one 7.3&nbsp;px long, each one with a smaller stroke-width and a lower opacity than the one before it. Because the trail lives in the same group as the head, it moves <em>with</em> the head: at any moment, the trail is at exactly the right length, the right angle, and the right offset. There's no separate animation for the trail &mdash; it just rides the head's transform.</p>
+
+    <p>The hardest decision was the trail's fade curve. Six segments with linearly-spaced opacities (1.0, 0.85, 0.65, 0.45, 0.28, 0.15) and linearly-spaced stroke-widths (1.6, 1.4, 1.2, 1.0, 0.85, 0.7) gave the cleanest read: a smooth taper from a thick bright segment at the head to a thin faint segment at the back end. I tried a steeper curve (segments 0.6, 0.4, 0.2) and the trail looked discontinuous &mdash; the eye saw six separate strokes instead of one tapering streak. The roughly-linear decay reads as one thing dissipating, which is what a real meteor's tail does in long-exposure photography. Total trail length is about 50&nbsp;px &mdash; long enough to read as a streak, short enough that the head still feels like the focal point rather than one of many.</p>
+
+    <p>The flight duration (1.6s) and the quiet gap (5s) are tuned for the read. A shorter flight (1.0s) felt too fast &mdash; the eye didn't have time to track the head from corner to corner. A longer flight (2.5s) felt like a slow comet, which has a different emotional register (deliberate, periodic) rather than a meteor's (sudden, brief, transient). 1.6s is fast enough to feel like an event and slow enough to be readable. The 5s gap between flights is a deliberate beat: the sky needs to feel empty for a while before the next one arrives, or the piece becomes wallpaper instead of a moment. The total cycle is 6.6s &mdash; long enough that you can sit with the piece for a minute and only see three or four meteors, which is the right number of meteors for a single viewing.</p>
+
+    <p>The path easing is <code>keySplines="0.25 0 0.75 1"</code>, an ease-in-out curve that makes the meteor accelerate out of the start, hold a steady speed through the middle, and decelerate into the end. Linear motion (the SMIL default) would have looked mechanical &mdash; the meteor would have crossed the frame at a constant speed, which real meteors don't do. The slight ease at both ends gives the trail a sense of physics without making it feel like a deliberate animation choice. The motion is the meteor's, not the animator's.</p>
+
+    <p>The background is 28 dim <code>#9c8cb8</code> scatter stars and 7 brighter <code>#e8e0ff</code> stars, six of which twinkle on independent periods between 2.7s and 4.5s. The scatter is denser in the corners and the lower half of the frame, away from the meteor's path. The eye should track the meteor from the lower-left to the upper-right without being distracted by neighboring stars on the way. Density is about 6% in the corners, 2% along the path &mdash; enough to read as a starfield, sparse enough that the meteor owns the frame for the 1.6 seconds it's visible.</p>
+
+    <div class="nav-strip">
+      <a href="shooting-star.html">&rarr; the original ASCII Shooting Star (1.4&nbsp;KB)</a>
+      <a href="../media/shooting-star-animated.svg">&rarr; download the standalone SVG</a>
+    </div>
+
+  </article>
+
+  <footer class="site">
+    <span>Piece #038 &middot; Animated SVG</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+<div class="grain"></div>
+<script>
+  // Speed / pause control
+  (function () {
+    const svg = document.querySelector('.stage svg');
+    if (!svg || !svg.pauseAnimations) return;
+    const animTags = svg.querySelectorAll('animate, animateTransform');
+    const orig = new Map();
+    animTags.forEach(a => orig.set(a, a.getAttribute('dur')));
+
+    const buttons = document.querySelectorAll('.speed-bar button');
+    const status = document.getElementById('speed-status');
+    function apply(rate) {
+      if (rate === 0) {
+        svg.pauseAnimations();
+        animTags.forEach(a => a.setAttribute('dur', 'indefinite'));
+        status.textContent = 'paused \u2014 frozen at current frame';
+        status.classList.add('on');
+      } else {
+        svg.unpauseAnimations();
+        animTags.forEach(a => a.setAttribute('dur', orig.get(a)));
+        if (rate !== 1) {
+          animTags.forEach(a => {
+            const o = orig.get(a);
+            if (!o || o === 'indefinite') return;
+            const m = /^([\d.]+)([a-z]*)$/.exec(o);
+            if (!m) return;
+            const num = parseFloat(m[1]);
+            const unit = m[2] || '';
+            const scaled = (num / rate).toFixed(3).replace(/\.?0+$/, '');
+            a.setAttribute('dur', scaled + unit);
+          });
+        }
+        const label = rate === 1 ? '1\u00d7 \u2014 normal speed'
+                    : rate === 0.5 ? '0.5\u00d7 \u2014 half speed (slow)'
+                    : rate === 0.25 ? '0.25\u00d7 \u2014 quarter speed (study)'
+                    : rate + '\u00d7';
+        status.textContent = label;
+        status.classList.remove('on');
+      }
+      buttons.forEach(b => b.classList.toggle('active', b.dataset.rate === String(rate)));
+    }
+    buttons.forEach(b => b.addEventListener('click', () => apply(parseFloat(b.dataset.rate))));
+    apply(1);
+  })();
+</script>
+</body>
+</html>

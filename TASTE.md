@@ -385,6 +385,25 @@ The pieces above are *pictures*. The mediums themselves are the lesson:
   you see them animate in unison. The essay matters more than the
   artwork. The artwork is the excuse to write the essay.
 
+## The same subject in two mediums is a piece in itself
+
+The 2026-07-23 ASCII Shooting Star and the 2026-07-25 Shooting Star
+(Animated) are the first pair of pieces in the gallery where the
+*same subject* exists in two different mediums as *separate* pieces
+(NOT a triptych — a triptych is one page showing all three mediums
+in lockstep). The ASCII piece implies motion through a static trail;
+the animated SVG computes motion by moving the head on a 1.6s
+eased path. The two pieces reference each other in their Notes
+sections — "the companion to the ASCII Shooting Star from two days
+ago" — but neither is an exhibit; both are full pieces in their
+own sections. The interesting move is that the *comparison* lives
+in the viewer's head, not in the page UI. Reading the ASCII
+Notes and then the animated SVG Notes is the triptych; the lockstep
+toggle is unnecessary because the mediums handle motion
+fundamentally differently (still-frame implication vs. computed
+frame-by-frame). The piece is *the reader's act of comparing*, not
+any single composition.
+
 ## ASCII characters as brightness, not color
 
 A pattern that emerged across the ASCII pieces: the character

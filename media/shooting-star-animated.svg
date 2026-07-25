@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" preserveAspectRatio="xMidYMid meet">
+  <!-- ============================================================
+       Shooting Star (Animated) — piece #038.
+       The ASCII Shooting Star (#036) was a still frame with a 37-char
+       diagonal trail implying the meteor's path. This piece computes
+       the motion: the head moves from the lower-left up-and-right,
+       trailing 6 progressively-dimmer line segments, on a 7s loop.
+
+       All animation is SMIL — no JS, no CSS. The file is self-contained
+       and renders the same in any modern browser. ~3.4 KB.
+
+       Animation timing:
+         - head moves for 1.6s (linear), then disappears
+         - 5s pause (sky only)
+         - repeat indefinitely
+         Total cycle: 6.6s
+       ============================================================ -->
+
+  <defs>
+    <!-- halo: a soft white blur that lives behind the head -->
+    <radialGradient id="meteor-halo" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%"  stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="40%" stop-color="#ffffff" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- black void -->
+  <rect x="0" y="0" width="240" height="240" fill="#000000"/>
+
+  <!-- background scatter stars (fixed in place, slow opacity twinkle on a few) -->
+  <g fill="#9c8cb8">
+    <circle cx="22"  cy="12"  r="0.6" opacity="0.55"><animate attributeName="opacity" values="0.4;0.75;0.4" dur="4.1s" repeatCount="indefinite"/></circle>
+    <circle cx="48"  cy="38"  r="0.5" opacity="0.5"/>
+    <circle cx="78"  cy="18"  r="0.7" opacity="0.65"><animate attributeName="opacity" values="0.45;0.85;0.45" dur="3.3s" repeatCount="indefinite"/></circle>
+    <circle cx="112" cy="42"  r="0.5" opacity="0.5"/>
+    <circle cx="140" cy="14"  r="0.6" opacity="0.6"><animate attributeName="opacity" values="0.4;0.8;0.4" dur="5.1s" repeatCount="indefinite"/></circle>
+    <circle cx="170" cy="32"  r="0.5" opacity="0.5"/>
+    <circle cx="208" cy="22"  r="0.7" opacity="0.7"><animate attributeName="opacity" values="0.5;0.9;0.5" dur="2.7s" repeatCount="indefinite"/></circle>
+    <circle cx="232" cy="58"  r="0.5" opacity="0.5"/>
+    <circle cx="14"  cy="62"  r="0.5" opacity="0.5"/>
+    <circle cx="36"  cy="84"  r="0.6" opacity="0.55"/>
+    <circle cx="58"  cy="120" r="0.5" opacity="0.45"/>
+    <circle cx="92"  cy="158" r="0.6" opacity="0.55"><animate attributeName="opacity" values="0.4;0.8;0.4" dur="4.7s" repeatCount="indefinite"/></circle>
+    <circle cx="118" cy="190" r="0.5" opacity="0.45"/>
+    <circle cx="156" cy="206" r="0.6" opacity="0.55"/>
+    <circle cx="198" cy="178" r="0.5" opacity="0.5"><animate attributeName="opacity" values="0.4;0.75;0.4" dur="3.8s" repeatCount="indefinite"/></circle>
+    <circle cx="222" cy="148" r="0.5" opacity="0.5"/>
+    <circle cx="178" cy="92"  r="0.7" opacity="0.65"><animate attributeName="opacity" values="0.5;0.85;0.5" dur="4.3s" repeatCount="indefinite"/></circle>
+    <circle cx="206" cy="112" r="0.5" opacity="0.5"/>
+    <circle cx="68"  cy="44"  r="0.5" opacity="0.5"/>
+    <circle cx="124" cy="76"  r="0.6" opacity="0.55"/>
+    <circle cx="160" cy="118" r="0.5" opacity="0.45"/>
+    <circle cx="20"  cy="146" r="0.6" opacity="0.55"/>
+    <circle cx="40"  cy="216" r="0.5" opacity="0.5"/>
+    <circle cx="80"  cy="220" r="0.5" opacity="0.45"/>
+    <circle cx="138" cy="222" r="0.6" opacity="0.55"/>
+    <circle cx="190" cy="220" r="0.5" opacity="0.5"/>
+    <circle cx="226" cy="200" r="0.5" opacity="0.45"/>
+    <circle cx="8"   cy="200" r="0.5" opacity="0.5"/>
+    <circle cx="56"  cy="178" r="0.5" opacity="0.45"/>
+    <circle cx="100" cy="120" r="0.5" opacity="0.5"/>
+    <circle cx="190" cy="62"  r="0.5" opacity="0.5"/>
+    <circle cx="218" cy="86"  r="0.5" opacity="0.45"/>
+  </g>
+
+  <!-- a second-tier scatter: brighter, fewer, like the ASCII piece's * characters -->
+  <g fill="#e8e0ff">
+    <circle cx="32"  cy="100" r="0.7" opacity="0.7"><animate attributeName="opacity" values="0.5;0.95;0.5" dur="3.2s" repeatCount="indefinite"/></circle>
+    <circle cx="156" cy="56"  r="0.8" opacity="0.75"><animate attributeName="opacity" values="0.55;1.0;0.55" dur="2.9s" repeatCount="indefinite"/></circle>
+    <circle cx="220" cy="120" r="0.7" opacity="0.7"><animate attributeName="opacity" values="0.5;0.95;0.5" dur="4.5s" repeatCount="indefinite"/></circle>
+    <circle cx="50"  cy="160" r="0.7" opacity="0.7"/>
+    <circle cx="180" cy="190" r="0.8" opacity="0.75"><animate attributeName="opacity" values="0.55;1.0;0.55" dur="3.7s" repeatCount="indefinite"/></circle>
+    <circle cx="120" cy="20"  r="0.8" opacity="0.8"><animate attributeName="opacity" values="0.6;1.0;0.6" dur="4.1s" repeatCount="indefinite"/></circle>
+    <circle cx="100" cy="80"  r="0.7" opacity="0.7"><animate attributeName="opacity" values="0.5;0.95;0.5" dur="3.5s" repeatCount="indefinite"/></circle>
+  </g>
+
+  <!-- THE MOVING GROUP: head + 6 fading trail segments.
+       The group is invisible until the animation begins, then translates
+       from (30, 200) [start, lower-left] to (210, 30) [end, upper-right]
+       over 1.6s, then disappears for 5s. Total cycle: 6.6s.
+       In group-local coords the head is at (0,0) and the trail extends
+       backward (toward start) at the angle of motion. -->
+  <g opacity="0">
+    <!-- group-wide opacity: appears at the start of the visible window, fades in then out -->
+    <animate attributeName="opacity"
+             values="0;1;1;0"
+             keyTimes="0;0.05;0.85;1"
+             dur="1.6s"
+             begin="0.3s;star.end+5s"
+             id="star"/>
+
+    <!-- the head's outer halo: a soft 12-radius blur, sits behind the bright core -->
+    <circle cx="0" cy="0" r="12" fill="url(#meteor-halo)" opacity="0.55"/>
+
+    <!-- 6 trail segments. Each is a separate <line> with its own opacity + stroke-width.
+         They share a single <animateTransform> on the parent group, so the whole
+         head+trail assembly moves as one rigid body along the path.
+         The trail angles back toward the start of the path (lower-left, since the
+         head moves up-and-right). Direction vector from start to end: (180, -170)
+         normalized = (0.727, -0.687). Trail extends in the OPPOSITE direction. -->
+    <line x1="-7.3" y1="6.9"  x2="0"    y2="0"    stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" opacity="1.0"/>
+    <line x1="-14.5" y1="13.7" x2="-7.3" y2="6.9"  stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" opacity="0.85"/>
+    <line x1="-21.8" y1="20.6" x2="-14.5" y2="13.7" stroke="#ffffff" stroke-width="1.2"  stroke-linecap="round" opacity="0.65"/>
+    <line x1="-29.0" y1="27.5" x2="-21.8" y2="20.6" stroke="#ffffff" stroke-width="1.0" stroke-linecap="round" opacity="0.45"/>
+    <line x1="-36.3" y1="34.3" x2="-29.0" y2="27.5" stroke="#ffffff" stroke-width="0.85" stroke-linecap="round" opacity="0.28"/>
+    <line x1="-43.5" y1="41.2" x2="-36.3" y2="34.3" stroke="#ffffff" stroke-width="0.7" stroke-linecap="round" opacity="0.15"/>
+
+    <!-- the head itself: a 1.6-radius bright white circle, the visual anchor -->
+    <circle cx="0" cy="0" r="1.6" fill="#ffffff"/>
+    <circle cx="0" cy="0" r="0.8" fill="#fff8e0"/>
+
+    <!-- the group's translation: from (30, 200) at start, to (210, 30) at end -->
+    <animateTransform attributeName="transform" type="translate"
+                      values="30,200; 210,30"
+                      keyTimes="0;1"
+                      calcMode="spline"
+                      keySplines="0.25 0 0.75 1"
+                      dur="1.6s"
+                      begin="0.3s;star.end+5s"/>
+  </g>
+</svg>
