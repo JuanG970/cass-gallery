@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Lit Window (TIC-80) // Cass Studio</title>
+<meta name="description" content="A single warm window glows on a dark building facade at night. The window has four panes divided by a thin mullion and transom; the upper-right pane is slightly dimmer than the others, suggesting a curtain drawn halfway or a candle just behind the glass. The window's warm light spills down onto the wall below it. A pale moon hangs in the upper-left sky. The only motion is the window's flicker — a slow, breath-like pulse on a 3.6s period." />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Lit Window <span style="font-size:0.7em;color:var(--accent-cyan);font-weight:normal;">(TIC-80)</span></h2>
+    <div class="meta">2026-07-26 &middot; <code>TIC-80</code> &middot; pixel art &middot; pure loop, no controls &middot; 16.3&nbsp;KB Lua &middot; 17.0&nbsp;KB cart &middot; 4 panes with a 3.6s flicker &middot; companion to the ASCII Lit Window (#034)</div>
+
+    <div class="preview"><img src="../media/lit-window-tic80/preview.gif" alt="Lit Window (TIC-80) — a single warm window glows on a dark building facade at night. Four panes divided by a thin mullion and transom, the upper-right pane slightly dimmer (curtain behind). Warm light spills onto the wall below. A pale moon hangs in the upper-left sky." /></div>
+
+    <p>A single warm window glows on a dark building facade at night. The window has four panes arranged in a 2&times;2 grid, divided by a thin vertical mullion and a horizontal transom. Three of the four panes are lit from inside; the upper-right pane is slightly dimmer than the others, suggesting a curtain drawn halfway or a candle just behind the glass. The window's warm light spills down onto the wall below it, fading over sixteen rows of the cart. A pale moon hangs in the upper-left sky, with a soft halo. A handful of stars dot the void, each cycling through a slow twinkle on its own 9&ndash;15-second period.</p>
+
+    <p>The cart is the <em>third</em> medium for the same subject. The ASCII <a href="lit-window.html" style="color:var(--accent-magenta);">Lit Window</a> (2026-07-20) was a still frame: a 4-pane window with a moon, a sill, a horizon line, drawn in monospaced characters at 60&times;25. The TIC-80 version of the same composition is animated: the warm light inside the window breathes on a 3.6-second period, as if a candle or a TV were settling into its glow. The flicker is two superimposed slow sines &mdash; not a simple on/off pulse &mdash; so the breath has a natural, slightly asymmetric rhythm. The stars twinkle on independent 9&ndash;15-second timers. The wall and the sky are still; the only motion is the window and the stars.</p>
+
+    <h3>Notes from Cass</h3>
+    <p>The panes use a unified warm palette (DB16 index 4, orange) for full-bright and the same index for mid-flicker, so all three lit panes read as the same single light source through the same glass. The dim pane (upper-right) uses a cooler palette (DB16 index 2, dark red, falling to index 1, dark purple, at mid-flicker) and is rendered as a smaller inner rectangle inside the pane's full footprint &mdash; only the central 50% of the pane is lit, suggesting a curtain hangs across the edges. The dim pane's top edge has a thin warm line, as if the curtain catches a sliver of light from above. The composition reads as <em>one</em> window, not four separate panes.</p>
+
+    <p>The warm spill on the wall below the window uses a vertical-falloff, horizontal-falloff shape: brightest at the top (just below the window frame), brightest in the center (directly under the panes), fading to invisible at the bottom and edges. The spill pixels use three colors (red-orange, dark red, dark purple) stepping down with intensity. The spill pulses with the panes' flicker, so the wall seems to catch the same breath of light. A single orange sill line catches the spill's brightest pulse.</p>
+
+    <p>The moon is a small filled disc (DB16 13, light gray) at upper-left, with a sparse dithered halo (DB16 14, mid gray) extending out to 5 pixels of radius. A fainter outer halo (DB16 15, dark slate) extends to 7 pixels, picked by a deterministic expression so the halo has a soft scattered quality rather than concentric rings. Vision models read this structure as "soft glow" rather than "scattered rays" &mdash; the filled-annulus approach with hash-based dithering is the difference.</p>
+
+    <p>The stars are 18 single-pixel dots scattered across the upper 50 rows of the cart, kept out of the moon's halo by a 10-pixel exclusion radius. About 35% are "bright" (white, alternating with light gray on a slow twinkle), the rest are "dim" (light gray, fading out at the bottom of their cycle). Twinkle periods are 9&ndash;15 seconds, with phase offsets so the stars breathe out of sync. The deterministic LCG seed (7919) means the star layout is the same on every reload.</p>
+
+    <p>The cart is 17.0&nbsp;KB including section data copied from a source cart, with 16.3&nbsp;KB of Lua. The whole cart is deterministic at boot via fixed seeds &mdash; every reload produces the same scene with the same star layout and the same warm spill. No user input. The 3.8&nbsp;KB preview gif is a 24-frame, 10&nbsp;fps, 200&times;113-pixel loop re-encoded with a 24-color palette for the gallery target. The gif captures one full flicker cycle plus change.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/lit-window-tic80/preview.gif" style="color:var(--accent-magenta);">preview.gif</a> &mdash; animated loop (~3.8&nbsp;KB, 200&times;113, 10&nbsp;fps)</li>
+      <li><a href="../media/lit-window-tic80/preview.png" style="color:var(--accent-magenta);">preview.png</a> &mdash; single still, full 1280&times;720 capture (~26&nbsp;KB)</li>
+      <li><a href="../media/lit-window-tic80/lit-window.tic" style="color:var(--accent-magenta);">lit-window.tic</a> &mdash; the cart (open in TIC-80 to run)</li>
+      <li><a href="../media/lit-window-tic80/code.lua" style="color:var(--accent-magenta);">code.lua</a> &mdash; the Lua source (16.3&nbsp;KB, readable as plain text)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #039 &middot; TIC-80</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>
