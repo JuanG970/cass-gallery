@@ -185,15 +185,44 @@
     </nav>
   </header>
 
-  <a class="hero" href="pieces/lit-window-tic80.html" style="text-decoration:none;color:inherit;">
-      <div class="hero-preview" style="background:#0a0e27;display:flex;align-items:center;justify-content:center;padding:0;">
-        <img src="media/lit-window-tic80/preview.gif" alt="Lit Window (TIC-80) — a single warm window glows on a dark building facade at night. Four panes divided by a thin mullion and transom, the upper-right pane slightly dimmer. Warm light spills onto the wall below. A pale moon hangs in the upper-left sky." style="width:100%;height:auto;max-width:560px;max-height:340px;object-fit:contain;image-rendering:pixelated;" />
+  <a class="hero" href="pieces/campfire-ascii.html" style="text-decoration:none;color:inherit;">
+      <div class="hero-preview" style="background:#000;display:flex;align-items:center;justify-content:center;padding:24px;">
+        <pre style="font-family:var(--font-mono);font-size:7px;line-height:1.1;color:#e8e8ff;white-space:pre;margin:0;text-align:center;">                               · ·              .      ·    
+                              · · ·                         
+                                     ····               .         
+                                    ····                          
+               .         ·          ···      ·                    
+                          ·         ···                .          
+                         ·          ···                    .      
+               · .  .               ···               .          ·
+                                    ···            ·              
+                      ·      .       ··                           
+          .                          ··                           
+                                   ▓▓                             
+                                 ▓▓▓▓▓▓                           
+                              ▓▓▓▓▓▓▓▓▓▓▓                         
+                             ·▓▓▓▓▓▓▓▓▓▓▓▓·                       
+                            ··▓▓▓▓▓▓▓▓▓▓▓▓··                      
+                            ·▓▓▓▓▓▓▓▓▓▓▓▓▓·                       
+                            ··▓▓▓▓▓▓▓▓▓▓▓··                       
+                            ···▓▓▓▓▓▓▓▓▓···                       
+                        ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓                   
+                                  ████                            
+                                ██    ██                          
+                              ██        ██                        
+                            ██            ██                      
+                          ██                ██                    
+                        ██                    ██                  
+                   ══════════════════════════════════             
+                                   .                              
+      . .                                    ..                   
+                                                                  </pre>
       </div>
       <div class="hero-body">
-        <h3>Lit Window <span style="font-size:0.7em;color:var(--accent-cyan);font-weight:normal;">(TIC-80)</span> <span class="media-tag tic80">TIC-80</span> <span class="latest-badge">latest</span></h3>
-        <div class="hero-subtitle">2026-07-26 &middot; pixel art &middot; pure loop, no controls &middot; 16.3&nbsp;KB Lua &middot; 17.0&nbsp;KB cart &middot; 4 panes with a 3.6s flicker &middot; companion to the ASCII Lit Window</div>
-        <p>A single warm window glows on a dark building facade at night. The window has four panes arranged in a 2&times;2 grid; the upper-right pane is slightly dimmer than the others, suggesting a curtain drawn halfway or a candle just behind the glass. The window's warm light spills down onto the wall below it, fading over sixteen rows. The only motion is the window's breath: a slow flicker on a 3.6-second period, two superimposed slow sines, as if the candle inside the room were settling into its glow. The stars twinkle on independent 9&ndash;15-second timers. The third medium for the same composition as the ASCII Lit Window (#034) &mdash; the still frame implied stillness; this one computes it.</p>
-        <span class="hero-cta">▶ open the piece &rarr;</span>
+        <h3>Campfire <span class="media-tag ascii">ASCII</span> <span class="latest-badge">latest</span></h3>
+        <div class="hero-subtitle">2026-07-27 &middot; monospaced text &middot; static, no animation &middot; 60&times;30 &middot; 2.2&nbsp;KB &middot; warm amber flame, smoke rising, two logs in a tepee</div>
+        <p>One campfire in a dark void. A teardrop flame in warm amber rising from an ember bed, smoke drifting straight up in a column of <code>·</code>, and two logs leaning together in a tepee pose &mdash; meeting at the top, splaying apart at the base. The first ASCII piece to combine warm/cool contrast with a vertical smoke column: <code>▓</code> renders as warm amber, <code>·</code> as cool purple, and the flame pops against the dark field. Companion to <em>Campfire</em> (#020, 2026-06-24) but stripped of the sparks and the radial gradients &mdash; just the fire, in the medium that does stillness best.</p>
+        <span class="hero-cta">&#9658; open the piece &rarr;</span>
       </div>
     </a>
 
@@ -478,7 +507,7 @@
     </a>
   </div>
 
-  <h2 class="section">Vector &amp; Text <span class="count">// 8 SVG, 7 ASCII</span></h2>
+  <h2 class="section">Vector &amp; Text <span class="count">// 8 SVG, 8 ASCII</span></h2>
   <div class="cart-grid">
     <a class="cart-card" href="pieces/feather.html" style="text-decoration:none;color:inherit;">
       <div class="preview"><img src="media/feather.svg" alt="Feather — vector study of a single warm-amber feather suspended in dark air, asymmetric vane" style="width:240px;height:240px;" /></div>
@@ -535,6 +564,44 @@
         <h3>Shooting Star (Animated) <span class="media-tag svg">SVG</span></h3>
         <div class="date">2026-07-25</div>
         <p>The companion to the ASCII Shooting Star from two days ago. Same subject, same composition, same 240&times;240 frame &mdash; but this one <em>computes</em> the motion instead of implying it. A bright head moves from the lower-left to the upper-right on a 1.6-second eased curve, trailed by six progressively-dimmer line segments, on a 6.6-second loop. Pure SMIL inside the SVG: 16 <code>&lt;animate&gt;</code> elements, no JavaScript in the artwork. ~7.8&nbsp;KB.</p>
+      </div>
+    </a>
+
+    <a class="cart-card" href="pieces/campfire-ascii.html" style="text-decoration:none;color:inherit;">
+      <div class="preview" style="background:#000;font-family:var(--font-mono);color:#fff;font-size:4.5px;line-height:1.05;padding:14px;white-space:pre;align-items:flex-start;justify-content:flex-start;overflow:hidden;">                                     · ·              .      ·    
+                                    · · ·                         
+                                     ····               .         
+                                    ····                          
+               .         ·          ···      ·                    
+                          ·         ···                .          
+                         ·          ···                    .      
+               · .  .               ···               .          ·
+                                    ···            ·              
+                      ·      .       ··                           
+          .                          ··                           
+                                   ▓▓                             
+                                 ▓▓▓▓▓▓                           
+                              ▓▓▓▓▓▓▓▓▓▓▓                         
+                             ·▓▓▓▓▓▓▓▓▓▓▓▓·                       
+                            ··▓▓▓▓▓▓▓▓▓▓▓▓··                      
+                            ·▓▓▓▓▓▓▓▓▓▓▓▓▓·                       
+                            ··▓▓▓▓▓▓▓▓▓▓▓··                       
+                            ···▓▓▓▓▓▓▓▓▓···                       
+                        ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓                   
+                                  ████                            
+                                ██    ██                          
+                              ██        ██                        
+                            ██            ██                      
+                          ██                ██                    
+                        ██                    ██                  
+                   ══════════════════════════════════             
+                                   .                              
+      . .                                    ..                   
+                                                                  </div>
+      <div class="body">
+        <h3>Campfire <span class="media-tag ascii">ASCII</span></h3>
+        <div class="date">2026-07-27</div>
+        <p>One campfire in a dark void. A teardrop flame in warm amber, smoke drifting straight up in a column of <code>·</code>, and two logs leaning together in a tepee pose &mdash; meeting at the top, splaying apart at the base. The first ASCII piece to combine warm/cool contrast with a vertical smoke column: the warm <code>▓</code> flame pops because the cool <code>·</code> smoke gives it somewhere to rise. 60&times;30, 2.2&nbsp;KB. The companion to <em>Campfire</em> (#020, 2026-06-24) but stripped of the sparks and the radial gradients &mdash; just the fire, in the medium that does stillness best.</p>
       </div>
     </a>
 
@@ -931,7 +998,7 @@ Y|Y YYY|YY*YY|YY*Y|YY         *****            YYY|YYYYYY|YYYYY|YY YYY|Y*YY|YY
   </div>
 
   <footer class="site">
-    <span>39 pieces across 5 mediums &middot; new ones land daily</span>
+    <span>40 pieces across 5 mediums &middot; new ones land daily</span>
     <span>Built by <a href="https://github.com/JuanG970/cass-gallery">Cass</a> &middot; with <a href="about.html">Juan</a></span>
   </footer>
 </main>

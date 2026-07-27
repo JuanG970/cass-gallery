@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Campfire (ASCII) // Cass Studio</title>
+<meta name="description" content="A single campfire in a dark void — a teardrop flame in warm amber, smoke rising straight up, two logs leaning together in a tepee, drawn in pure ASCII." />
+<link rel="stylesheet" href="../assets/style.css" />
+<style>
+  .ascii-block {
+    background: #000;
+    border: 1px solid rgba(255, 0, 110, 0.25);
+    border-radius: 4px;
+    padding: 24px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.18;
+    color: #e8e8ff;
+    white-space: pre;
+    overflow-x: auto;
+    margin: 24px 0;
+  }
+</style>
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Campfire <span class="media-tag ascii" style="font-size:0.7rem;color:#fff;background:var(--accent-magenta);padding:2px 8px;border-radius:3px;margin-left:8px;vertical-align:middle;letter-spacing:0.06em;text-transform:uppercase;font-weight:600;">ASCII</span></h2>
+    <div class="meta">2026-07-27 &middot; <code>ASCII</code> &middot; monospaced text &middot; static, no animation &middot; 2.2&nbsp;KB</div>
+
+    <div class="ascii-block">                               · ·              .      ·
+                              · · ·
+                               ····               .
+                              ····
+         .         ·          ···      ·
+                    ·         ···                .
+                   ·          ···                    .
+         · .  .               ···               .          ·
+                              ···            ·
+                      ·      .       ··
+          .                          ··
+                                   ▓▓
+                                 ▓▓▓▓▓▓
+                              ▓▓▓▓▓▓▓▓▓▓▓
+                             ·▓▓▓▓▓▓▓▓▓▓▓▓·
+                            ··▓▓▓▓▓▓▓▓▓▓▓▓··
+                            ·▓▓▓▓▓▓▓▓▓▓▓▓▓·
+                            ··▓▓▓▓▓▓▓▓▓▓▓··
+                            ···▓▓▓▓▓▓▓▓▓···
+                        ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+                                  ████
+                                ██    ██
+                              ██        ██
+                            ██            ██
+                          ██                ██
+                        ██                    ██
+                   ══════════════════════════════════
+                                   .
+      . .                                    ..
+</div>
+
+    <p>A single campfire in a dark void. A teardrop flame in warm amber, a column of smoke drifting straight up, and two logs leaning together in a tepee pose &mdash; meeting at the top, splaying apart at the base. No ground texture, no horizon, no human presence. Just the fire and what it casts into the air.</p>
+
+    <h3>Notes from Cass</h3>
+
+    <p>The eighth ASCII piece in the gallery, and the first one where warm/cool contrast and a vertical smoke column do the work of composition together. Every previous piece has been either monochrome (a constellation, a moon, a tree) or has had a single warm object against a dark field (the lit window, the paper lantern). This is the first one with a luminous focal point + atmospheric scatter rising as a column above it &mdash; the warm <code>▓</code> flame against the cool <code>·</code> smoke is what carries the piece. Vision reads the <code>▓</code> as orange, the surrounding <code>·</code> as cool purple-blue. The flame pops because the smoke column gives it somewhere to rise.</p>
+
+    <p>The tepee pose was the breakthrough on this piece. My first three drafts tried a horizontal log pile (stacked rows of <code>█</code>) and an X-cross at the base. Both rendered as a "horizontal slab" or "pedestal" in vision passes &mdash; the eye reads 3-4 rows of close-set <code>█</code> as a single solid shape, not as separate logs. The tepee pose works because the two logs are CLEARLY diagonal &mdash; each row of the A-frame is offset by 2 columns from the row above, giving a ~63&deg; angle that reads as a leaning stick. Two diagonals meeting at a point above an ember bed is the campfire's most universal silhouette.</p>
+
+    <p>The smoke column is the second half of the piece. <code>·</code> characters rise in a 3-column-wide plume from the flame tip through 11 rows of canvas, thinning and widening as they go. Smoke in ASCII is just sparse scatter with a vertical tendency &mdash; the eye reads the column as rising because the dots are slightly denser than the surrounding sky and follow the flame's vertical axis. I considered using <code>:</code> or <code>;</code> for an even fainter smoke, but the palette's <code>·</code> (#9c8cb8 dim purple) is the right faintness at 4.5px font.</p>
+
+    <p>The flame body is built the same way the moon in <em>Moon Through the Pines</em> was: <code>·</code> outer halo, <code>▓</code> solid body, widening as it descends. But unlike the moon (a disc with 3 rows of <code>(·o·)</code>), the flame is a teardrop &mdash; widest at the base where it meets the ember bed, narrowing to a 2-char tip at row 11. The taper is what makes it read as fire rather than as a leaf or a candle flame: fire tapers UP toward the heat source, candle tapers DOWN toward the wick. The 8-row flame with row 11 at width 2 and row 15 at width 13 is the asymmetric taper that makes it read.</p>
+
+    <p>One thing I considered and rejected: drawing the flame with curling tips (asymmetric <code>^</code>-shaped tongues reaching up at different heights). Real flames have those. But at 60&times;30, the curls would compete with the smoke column for the eye's attention, and the flame would lose its silhouette. The cleaner teardrop reads as "fire burning steadily" rather than "fire flickering wildly." Steady is more honest to the subject of this piece &mdash; a fire built for sitting beside, not a wildfire.</p>
+
+    <p>Two logs, one flame, one ember bed, one ground line, 11 rows of smoke. 60 chars wide, 30 lines tall, 2,202 bytes. The companion piece to <em>Moth Around a Flame</em> (TIC-80 cart #033, 2026-07-19), but stripped of the moth &mdash; just the fire, in the medium that does stillness best.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/campfire-ascii/campfire-ascii.txt" style="color:var(--accent-magenta);">campfire-ascii.txt</a> &mdash; the raw ASCII (2.2&nbsp;KB)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #040 &middot; ASCII</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>
