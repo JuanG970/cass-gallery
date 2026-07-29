@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <defs>
+    <!-- Deep navy void with a faint warm wash at the top (where the light is) -->
+    <radialGradient id="lh-void" cx="50%" cy="22%" r="80%">
+      <stop offset="0%"  stop-color="#1a1a3a"/>
+      <stop offset="40%" stop-color="#0a0e27"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+    <!-- The big warm halo around the lantern room -->
+    <radialGradient id="lh-halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"  stop-color="#ffea00" stop-opacity="0.55"/>
+      <stop offset="20%" stop-color="#ffb347" stop-opacity="0.36"/>
+      <stop offset="55%" stop-color="#ff7c5b" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#ff7c5b" stop-opacity="0"/>
+    </radialGradient>
+    <!-- The lantern room: bright white-yellow core fading to amber -->
+    <radialGradient id="lh-lantern" cx="50%" cy="50%" r="60%">
+      <stop offset="0%"  stop-color="#ffffff"/>
+      <stop offset="35%" stop-color="#ffea00"/>
+      <stop offset="80%" stop-color="#ffb347" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#ff7c5b" stop-opacity="0.6"/>
+    </radialGradient>
+    <!-- Tower body: cool slate with a subtle vertical gradient (top a touch warmer from the light) -->
+    <linearGradient id="lh-tower" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#3a3a48"/>
+      <stop offset="20%" stop-color="#2a2a38"/>
+      <stop offset="100%" stop-color="#1a1a28"/>
+    </linearGradient>
+    <!-- Tower left-side subtle highlight -->
+    <linearGradient id="lh-tower-hi" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"  stop-color="#6a6a78" stop-opacity="0.55"/>
+      <stop offset="40%" stop-color="#6a6a78" stop-opacity="0.0"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.30"/>
+    </linearGradient>
+    <!-- Rock base: cool dark with a tiny warm rim at the top -->
+    <linearGradient id="lh-rock" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#3a342a"/>
+      <stop offset="50%" stop-color="#1a1818"/>
+      <stop offset="100%" stop-color="#0a0a10"/>
+    </linearGradient>
+    <!-- Light beam: warm horizontal gradient, fade on both sides — WIDER and more visible -->
+    <linearGradient id="lh-beam" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"  stop-color="#ffea00" stop-opacity="0"/>
+      <stop offset="15%" stop-color="#ffb347" stop-opacity="0.32"/>
+      <stop offset="50%" stop-color="#ffea00" stop-opacity="0.55"/>
+      <stop offset="85%" stop-color="#ffb347" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#ffea00" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Deep navy void -->
+  <rect x="0" y="0" width="240" height="240" fill="url(#lh-void)"/>
+
+  <!-- Distant halo around the lantern room — sits BEHIND everything else -->
+  <ellipse cx="120" cy="60" rx="105" ry="80" fill="url(#lh-halo)"/>
+
+  <!-- Light beam: a single horizontal soft band at the lantern room's height.
+       Wider and more visible than v1 — reads as "the light is shining out." -->
+  <rect x="0" y="55" width="240" height="8" fill="url(#lh-beam)"/>
+  <!-- a tighter inner highlight on the beam to give it a defined center -->
+  <rect x="0" y="58" width="240" height="2" fill="#ffea00" opacity="0.18"/>
+
+  <!-- ====== ROCK BASE ======
+       A wider, more clearly visible rocky mound at the bottom.
+       Sits BELOW the lighthouse proper (the tower rests on this).
+       The tower base sinks into the rock (continuous silhouette). -->
+  <path d="M 30 222
+           L 36 214
+           L 44 218
+           L 50 210
+           L 58 215
+           L 66 206
+           L 74 213
+           L 82 204
+           L 90 211
+           L 96 202
+           L 104 210
+           L 110 205
+           L 116 211
+           L 122 204
+           L 128 210
+           L 134 202
+           L 140 211
+           L 148 204
+           L 156 213
+           L 162 206
+           L 170 215
+           L 178 210
+           L 186 218
+           L 194 214
+           L 202 220
+           L 210 222
+           Z"
+        fill="url(#lh-rock)"/>
+  <!-- a single warm rim along the top of the rock where the light catches it -->
+  <path d="M 38 215
+           L 52 211
+           L 68 207
+           L 84 204
+           L 100 202
+           L 120 201
+           L 140 202
+           L 156 207
+           L 172 211
+           L 186 215
+           L 202 219"
+        stroke="#ffb347" stroke-width="0.8" fill="none" opacity="0.50"/>
+
+  <!-- ====== TOWER ======
+       A clear taper: base width ~40, top width ~22.
+       Tower spans from y=78 (just under the lantern room) to y=205 (sinking into rock) -->
+  <path d="M 109 78
+           L 131 78
+           L 140 205
+           L 100 205
+           Z"
+        fill="url(#lh-tower)"/>
+  <!-- subtle left-side highlight on the tower -->
+  <path d="M 109 78
+           L 131 78
+           L 140 205
+           L 100 205
+           Z"
+        fill="url(#lh-tower-hi)"/>
+
+  <!-- horizontal bands across the tower (3 dark seams) -->
+  <rect x="103" y="115" width="34" height="3" fill="#0a0a14"/>
+  <rect x="102" y="150" width="36" height="3" fill="#0a0a14"/>
+  <rect x="101" y="182" width="38" height="3" fill="#0a0a14"/>
+
+  <!-- a tiny warm glint on the tower's left edge from the lantern room -->
+  <line x1="109" y1="80" x2="100" y2="155" stroke="#ffb347" stroke-width="0.6" opacity="0.25"/>
+
+  <!-- ====== LANTERN ROOM ====== -->
+  <!-- gallery/walkway — a small horizontal platform with a railing -->
+  <rect x="98" y="72" width="44" height="4" fill="#1a1a28"/>
+  <rect x="100" y="70" width="40" height="2" fill="#2a2a38"/>
+  <!-- railing dots -->
+  <circle cx="102" cy="71" r="0.7" fill="#5a5a68"/>
+  <circle cx="110" cy="71" r="0.7" fill="#5a5a68"/>
+  <circle cx="118" cy="71" r="0.7" fill="#5a5a68"/>
+  <circle cx="126" cy="71" r="0.7" fill="#5a5a68"/>
+  <circle cx="134" cy="71" r="0.7" fill="#5a5a68"/>
+  <circle cx="142" cy="71" r="0.7" fill="#5a5a68"/>
+  <!-- lantern room: the glassed-in light at the top, warm core -->
+  <rect x="103" y="48" width="34" height="22" fill="url(#lh-lantern)" rx="2"/>
+  <!-- vertical mullions (the glass panes) — thin dark lines -->
+  <line x1="112" y1="48" x2="112" y2="70" stroke="#5a3a18" stroke-width="0.5" opacity="0.55"/>
+  <line x1="120" y1="48" x2="120" y2="70" stroke="#5a3a18" stroke-width="0.5" opacity="0.55"/>
+  <line x1="128" y1="48" x2="128" y2="70" stroke="#5a3a18" stroke-width="0.5" opacity="0.55"/>
+  <!-- a tiny brighter core (the actual lamp) -->
+  <ellipse cx="120" cy="60" rx="5" ry="8" fill="#ffffff" opacity="0.85"/>
+  <ellipse cx="120" cy="60" rx="2.5" ry="4.5" fill="#ffffff"/>
+
+  <!-- ====== ROOF ====== -->
+  <!-- A small domed/conical roof on top of the lantern room -->
+  <path d="M 103 48
+           L 120 32
+           L 137 48
+           Z"
+        fill="#1a1a28"/>
+  <!-- a tiny finial on top of the roof -->
+  <line x1="120" y1="32" x2="120" y2="26" stroke="#3a3a48" stroke-width="1.2"/>
+  <circle cx="120" cy="25" r="1.4" fill="#3a3a48"/>
+</svg>
