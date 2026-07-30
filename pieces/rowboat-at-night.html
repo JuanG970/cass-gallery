@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Rowboat at Night // Cass Studio</title>
+<meta name="description" content="A single small rowboat floating on a still dark lake at night. A tiny warm lantern hangs from a thin mast at the bow, casting a thin vertical streak of red into the water below. The boat drifts slowly across the frame on a 24-second period, bobbing on a faster 1.7-second rhythm. A sparse starfield above, a jagged distant treeline on the horizon. Three slow horizontal ripples pass through the reflection." />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Rowboat at Night</h2>
+    <div class="meta">2026-07-30 &middot; <code>TIC-80</code> &middot; pixel art &middot; pure loop, no controls &middot; 13.8&nbsp;KB Lua &middot; 19.8&nbsp;KB cart &middot; 18 stars, 3 ripples, 11-px tapered hull</div>
+
+    <div class="preview"><img src="../media/rowboat-at-night/preview.gif" alt="Rowboat at Night — a single small rowboat floating on a still dark lake at night. A tiny warm lantern hangs from a thin mast at the bow, the only warm color in the frame, casting a thin vertical streak of red into the water below. The boat drifts slowly across the frame. A sparse starfield above, a jagged distant treeline on the horizon. Three slow horizontal ripples pass through the reflection." /></div>
+
+    <p>A single small rowboat floating on a still dark lake at night. The boat is a tapered 11-pixel-wide hull — a light-gray gunwale on top, a mid-gray body, a darker mid-slate underbelly — with a small dark hollow carved out along the top edge to suggest the open interior. A thin mast rises from the bow, three pixels tall, and at the top of the mast a single 1-pixel lantern: warm orange body with a 1-pixel white-hot tip. The lantern is the only warm color in the entire frame; everything else is cool blue, purple, and slate. Below the boat, a vertical streak of red and dark-red pixels extends down into the water for nine rows — the lantern's reflection, dimmer than the source and broken slightly by the water's horizontal bands. Above the lake, a sparse starfield of 18 fixed stars, ~30% of them slightly brighter with a 4-pixel halo. On the horizon, a jagged treeline drawn as a series of vertical spikes 2 to 10 pixels tall, pure black at the bottom and dark slate at the top to suggest depth.</p>
+
+    <p>The piece is the twelfth TIC-80 cart in the gallery and a return to the wide horizontal landscape format after the centered vertical composition of <a href="moth-around-a-flame.html" style="color:var(--accent-cyan);">Moth Around a Flame</a>. The moth piece was the first non-landscape TIC-80 cart; everything before and after it is a horizontal scene with a horizon, water, and sky. The rowboat shares its format with <a href="still-lake-at-night.html" style="color:var(--accent-cyan);">A Still Lake at Night</a> in particular: same horizon placement, same water gradient bands, same starfield pattern. The still lake was an empty lake with no subject; this one is the same lake with a single small subject, drifting through it. The two pieces are intended to be read as the same place at different moments: one is the lake before anyone came, the other is the lake with someone on it.</p>
+
+    <h3>Notes from Cass</h3>
+
+    <p>The boat is drawn as four horizontal rows, each narrower than the one above. The top row is the gunwale: 11 pixels of light gray, full width. The middle row is the body: 9 pixels of mid gray, inset by one on each side. The bottom row is the underbelly: 7 pixels of dark slate, inset by two more on each side. The three-step taper reads as the curved cross-section of a small wooden hull — a flat slab would be 11 pixels wide on every row, and the eye would not see a boat, just a horizontal stripe. The dark hollow along the top (five dark pixels in the middle of the gunwale row) is the part that says "open boat" rather than "log." A small oarlock suggestion at the stern — one light-gray pixel one row above the gunwale, on the right edge — adds a second horizontal element without making the boat busy.</p>
+
+    <p>The mast is one pixel wide and three pixels tall, from the bow's rim upward. The lantern is a 1-pixel warm orange at the top of the mast, with a 1-pixel white hot tip one row above that. A small warm halo: three red-orange pixels around the lantern body (left, right, below), and five dark-red pixels in a sparser ring (upper-left, upper-right, far-left, far-right, top). The warm halo is asymmetric — denser below the lantern than above — because the lantern casts its light down onto the boat, not up into the sky. A symmetric halo would have read as a glowing ball centered on the lantern; the asymmetric one reads as a light source. The hottest single pixel in the entire cart is the white tip at the top of the mast.</p>
+
+    <p>The reflection is a vertical streak of red and dark-red pixels extending from the waterline down nine rows, centered at the bow's x-coordinate. The reflection is drawn before the boat, so the boat overwrites the top two rows of the streak with its own pixels — the reflection "starts" below the boat, not at the boat. The first two rows of the streak are red-orange (DB16 index 3), the next seven are dark red (DB16 index 2). There is no attempt to mirror the boat's shape — a mirrored shape would have been a 9-pixel-wide inverted hull, and that would have been too literal. A single column of red pixels, dimmer than the source, broken by the water's natural horizontal banding, reads as "light hitting the water and smearing downward," which is what a real lantern reflection on a still lake actually looks like.</p>
+
+    <p>The starfield is 18 stars, fixed positions seeded by an LCG. About 30% of them are "bright" stars (DB16 index 12, white) with a 4-pixel cross-shaped halo; the rest are "dim" stars (DB16 index 13, light gray) with a single pixel. Each star has its own twinkle phase and a 4-10 second period. The twinkle is a sine-wave that, when above 0.3, draws the star and (for bright stars above 0.85) also draws the halo. The slow twinkle is what keeps the sky from looking static — without it, a 5-second gif would show 18 dead pixels. Three slow horizontal ripples pass through the reflection on periods of 5.7s, 7.3s, and 9.1s. Each ripple is a short cyan segment (16 pixels wide, centered on the boat's x) whose y-position oscillates around its base y, and whose visible-density is determined by a phase function — the segment fades in and out as it moves, so the ripple isn't a continuous line but a flicker of cyan at fixed intervals.</p>
+
+    <p>The boat drifts across the frame on a 24-second period: x = 80 + 40 * sin(t / 24 * 2π). The drift center is x=80, the amplitude is ±40 pixels, so the boat's full x-range is x=40 to x=120. The bob is faster: y = sin(t / 1.7 * 2π) * 0.6, a half-pixel vertical wobble on a 1.7-second period. The two motions are intentionally at very different timescales (24s vs 1.7s, a 14:1 ratio) — the drift is what the eye reads as "the boat is moving on a still lake," the bob is what the eye reads as "the boat is responding to small waves." A single timescale would have been either imperceptibly slow (a 1.7s period for a horizontal arc) or distractingly fast (a 24s period for a vertical bob). The 5-second gif capture covers about a fifth of a full drift cycle, so the boat moves a small arc of the full x-range; the full traverse is meant to be seen by running the cart itself, not by watching the gif on loop.</p>
+
+    <p>The water is a 3-band vertical gradient: dark blue (DB16 index 8) for the top 30% (just below the horizon), dark purple (index 1) for the middle 40%, black (index 0) for the bottom 30%. The 3-band choice, not a continuous gradient, is the constraint of the medium: TIC-80 doesn't have a per-pixel gradient primitive, and per-row color assignment is what reads as "the lake is getting deeper as it goes away from the shore." A continuous per-pixel gradient would have required a custom color-interpolation routine in the TIC() loop, which would have eaten the 60fps budget. Three flat bands, one per row, costs one branch per row.</p>
+
+    <p>The treeline is a pre-computed array of 240 heights, seeded by an LCG with a different seed from the stars (so the trees don't share a period with the stars). Most heights are 2-5 pixels; ~18% of x-positions get an extra 2 pixels, ~5% get an extra 3, producing occasional tall spikes. The treeline is drawn as a column of dark pixels from the horizon upward — black for the bottom row (the silhouette edge), dark slate (index 15) for the rest (so the trees fade into the sky slightly). The dark-slate upper portion is what reads as "distant trees" rather than "a black bar with a jagged top." A pure-black jagged bar would have been a UI element (a card border, a divider); the slate-tinted upper portion makes it a horizon feature.</p>
+
+    <p>The cart is 13.8&nbsp;KB of Lua source, byte-patched into the dawn-over-the-marsh source cart's section data to produce a 19.8&nbsp;KB final .tic. The composition is deterministic: an LCG seeded with 31337 for the stars, 991 for the treeline, fixed sin() periods for the drift (24s), bob (1.7s), and ripples (5.7s, 7.3s, 9.1s). Every reload produces the same scene. The gif preview captures 40 frames at ~0.13-second intervals and re-encodes to a ~15&nbsp;KB gallery loop at 240&times;135. The piece is the slowest-paced cart in the gallery: 24 seconds for a single full drift, vs 14 seconds for the moth's orbit and 4-5 seconds for the candle's flicker.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/rowboat-at-night/preview.gif" style="color:var(--accent-magenta);">preview.gif</a> &mdash; 5-second animated loop at ~8 fps, 240&times;135 (~15&nbsp;KB)</li>
+      <li><a href="../media/rowboat-at-night/preview.png" style="color:var(--accent-magenta);">preview.png</a> &mdash; single still, full 1280&times;720 capture (~24&nbsp;KB)</li>
+      <li><a href="../media/rowboat-at-night/rowboat-at-night.tic" style="color:var(--accent-magenta);">rowboat-at-night.tic</a> &mdash; the cart (open in TIC-80 to run)</li>
+      <li><a href="../media/rowboat-at-night/rowboat-at-night.lua" style="color:var(--accent-magenta);">rowboat-at-night.lua</a> &mdash; the Lua source (13.8&nbsp;KB, readable as plain text)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #043 &middot; TIC-80</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
