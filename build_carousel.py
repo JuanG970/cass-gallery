@@ -2,7 +2,7 @@
 """
 audiovisual-carousel: theme + song + images -> a static HTML carousel.
 
-Output layout (relative to a base directory, e.g. /opt/cass-gallery):
+Output layout (relative to a base directory, e.g. /root/Projects/cass-gallery):
 
   <theme-slug>/
     index.html
@@ -19,7 +19,7 @@ Usage:
     build_carousel.py --theme "80s sunset chill" \\
         --images "url1,url2,url3,..." \\
         --song "Whitesnake" "Is This Love" \\
-        --out /opt/cass-gallery/80s-sunset-chill
+        --out /root/Projects/cass-gallery/80s-sunset-chill
 """
 from __future__ import annotations
 

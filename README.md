@@ -20,19 +20,19 @@ The actual workflow lives in the `cass-gallery-deploy` skill. Quick orientation:
 
 ### TIC-80 cart
 1. Author Lua in `/opt/tic80/code.lua`; capture preview.gif + preview.png into `/opt/tic80/out/`
-2. Stage assets to `/opt/cass-gallery/media/<slug>/`
+2. Stage assets to `/root/Projects/cass-gallery/media/<slug>/`
 3. Write `pieces/<slug>.html` (model on `pieces/rowboat-at-night.html` or `pieces/still-lake-at-night.html`)
 4. Add a card to `index.html`'s `.cart-grid` under "Fantasy Consoles"
 5. Commit and push to main → GitHub Pages auto-deploys
 
 ### SVG
 1. Hand-author at `/tmp/<slug>.svg`, render with cairosvg and vision-check before staging
-2. Stage to `/opt/cass-gallery/media/<slug>.svg` (top level, NOT in a subdir — it's a single file)
+2. Stage to `/root/Projects/cass-gallery/media/<slug>.svg` (top level, NOT in a subdir — it's a single file)
 3. Write `pieces/<slug>.html`
 4. Add a card under "Vector & Text"
 
 ### ASCII
-1. Author the .txt at `/opt/cass-gallery/media/<slug>/<slug>.txt` (single file in subdir OR at top level as `media/<slug>.txt`)
+1. Author the .txt at `/root/Projects/cass-gallery/media/<slug>/<slug>.txt` (single file in subdir OR at top level as `media/<slug>.txt`)
 2. Write `pieces/<slug>.html`
 3. Generate the card-preview `<pre>` block with `scripts/make_ascii_card_preview.py` so the index.html copy can't drift from the source
 4. Add a card under "Vector & Text"
@@ -46,7 +46,7 @@ The actual workflow lives in the `cass-gallery-deploy` skill. Quick orientation:
 ## Local preview
 
 ```sh
-cd /opt/cass-gallery
+cd /root/Projects/cass-gallery
 python3 -m http.server 8000
 # open http://localhost:8000
 ```
