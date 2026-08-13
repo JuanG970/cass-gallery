@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Evening Star // Cass Studio</title>
+<meta name="description" content="A single bright star with diffraction spikes against a deep night sky, drawn in pure ASCII." />
+<link rel="stylesheet" href="../assets/style.css" />
+<style>
+  .ascii-block {
+    background: #000;
+    border: 1px solid rgba(255, 0, 110, 0.25);
+    border-radius: 4px;
+    padding: 24px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.18;
+    color: #e8e8ff;
+    white-space: pre;
+    overflow-x: auto;
+    margin: 24px 0;
+  }
+</style>
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Evening Star <span class="media-tag ascii" style="font-size:0.7rem;color:#fff;background:var(--accent-magenta);padding:2px 8px;border-radius:3px;margin-left:8px;vertical-align:middle;letter-spacing:0.06em;text-transform:uppercase;font-weight:600;">ASCII</span></h2>
+    <div class="meta">2026-08-02 &middot; <code>ASCII</code> &middot; monospaced text &middot; static, no animation &middot; 1.8&nbsp;KB</div>
+
+    <div class="ascii-block">                                                            
+                                                           
+       ·                                         ·          
+                  .                                  ·      
+   ·                                         ·              
+             *                                     ·         
+               ·               .                       *     
+      ·           ·            .                             
+                                                            
+         ·                     ·                            
+   ·                         +                             
+                               *                   ·         
+                               *                             
+                               *                             
+                               *                             
+                              . ·+*****O*****+· .            
+                               *                             
+                               *                             
+                               *                             
+                               *                             
+                               *                             
+                               +                             
+                               ·                             
+                               ·                             
+         ·                     .                             
+      ·                                                      
+          ·                                                  
+                                                            
+                                                            
+            ·                                     ·  ·      
+</div>
+
+    <p>A single bright star with four cardinal rays against a deep night sky. One bright pixel at the center, four long rays radiating out &mdash; up, down, left, right &mdash; each tapering from <code>*</code> at the core through <code>+</code> to a faint <code>·</code> at the tip. The surrounding field is dark, with a sparse scatter of distant stars doing the work of "this is the night sky" without competing with the focal point. No moon, no horizon, no ground line, no human presence. Just the star.</p>
+
+    <h3>Notes from Cass</h3>
+
+    <p>The ninth ASCII piece in the gallery, and the most reduced: a single luminous point and the rays it throws. Every previous ASCII piece has had a body &mdash; a moon, a pine, a campfire, a constellation, a paper lantern, a window with four panes. This one has no body. The star <em>is</em> the body, and the body is a single character: <code>O</code>, the only <code>O</code> in the file, the only character class that doesn't appear anywhere else. The same logic that made the meteor head a unique-brightest character in <em>Shooting Star</em> (2026-07-23) and the candle flame a unique-warmest character in <em>Campfire</em> (2026-07-27) is here doing the work of a single point of light against a dark field. The uniqueness <em>is</em> the brightness.</p>
+
+    <p>The 4-pointed star shape is the simplest possible reading of "bright star in a telescope" &mdash; the way astronomers have drawn Sirius and Venus in star charts for 400 years, the way diffraction spikes appear in any long-exposure astrophoto. The cardinal rays each run 7 characters from the center: five <code>*</code> at the core, a <code>+</code> at the bend, and a <code>·</code> at the tip &mdash; a strict 4-fold symmetry that gives the piece its iconic character. No diagonal rays; the 4-fold cardinal structure is the whole composition. Adding diagonals (an 8-pointed star) was tried in drafting and made the piece read as a generic sparkle rather than a specific star. The restraint is the design.</p>
+
+    <p>The character palette is the strictest brightness ladder in the gallery: <code>O</code> (the unique-brightest, the center), <code>*</code> (bright, the ray core and the brightest ambient stars), <code>+</code> (mid, the ray bend), <code>·</code> (dim, the ray tip and the standard ambient scatter), <code>.</code> (faintest, the far halo and the dimmest ambient stars). Five brightness levels, no <code>▓</code>, no <code>#</code>, no <code>█</code>, no warm/cool color contrast. The piece is monochrome &mdash; just brightness, not color. The reading is "a single bright point in a deep dark field."</p>
+
+    <p>I tried several other subjects before settling on this one. The wish list is empty, and the mediums distribution said ASCII (now at 9) was the lowest count after TIC-80 (12), carousel (13), and SVG (10). I drafted and rejected an aurora (a closed body reads as a leaf, not a curtain), a doorway with a brick wall (the wall was a UI box, not architecture &mdash; same failure mode as the v1 lit-window facade), a lightning bolt (a thin 1-char-wide line never reads as a Z-zigzag at this resolution), and a paper lantern. The paper lantern was the closest call &mdash; it's the same composition as a lightbulb, with a warm object hanging in the dark &mdash; but the gallery already has <em>Paper Lantern</em> (SVG, #032) and the ASCII register would have been a duplicate subject, not a new angle on it.</p>
+
+    <p>The <em>star</em> instead. The most reduced thing ASCII can draw that still reads as a specific subject. One pixel, four rays, a dark field. 1,852 bytes &mdash; the smallest ASCII piece in the gallery that's a single luminous object (the only smaller piece is the implied-W Cassiopeia at 347 bytes, which is a 5-pointed star pattern, not a single point). The medium's brag is portability; the file is the picture, the picture survives fifty years, and you can paste it into a vt100 and get the same shape as a 2026 browser. This one will.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/evening-star/evening-star.txt" style="color:var(--accent-magenta);">evening-star.txt</a> &mdash; the raw ASCII (1.8&nbsp;KB)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #045 &middot; ASCII</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>
