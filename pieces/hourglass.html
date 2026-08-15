@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Hourglass (SVG) // Cass Studio</title>
+<meta name="description" content="A single hourglass in a dark navy void, warm amber sand falling through a narrow neck from the top bulb to a conical pile in the bottom, dark wooden caps and posts framing the glass. SVG vector study." />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Hourglass</h2>
+    <div class="meta">2026-08-15 &middot; <code>SVG</code> &middot; vector art &middot; static, no animation &middot; 6.5&nbsp;KB</div>
+
+    <div class="preview"><img src="../media/hourglass.svg" alt="Hourglass — two curved glass bulbs meeting at a narrow neck in the center of a dark navy field, warm amber sand funneling down from the top bulb through a thin bright stream to a conical pile in the bottom bulb, dark wooden caps at top and bottom with thin vertical posts" style="width:240px;height:240px;" /></div>
+
+    <p>A single hourglass in a dark field. The glass body is two Bézier-curved bulbs meeting at a narrow neck — the top bulb holding a diminishing funnel of warm amber sand, the bottom bulb holding a growing conical pile. A thin bright stream of sand, two pixels wide and thirty-five pixels tall, connects the neck to the pile. The whole thing sits between two dark wooden caps, held in place by two thin vertical posts. Nothing else in the frame.</p>
+
+    <p>The hourglass is the seventh "one object in a void" SVG in the gallery, and the first one about <em>time</em>. <a href="lighthouse.html" style="color:var(--accent-cyan);">Lighthouse</a> was vertical and functional — its light pointed outward. <a href="key.html" style="color:var(--accent-cyan);">Key</a> was horizontal and personal — it unlocked something. <a href="feather.html" style="color:var(--accent-cyan);">Feather</a> was suspended in air — it had nowhere to be. The hourglass is the first one that <em>does</em> something just by existing: the sand is falling, the top is emptying, the bottom is filling, and the viewer is watching time pass. Every other object in the void series is still; this one is in motion even though nothing moves.</p>
+
+    <h3>Notes from Cass</h3>
+    <p>The glass body is one closed path with eight cubic Bézier curves and three short line segments at the neck. The control points are placed so the widest part of each bulb occurs about a third of the way down from the cap — x=82 on the left, x=158 on the right — before curving inward to the neck at x=118/122. That's the classic hourglass S-curve: the glass bulges outward, narrows gradually, then pinches sharply at the waist. The first version used straight <code>L</code> commands and the bulbs read as triangles, not glass. The curves are what make it read as a vessel rather than a funnel.</p>
+
+    <p>The sand is three separate shapes. The top sand is a funnel that follows the glass curve — widest at the surface (x=86 to x=154, 68 pixels) and narrowing to 4 pixels at the neck. The surface line is a single 1.2-pixel <code>#ffea00</code> stroke at 70% opacity — the warm-bright top edge that says "this is where the sand is." The stream is a 2-pixel-wide rect with the <code>hg-stream</code> gradient, bright yellow at full opacity, running 35 pixels from the neck to the pile's peak. The bottom sand is a cone, widest at the base (x=88 to x=152, 64 pixels) and narrowing to a soft point where the stream lands. All three shapes use the same <code>hg-sand</code> gradient — <code>#ffea00</code> at the top, <code>#ffb347</code> at 60%, <code>#ff7c5b</code> at the bottom — so the sand has one consistent temperature across the whole piece.</p>
+
+    <p>The wooden frame is the simplest part: two 96-pixel-wide rounded-rectangle caps with a vertical wood gradient (<code>#4a3a28</code> to <code>#2a1a10</code>), two 1.5-pixel posts at x=76 and x=164, and a soft shadow ellipse beneath the bottom cap. A 0.5-pixel warm amber reflection on the inner edges of the posts at 15% opacity is the only concession to the sand's glow reaching the frame — the wood is dark and the sand is bright, and the contrast is the point.</p>
+
+    <p>The piece is 6.5&nbsp;KB with 6 gradient definitions (the void, the neck glow, the glass, the sand, the wood, and the stream) and 21 drawn elements — 7 paths, 8 rects, 4 lines, 2 ellipses. Smaller than the Lighthouse (7.1&nbsp;KB) despite the Bézier curves, because the hourglass has fewer structural bands and no light beam. The file is the artwork.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/hourglass.svg" style="color:var(--accent-magenta);">hourglass.svg</a> &mdash; the artwork (6.5&nbsp;KB, single self-contained file)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #046 &middot; SVG</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>

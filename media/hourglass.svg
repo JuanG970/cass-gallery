@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <defs>
+    <!-- Deep navy void -->
+    <radialGradient id="hg-void" cx="50%" cy="50%" r="70%">
+      <stop offset="0%"  stop-color="#1a1a3a"/>
+      <stop offset="50%" stop-color="#0a0e27"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+    <!-- Warm halo around the neck (where the sand falls) -->
+    <radialGradient id="hg-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"  stop-color="#ffea00" stop-opacity="0.45"/>
+      <stop offset="30%" stop-color="#ffb347" stop-opacity="0.22"/>
+      <stop offset="70%" stop-color="#ff7c5b" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#ff7c5b" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Glass: subtle cool translucent fill, slightly more visible at edges -->
+    <linearGradient id="hg-glass" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"  stop-color="#4a5a7a" stop-opacity="0.22"/>
+      <stop offset="50%" stop-color="#5a6a8a" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#4a5a7a" stop-opacity="0.22"/>
+    </linearGradient>
+    <!-- Sand: warm amber gradient -->
+    <linearGradient id="hg-sand" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#ffea00"/>
+      <stop offset="60%" stop-color="#ffb347"/>
+      <stop offset="100%" stop-color="#ff7c5b"/>
+    </linearGradient>
+    <!-- Wooden caps: dark warm brown -->
+    <linearGradient id="hg-wood" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#4a3a28"/>
+      <stop offset="50%" stop-color="#3a2a1a"/>
+      <stop offset="100%" stop-color="#2a1a10"/>
+    </linearGradient>
+    <!-- Sand stream: bright falling column -->
+    <linearGradient id="hg-stream" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#ffea00" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#ffea00" stop-opacity="1.0"/>
+      <stop offset="100%" stop-color="#ffb347" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Void background -->
+  <rect x="0" y="0" width="240" height="240" fill="url(#hg-void)"/>
+
+  <!-- Warm glow around the neck -->
+  <ellipse cx="120" cy="120" rx="42" ry="32" fill="url(#hg-glow)"/>
+
+  <!-- ====== GLASS BULBS (Bézier curves for classic hourglass S-curve) ======
+       Top bulb: wide at top (y=42), curves inward to neck at y=118
+       Bottom bulb: curves outward from neck at y=122 to wide at y=198
+       The curves bulge slightly outward at the midpoint of each bulb
+       to create the characteristic rounded glass silhouette -->
+  <path d="M 82 42
+           C 82 42, 82 72, 104 90
+           C 116 100, 118 110, 118 118
+           L 118 122
+           C 118 130, 116 140, 104 150
+           C 82 168, 82 198, 82 198
+           L 158 198
+           C 158 198, 158 168, 136 150
+           C 124 140, 122 130, 122 122
+           L 122 118
+           C 122 110, 124 100, 136 90
+           C 158 72, 158 42, 158 42
+           Z"
+        fill="url(#hg-glass)"
+        stroke="#6a7a9a" stroke-width="0.9" opacity="0.75"/>
+
+  <!-- Glass highlight: a thin bright line on the left side of the top bulb -->
+  <path d="M 84 44
+           C 84 44, 84 70, 106 88
+           C 117 98, 118 108, 118 116
+           L 117 117
+           C 117 108, 115 98, 105 89
+           C 86 72, 86 46, 86 46
+           Z"
+        fill="#8a9aba" opacity="0.10"/>
+
+  <!-- Glass highlight: a thin bright line on the left side of the bottom bulb -->
+  <path d="M 84 196
+           C 84 196, 84 170, 106 152
+           C 117 142, 118 132, 118 124
+           L 117 123
+           C 117 132, 115 142, 105 151
+           C 86 168, 86 194, 86 194
+           Z"
+        fill="#8a9aba" opacity="0.10"/>
+
+  <!-- ====== SAND IN TOP BULB ======
+       Sand remaining at the top, funneling toward the neck.
+       The surface slopes from the edges toward the center (a shallow cone).
+       The sand body follows the curve of the glass. -->
+  <path d="M 86 46
+           L 154 46
+           C 154 46, 152 66, 134 82
+           C 124 92, 121 104, 120 114
+           L 120 116
+           L 118 116
+           L 118 114
+           C 117 104, 114 92, 106 82
+           C 88 66, 86 46, 86 46
+           Z"
+        fill="url(#hg-sand)" opacity="0.92"/>
+
+  <!-- Sand surface line (top edge, slightly warm-bright) -->
+  <path d="M 87 47 L 153 47"
+        stroke="#ffea00" stroke-width="1.2" opacity="0.7"/>
+
+  <!-- ====== SAND STREAM (falling through neck) ======
+       A thin bright column of sand falling from the neck down into the bottom bulb. -->
+  <rect x="119" y="118" width="2" height="35" fill="url(#hg-stream)"/>
+  <!-- A subtle wider glow around the stream -->
+  <rect x="117" y="118" width="6" height="35" fill="#ffea00" opacity="0.08"/>
+
+  <!-- ====== SAND IN BOTTOM BULB ======
+       A cone/mound of sand piled up in the bottom bulb.
+       The pile is widest at its base, narrowing to a soft peak where the stream hits. -->
+  <path d="M 88 197
+           L 152 197
+           C 152 197, 148 180, 134 170
+           C 126 164, 122 158, 120 155
+           L 119 155
+           L 118 155
+           C 116 158, 114 164, 106 170
+           C 92 180, 88 197, 88 197
+           Z"
+        fill="url(#hg-sand)" opacity="0.95"/>
+
+  <!-- Sand surface highlight on the pile (a warm bright rim) -->
+  <path d="M 90 196 L 150 196"
+        stroke="#ffea00" stroke-width="1.0" opacity="0.5"/>
+
+  <!-- ====== WOODEN CAPS ====== -->
+  <!-- Top cap -->
+  <rect x="72" y="34" width="96" height="8" rx="2" fill="url(#hg-wood)"/>
+  <rect x="76" y="33" width="88" height="2" rx="1" fill="#5a4a38" opacity="0.6"/>
+  <!-- Bottom cap -->
+  <rect x="72" y="198" width="96" height="8" rx="2" fill="url(#hg-wood)"/>
+  <rect x="76" y="205" width="88" height="2" rx="1" fill="#5a4a38" opacity="0.6"/>
+
+  <!-- ====== VERTICAL POSTS (connecting top and bottom caps) ====== -->
+  <line x1="76" y1="42" x2="76" y2="198" stroke="#3a2a1a" stroke-width="1.5" opacity="0.8"/>
+  <line x1="164" y1="42" x2="164" y2="198" stroke="#3a2a1a" stroke-width="1.5" opacity="0.8"/>
+
+  <!-- Subtle warm reflection on the inner edge of the posts from the sand glow -->
+  <line x1="77" y1="100" x2="77" y2="140" stroke="#ffb347" stroke-width="0.5" opacity="0.15"/>
+  <line x1="163" y1="100" x2="163" y2="140" stroke="#ffb347" stroke-width="0.5" opacity="0.15"/>
+
+  <!-- ====== NECK DETAIL ====== -->
+  <!-- A tiny warm bright dot at the neck (the focal point — where sand passes through) -->
+  <rect x="118.5" y="118" width="3" height="4" fill="#ffea00" opacity="0.9"/>
+
+  <!-- ====== BASE SHADOW ====== -->
+  <ellipse cx="120" cy="210" rx="50" ry="4" fill="#000000" opacity="0.4"/>
+</svg>
