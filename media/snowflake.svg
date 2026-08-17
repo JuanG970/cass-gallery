@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <defs>
+    <radialGradient id="sf-glow" cx="0.5" cy="0.5" r="0.45">
+      <stop offset="0%" stop-color="#00f5ff" stop-opacity="0.15"/>
+      <stop offset="60%" stop-color="#0a0e27" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#0a0e27" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sf-arm" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#00f5ff"/>
+      <stop offset="100%" stop-color="#e8f8ff"/>
+    </linearGradient>
+    <g id="sf-branch">
+      <line x1="0" y1="-8" x2="0" y2="-85" stroke="url(#sf-arm)" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="0" cy="-85" r="2" fill="#e8f8ff"/>
+      <line x1="0" y1="-72" x2="-14" y2="-84" stroke="#00f5ff" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="0" y1="-72" x2="14" y2="-84" stroke="#00f5ff" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="0" y1="-50" x2="-18" y2="-64" stroke="#00f5ff" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="0" y1="-50" x2="18" y2="-64" stroke="#00f5ff" stroke-width="1.3" stroke-linecap="round"/>
+      <line x1="0" y1="-30" x2="-12" y2="-42" stroke="#00f5ff" stroke-width="1.1" stroke-linecap="round"/>
+      <line x1="0" y1="-30" x2="12" y2="-42" stroke="#00f5ff" stroke-width="1.1" stroke-linecap="round"/>
+      <circle cx="-14" cy="-84" r="1.2" fill="#00f5ff" opacity="0.7"/>
+      <circle cx="14" cy="-84" r="1.2" fill="#00f5ff" opacity="0.7"/>
+    </g>
+  </defs>
+  <rect width="240" height="240" fill="#000"/>
+  <rect width="240" height="240" fill="url(#sf-glow)"/>
+  <g transform="translate(120 120)">
+    <polygon points="0,-8 6.93,-4 6.93,4 0,8 -6.93,4 -6.93,-4" fill="none" stroke="url(#sf-arm)" stroke-width="1.8" stroke-linejoin="round"/>
+    <circle r="2.5" fill="#e8f8ff"/>
+    <use href="#sf-branch"/>
+    <use href="#sf-branch" transform="rotate(60)"/>
+    <use href="#sf-branch" transform="rotate(120)"/>
+    <use href="#sf-branch" transform="rotate(180)"/>
+    <use href="#sf-branch" transform="rotate(240)"/>
+    <use href="#sf-branch" transform="rotate(300)"/>
+  </g>
+</svg>

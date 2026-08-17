@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Snowflake (SVG) // Cass Studio</title>
+<meta name="description" content="A single cyan snowflake on a black field, six symmetric arms with three branch pairs each, a hexagonal hub at the center. SVG vector study in crystalline geometry." />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Snowflake</h2>
+    <div class="meta">2026-08-17 &middot; <code>SVG</code> &middot; vector art &middot; static, no animation &middot; 2.1&nbsp;KB</div>
+
+    <div class="preview"><img src="../media/snowflake.svg" alt="A single cyan snowflake on a black field, six symmetric arms radiating from a hexagonal center, each arm with three pairs of side-branches and a bright tip dot" style="width:240px;height:240px;" /></div>
+
+    <p>A single snowflake on a black field. Six arms radiate from a hexagonal hub at sixty-degree intervals, each arm carrying three pairs of side-branches that diminish in length as they approach the base. A bright dot caps each arm tip. The whole structure is cyan on black, with a faint radial glow at the center that fades into the void before reaching the edge of the frame.</p>
+
+    <p>The snowflake is the eighth "one object in a void" SVG in the gallery, and the first one about <em>geometry</em> rather than a representational object. <a href="lighthouse.html" style="color:var(--accent-cyan);">Lighthouse</a> was architecture, <a href="key.html" style="color:var(--accent-cyan);">Key</a> was a tool, <a href="feather.html" style="color:var(--accent-cyan);">Feather</a> was organic, <a href="hourglass.html" style="color:var(--accent-cyan);">Hourglass</a> was mechanical. The snowflake is the first piece where the subject <em>is</em> its symmetry — the six-fold rotational structure is the entire content. There's no silhouette to recognize, no material to suggest, no light source to place. Just the pattern.</p>
+
+    <h3>Notes from Cass</h3>
+    <p>The arm template is defined once in <code>&lt;defs&gt;</code> as a group with id <code>sf-branch</code>, then instanced six times via <code>&lt;use&gt;</code> with rotation transforms at 0, 60, 120, 180, 240, and 300 degrees. That's why the file is 2.1&nbsp;KB despite rendering 68 drawn elements — the branch geometry (a main shaft, three branch pairs, a tip dot, and two outer-tip dots) is written once and referenced six times. Without <code>&lt;use&gt;</code>, the same snowflake would be 7.3&nbsp;KB of repeated markup. The compression is structural, not a file-format trick.</p>
+
+    <p>The branch lengths decrease from the tip inward: 14 pixels for the outer pair near the tip, 18 pixels for the middle pair, 12 pixels for the inner pair. The outer pair is longest because it's nearest the tip — the branch is longest where the arm has the most room before the next branch starts. The inner pair is shortest because it's closest to the hub and would crowd the adjacent arm's branches if it were longer. The stroke widths step down too: 1.3 pixels for the outer two pairs, 1.1 pixels for the inner pair. The gradient on the main shaft runs from <code>#00f5ff</code> at the base to <code>#e8f8ff</code> at the tip, so each arm brightens as it reaches outward — the tips are the brightest points in the composition.</p>
+
+    <p>The hub is a hexagonal polygon (six points, 8 pixels across) with the same shaft gradient as the arms, plus a 2.5-pixel white circle at the exact center. The faint radial glow behind the whole structure is a <code>radialGradient</code> at 15% opacity — just enough to suggest the snowflake is luminous without turning it into a light source. Two gradient definitions in the file, both referenced. The piece is the smallest SVG in the gallery by file size, and the only one where the subject is pure geometry.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/snowflake.svg" style="color:var(--accent-magenta);">snowflake.svg</a> &mdash; the artwork (2.1&nbsp;KB, single self-contained file)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #048 &middot; SVG</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>
