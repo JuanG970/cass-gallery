@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <defs>
+    <radialGradient id="fa-cap" cx="0.5" cy="0.72" r="0.55">
+      <stop offset="0%" stop-color="#ff7c5b"/>
+      <stop offset="35%" stop-color="#ff4a2a"/>
+      <stop offset="75%" stop-color="#c83020"/>
+      <stop offset="100%" stop-color="#8a1a10"/>
+    </radialGradient>
+    <linearGradient id="fa-stem" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#b8b0d0"/>
+      <stop offset="45%" stop-color="#e8e0f0"/>
+      <stop offset="100%" stop-color="#9890a8"/>
+    </linearGradient>
+    <radialGradient id="fa-glow" cx="0.5" cy="0.45" r="0.5">
+      <stop offset="0%" stop-color="#ff5a3a" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#ff5a3a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="240" height="240" fill="#000"/>
+
+  <!-- Subtle warm glow behind cap -->
+  <ellipse cx="120" cy="95" rx="100" ry="80" fill="url(#fa-glow)"/>
+
+  <!-- Cap: wide dome with slightly curled-under edges -->
+  <path d="M 38 132
+           C 38 80, 70 42, 120 42
+           C 170 42, 202 80, 202 132
+           C 202 138, 198 141, 192 141
+           L 48 141
+           C 42 141, 38 138, 38 132 Z"
+        fill="url(#fa-cap)"/>
+
+  <!-- Cap underside rim shadow -->
+  <path d="M 48 141 L 192 141 L 188 146 L 52 146 Z"
+        fill="#6a1208" opacity="0.5"/>
+
+  <!-- Gills hint — thin lines under the cap -->
+  <line x1="70" y1="141" x2="68" y2="148" stroke="#d0c8e0" stroke-width="0.8" opacity="0.4"/>
+  <line x1="85" y1="141" x2="84" y2="149" stroke="#d0c8e0" stroke-width="0.8" opacity="0.4"/>
+  <line x1="100" y1="141" x2="100" y2="150" stroke="#d0c8e0" stroke-width="0.8" opacity="0.4"/>
+  <line x1="120" y1="141" x2="120" y2="150" stroke="#d0c8e0" stroke-width="0.8" opacity="0.4"/>
+  <line x1="140" y1="141" x2="140" y2="150" stroke="#d0c8e0" stroke-width="0.8" opacity="0.4"/>
+  <line x1="155" y1="141" x2="156" y2="149" stroke="#d0c8e0" stroke-width="0.8" opacity="0.4"/>
+  <line x1="170" y1="141" x2="172" y2="148" stroke="#d0c8e0" stroke-width="0.8" opacity="0.4"/>
+
+  <!-- White spots (universal veil remnants) -->
+  <ellipse cx="95"  cy="75"  rx="9" ry="7"   fill="#f8f4e8" opacity="0.92"/>
+  <ellipse cx="135" cy="62"  rx="7" ry="5.5" fill="#f8f4e8" opacity="0.92"/>
+  <ellipse cx="160" cy="90"  rx="8" ry="6"   fill="#f8f4e8" opacity="0.90"/>
+  <ellipse cx="75"  cy="100" rx="6" ry="5"   fill="#f8f4e8" opacity="0.88"/>
+  <ellipse cx="125" cy="100" rx="5" ry="4"   fill="#f8f4e8" opacity="0.85"/>
+  <ellipse cx="180" cy="115" rx="5" ry="4"   fill="#f8f4e8" opacity="0.80"/>
+  <ellipse cx="110" cy="120" rx="4" ry="3"   fill="#f8f4e8" opacity="0.75"/>
+
+  <!-- Stem: tapering wider at base -->
+  <path d="M 98 146
+           L 92 215
+           Q 92 220, 100 220
+           L 140 220
+           Q 148 220, 148 215
+           L 142 146 Z"
+        fill="url(#fa-stem)"/>
+
+  <!-- Ring/annulus -->
+  <ellipse cx="120" cy="155" rx="24" ry="5" fill="#e0d8f0" opacity="0.85"/>
+  <ellipse cx="120" cy="155" rx="24" ry="5" fill="none" stroke="#c0b8d8" stroke-width="0.8" opacity="0.5"/>
+
+  <!-- Base/volva bulge -->
+  <ellipse cx="120" cy="220" rx="32" ry="7" fill="#b0a8c8" opacity="0.5"/>
+
+  <!-- Sparse ground scatter -->
+  <circle cx="40"  cy="225" r="0.8" fill="#5a5478" opacity="0.6"/>
+  <circle cx="65"  cy="228" r="0.6" fill="#5a5478" opacity="0.5"/>
+  <circle cx="180" cy="227" r="0.7" fill="#5a5478" opacity="0.5"/>
+  <circle cx="205" cy="224" r="0.5" fill="#5a5478" opacity="0.4"/>
+  <circle cx="155" cy="229" r="0.5" fill="#5a5478" opacity="0.3"/>
+</svg>
