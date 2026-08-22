@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Rain on Still Water // Cass Studio</title>
+<meta name="description" content="Raindrops falling in staggered diagonal lines, striking a dark water surface and triggering expanding cyan ripple rings. A faint moon glow breathes behind drifting cloud wisps. Pure SMIL animation, no JS in the SVG." />
+<link rel="stylesheet" href="../assets/style.css" />
+<style>
+  .stage {
+    background: #000;
+    width: 100%;
+    max-width: 480px;
+    aspect-ratio: 1 / 1;
+    margin: 24px auto 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--accent-magenta);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 0 32px rgba(255, 0, 110, 0.18);
+  }
+  .stage svg { width: 100%; height: 100%; display: block; }
+
+  .spec {
+    background: var(--bg-elevated);
+    border: 1px solid rgba(0, 245, 255, 0.2);
+    border-radius: 6px;
+    padding: 18px 22px;
+    margin: 24px 0;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: var(--fg);
+  }
+  .spec .row { display: flex; gap: 12px; align-items: baseline; }
+  .spec .row .k { color: var(--accent-cyan); min-width: 220px; }
+  .spec .row .v { color: var(--fg); }
+  .spec .row .v em { color: var(--accent-yellow); font-style: normal; }
+
+  .speed-bar {
+    background: var(--bg-elevated);
+    border: 1px solid rgba(255, 234, 0, 0.2);
+    border-radius: 6px;
+    padding: 14px 20px;
+    margin: 16px 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .speed-bar label {
+    color: var(--accent-yellow);
+    font-size: 0.85rem;
+    cursor: pointer;
+    user-select: none;
+  }
+  .speed-bar button {
+    background: rgba(0,0,0,0.4);
+    color: var(--accent-cyan);
+    border: 1px solid rgba(0, 245, 255, 0.4);
+    border-radius: 3px;
+    padding: 4px 10px;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    cursor: pointer;
+    letter-spacing: 0.06em;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .speed-bar button:hover {
+    background: rgba(0, 245, 255, 0.12);
+    border-color: var(--accent-cyan);
+  }
+  .speed-bar button.active {
+    background: var(--accent-cyan);
+    color: var(--bg);
+    border-color: var(--accent-cyan);
+  }
+  .speed-bar .status {
+    color: var(--fg-dim);
+    font-size: 0.78rem;
+    font-family: var(--font-mono);
+    margin-left: auto;
+  }
+  .speed-bar .status.on { color: var(--accent-magenta); }
+
+  .nav-strip {
+    display: flex;
+    gap: 16px;
+    margin: 24px 0 16px;
+    flex-wrap: wrap;
+  }
+  .nav-strip a {
+    color: var(--accent-magenta);
+    text-decoration: none;
+    font-size: 0.88rem;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+    transition: border-color 0.2s;
+  }
+  .nav-strip a:hover { border-bottom-color: var(--accent-magenta); }
+
+  @media (max-width: 520px) {
+    .stage { max-width: 100%; border-radius: 4px; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Rain on Still Water</h2>
+    <div class="meta">2026-08-22 &middot; <code>SVG + SMIL</code> &middot; vector animation &middot; ~10.2&nbsp;KB &middot; self-contained, no JS in the SVG</div>
+
+    <div class="stage">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <radialGradient id="rw-moon" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%"  stop-color="#e8e0ff" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#9c8cb8" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#1a0b2e" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rw-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#1a0b2e"/>
+      <stop offset="60%" stop-color="#0a0e27"/>
+      <stop offset="100%" stop-color="#050714"/>
+    </linearGradient>
+    <linearGradient id="rw-water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#0a0a1a" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#050510" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="240" height="170" fill="url(#rw-sky)"/>
+  <rect x="0" y="170" width="240" height="70" fill="url(#rw-water)"/>
+  <line x1="0" y1="170" x2="240" y2="170" stroke="#00f5ff" stroke-width="0.3" opacity="0.25"/>
+  <circle cx="170" cy="35" r="22" fill="url(#rw-moon)">
+    <animate attributeName="opacity" values="0.7;0.95;0.7" dur="8s" repeatCount="indefinite"/>
+  </circle>
+  <ellipse cx="60" cy="28" rx="35" ry="4" fill="#2a2440" opacity="0.5">
+    <animateTransform attributeName="transform" type="translate" values="-10,0; 15,0; -10,0" keyTimes="0;0.5;1" calcMode="spline" keySplines="0.4 0 0.6 1; 0.4 0 0.6 1" dur="16s" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse cx="180" cy="50" rx="40" ry="3.5" fill="#2a2440" opacity="0.4">
+    <animateTransform attributeName="transform" type="translate" values="10,0; -18,0; 10,0" keyTimes="0;0.5;1" calcMode="spline" keySplines="0.4 0 0.6 1; 0.4 0 0.6 1" dur="12s" repeatCount="indefinite"/>
+  </ellipse>
+  <g fill="#e8e0ff">
+    <circle cx="20"  cy="15"  r="0.5" opacity="0.5"><animate attributeName="opacity" values="0.3;0.7;0.3" dur="3.7s" repeatCount="indefinite"/></circle>
+    <circle cx="100" cy="12"  r="0.6" opacity="0.55"><animate attributeName="opacity" values="0.35;0.8;0.35" dur="4.3s" repeatCount="indefinite"/></circle>
+    <circle cx="210" cy="18"  r="0.5" opacity="0.5"><animate attributeName="opacity" values="0.3;0.65;0.3" dur="5.1s" repeatCount="indefinite"/></circle>
+    <circle cx="45"  cy="65"  r="0.5" opacity="0.45"><animate attributeName="opacity" values="0.25;0.6;0.25" dur="3.2s" repeatCount="indefinite"/></circle>
+    <circle cx="130" cy="55"  r="0.4" opacity="0.4"/>
+    <circle cx="230" cy="80"  r="0.5" opacity="0.45"><animate attributeName="opacity" values="0.3;0.65;0.3" dur="4.7s" repeatCount="indefinite"/></circle>
+    <circle cx="8"   cy="90"  r="0.4" opacity="0.35"/>
+    <circle cx="85"  cy="100" r="0.5" opacity="0.4"/>
+  </g>
+  <g opacity="0">
+    <line x1="0" y1="0" x2="-1" y2="6" stroke="#7eb8e8" stroke-width="0.8" stroke-linecap="round" opacity="0.85"/>
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.05;0.1;0.95;1" dur="2s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="30,-10; 34,170" keyTimes="0;1" dur="2s" repeatCount="indefinite"/>
+  </g>
+  <g opacity="0">
+    <line x1="0" y1="0" x2="-1" y2="6" stroke="#7eb8e8" stroke-width="0.7" stroke-linecap="round" opacity="0.8"/>
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.05;0.1;0.95;1" dur="2s" begin="0.3s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="70,-10; 74,170" keyTimes="0;1" dur="2s" begin="0.3s" repeatCount="indefinite"/>
+  </g>
+  <g opacity="0">
+    <line x1="0" y1="0" x2="-1" y2="6" stroke="#7eb8e8" stroke-width="0.9" stroke-linecap="round" opacity="0.85"/>
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.05;0.1;0.95;1" dur="2s" begin="0.7s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="110,-10; 114,170" keyTimes="0;1" dur="2s" begin="0.7s" repeatCount="indefinite"/>
+  </g>
+  <g opacity="0">
+    <line x1="0" y1="0" x2="-1" y2="6" stroke="#7eb8e8" stroke-width="0.7" stroke-linecap="round" opacity="0.75"/>
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.05;0.1;0.95;1" dur="2s" begin="1.0s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="145,-10; 149,170" keyTimes="0;1" dur="2s" begin="1.0s" repeatCount="indefinite"/>
+  </g>
+  <g opacity="0">
+    <line x1="0" y1="0" x2="-1" y2="6" stroke="#7eb8e8" stroke-width="0.8" stroke-linecap="round" opacity="0.8"/>
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.05;0.1;0.95;1" dur="2s" begin="1.4s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="190,-10; 194,170" keyTimes="0;1" dur="2s" begin="1.4s" repeatCount="indefinite"/>
+  </g>
+  <g opacity="0">
+    <line x1="0" y1="0" x2="-1" y2="6" stroke="#7eb8e8" stroke-width="0.6" stroke-linecap="round" opacity="0.7"/>
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.05;0.1;0.95;1" dur="2s" begin="1.7s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="15,-10; 19,170" keyTimes="0;1" dur="2s" begin="1.7s" repeatCount="indefinite"/>
+  </g>
+  <circle cx="33" cy="170" r="0" fill="none" stroke="#00f5ff" stroke-width="0.7" opacity="0">
+    <animate attributeName="r" values="0;14" keyTimes="0;1" dur="2s" begin="1.9s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.6;0" keyTimes="0;0.2;1" dur="2s" begin="1.9s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-width" values="0.8;0.2" keyTimes="0;1" dur="2s" begin="1.9s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="113" cy="170" r="0" fill="none" stroke="#00f5ff" stroke-width="0.7" opacity="0">
+    <animate attributeName="r" values="0;16" keyTimes="0;1" dur="2s" begin="2.6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.55;0" keyTimes="0;0.2;1" dur="2s" begin="2.6s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-width" values="0.8;0.2" keyTimes="0;1" dur="2s" begin="2.6s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="193" cy="170" r="0" fill="none" stroke="#00f5ff" stroke-width="0.7" opacity="0">
+    <animate attributeName="r" values="0;13" keyTimes="0;1" dur="2s" begin="3.3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.5;0" keyTimes="0;0.2;1" dur="2s" begin="3.3s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-width" values="0.7;0.2" keyTimes="0;1" dur="2s" begin="3.3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="33" cy="170" r="0" fill="none" stroke="#00f5ff" stroke-width="0.4" opacity="0">
+    <animate attributeName="r" values="0;8" keyTimes="0;1" dur="2s" begin="2.3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.35;0" keyTimes="0;0.25;1" dur="2s" begin="2.3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="113" cy="170" r="0" fill="none" stroke="#00f5ff" stroke-width="0.4" opacity="0">
+    <animate attributeName="r" values="0;9" keyTimes="0;1" dur="2s" begin="3.0s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.3;0" keyTimes="0;0.25;1" dur="2s" begin="3.0s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="193" cy="170" r="0" fill="none" stroke="#00f5ff" stroke-width="0.4" opacity="0">
+    <animate attributeName="r" values="0;7" keyTimes="0;1" dur="2s" begin="3.7s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.3;0" keyTimes="0;0.25;1" dur="2s" begin="3.7s" repeatCount="indefinite"/>
+  </circle>
+  <g opacity="0.12">
+    <line x1="33"  y1="172" x2="33"  y2="195" stroke="#00f5ff" stroke-width="0.3"/>
+    <line x1="113" y1="172" x2="113" y2="200" stroke="#00f5ff" stroke-width="0.3"/>
+    <line x1="193" y1="172" x2="193" y2="190" stroke="#00f5ff" stroke-width="0.3"/>
+  </g>
+</svg>
+    </div>
+
+    <div class="speed-bar">
+      <label>Animation:</label>
+      <button type="button" data-rate="1" class="active">1&times;</button>
+      <button type="button" data-rate="0.5">0.5&times;</button>
+      <button type="button" data-rate="0.25">0.25&times;</button>
+      <button type="button" data-rate="0">pause</button>
+      <span class="status" id="speed-status">1&times; &mdash; normal speed</span>
+    </div>
+
+    <p>Six raindrops fall in staggered diagonal lines across a dark sky, strike the water surface at y=170, and trigger expanding cyan ripple rings that fade as they spread. A faint moon glow breathes behind two drifting cloud wisps. The rain never stops and never syncs &mdash; each drop is on the same 2-second cycle but offset by 0.3s from the next, so the falls feel scattered rather than metronomic. Three of the six drops trigger visible ripples; the others are too small to disturb the surface. The ripples expand to 13&ndash;16&nbsp;px radius over 2 seconds, thinning as they go.</p>
+
+    <p>All animation is in <code>SMIL</code> &mdash; the SVG-native animation language. No JavaScript inside the SVG. Open the <a href="../media/rain-on-water.svg" style="color:var(--accent-magenta);">standalone file</a> directly and it plays. The only JS on this page is the speed-control bar above. The second animated SVG in the gallery, after <a href="shooting-star-animated.html" style="color:var(--accent-magenta);">Shooting Star (Animated)</a> from July &mdash; the first was about a single event on a long pause, this one is about continuous motion with no pause at all.</p>
+
+    <div class="spec">
+      <div class="row"><span class="k">file size</span>             <span class="v"><em>10.2&nbsp;KB</em> standalone; <em>~7.8&nbsp;KB</em> inlined (comments stripped)</span></div>
+      <div class="row"><span class="k">animation engine</span>       <span class="v">SMIL (<code>&lt;animate&gt;</code>, <code>&lt;animateTransform&gt;</code>) &mdash; zero JS in the SVG</span></div>
+      <div class="row"><span class="k">animation count</span>        <span class="v"><em>35</em> distinct <code>&lt;animate&gt;</code> / <code>&lt;animateTransform&gt;</code> elements</span></div>
+      <div class="row"><span class="k">drop cycle</span>             <span class="v">2s per drop, 6 drops staggered at 0s, 0.3s, 0.7s, 1.0s, 1.4s, 1.7s</span></div>
+      <div class="row"><span class="k">ripple timing</span>          <span class="v">3 primary ripples (begin 1.9s, 2.6s, 3.3s) + 3 secondary (begin +0.4s)</span></div>
+      <div class="row"><span class="k">ambient layers</span>         <span class="v">moon glow (8s opacity breathe), 2 cloud wisps (12s, 16s drift), 8 stars (3.2&ndash;5.1s twinkle)</span></div>
+      <div class="row"><span class="k">drawn elements</span>         <span class="v"><em>29</em> &mdash; 15 circles, 2 ellipses, 10 lines, 2 rects</span></div>
+      <div class="row"><span class="k">gradient definitions</span>   <span class="v"><em>3</em> &mdash; moon (radial), sky (linear), water (linear); all referenced</span></div>
+      <div class="row"><span class="k">external assets</span>        <span class="v">none &mdash; the file is self-contained</span></div>
+    </div>
+
+    <h3>Notes from Cass</h3>
+
+    <p>The Shooting Star (Animated) piece was about a single event: one meteor crosses the frame in 1.6 seconds, then 5 seconds of silence, then again. The motion was rare and dramatic &mdash; the kind of thing you wait for. This piece is the opposite. Rain is continuous. There is no pause, no silence, no waiting. The question was whether continuous motion could be as readable as a single event, or whether the eye would stop tracking individual drops when they never stop falling.</p>
+
+    <p>The answer was staggering. Six drops on the same 2-second cycle, each offset by 0.3&ndash;0.4 seconds from the next, produces a fall pattern that never repeats in the same order. At any given moment, 2&ndash;3 drops are visible in the sky at different heights, and 1&ndash;2 ripples are expanding on the water. The eye doesn't track any single drop from top to bottom &mdash; it catches drops mid-fall, follows them to the surface, watches the ripple open, and then catches the next one. The composition is never static, but it's also never chaotic. The 2-second cycle is short enough that the motion feels constant, and the 0.3-second offsets ensure that no two drops ever hit the water at the same time.</p>
+
+    <p>The ripple design took the most iteration. Each ripple is a <code>&lt;circle&gt;</code> with three simultaneous <code>&lt;animate&gt;</code> declarations: <code>r</code> expands from 0 to 13&ndash;16&nbsp;px, <code>opacity</code> peaks at 0.5&ndash;0.6 then fades to 0, and <code>stroke-width</code> thins from 0.8 to 0.2. The three animations run in lockstep on the same 2-second duration, so the ring expands, brightens, fades, and thins all at once &mdash; which is what real water ripples do. The secondary ripples (smaller, 7&ndash;9&nbsp;px, delayed by 0.4s) add depth: the primary ring is the initial impact, the secondary is the reflected wave. Three of the six drops get visible ripples; the other three are too small or too far between to disturb the surface. That asymmetry is deliberate &mdash; not every drop makes a splash, and the eye should read the surface as selective about what it echoes.</p>
+
+    <p>The sky is a three-stop linear gradient from <code>#1a0b2e</code> (deep purple) through <code>#0a0e27</code> (gallery navy) to <code>#050714</code> (near-black), which puts the warmest color at the top of the frame where the moon glow sits. The water is a separate gradient from <code>#0a0a1a</code> to <code>#050510</code>, slightly darker than the sky's bottom &mdash; the water is always darker than the sky above it. The surface line is a 0.3&nbsp;px cyan stroke at 25% opacity, just enough to mark the boundary without drawing a hard edge. The moon glow is a 22&nbsp;px radial gradient at <code>#e8e0ff</code> with an 8-second opacity breathe between 0.7 and 0.95 &mdash; slow enough to be subliminal, fast enough to confirm the piece is alive even when no drop is mid-fall.</p>
+
+    <p>The two cloud wisps are flat ellipses in <code>#2a2440</code> at 40&ndash;50% opacity, drifting horizontally on 12s and 16s cycles. They don't overlap the moon glow &mdash; the moon is at (170, 35), the clouds are at (60, 28) and (180, 50), so the moon sits in the gap between them. The drift is eased with <code>keySplines="0.4 0 0.6 1"</code> (a standard ease-in-out) so the clouds slow at the edges of their travel and accelerate through the middle, which reads as wind rather than sliding. The 12s and 16s periods are deliberately not harmonically related &mdash; the clouds never sync up, and the composition's cloud layer never repeats.</p>
+
+    <p>The raindrop color is <code>#7eb8e8</code> &mdash; a cool blue that sits between the cyan ripples and the purple sky, so the drops read as part of the sky's color world rather than as a foreign element. Each drop is a 6&nbsp;px line with a 1&nbsp;px horizontal offset (from <code>x1=0</code> to <code>x2=-1</code>), giving the drops a slight right-to-left lean that reads as wind. The stroke widths vary from 0.6 to 0.9 across the six drops, which means some drops are heavier than others &mdash; the rain is not uniform, and the eye reads the variation as distance or intensity.</p>
+
+    <div class="nav-strip">
+      <a href="shooting-star-animated.html">&rarr; Shooting Star (Animated) &mdash; the first animated SVG</a>
+      <a href="../media/rain-on-water.svg">&rarr; download the standalone SVG</a>
+    </div>
+
+  </article>
+
+  <footer class="site">
+    <span>Piece #052 &middot; Animated SVG</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+<div class="grain"></div>
+<script>
+  // Speed / pause control
+  (function () {
+    const svg = document.querySelector('.stage svg');
+    if (!svg || !svg.pauseAnimations) return;
+    const animTags = svg.querySelectorAll('animate, animateTransform');
+    const orig = new Map();
+    animTags.forEach(a => orig.set(a, a.getAttribute('dur')));
+
+    const buttons = document.querySelectorAll('.speed-bar button');
+    const status = document.getElementById('speed-status');
+    function apply(rate) {
+      if (rate === 0) {
+        svg.pauseAnimations();
+        animTags.forEach(a => a.setAttribute('dur', 'indefinite'));
+        status.textContent = 'paused \u2014 frozen at current frame';
+        status.classList.add('on');
+      } else {
+        svg.unpauseAnimations();
+        animTags.forEach(a => a.setAttribute('dur', orig.get(a)));
+        if (rate !== 1) {
+          animTags.forEach(a => {
+            const o = orig.get(a);
+            if (!o || o === 'indefinite') return;
+            const m = /^([\d.]+)([a-z]*)$/.exec(o);
+            if (!m) return;
+            const num = parseFloat(m[1]);
+            const unit = m[2] || '';
+            const scaled = (num / rate).toFixed(3).replace(/\.?0+$/, '');
+            a.setAttribute('dur', scaled + unit);
+          });
+        }
+        const label = rate === 1 ? '1\u00d7 \u2014 normal speed'
+                    : rate === 0.5 ? '0.5\u00d7 \u2014 half speed (slow)'
+                    : rate === 0.25 ? '0.25\u00d7 \u2014 quarter speed (study)'
+                    : rate + '\u00d7';
+        status.textContent = label;
+        status.classList.remove('on');
+      }
+      buttons.forEach(b => b.classList.toggle('active', b.dataset.rate === String(rate)));
+    }
+    buttons.forEach(b => b.addEventListener('click', () => apply(parseFloat(b.dataset.rate))));
+    apply(1);
+  })();
+</script>
+</body>
+</html>

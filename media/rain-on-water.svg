@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" preserveAspectRatio="xMidYMid meet">
+  <!-- ============================================================
+       Rain on Still Water — piece #052.
+       Raindrops fall in staggered diagonal lines, strike the water
+       surface at y=170, and trigger expanding ripple rings. A faint
+       moon glow sits behind drifting cloud wisps at the top.
+
+       All animation is SMIL — no JS, no CSS. Self-contained.
+
+       Timing:
+         - Each drop: 2s cycle. Visible from 5% to 95% (0.1s-1.9s).
+           Drop reaches water at ~95% of cycle.
+         - Ripples: 2s cycle (synced to drops), begin offset = drop
+           begin + 1.9s (when drop hits water).
+         - Moon glow: 8s opacity breathe.
+         - Cloud wisps: 12s and 16s horizontal drift.
+         - Stars: 3-5s twinkle on independent periods.
+       ============================================================ -->
+
+  <defs>
+    <radialGradient id="rw-moon" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%"  stop-color="#e8e0ff" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#9c8cb8" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#1a0b2e" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rw-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#1a0b2e"/>
+      <stop offset="60%" stop-color="#0a0e27"/>
+      <stop offset="100%" stop-color="#050714"/>
+    </linearGradient>
+    <linearGradient id="rw-water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#0a0a1a" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#050510" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- sky -->
+  <rect x="0" y="0" width="240" height="170" fill="url(#rw-sky)"/>
+  <!-- water -->
+  <rect x="0" y="170" width="240" height="70" fill="url(#rw-water)"/>
+  <!-- water surface line -->
+  <line x1="0" y1="170" x2="240" y2="170" stroke="#00f5ff" stroke-width="0.3" opacity="0.25"/>
+
+  <!-- moon glow -->
+  <circle cx="170" cy="35" r="22" fill="url(#rw-moon)">
+    <animate attributeName="opacity" values="0.7;0.95;0.7" dur="8s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- cloud wisps -->
+  <ellipse cx="60" cy="28" rx="35" ry="4" fill="#2a2440" opacity="0.5">
+    <animateTransform attributeName="transform" type="translate"
+                      values="-10,0; 15,0; -10,0"
+                      keyTimes="0;0.5;1"
+                      calcMode="spline"
+                      keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"
+                      dur="16s" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse cx="180" cy="50" rx="40" ry="3.5" fill="#2a2440" opacity="0.4">
+    <animateTransform attributeName="transform" type="translate"
+                      values="10,0; -18,0; 10,0"
+                      keyTimes="0;0.5;1"
+                      calcMode="spline"
+                      keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"
+                      dur="12s" repeatCount="indefinite"/>
+  </ellipse>
+
+  <!-- background stars -->
+  <g fill="#e8e0ff">
+    <circle cx="20"  cy="15"  r="0.5" opacity="0.5"><animate attributeName="opacity" values="0.3;0.7;0.3" dur="3.7s" repeatCount="indefinite"/></circle>
+    <circle cx="100" cy="12"  r="0.6" opacity="0.55"><animate attributeName="opacity" values="0.35;0.8;0.35" dur="4.3s" repeatCount="indefinite"/></circle>
+    <circle cx="210" cy="18"  r="0.5" opacity="0.5"><animate attributeName="opacity" values="0.3;0.65;0.3" dur="5.1s" repeatCount="indefinite"/></circle>
+    <circle cx="45"  cy="65"  r="0.5" opacity="0.45"><animate attributeName="opacity" values="0.25;0.6;0.25" dur="3.2s" repeatCount="indefinite"/></circle>
+    <circle cx="130" cy="55"  r="0.4" opacity="0.4"/>
+    <circle cx="230" cy="80"  r="0.5" opacity="0.45"><animate attributeName="opacity" values="0.3;0.65;0.3" dur="4.7s" repeatCount="indefinite"/></circle>
+    <circle cx="8"   cy="90"  r="0.4" opacity="0.35"/>
+    <circle cx="85"  cy="100" r="0.5" opacity="0.4"/>
+  </g>
+
+  <!-- raindrops — each falls from y=-10 to y=170 over 2s, visible 5%-95% -->
+  <!-- drop 1: x=30, begin=0s, ripple at 1.9s -->
+  <g opacity="0">
+    <line x1="0" y1="0" x2="-1" y2="6" stroke="#7eb8e8" stroke-width="0.8" stroke-linecap="round" opacity="0.85"/>
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.05;0.1;0.95;1" dur="2s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate"
+                      values="30,-10; 34,170"
+                      keyTimes="0;1"
+                      dur="2s" repeatCount="indefinite"/>
+  </g>
+  <!-- drop 2: x=70, begin=0.3s -->
+  <g opacity="0">
+    <line x1="0" y1="0" x2="-1" y2="6" stroke="#7eb8e8" stroke-width="0.7" stroke-linecap="round" opacity="0.8"/>
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.05;0.1;0.95;1" dur="2s" begin="0.3s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate"
+                      values="70,-10; 74,170"
+                      keyTimes="0;1"
+                      dur="2s" begin="0.3s" repeatCount="indefinite"/>
+  </g>
+  <!-- drop 3: x=110, begin=0.7s -->
+  <g opacity="0">
+    <line x1="0" y1="0" x2="-1" y2="6" stroke="#7eb8e8" stroke-width="0.9" stroke-linecap="round" opacity="0.85"/>
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.05;0.1;0.95;1" dur="2s" begin="0.7s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate"
+                      values="110,-10; 114,170"
+                      keyTimes="0;1"
+                      dur="2s" begin="0.7s" repeatCount="indefinite"/>
+  </g>
+  <!-- drop 4: x=145, begin=1.0s -->
+  <g opacity="0">
+    <line x1="0" y1="0" x2="-1" y2="6" stroke="#7eb8e8" stroke-width="0.7" stroke-linecap="round" opacity="0.75"/>
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.05;0.1;0.95;1" dur="2s" begin="1.0s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate"
+                      values="145,-10; 149,170"
+                      keyTimes="0;1"
+                      dur="2s" begin="1.0s" repeatCount="indefinite"/>
+  </g>
+  <!-- drop 5: x=190, begin=1.4s -->
+  <g opacity="0">
+    <line x1="0" y1="0" x2="-1" y2="6" stroke="#7eb8e8" stroke-width="0.8" stroke-linecap="round" opacity="0.8"/>
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.05;0.1;0.95;1" dur="2s" begin="1.4s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate"
+                      values="190,-10; 194,170"
+                      keyTimes="0;1"
+                      dur="2s" begin="1.4s" repeatCount="indefinite"/>
+  </g>
+  <!-- drop 6: x=15, begin=1.7s -->
+  <g opacity="0">
+    <line x1="0" y1="0" x2="-1" y2="6" stroke="#7eb8e8" stroke-width="0.6" stroke-linecap="round" opacity="0.7"/>
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.05;0.1;0.95;1" dur="2s" begin="1.7s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate"
+                      values="15,-10; 19,170"
+                      keyTimes="0;1"
+                      dur="2s" begin="1.7s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- ripples — 2s cycle synced to drops, begin = drop_begin + 1.9s -->
+  <!-- ripple 1: at x=32 (drop 1 hits at 34, slight offset for wind), begin=1.9s -->
+  <circle cx="33" cy="170" r="0" fill="none" stroke="#00f5ff" stroke-width="0.7" opacity="0">
+    <animate attributeName="r" values="0;14" keyTimes="0;1" dur="2s" begin="1.9s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.6;0" keyTimes="0;0.2;1" dur="2s" begin="1.9s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-width" values="0.8;0.2" keyTimes="0;1" dur="2s" begin="1.9s" repeatCount="indefinite"/>
+  </circle>
+  <!-- ripple 2: at x=113 (drop 3), begin=2.6s -->
+  <circle cx="113" cy="170" r="0" fill="none" stroke="#00f5ff" stroke-width="0.7" opacity="0">
+    <animate attributeName="r" values="0;16" keyTimes="0;1" dur="2s" begin="2.6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.55;0" keyTimes="0;0.2;1" dur="2s" begin="2.6s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-width" values="0.8;0.2" keyTimes="0;1" dur="2s" begin="2.6s" repeatCount="indefinite"/>
+  </circle>
+  <!-- ripple 3: at x=193 (drop 5), begin=3.3s -->
+  <circle cx="193" cy="170" r="0" fill="none" stroke="#00f5ff" stroke-width="0.7" opacity="0">
+    <animate attributeName="r" values="0;13" keyTimes="0;1" dur="2s" begin="3.3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.5;0" keyTimes="0;0.2;1" dur="2s" begin="3.3s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-width" values="0.7;0.2" keyTimes="0;1" dur="2s" begin="3.3s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- secondary ripples — smaller, delayed by 0.4s after primary -->
+  <circle cx="33" cy="170" r="0" fill="none" stroke="#00f5ff" stroke-width="0.4" opacity="0">
+    <animate attributeName="r" values="0;8" keyTimes="0;1" dur="2s" begin="2.3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.35;0" keyTimes="0;0.25;1" dur="2s" begin="2.3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="113" cy="170" r="0" fill="none" stroke="#00f5ff" stroke-width="0.4" opacity="0">
+    <animate attributeName="r" values="0;9" keyTimes="0;1" dur="2s" begin="3.0s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.3;0" keyTimes="0;0.25;1" dur="2s" begin="3.0s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="193" cy="170" r="0" fill="none" stroke="#00f5ff" stroke-width="0.4" opacity="0">
+    <animate attributeName="r" values="0;7" keyTimes="0;1" dur="2s" begin="3.7s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.3;0" keyTimes="0;0.25;1" dur="2s" begin="3.7s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- faint water reflections — vertical streaks below the surface -->
+  <g opacity="0.12">
+    <line x1="33"  y1="172" x2="33"  y2="195" stroke="#00f5ff" stroke-width="0.3"/>
+    <line x1="113" y1="172" x2="113" y2="200" stroke="#00f5ff" stroke-width="0.3"/>
+    <line x1="193" y1="172" x2="193" y2="190" stroke="#00f5ff" stroke-width="0.3"/>
+  </g>
+
+</svg>

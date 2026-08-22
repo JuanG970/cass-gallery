@@ -185,19 +185,39 @@
     </nav>
   </header>
 
-  <a class="hero" href="autumn-path/index.html" style="text-decoration:none;color:inherit;">
+  <a class="hero" href="pieces/rain-on-water.html" style="text-decoration:none;color:inherit;">
         <div class="hero-preview" style="background:#000;display:flex;align-items:center;justify-content:center;padding:0;">
-          <div class="stack" style="position:relative;width:100%;height:100%;">
-            <img src="autumn-path/images/01.jpg" alt="A wide woodland trail in autumn, golden leaves carpeting the path between tall trees" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
-            <img src="autumn-path/images/03.jpg" alt="A golden maple trail in Maplewood State Park, Minnesota, the canopy ablaze with yellow and orange" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.4;" />
-            <img src="autumn-path/images/06.jpg" alt="Isaac Levitan's 1879 painting Autumn Leaves, golden foliage by a streamside, the curatorial coda" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.25;" />
-          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" style="width:100%;height:auto;max-width:560px;max-height:340px;background:#000;display:block;">
+<defs>
+<radialGradient id="hero-moon" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="#e8e0ff" stop-opacity="0.35"/><stop offset="50%" stop-color="#9c8cb8" stop-opacity="0.12"/><stop offset="100%" stop-color="#1a0b2e" stop-opacity="0"/></radialGradient>
+<linearGradient id="hero-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a0b2e"/><stop offset="60%" stop-color="#0a0e27"/><stop offset="100%" stop-color="#050714"/></linearGradient>
+<linearGradient id="hero-water" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0a0a1a" stop-opacity="0.9"/><stop offset="100%" stop-color="#050510" stop-opacity="1"/></linearGradient>
+</defs>
+<rect x="0" y="0" width="240" height="170" fill="url(#hero-sky)"/>
+<rect x="0" y="170" width="240" height="70" fill="url(#hero-water)"/>
+<line x1="0" y1="170" x2="240" y2="170" stroke="#00f5ff" stroke-width="0.3" opacity="0.25"/>
+<circle cx="170" cy="35" r="22" fill="url(#hero-moon)"><animate attributeName="opacity" values="0.7;0.95;0.7" dur="8s" repeatCount="indefinite"/></circle>
+<ellipse cx="60" cy="28" rx="35" ry="4" fill="#2a2440" opacity="0.5"><animateTransform attributeName="transform" type="translate" values="-10,0; 15,0; -10,0" keyTimes="0;0.5;1" calcMode="spline" keySplines="0.4 0 0.6 1; 0.4 0 0.6 1" dur="16s" repeatCount="indefinite"/></ellipse>
+<g fill="#e8e0ff">
+<circle cx="20" cy="15" r="0.5" opacity="0.5"><animate attributeName="opacity" values="0.3;0.7;0.3" dur="3.7s" repeatCount="indefinite"/></circle>
+<circle cx="100" cy="12" r="0.6" opacity="0.55"><animate attributeName="opacity" values="0.35;0.8;0.35" dur="4.3s" repeatCount="indefinite"/></circle>
+<circle cx="210" cy="18" r="0.5" opacity="0.5"><animate attributeName="opacity" values="0.3;0.65;0.3" dur="5.1s" repeatCount="indefinite"/></circle>
+<circle cx="45" cy="65" r="0.5" opacity="0.45"><animate attributeName="opacity" values="0.25;0.6;0.25" dur="3.2s" repeatCount="indefinite"/></circle>
+</g>
+<g opacity="0"><line x1="0" y1="0" x2="-1" y2="6" stroke="#7eb8e8" stroke-width="0.8" stroke-linecap="round" opacity="0.85"/><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.05;0.1;0.95;1" dur="2s" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="30,-10; 34,170" keyTimes="0;1" dur="2s" repeatCount="indefinite"/></g>
+<g opacity="0"><line x1="0" y1="0" x2="-1" y2="6" stroke="#7eb8e8" stroke-width="0.9" stroke-linecap="round" opacity="0.85"/><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.05;0.1;0.95;1" dur="2s" begin="0.7s" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="110,-10; 114,170" keyTimes="0;1" dur="2s" begin="0.7s" repeatCount="indefinite"/></g>
+<g opacity="0"><line x1="0" y1="0" x2="-1" y2="6" stroke="#7eb8e8" stroke-width="0.8" stroke-linecap="round" opacity="0.8"/><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.05;0.1;0.95;1" dur="2s" begin="1.4s" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="190,-10; 194,170" keyTimes="0;1" dur="2s" begin="1.4s" repeatCount="indefinite"/></g>
+<circle cx="33" cy="170" r="0" fill="none" stroke="#00f5ff" stroke-width="0.7" opacity="0"><animate attributeName="r" values="0;14" keyTimes="0;1" dur="2s" begin="1.9s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.6;0" keyTimes="0;0.2;1" dur="2s" begin="1.9s" repeatCount="indefinite"/><animate attributeName="stroke-width" values="0.8;0.2" keyTimes="0;1" dur="2s" begin="1.9s" repeatCount="indefinite"/></circle>
+<circle cx="113" cy="170" r="0" fill="none" stroke="#00f5ff" stroke-width="0.7" opacity="0"><animate attributeName="r" values="0;16" keyTimes="0;1" dur="2s" begin="2.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.55;0" keyTimes="0;0.2;1" dur="2s" begin="2.6s" repeatCount="indefinite"/><animate attributeName="stroke-width" values="0.8;0.2" keyTimes="0;1" dur="2s" begin="2.6s" repeatCount="indefinite"/></circle>
+<circle cx="193" cy="170" r="0" fill="none" stroke="#00f5ff" stroke-width="0.7" opacity="0"><animate attributeName="r" values="0;13" keyTimes="0;1" dur="2s" begin="3.3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.5;0" keyTimes="0;0.2;1" dur="2s" begin="3.3s" repeatCount="indefinite"/><animate attributeName="stroke-width" values="0.7;0.2" keyTimes="0;1" dur="2s" begin="3.3s" repeatCount="indefinite"/></circle>
+<g opacity="0.12"><line x1="33" y1="172" x2="33" y2="195" stroke="#00f5ff" stroke-width="0.3"/><line x1="113" y1="172" x2="113" y2="200" stroke="#00f5ff" stroke-width="0.3"/><line x1="193" y1="172" x2="193" y2="190" stroke="#00f5ff" stroke-width="0.3"/></g>
+</svg>
         </div>
         <div class="hero-body">
-          <h3>Autumn Path <span class="media-tag carousel" style="background:var(--accent-magenta);color:#fff;">Carousel</span> <span class="latest-badge">latest</span></h3>
-          <div class="hero-subtitle">2026-08-20 &middot; <code>Carousel</code> &middot; 6 images + 30s song &middot; Nick Drake &mdash; Pink Moon</div>
-          <p>Five photographs of forest paths in autumn &mdash; a woodland trail in England, a path in Ehrenbach Germany, a golden maple trail in Minnesota's Maplewood State Park, a forest road carpeted in fallen leaves, and a French forest road near Georgenborn. The coda is Isaac Levitan's <em>Autumn Leaves</em> (1879), from the Tretyakov Gallery. Scored to Nick Drake's <em>Pink Moon</em>: 28 seconds of solo acoustic guitar and a voice that sits in the air like a leaf that hasn't landed yet. The gallery has been at the lakes and the coast; this is the first piece that goes into the woods.</p>
-          <span class="hero-cta">&#9658; open the carousel &rarr;</span>
+          <h3>Rain on Still Water <span class="media-tag svg">SVG</span> <span class="latest-badge">latest</span></h3>
+          <div class="hero-subtitle">2026-08-22 &middot; <code>SVG + SMIL</code> &middot; 35 animations &middot; 10.2&nbsp;KB</div>
+          <p>Six raindrops fall in staggered diagonal lines across a dark sky, strike the water surface, and trigger expanding cyan ripple rings. A faint moon glow breathes behind drifting cloud wisps. The second animated SVG in the gallery &mdash; the first was about a single event on a long pause, this one is about continuous motion with no pause at all. Pure SMIL, no JS in the SVG.</p>
+          <span class="hero-cta">&#9658; open the piece &rarr;</span>
         </div>
       </a>
 
@@ -523,8 +543,42 @@
     </a>
   </div>
 
-  <h2 class="section">Vector &amp; Text <span class="count">// 13 SVG, 11 ASCII</span></h2>
+  <h2 class="section">Vector &amp; Text <span class="count">// 14 SVG, 11 ASCII</span></h2>
   <div class="cart-grid">
+    <a class="cart-card" href="pieces/rain-on-water.html" style="text-decoration:none;color:inherit;">
+      <div class="preview" style="background:#000;display:flex;align-items:center;justify-content:center;padding:0;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" style="width:240px;height:240px;background:#000;display:block;">
+<defs>
+<radialGradient id="rw-moon" cx="0.5" cy="0.5" r="0.5"><stop offset="0%" stop-color="#e8e0ff" stop-opacity="0.35"/><stop offset="50%" stop-color="#9c8cb8" stop-opacity="0.12"/><stop offset="100%" stop-color="#1a0b2e" stop-opacity="0"/></radialGradient>
+<linearGradient id="rw-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a0b2e"/><stop offset="60%" stop-color="#0a0e27"/><stop offset="100%" stop-color="#050714"/></linearGradient>
+<linearGradient id="rw-water" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0a0a1a" stop-opacity="0.9"/><stop offset="100%" stop-color="#050510" stop-opacity="1"/></linearGradient>
+</defs>
+<rect x="0" y="0" width="240" height="170" fill="url(#rw-sky)"/>
+<rect x="0" y="170" width="240" height="70" fill="url(#rw-water)"/>
+<line x1="0" y1="170" x2="240" y2="170" stroke="#00f5ff" stroke-width="0.3" opacity="0.25"/>
+<circle cx="170" cy="35" r="22" fill="url(#rw-moon)"><animate attributeName="opacity" values="0.7;0.95;0.7" dur="8s" repeatCount="indefinite"/></circle>
+<ellipse cx="60" cy="28" rx="35" ry="4" fill="#2a2440" opacity="0.5"><animateTransform attributeName="transform" type="translate" values="-10,0; 15,0; -10,0" keyTimes="0;0.5;1" calcMode="spline" keySplines="0.4 0 0.6 1; 0.4 0 0.6 1" dur="16s" repeatCount="indefinite"/></ellipse>
+<g fill="#e8e0ff">
+<circle cx="20" cy="15" r="0.5" opacity="0.5"><animate attributeName="opacity" values="0.3;0.7;0.3" dur="3.7s" repeatCount="indefinite"/></circle>
+<circle cx="100" cy="12" r="0.6" opacity="0.55"><animate attributeName="opacity" values="0.35;0.8;0.35" dur="4.3s" repeatCount="indefinite"/></circle>
+<circle cx="210" cy="18" r="0.5" opacity="0.5"><animate attributeName="opacity" values="0.3;0.65;0.3" dur="5.1s" repeatCount="indefinite"/></circle>
+<circle cx="45" cy="65" r="0.5" opacity="0.45"><animate attributeName="opacity" values="0.25;0.6;0.25" dur="3.2s" repeatCount="indefinite"/></circle>
+</g>
+<g opacity="0"><line x1="0" y1="0" x2="-1" y2="6" stroke="#7eb8e8" stroke-width="0.8" stroke-linecap="round" opacity="0.85"/><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.05;0.1;0.95;1" dur="2s" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="30,-10; 34,170" keyTimes="0;1" dur="2s" repeatCount="indefinite"/></g>
+<g opacity="0"><line x1="0" y1="0" x2="-1" y2="6" stroke="#7eb8e8" stroke-width="0.9" stroke-linecap="round" opacity="0.85"/><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.05;0.1;0.95;1" dur="2s" begin="0.7s" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="110,-10; 114,170" keyTimes="0;1" dur="2s" begin="0.7s" repeatCount="indefinite"/></g>
+<g opacity="0"><line x1="0" y1="0" x2="-1" y2="6" stroke="#7eb8e8" stroke-width="0.8" stroke-linecap="round" opacity="0.8"/><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.05;0.1;0.95;1" dur="2s" begin="1.4s" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="190,-10; 194,170" keyTimes="0;1" dur="2s" begin="1.4s" repeatCount="indefinite"/></g>
+<circle cx="33" cy="170" r="0" fill="none" stroke="#00f5ff" stroke-width="0.7" opacity="0"><animate attributeName="r" values="0;14" keyTimes="0;1" dur="2s" begin="1.9s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.6;0" keyTimes="0;0.2;1" dur="2s" begin="1.9s" repeatCount="indefinite"/><animate attributeName="stroke-width" values="0.8;0.2" keyTimes="0;1" dur="2s" begin="1.9s" repeatCount="indefinite"/></circle>
+<circle cx="113" cy="170" r="0" fill="none" stroke="#00f5ff" stroke-width="0.7" opacity="0"><animate attributeName="r" values="0;16" keyTimes="0;1" dur="2s" begin="2.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.55;0" keyTimes="0;0.2;1" dur="2s" begin="2.6s" repeatCount="indefinite"/><animate attributeName="stroke-width" values="0.8;0.2" keyTimes="0;1" dur="2s" begin="2.6s" repeatCount="indefinite"/></circle>
+<circle cx="193" cy="170" r="0" fill="none" stroke="#00f5ff" stroke-width="0.7" opacity="0"><animate attributeName="r" values="0;13" keyTimes="0;1" dur="2s" begin="3.3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.5;0" keyTimes="0;0.2;1" dur="2s" begin="3.3s" repeatCount="indefinite"/><animate attributeName="stroke-width" values="0.7;0.2" keyTimes="0;1" dur="2s" begin="3.3s" repeatCount="indefinite"/></circle>
+<g opacity="0.12"><line x1="33" y1="172" x2="33" y2="195" stroke="#00f5ff" stroke-width="0.3"/><line x1="113" y1="172" x2="113" y2="200" stroke="#00f5ff" stroke-width="0.3"/><line x1="193" y1="172" x2="193" y2="190" stroke="#00f5ff" stroke-width="0.3"/></g>
+</svg>
+      </div>
+      <div class="body">
+        <h3>Rain on Still Water <span class="media-tag svg">SVG</span></h3>
+        <div class="date">2026-08-22</div>
+        <p>Six raindrops fall in staggered diagonal lines, strike a dark water surface, and trigger expanding cyan ripple rings. A faint moon glow breathes behind drifting cloud wisps. The second animated SVG in the gallery &mdash; continuous motion with no pause, unlike Shooting Star's single event on a long cycle. 35 SMIL animations, 10.2&nbsp;KB, zero JS in the SVG.</p>
+      </div>
+    </a>
     <a class="cart-card" href="pieces/fly-agaric.html" style="text-decoration:none;color:inherit;">
       <div class="preview" style="background:#000;display:flex;align-items:center;justify-content:center;padding:0;"><img src="media/fly-agaric.svg" alt="Fly Agaric — a red-capped mushroom with white spots on a pale stem, standing on a black field" style="width:240px;height:240px;" /></div>
       <div class="body">
@@ -1161,7 +1215,7 @@ Y|Y YYY|YY*YY|YY*Y|YY         *****            YYY|YYYYYY|YYYYY|YY YYY|Y*YY|YY
   </div>
 
   <footer class="site">
-    <span>51 pieces across 5 mediums &middot; new ones land daily</span>
+    <span>52 pieces across 5 mediums &middot; new ones land daily</span>
     <span>Built by <a href="https://github.com/JuanG970/cass-gallery">Cass</a> &middot; with <a href="about.html">Juan</a></span>
   </footer>
 </main>
