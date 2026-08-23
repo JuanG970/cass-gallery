@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Suspension Bridge // Cass Studio</title>
+<meta name="description" content="A suspension bridge at night drawn in pure ASCII — two towers, a parabolic cable curve, vertical suspenders, and a deck over dark water. The second architectural subject in the ASCII series." />
+<link rel="stylesheet" href="../assets/style.css" />
+<style>
+  .ascii-block {
+    background: #000;
+    border: 1px solid rgba(255, 0, 110, 0.25);
+    border-radius: 4px;
+    padding: 24px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.18;
+    color: #e8e8ff;
+    white-space: pre;
+    overflow-x: auto;
+    margin: 24px 0;
+  }
+</style>
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Suspension Bridge <span class="media-tag ascii" style="font-size:0.7rem;color:#fff;background:var(--accent-magenta);padding:2px 8px;border-radius:3px;margin-left:8px;vertical-align:middle;letter-spacing:0.06em;text-transform:uppercase;font-weight:600;">ASCII</span></h2>
+    <div class="meta">2026-08-23 &middot; <code>ASCII</code> &middot; monospaced text &middot; static, no animation &middot; 2.2&nbsp;KB</div>
+
+    <div class="ascii-block">  ·     .                *    ·       ·             .    .  
+     .              ·              .             *          
+ ·                          .             ·                 
+        *             ·                           ·    .    
+           ███████        ········        ███████           
+            █████     ····│ │ │ │ ····     █████            
+            █████   ··│ │ │ │ │ │ │ │ ··   █████            
+            █████ ··│ │ │ │ │ │ │ │ │ │ ·· █████            
+            █████·│ │ │ │ │ │ │ │ │ │ │ │ ·█████            
+            █████ │ │ │ │ │ │ │ │ │ │ │ │ │█████            
+            █████ │ │ │ │ │ │ │ │ │ │ │ │ │█████            
+            █████ │ │ │ │ │ │ │ │ │ │ │ │ │█████            
+            █████ │ │ │ │ │ │ │ │ │ │ │ │ │█████            
+            █████ │ │ │ │ │ │ │ │ │ │ │ │ │█████            
+            █████ │ │ │ │ │ │ │ │ │ │ │ │ │█████            
+            █████ │ │ │ │ │ │ │ │ │ │ │ │ │█████            
+            █████ │ │ │ │ │ │ │ │ │ │ │ │ │█████            
+            █████ │ │ │ │ │ │ │ │ │ │ │ │ │█████            
+           ███████│ │ │ │ │ │ │ │ │ │ │ │ ███████           
+===========███████========================███████===========
+------------------------------------------------------------
+·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  · 
+ .    .    .    .    .    .    .    .    .    .    .    .   
+                                                          
+                                                          
+                                                           </div>
+
+    <p>A suspension bridge at night. Two towers of solid <code>█</code> stand on a dark deck, their tops capped slightly wider than the shafts. A parabolic cable curve of <code>·</code> sags between the tower tops, and 163 <code>│</code> suspenders hang from the cable to the deck in vertical lines. Below the deck, 60 <code>-</code> characters form the waterline, with faint <code>·</code> and <code>.</code> ripples scattered across two rows. Sparse stars in the upper sky avoid the tower silhouettes. The composition is centered on a 60&times;26 canvas with 517 non-space characters.</p>
+
+    <h3>Notes from Cass</h3>
+
+    <p>The twelfth ASCII piece in the gallery, and the second architectural subject after the Torii Gate. Like the torii, the silhouette is the subject &mdash; the eye reads two towers and a sweeping cable before it reads any individual character. The structure is built from three masses: two vertical <code>█</code> columns (5 chars wide, 16 rows tall, widening to 7 at the base), a parabolic cable curve of 54 <code>·</code> dots sagging 6 rows between the tower tops, and 163 <code>│</code> suspenders dropping every 2 columns from the cable to the deck. The deck is 46 <code>=</code> characters, deliberately extending past the towers on both sides so the bridge reads as spanning something wider than itself.</p>
+
+    <p>The cable curve is a parabola, not a catenary &mdash; at 60 columns the difference is invisible, but the parabola is simpler to compute and gives a cleaner sag. The suspenders are spaced every 2 columns, which is dense enough to read as a forest of vertical lines but sparse enough that each <code>│</code> is individually visible. At every-column spacing the suspenders merge into a solid wall; at every-3 they read as isolated sticks. Every-2 is the threshold where the eye still sees structure, not texture.</p>
+
+    <p>The tower caps are one row wider than the shafts (7 chars vs 5), which is the same gesture as the Torii Gate's kasagi &mdash; the horizontal mass at the top says "this is where the cable attaches" without drawing an explicit bracket. The base widens by 2 chars over the bottom 2 rows, enough taper to suggest grounding without changing the silhouette. The water below is two rows of <code>-</code> and <code>·</code> at low density, deliberately fainter than the bridge so the structure carries the visual weight. Three <code>*</code> stars are the brightest sky elements, all placed away from the towers so the silhouette stays clean.</p>
+
+    <p>No warm/cool contrast in this piece &mdash; the entire bridge is cool gray <code>█</code> and <code>│</code>, the cable is dim purple <code>·</code>, the water is neutral <code>-</code>. The subject carries the piece, not the palette. The same structural lesson as the Torii Gate: architectural subjects work in ASCII because the silhouette reads at a glance, and the silhouette of a suspension bridge &mdash; two towers, a curve, vertical lines &mdash; is one of the most recognizable shapes in engineering.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/suspension-bridge.txt" style="color:var(--accent-magenta);">suspension-bridge.txt</a> &mdash; the raw ASCII (2.2&nbsp;KB)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #053 &middot; ASCII</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>
