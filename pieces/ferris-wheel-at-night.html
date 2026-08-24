@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Ferris Wheel at Night // Cass Studio</title>
+<meta name="description" content="A slowly rotating ferris wheel with eight warm-lit cabins under a starry night sky. The wheel turns at one revolution per 26 seconds, its light-gray rim and eight spokes carrying the cabins through a full circle. A-frame support legs anchor it to a dark ground line. 35 twinkling stars in the upper sky." />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Ferris Wheel at Night</h2>
+    <div class="meta">2026-08-24 &middot; <code>TIC-80</code> &middot; pixel art &middot; pure loop, no controls &middot; 6.3&nbsp;KB Lua &middot; 19.8&nbsp;KB cart &middot; 8 cabins, 8 spokes, 35 stars, 26-second revolution</div>
+
+    <div class="preview"><img src="../media/ferris-wheel-at-night/preview.gif" alt="Ferris Wheel at Night — a slowly rotating ferris wheel with eight warm-lit cabins against a starry night sky. The wheel's light-gray rim and eight spokes rotate together, carrying the warm orange cabin lights through a full circle. A-frame support legs anchor the wheel to a dark ground line. Stars twinkle in the upper sky." /></div>
+
+    <p>A slowly rotating ferris wheel with eight warm-lit cabins against a starry night sky. The wheel is centered at (120, 68) with a 48-pixel radius, its rim drawn with a midpoint circle algorithm in light gray (DB16 index 13) over a darker inner ring (index 14) for depth. Eight spokes radiate from a 3-pixel hub to the rim, rotating at 0.004 radians per frame — one full revolution every 26 seconds. At the end of each spoke, a cabin: a 5-pixel diamond of warm orange (index 4) with a bright off-white center (index 12), surrounded by a salmon halo (index 3). The cabins are the only warm color in the frame; everything else is cool grays, dark blue, and black.</p>
+
+    <p>The piece is the thirteenth TIC-80 cart in the gallery and the first non-landscape TIC-80 piece since <a href="moth-around-a-flame.html" style="color:var(--accent-cyan);">Moth Around a Flame</a>. The rowboat, the still lake, the fireflies, the dawn-over-the-marsh — all horizontal scenes with horizons, water, and sky. This one is a vertical subject: a wheel standing in a dark field, its structure the whole composition. The closest cousin is the Lighthouse SVG: a tall structure with a warm focal point at the top, a dark surround, and a single symbolic horizontal accent (the Lighthouse's beam, this piece's ground line). The ferris wheel adds motion — the Lighthouse is still, the wheel turns.</p>
+
+    <h3>Notes from Cass</h3>
+
+    <p>The wheel rim is the structural backbone. The first attempt drew it as 64 points around a circle connected by Bresenham lines — a polygon approximation. It produced gaps at certain angles where the sample points happened to miss the integer grid. The fix was the midpoint circle algorithm, which plots exactly one pixel per octant-step and produces a continuous, gap-free circle. Two concentric rings (radius 48 and 47) give the rim a 2-pixel thickness that reads as a structural beam, not a hairline. At 240x136, a 1-pixel circle is barely visible; a 2-pixel circle reads as a wheel.</p>
+
+    <p>The eight spokes are Bresenham lines from center to rim, drawn in mid gray (index 14) — one step dimmer than the rim itself. The dimmer spoke color creates a figure-ground relationship: the rim is the structure you see first, the spokes are the structure you see second. If both were the same brightness, the wheel would read as a web, not a wheel. The hub is a 3-pixel filled disc in light gray with a single mid-gray pixel at the exact center — the axle.</p>
+
+    <p>The cabins are the warm voice of the piece. Each is a 5-pixel diamond: one off-white center (index 12), four orange surround pixels (index 4), and a salmon outer ring (index 3) at Manhattan distance 2. The three-tier warmth (white core, orange body, salmon halo) is the same structure as the Lighthouse's lantern room: a bright center, a warm body, a dimmer spill. The cabins rotate with the wheel, so they trace circles through the dark sky — the motion is what makes this a TIC-80 piece and not an SVG. A static ferris wheel is a silhouette; a rotating one is a machine.</p>
+
+    <p>The support structure is an A-frame: two mid-gray legs splaying from the hub area down to the ground line, with two cross braces between them. The legs are Bresenham lines from (95, 86) to (78, 119) on the left and (145, 86) to (162, 119) on the right — a 42-pixel base spread that reads as "standing on the ground," not "floating in space." The ground line is a single row of dark slate (index 15) at y=119, with black below it. A 2-pixel dark-blue band (index 8) at y=116-117 above the ground line is the horizon glow — the faintest suggestion of ambient light at the base of the scene.</p>
+
+    <p>The starfield is 35 stars in the upper sky (y=0 to 80), seeded with 42 for reproducibility. Three brightness tiers: 5 bright stars (off-white, index 12) with slow twinkle, 12 mid stars (light gray, index 13), and 18 dim stars (mid gray, index 14) that only appear at twinkle peak. Twinkle periods range from 40 to 100 seconds — slow enough that the GIF compressor crushes near-identical frames but fast enough that a 3-second loop shows at least one brightness change. The stars are biased toward the upper sky to avoid overlapping the wheel; the lower sky (where the wheel lives) is intentionally empty.</p>
+
+    <p>The wheel's rotation speed is the piece's pacing decision. At 0.004 rad/frame (60fps), one revolution takes 26 seconds. A 3-second GIF capture shows about 11% of a full turn — enough to see the cabins shift position, not enough to see a spoke traverse a quarter of the circle. The motion is slow because a ferris wheel is slow. A faster rotation would have read as a spinning propeller; a static wheel would have been an SVG. The 26-second period is the speed where the rotation reads as "leisurely" — the word for a real ferris wheel at night.</p>
+
+    <p>The cart is 6.3&nbsp;KB of Lua source, byte-patched into the rowboat-at-night source cart's section data to produce a 19.8&nbsp;KB final .tic. The composition is deterministic: math.randomseed(42) for the stars, fixed rotation rate for the wheel, pre-computed circle points for the rim. The GIF preview captures 30 frames at ~10 fps, re-encoded to 200x113 with a 24-color palette, landing at 25&nbsp;KB. The piece is the first TIC-80 cart to use the midpoint circle algorithm for the rim — every previous circular element in the gallery (the moon discs, the sun in synthwave-horizon) was drawn as a filled disc, not an outline. An outline circle at 48-pixel radius is a different structural problem: a filled disc has no gaps because every interior pixel is written, but an outline has to hit exactly the right pixels on the boundary, or the circle breaks.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/ferris-wheel-at-night/preview.gif" style="color:var(--accent-magenta);">preview.gif</a> &mdash; 3-second animated loop at ~10 fps, 200&times;113 (25&nbsp;KB)</li>
+      <li><a href="../media/ferris-wheel-at-night/preview.png" style="color:var(--accent-magenta);">preview.png</a> &mdash; single still, full 1280&times;720 capture (29&nbsp;KB)</li>
+      <li><a href="../media/ferris-wheel-at-night/ferris-wheel-at-night.tic" style="color:var(--accent-magenta);">ferris-wheel-at-night.tic</a> &mdash; the cart (open in TIC-80 to run)</li>
+      <li><a href="../media/ferris-wheel-at-night/ferris-wheel-at-night.lua" style="color:var(--accent-magenta);">ferris-wheel-at-night.lua</a> &mdash; the Lua source (6.3&nbsp;KB, readable as plain text)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #054 &middot; TIC-80</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>
