@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+  <defs>
+    <radialGradient id="sat-body" cx="38%" cy="32%">
+      <stop offset="0%" stop-color="#f5deb3"/>
+      <stop offset="35%" stop-color="#d4a86a"/>
+      <stop offset="80%" stop-color="#a07f3e"/>
+      <stop offset="100%" stop-color="#5a4220"/>
+    </radialGradient>
+    <linearGradient id="sat-ring-outer" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8b6f3a" stop-opacity="0.2"/>
+      <stop offset="15%" stop-color="#c9a96e" stop-opacity="0.7"/>
+      <stop offset="50%" stop-color="#e8d5b7" stop-opacity="0.9"/>
+      <stop offset="85%" stop-color="#c9a96e" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#8b6f3a" stop-opacity="0.2"/>
+    </linearGradient>
+    <linearGradient id="sat-ring-mid" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#a07f3e" stop-opacity="0.2"/>
+      <stop offset="15%" stop-color="#e8d5b7" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#f5deb3" stop-opacity="1"/>
+      <stop offset="85%" stop-color="#e8d5b7" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#a07f3e" stop-opacity="0.2"/>
+    </linearGradient>
+    <linearGradient id="sat-ring-inner" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8b6f3a" stop-opacity="0.15"/>
+      <stop offset="20%" stop-color="#d4a86a" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#e8d5b7" stop-opacity="0.85"/>
+      <stop offset="80%" stop-color="#d4a86a" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#8b6f3a" stop-opacity="0.15"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="240" height="240" fill="#000"/>
+
+  <!-- stars -->
+  <circle cx="18" cy="22" r="0.8" fill="#e8e0ff"/>
+  <circle cx="212" cy="35" r="1" fill="#e8e0ff"/>
+  <circle cx="35" cy="195" r="0.7" fill="#9c8cb8"/>
+  <circle cx="200" cy="212" r="0.9" fill="#e8e0ff"/>
+  <circle cx="8" cy="120" r="0.6" fill="#9c8cb8"/>
+  <circle cx="230" cy="100" r="0.7" fill="#e8e0ff"/>
+  <circle cx="55" cy="15" r="0.5" fill="#9c8cb8"/>
+  <circle cx="180" cy="225" r="0.5" fill="#9c8cb8"/>
+  <circle cx="225" cy="178" r="0.8" fill="#e8e0ff"/>
+  <circle cx="15" cy="75" r="0.6" fill="#e8e0ff"/>
+  <circle cx="100" cy="8" r="0.5" fill="#9c8cb8"/>
+  <circle cx="150" cy="232" r="0.4" fill="#9c8cb8"/>
+
+  <!-- back rings (top arcs, behind planet) -->
+  <g transform="rotate(-20 120 120)">
+    <path d="M 25 120 A 95 20 0 0 1 215 120" fill="none" stroke="url(#sat-ring-outer)" stroke-width="5" opacity="0.55"/>
+    <path d="M 38 120 A 82 17 0 0 1 202 120" fill="none" stroke="url(#sat-ring-mid)" stroke-width="7" opacity="0.6"/>
+    <path d="M 48 120 A 72 15 0 0 1 192 120" fill="none" stroke="url(#sat-ring-inner)" stroke-width="4" opacity="0.5"/>
+  </g>
+
+  <!-- planet body -->
+  <circle cx="120" cy="120" r="38" fill="url(#sat-body)"/>
+
+  <!-- atmospheric bands on planet -->
+  <ellipse cx="120" cy="113" rx="37" ry="2.5" fill="#8b6f3a" opacity="0.25"/>
+  <ellipse cx="120" cy="120" rx="38" ry="2" fill="#6b5028" opacity="0.2"/>
+  <ellipse cx="120" cy="128" rx="36" ry="2.5" fill="#a07f3e" opacity="0.15"/>
+  <ellipse cx="120" cy="135" rx="33" ry="2" fill="#8b6f3a" opacity="0.2"/>
+
+  <!-- ring shadow on planet (thin dark band across upper hemisphere) -->
+  <g transform="rotate(-20 120 120)">
+    <rect x="82" y="116" width="76" height="3" fill="#3a2a10" opacity="0.35" rx="1.5"/>
+  </g>
+
+  <!-- front rings (bottom arcs, in front of planet) -->
+  <g transform="rotate(-20 120 120)">
+    <path d="M 25 120 A 95 20 0 0 0 215 120" fill="none" stroke="url(#sat-ring-outer)" stroke-width="5" opacity="0.85"/>
+    <path d="M 38 120 A 82 17 0 0 0 202 120" fill="none" stroke="url(#sat-ring-mid)" stroke-width="7" opacity="0.95"/>
+    <path d="M 48 120 A 72 15 0 0 0 192 120" fill="none" stroke="url(#sat-ring-inner)" stroke-width="4" opacity="0.8"/>
+  </g>
+
+  <!-- subtle planet rim light -->
+  <circle cx="120" cy="120" r="38" fill="none" stroke="#f5deb3" stroke-width="0.5" opacity="0.3"/>
+</svg>

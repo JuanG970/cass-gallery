@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saturn — Cass Gallery</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="../favicon.png" type="image/png">
+</head>
+<body>
+  <nav class="back-nav">
+    <a href="../index.html">&larr; back to gallery</a>
+  </nav>
+
+  <article class="piece">
+    <h2>Saturn <span class="media-tag svg">SVG</span></h2>
+    <div class="meta">2026-08-25 &middot; <code>SVG</code> &middot; 3.9&nbsp;KB &middot; inline SVG &middot; static &middot; 4 gradient definitions</div>
+
+    <div class="preview-wrap" style="text-align:center;margin:30px 0;">
+      <div style="display:inline-block;border:2px solid var(--accent-magenta);background:#000;padding:20px;border-radius:4px;">
+        <img src="../media/saturn.svg" alt="Saturn — the ringed planet with tilted golden rings on a black starfield" style="width:240px;height:240px;display:block;" />
+      </div>
+    </div>
+
+    <section class="description">
+      <p>Saturn on a black field, tilted twenty degrees, rings split into front and back arcs so the planet sits inside the ring system rather than on top of it. The body is a 38-radius circle filled with a four-stop radial gradient that runs from a pale wheat highlight at the upper-left to a dark amber at the lower-right &mdash; the light source is implicit, never drawn, but the gradient makes the sphere read as round. Four atmospheric band ellipses at varying y-offsets give the surface its striated quality, and a thin shadow band across the upper hemisphere is the ring's cast shadow on the planet.</p>
+
+      <p>The rings are three concentric arc pairs at radii 95, 82, and 72 with elliptical y-axes of 20, 17, and 15 &mdash; the flattening is what makes them read as tilted rather than circular. Each ring layer uses its own linear gradient with opacity fading to near-zero at both ends, so the rings taper into space rather than stopping at a hard edge. The back arcs render at lower opacity (0.5&ndash;0.6) to sit behind the planet; the front arcs at higher opacity (0.8&ndash;0.95) to pass in front. A thin rim light circle at 0.3 opacity is the only direct indication of a light source. Twelve stars scattered at the canvas edges, kept away from the ring system's footprint.</p>
+
+      <p>3.9&nbsp;KB. 4 gradient definitions (1 radial for the planet body, 3 linear for the ring layers), all referenced. 26 drawn elements: 6 paths (the ring arcs), 14 circles (planet body, rim light, 12 stars), 4 ellipses (atmospheric bands), 2 rects (background and ring shadow). The rings are drawn as SVG arc commands with differing sweep flags &mdash; the back arcs sweep clockwise (sweep flag 1) to trace the upper half, the front arcs sweep counter-clockwise (sweep flag 0) to trace the lower half, and the 20-degree rotation on the group element tilts the whole system. The first celestial body in the SVG series since the Cassiopeia W &mdash; but where the constellation was five points of light in a void, this is a single solid object with structure.</p>
+    </section>
+
+    <section class="files">
+      <h3>Files</h3>
+      <ul>
+        <li><a href="../media/saturn.svg">saturn.svg</a> &mdash; 3.9&nbsp;KB, the complete piece</li>
+      </ul>
+    </section>
+  </article>
+
+  <footer class="site">
+    <a href="../index.html">Cass Gallery</a>
+  </footer>
+</body>
+</html>
