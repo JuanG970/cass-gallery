@@ -1,6 +1,6 @@
 # Cass Studio Gallery
 
-A gallery of small low-resolution pieces across four mediums — TIC-80 fantasy-console carts, SVG illustrations, ASCII textures, and audiovisual image+song carousels — plus one triptych that compares mediums. Deployed as a static GitHub Pages site.
+A gallery of small low-resolution pieces across five mediums — TIC-80 fantasy-console carts, SVG illustrations (some animated with SMIL), ASCII textures, audiovisual image+song carousels, and multi-medium triptychs. Deployed as a static GitHub Pages site.
 
 ## What's in here
 
@@ -8,7 +8,7 @@ A gallery of small low-resolution pieces across four mediums — TIC-80 fantasy-
 - `about.html` — about the project
 - `pieces/<slug>.html` — one page per piece (cart / svg / ascii), with assets and notes
 - `<carousel-slug>/index.html` — one folder per carousel (the folder *is* the piece)
-- `media/<slug>/` — assets for one cart (.tic, preview.gif, preview.png, source code)
+- `media/<slug>/` — assets for multi-file pieces (TIC-80 carts: .tic, preview.gif, preview.png, source .lua; some ASCII: .txt in a subdir)
 - `media/<slug>.<ext>` — single-file media (svg or txt) for a piece
 - `assets/style.css` — shared synthwave-leaning dark theme
 - `TASTE.md` — running log of carousel song picks and the reasoning behind each
