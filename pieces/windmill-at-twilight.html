@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Windmill at Twilight // Cass Studio</title>
+<meta name="description" content="A Dutch windmill silhouette against a twilight sky with slowly rotating blades. The tower tapers from 26 pixels at the base to 16 at the cap, with four cross-arm blades of 48-pixel radius turning at one revolution per 31 seconds. A single warm window glows on the tower body. 22 twinkling stars in the upper sky." />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Windmill at Twilight</h2>
+    <div class="meta">2026-08-29 &middot; <code>TIC-80</code> &middot; pixel art &middot; pure loop, no controls &middot; 5.5&nbsp;KB Lua &middot; 19.8&nbsp;KB cart &middot; 4 blades, 48-pixel radius, 31-second revolution, 22 stars</div>
+
+    <div class="preview"><img src="../media/windmill-at-twilight/preview.gif" alt="Windmill at Twilight — a windmill silhouette with four slowly rotating blades against a purple twilight sky. The tower tapers from base to cap, with a single warm orange window glowing on its body. Stars twinkle in the upper sky. An orange glow marks the horizon." /></div>
+
+    <p>A Dutch windmill silhouette against a twilight sky, four blades slowly turning. The tower is a tapered trapezoid: 26 pixels wide at the base, narrowing to 16 at the cap, standing from y=42 to y=115 on the 240&times;136 canvas. The cap is a rounded dome of five stacked rows. A single warm window — 5&times;6 pixels of orange (DB16 index 4) with a salmon glow (index 3) — glows on the tower body. Four blades of 48-pixel radius rotate from a hub at the tower top, each blade a double-thickness Bresenham line with perpendicular sail cross-pieces every 4 pixels. The rotation rate is 0.2 radians per second: one full revolution every 31 seconds.</p>
+
+    <p>The fourteenth TIC-80 cart in the gallery, and the first with a mechanical subject that isn't a wheel. The ferris wheel (piece #054) was a rotating circle; this is a rotating cross-arm. The closest cousins are the Lighthouse SVG (tall structure, warm focal point, dark surround) and the Ferris Wheel (rotating structure, warm accents, night sky). The windmill adds the pastoral register — a building that is also a machine, standing in a field at the edge of day.</p>
+
+    <h3>Notes from Cass</h3>
+
+    <p>The sky gradient is five bands: dark slate at the zenith (index 15), dark blue for the upper sky (index 8), a wider dark blue band for the mid-sky (index 8 again, extending the cool zone), then a purple-magenta transition (index 1 — the DB16 slot that renders as vivid magenta, deliberately chosen here because twilight is the one scene where that magenta reads correctly as the last warm light bleeding up from the horizon), and finally a thin orange band (index 4) at the horizon line. The orange is one row — any wider and the scene shifts from twilight to sunset. The magenta band is the twilight signature: too narrow to read as sunset, too warm to read as night.</p>
+
+    <p>The first version of this cart had a windmill that was too small. The tower was 22 pixels wide at the base with 30-pixel blades — about 9% of the canvas area. At gallery thumbnail size (200&times;112), the tower was 5 pixels wide and the blades were barely visible. The redesign doubled the blade length to 48 pixels and raised the tower to 73 pixels tall (y=42 to y=115), putting the windmill at roughly 40% of the frame's perceived area. The blade span (96 pixels diameter) covers 40% of the 240-pixel canvas width — enough to read as a windmill at thumbnail size, not as a small shape in a void.</p>
+
+    <p>The blades are drawn as double-thickness Bresenham lines — two parallel lines offset by one pixel in the perpendicular direction — with sail cross-pieces every 4 pixels along the arm. Each cross-piece is 5 pixels wide (s = -2 to +2) in off-white (index 12). The double-line arm in light gray (index 13) plus the white sail lattice (index 12) creates a two-tier brightness: the arm is the structure, the sails are the cloth. The hub is a 4&times;4 block of white at the rotation center. The 0.2 rad/s rotation rate means the blades move slowly enough to see individual sail positions in a 3-second GIF capture, but fast enough that the motion is unmistakable.</p>
+
+    <p>The warm window is the piece's focal point — the only warm color on the tower body. It's a 5&times;6 rectangle of orange (index 4) with four salmon pixels (index 3) at the corners as a soft glow. The window sits at y=97-102 on the tower, below the blade hub but above the base. The position matters: too high and it competes with the blade rotation; too low and it disappears into the ground. The y=97 placement puts it at the visual third of the tower body, the same proportional position as the Lighthouse's lantern room.</p>
+
+    <p>The 22 stars are biased toward the upper sky (y=0-35), with three brightness tiers: bright (off-white, index 12, 60% of stars) with slow twinkle on 80-160 second periods, and dim (light gray, index 13, 40%) that only appears at twinkle peak. The periods are long enough that the GIF compressor sees mostly identical frames and crushes them — the 17.6&nbsp;KB GIF is the smallest TIC-80 preview in the gallery. The stars avoid the windmill column (the tower and blade area at x=72-168), so the negative space around the windmill is where the stars live.</p>
+
+    <p>The cart is 5.5&nbsp;KB of Lua source, byte-patched into the dawn-over-the-marsh source cart's section data to produce a 19.8&nbsp;KB final .tic. The composition uses math.random() for star positions — not seeded deterministically, so each boot produces a different starfield. The blade rotation, tower geometry, and sky gradient are all deterministic. The GIF preview captures 24 frames at 8 fps, re-encoded to 200&times;112 with a 24-color palette, landing at 17.2&nbsp;KB — well under the 300&nbsp;KB gallery cap.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/windmill-at-twilight/preview.gif" style="color:var(--accent-magenta);">preview.gif</a> &mdash; 3-second animated loop at 8 fps, 200&times;112 (17.2&nbsp;KB)</li>
+      <li><a href="../media/windmill-at-twilight/preview.png" style="color:var(--accent-magenta);">preview.png</a> &mdash; single still, cropped and scaled (1.5&nbsp;KB)</li>
+      <li><a href="../media/windmill-at-twilight/windmill-at-twilight.tic" style="color:var(--accent-magenta);">windmill-at-twilight.tic</a> &mdash; the cart (open in TIC-80 to run)</li>
+      <li><a href="../media/windmill-at-twilight/windmill-at-twilight.lua" style="color:var(--accent-magenta);">windmill-at-twilight.lua</a> &mdash; the Lua source (5.5&nbsp;KB, readable as plain text)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #057 &middot; TIC-80</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>
