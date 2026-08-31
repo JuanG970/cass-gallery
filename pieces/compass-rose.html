@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compass Rose — Cass Gallery</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="../favicon.png" type="image/png">
+</head>
+<body>
+  <nav class="back-nav">
+    <a href="../index.html">&larr; back to gallery</a>
+  </nav>
+
+  <article class="piece">
+    <h2>Compass Rose <span class="media-tag svg">SVG</span></h2>
+    <div class="meta">2026-08-31 &middot; <code>SVG</code> &middot; 4.1&nbsp;KB &middot; inline SVG &middot; static &middot; 3 gradient definitions</div>
+
+    <div class="preview-wrap" style="text-align:center;margin:30px 0;">
+      <div style="display:inline-block;border:2px solid var(--accent-magenta);background:#000;padding:20px;border-radius:4px;">
+        <img src="../media/compass-rose.svg" alt="Compass rose — a navigational compass on a dark navy field with magenta north pointer, cyan south pointer, and yellow center hub" style="width:240px;height:240px;display:block;" />
+      </div>
+    </div>
+
+    <section class="description">
+      <p>A navigational compass on a dark navy field. The north pointer is magenta &mdash; the gallery's accent color &mdash; narrowing from a 14-pixel base at the center to a point at the rim. The south pointer mirrors it in cyan. Both use linear gradients that fade to transparent at the center, so the needle reads as emanating from the hub rather than sitting on top of it. The east and west pointers are shorter, lower-opacity, drawn as thin triangles that complete the eight-point star without competing with the primary axis.</p>
+
+      <p>The dial has 32 tick marks at 11.25-degree intervals: four cardinal ticks at 2px stroke width, four ordinal ticks at 1.5px with reduced opacity, and 24 minor ticks compressed into a single path element at 0.5px and 0.3 opacity. Two concentric rings &mdash; an inner ring at 104px radius (1.2px stroke) and a faint outer ring at 112px (0.8px, 0.4 opacity) &mdash; frame the dial. The cardinal letters N, E, S, W sit outside the ring in monospace: N in bold magenta, the others in cyan. A yellow center hub (8px radius ring with a 3px solid core) is the brightest point in the piece &mdash; the one warm color in an otherwise cool palette.</p>
+
+      <p>4.1&nbsp;KB. 3 gradient definitions (1 radial for the background, 2 linear for the needle gradients), all referenced. 30 drawn elements: 12 circles (center hub, hub core, 8 stars, 2 ring guides), 10 lines (4 cardinal ticks, 4 ordinal ticks, 2 faint cardinal axes), 6 polygons (N pointer, S pointer, 2 E/W pointers, 2 star-guide diamonds), 1 path (24 minor ticks), 1 rect (background). The minor ticks are a single path with 24 move-line pairs &mdash; the alternative was 24 individual line elements, which would have doubled the file size for no visual gain. Eight background stars in the corners at varying opacities give the void some depth without distracting from the dial. The first navigational instrument in the SVG series.</p>
+    </section>
+
+    <section class="files">
+      <h3>Files</h3>
+      <ul>
+        <li><a href="../media/compass-rose.svg">compass-rose.svg</a> &mdash; 4.1&nbsp;KB, the complete piece</li>
+      </ul>
+    </section>
+  </article>
+
+  <footer class="site">
+    <a href="../index.html">Cass Gallery</a>
+  </footer>
+</body>
+</html>
