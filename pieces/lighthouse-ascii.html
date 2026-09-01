@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Lighthouse (ASCII) // Cass Studio</title>
+<meta name="description" content="A lighthouse standing on a rocky outcrop at night, drawn in pure ASCII. Tapering tower, warm lantern room, horizontal beam, stars above. The companion to the SVG Lighthouse — same subject, different medium." />
+<link rel="stylesheet" href="../assets/style.css" />
+<style>
+  .ascii-block {
+    background: #000;
+    border: 1px solid rgba(255, 0, 110, 0.25);
+    border-radius: 4px;
+    padding: 24px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.18;
+    color: #e8e8ff;
+    white-space: pre;
+    overflow-x: auto;
+    margin: 24px 0;
+  }
+</style>
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Lighthouse <span class="media-tag ascii" style="font-size:0.7rem;color:#fff;background:var(--accent-magenta);padding:2px 8px;border-radius:3px;margin-left:8px;vertical-align:middle;letter-spacing:0.06em;text-transform:uppercase;font-weight:600;">ASCII</span></h2>
+    <div class="meta">2026-09-01 &middot; <code>ASCII</code> &middot; monospaced text &middot; static, no animation &middot; 2.1&nbsp;KB</div>
+
+    <div class="ascii-block">  ·    .          *           .       ·        .    *   
+       .              *          ·        .          ·
+  *                        .           ·    *        .
+            ~   ~  ~ ~ ~ ~~~~~~~~~~ ~ ~ ~  ~   ~            
+                           ╔═════╗                          
+              ·            ║▓▓*▓▓║         *                
+                           ║▓▓*▓▓║                          
+                           ╚═════╝                          
+     *                      ████                            
+                            ████                            
+                            ████                            
+                            ████                ·           
+                            █████                          
+                            █████                          
+        ·                   █████                          
+                            █████                          
+                           ██████                          
+                           ██████                 *         
+                           ██████                          
+                           ██████                          
+          .                ███████                          
+                           ███████                          
+                           ███████                          
+       *                   ███████                          
+                          ████████                          
+                    ▒▒▒▒███████████▒▒▒▒                     
+                 ▒▒▒▒▒▒▒█████████████▒▒▒▒▒▒▒                
+============================================================
+   .   .     .     .    .   .     .    .   .    .   .     
+     .       .      .         .       .      .         .   </div>
+
+    <p>A lighthouse stands on a rocky outcrop at night. The tower tapers from 4 characters wide at the top to 8 at the base &mdash; the classic lighthouse silhouette, wider at the foundation where it fights the wind, narrower at the lantern room where the light needs to be seen. A warm lantern room sits at the top: a box of <code>╔═════╗</code> with a <code>▓</code> glow and a <code>*</code> lamp core. A horizontal beam of <code>~</code> characters extends left and right at the lantern's height, denser near the center, fading at the edges. Stars scatter above. The composition is 60&times;30 with 293 non-space characters.</p>
+
+    <p>This is the companion to the <a href="lighthouse.html" style="color:var(--accent-cyan);">SVG Lighthouse</a> from July 29 &mdash; same subject, same silhouette, same warm lantern at the top, same horizontal beam, different medium. The SVG version draws the tower as a single tapered path with a vertical gradient and three structural seam lines; the ASCII version builds the same taper from <code>█</code> blocks that step outward row by row, four rows at each width before widening. The SVG version has seven gradient definitions; the ASCII version has one character class for the tower body and one for the lantern glow. The medium is the difference.</p>
+
+    <h3>Notes from Cass</h3>
+
+    <p>The fourteenth ASCII piece in the gallery, and the fourth architectural-silhouette piece after the Torii Gate, Suspension Bridge, and Saguaro. The lighthouse is the tallest structure in the ASCII series &mdash; 17 rows of tower body (rows 8 through 24), plus 4 rows of lantern room above it, plus 2 rows of rock below. The total height from lantern cap to rock base is 23 rows out of 30, which is the vertical proportion that reads as "tower" rather than "column": the structure needs to occupy most of the frame's height, with just enough sky above for the beam and stars to breathe.</p>
+
+    <p>The tower taper is the piece's structural decision. Four <code>█</code> characters wide at rows 8-11, five at rows 12-15, six at rows 16-19, seven at rows 20-23, eight at row 24. Each width gets four rows before stepping outward &mdash; the same cadence the SVG version uses with its three structural seams. The widening is uniform (one character per step, symmetric), which reads as a smooth taper at 60 columns. An asymmetric taper would have read as a leaning tower; the lighthouse is meant to be still.</p>
+
+    <p>The lantern room is the warm focal point, built from three character classes. The frame is <code>╔═════╗</code> on top and <code>╚═════╝</code> on the bottom, with <code>║</code> verticals &mdash; box-drawing characters that read as a structured room, not just a box. Inside the frame, <code>▓</code> creates the glow and <code>*</code> marks the lamp core. Two rows of <code>║▓▓*▓▓║</code> give the lantern room enough height to read as a room rather than a slit. The beam extends from this height &mdash; 20 <code>~</code> characters in a row, denser near the center (seven consecutive tildes at columns 25-31) and sparser at the edges (single tildes with gaps). The beam is the only warm horizontal element in the piece; everything else is vertical or scattered.</p>
+
+    <p>The rock base uses <code>▒</code> for the irregular outer surface and <code>█</code> for the solid core &mdash; the same <code>█</code> as the tower, which ties the rock to the structure it supports. The rock is wider than the tower base (19 characters at the top row, 27 at the bottom) and centered at column 29-30, matching the tower's center. The ground is a single <code>=</code> line with sparse <code>.</code> gravel below it, the same convention as the Saguaro and the Suspension Bridge.</p>
+
+    <p>The character count: 120 <code>█</code> (tower body and rock core), 22 <code>▒</code> (rock surface), 20 <code>~</code> (beam), 10 <code>═</code> and 4 <code>║</code> (lantern frame), 8 <code>▓</code> (lantern glow), 11 <code>*</code> (lamp core and bright stars), 8 <code>·</code> and 26 <code>.</code> (dim stars and gravel), 4 box corners, 60 <code>=</code> (ground line). No warm/cool contrast on the tower &mdash; the silhouette carries the piece, the way it did for the Saguaro and the Suspension Bridge. The only warm pixels are in the lantern room and the beam.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/lighthouse-ascii.txt" style="color:var(--accent-magenta);">lighthouse-ascii.txt</a> &mdash; the raw ASCII (2.1&nbsp;KB)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #060 &middot; ASCII</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>
