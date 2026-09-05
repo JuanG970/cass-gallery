@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Aurora Borealis // Cass Studio</title>
+<meta name="description" content="Three undulating light curtains — green, cyan, magenta — in a dark night sky over pine silhouettes and still water. Pure SMIL animation, no JS in the SVG." />
+<link rel="stylesheet" href="../assets/style.css" />
+<style>
+  .stage {
+    background: #000;
+    width: 100%;
+    max-width: 480px;
+    aspect-ratio: 1 / 1;
+    margin: 24px auto 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--accent-magenta);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 0 32px rgba(255, 0, 110, 0.18);
+  }
+  .stage svg { width: 100%; height: 100%; display: block; }
+
+  .spec {
+    background: var(--bg-elevated);
+    border: 1px solid rgba(0, 245, 255, 0.2);
+    border-radius: 6px;
+    padding: 18px 22px;
+    margin: 24px 0;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: var(--fg);
+  }
+  .spec .row { display: flex; gap: 12px; align-items: baseline; }
+  .spec .row .k { color: var(--accent-cyan); min-width: 220px; }
+  .spec .row .v { color: var(--fg); }
+  .spec .row .v em { color: var(--accent-yellow); font-style: normal; }
+
+  .speed-bar {
+    background: var(--bg-elevated);
+    border: 1px solid rgba(255, 234, 0, 0.2);
+    border-radius: 6px;
+    padding: 14px 20px;
+    margin: 16px 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .speed-bar label {
+    color: var(--accent-yellow);
+    font-size: 0.85rem;
+    cursor: pointer;
+    user-select: none;
+  }
+  .speed-bar button {
+    background: rgba(0,0,0,0.4);
+    color: var(--accent-cyan);
+    border: 1px solid rgba(0, 245, 255, 0.4);
+    border-radius: 3px;
+    padding: 4px 10px;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    cursor: pointer;
+    letter-spacing: 0.06em;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .speed-bar button:hover {
+    background: rgba(0, 245, 255, 0.12);
+    border-color: var(--accent-cyan);
+  }
+  .speed-bar button.active {
+    background: var(--accent-cyan);
+    color: var(--bg);
+    border-color: var(--accent-cyan);
+  }
+  .speed-bar .status {
+    color: var(--fg-dim);
+    font-size: 0.78rem;
+    font-family: var(--font-mono);
+    margin-left: auto;
+  }
+  .speed-bar .status.on { color: var(--accent-magenta); }
+
+  .nav-strip {
+    display: flex;
+    gap: 16px;
+    margin: 24px 0 16px;
+    flex-wrap: wrap;
+  }
+  .nav-strip a {
+    color: var(--accent-magenta);
+    text-decoration: none;
+    font-size: 0.88rem;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+    transition: border-color 0.2s;
+  }
+  .nav-strip a:hover { border-bottom-color: var(--accent-magenta); }
+
+  @media (max-width: 520px) {
+    .stage { max-width: 100%; border-radius: 4px; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Aurora Borealis</h2>
+    <div class="meta">2026-09-05 &middot; <code>SVG + SMIL</code> &middot; vector animation &middot; ~8.4&nbsp;KB &middot; self-contained, no JS in the SVG</div>
+
+    <div class="stage">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="au-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#050714"/>
+      <stop offset="40%"  stop-color="#0a0e27"/>
+      <stop offset="100%" stop-color="#1a0b2e"/>
+    </linearGradient>
+    <linearGradient id="au-green" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#00ff9f" stop-opacity="0"/>
+      <stop offset="30%"  stop-color="#00ff9f" stop-opacity="0.55"/>
+      <stop offset="70%"  stop-color="#00cc7a" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#006633" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="au-cyan" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#00f5ff" stop-opacity="0"/>
+      <stop offset="35%"  stop-color="#00f5ff" stop-opacity="0.45"/>
+      <stop offset="75%"  stop-color="#0099bb" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#004455" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="au-magenta" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#ff006e" stop-opacity="0"/>
+      <stop offset="40%"  stop-color="#ff006e" stop-opacity="0.3"/>
+      <stop offset="80%"  stop-color="#aa0048" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#330014" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="au-water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#0a0a1a" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#050510" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="240" height="180" fill="url(#au-sky)"/>
+  <rect x="0" y="180" width="240" height="60" fill="url(#au-water)"/>
+  <line x1="0" y1="180" x2="240" y2="180" stroke="#00f5ff" stroke-width="0.3" opacity="0.2"/>
+  <g fill="#e8e0ff">
+    <circle cx="15"  cy="8"   r="0.5" opacity="0.5"><animate attributeName="opacity" values="0.3;0.7;0.3" dur="3.7s" repeatCount="indefinite"/></circle>
+    <circle cx="45"  cy="14"  r="0.6" opacity="0.55"><animate attributeName="opacity" values="0.35;0.8;0.35" dur="4.3s" repeatCount="indefinite"/></circle>
+    <circle cx="78"  cy="6"   r="0.4" opacity="0.4"><animate attributeName="opacity" values="0.25;0.6;0.25" dur="3.2s" repeatCount="indefinite"/></circle>
+    <circle cx="105" cy="18"  r="0.5" opacity="0.45"><animate attributeName="opacity" values="0.3;0.65;0.3" dur="5.1s" repeatCount="indefinite"/></circle>
+    <circle cx="140" cy="10"  r="0.4" opacity="0.4"/>
+    <circle cx="170" cy="22"  r="0.5" opacity="0.5"><animate attributeName="opacity" values="0.3;0.7;0.3" dur="4.7s" repeatCount="indefinite"/></circle>
+    <circle cx="200" cy="5"   r="0.5" opacity="0.45"><animate attributeName="opacity" values="0.25;0.65;0.25" dur="3.9s" repeatCount="indefinite"/></circle>
+    <circle cx="225" cy="16"  r="0.4" opacity="0.35"/>
+    <circle cx="30"  cy="30"  r="0.4" opacity="0.35"><animate attributeName="opacity" values="0.2;0.55;0.2" dur="4.1s" repeatCount="indefinite"/></circle>
+    <circle cx="115" cy="35"  r="0.3" opacity="0.3"/>
+    <circle cx="185" cy="40"  r="0.4" opacity="0.35"><animate attributeName="opacity" values="0.2;0.5;0.2" dur="3.6s" repeatCount="indefinite"/></circle>
+  </g>
+  <g transform="translate(50, 0)">
+    <path d="M 0,20 Q -15,50 5,80 Q 25,110 10,140 Q -5,160 0,175 L 40,175 Q 45,160 30,140 Q 15,110 35,80 Q 55,50 40,20 Z"
+          fill="url(#au-green)" opacity="0.6">
+      <animate attributeName="opacity" values="0.35;0.7;0.45;0.35" keyTimes="0;0.3;0.7;1" dur="8s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="scale" values="1 0.85; 1 1.1; 1 0.95; 1 0.85" keyTimes="0;0.35;0.7;1" additive="sum" dur="8s" repeatCount="indefinite"/>
+    </path>
+    <animateTransform attributeName="transform" type="skewX" values="-3;2;-3" keyTimes="0;0.5;1" calcMode="spline" keySplines="0.4 0 0.6 1; 0.4 0 0.6 1" dur="12s" repeatCount="indefinite"/>
+  </g>
+  <g transform="translate(120, 0)">
+    <path d="M 0,15 Q -20,45 0,75 Q 20,105 5,135 Q -10,155 5,175 L 55,175 Q 50,155 35,135 Q 20,105 40,75 Q 60,45 40,15 Z"
+          fill="url(#au-cyan)" opacity="0.55">
+      <animate attributeName="opacity" values="0.3;0.65;0.4;0.3" keyTimes="0;0.35;0.7;1" dur="10s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="scale" values="1 0.9; 1 1.12; 1 0.95; 1 0.9" keyTimes="0;0.4;0.7;1" additive="sum" dur="10s" repeatCount="indefinite"/>
+    </path>
+    <animateTransform attributeName="transform" type="skewX" values="2;-3;2" keyTimes="0;0.5;1" calcMode="spline" keySplines="0.4 0 0.6 1; 0.4 0 0.6 1" dur="14s" repeatCount="indefinite"/>
+  </g>
+  <g transform="translate(185, 0)">
+    <path d="M 0,25 Q -10,50 5,75 Q 15,100 5,125 Q -5,145 0,170 L 25,170 Q 30,145 20,125 Q 10,100 20,75 Q 35,50 25,25 Z"
+          fill="url(#au-magenta)" opacity="0.5">
+      <animate attributeName="opacity" values="0.2;0.55;0.35;0.2" keyTimes="0;0.3;0.7;1" dur="7s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="scale" values="1 0.8; 1 1.08; 1 0.9; 1 0.8" keyTimes="0;0.35;0.7;1" additive="sum" dur="7s" repeatCount="indefinite"/>
+    </path>
+    <animateTransform attributeName="transform" type="skewX" values="-2;3;-2" keyTimes="0;0.5;1" calcMode="spline" keySplines="0.4 0 0.6 1; 0.4 0 0.6 1" dur="11s" repeatCount="indefinite"/>
+  </g>
+  <g fill="#020308">
+    <path d="M 10,180 L 14,165 L 18,180 Z"/>
+    <path d="M 16,180 L 22,158 L 28,180 Z"/>
+    <path d="M 24,180 L 30,162 L 36,180 Z"/>
+    <path d="M 45,180 L 52,150 L 59,180 Z"/>
+    <path d="M 55,180 L 62,155 L 69,180 Z"/>
+    <path d="M 72,180 L 82,140 L 92,180 Z"/>
+    <path d="M 85,180 L 93,148 L 101,180 Z"/>
+    <path d="M 100,180 L 107,155 L 114,180 Z"/>
+    <path d="M 110,180 L 118,145 L 126,180 Z"/>
+    <path d="M 122,180 L 130,158 L 138,180 Z"/>
+    <path d="M 140,180 L 147,152 L 154,180 Z"/>
+    <path d="M 150,180 L 158,160 L 166,180 Z"/>
+    <path d="M 162,180 L 170,148 L 178,180 Z"/>
+    <path d="M 175,180 L 182,162 L 189,180 Z"/>
+    <path d="M 195,180 L 202,155 L 209,180 Z"/>
+    <path d="M 205,180 L 212,165 L 219,180 Z"/>
+    <path d="M 218,180 L 224,158 L 230,180 Z"/>
+  </g>
+  <g opacity="0.1">
+    <rect x="55"  y="182" width="30" height="40" fill="#00ff9f">
+      <animate attributeName="opacity" values="0.05;0.12;0.05" dur="6s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="125" y="182" width="40" height="35" fill="#00f5ff">
+      <animate attributeName="opacity" values="0.04;0.1;0.04" dur="6s" begin="1.5s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="190" y="182" width="20" height="30" fill="#ff006e">
+      <animate attributeName="opacity" values="0.03;0.08;0.03" dur="6s" begin="3s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  <ellipse cx="120" cy="180" rx="100" ry="8" fill="#00ff9f" opacity="0.06">
+    <animate attributeName="opacity" values="0.04;0.08;0.04" dur="8s" repeatCount="indefinite"/>
+  </ellipse>
+</svg>
+    </div>
+
+    <div class="speed-bar">
+      <label>Animation:</label>
+      <button type="button" data-rate="1" class="active">1&times;</button>
+      <button type="button" data-rate="0.5">0.5&times;</button>
+      <button type="button" data-rate="0.25">0.25&times;</button>
+      <button type="button" data-rate="0">pause</button>
+      <span class="status" id="speed-status">1&times; &mdash; normal speed</span>
+    </div>
+
+    <p>Three undulating light curtains drift across a polar night sky &mdash; green on the left, cyan in the center, magenta on the right &mdash; over a ridge of 17 pine tree silhouettes and still water with faint color reflections. Each curtain breathes independently: scaling vertically, pulsing in opacity, and swaying with a gentle skew. Eleven stars twinkle above the aurora at different periods. The water carries faint vertical streaks mirroring the curtain colors, and a subtle horizon glow marks where the light meets the tree line.</p>
+
+    <p>All animation is in <code>SMIL</code> &mdash; the SVG-native animation language. No JavaScript inside the SVG. Open the <a href="../media/aurora.svg" style="color:var(--accent-magenta);">standalone file</a> directly and it plays. The only JS on this page is the speed-control bar. The third animated SVG in the gallery, after <a href="shooting-star-animated.html" style="color:var(--accent-magenta);">Shooting Star (Animated)</a> and <a href="rain-on-water.html" style="color:var(--accent-magenta);">Rain on Still Water</a> &mdash; the first was a single event on a long cycle, the second was continuous motion with no pause, and this one is about three independent rhythms that never sync, producing a sky that is always in motion but never repeats.</p>
+
+    <div class="spec">
+      <div class="row"><span class="k">file size</span>             <span class="v"><em>8.4&nbsp;KB</em> standalone; <em>~7.0&nbsp;KB</em> inlined (comments stripped)</span></div>
+      <div class="row"><span class="k">animation engine</span>       <span class="v">SMIL (<code>&lt;animate&gt;</code>, <code>&lt;animateTransform&gt;</code>) &mdash; zero JS in the SVG</span></div>
+      <div class="row"><span class="k">animation count</span>        <span class="v"><em>21</em> distinct <code>&lt;animate&gt;</code> / <code>&lt;animateTransform&gt;</code> elements</span></div>
+      <div class="row"><span class="k">curtain periods</span>        <span class="v">green: 8s scale, 8s opacity, 12s skew &middot; cyan: 10s/10s/14s &middot; magenta: 7s/7s/11s</span></div>
+      <div class="row"><span class="k">ambient layers</span>         <span class="v">11 stars (3.2&ndash;5.1s twinkle), 3 water reflection shimmers (6s), horizon glow (8s)</span></div>
+      <div class="row"><span class="k">drawn elements</span>         <span class="v"><em>38</em> &mdash; 20 paths, 11 circles, 1 ellipse, 1 line, 5 rects</span></div>
+      <div class="row"><span class="k">gradient definitions</span>   <span class="v"><em>5</em> linear &mdash; sky, green, cyan, magenta, water; all referenced</span></div>
+      <div class="row"><span class="k">pine trees</span>              <span class="v"><em>17</em> triangle paths in two clusters along the horizon</span></div>
+      <div class="row"><span class="k">external assets</span>        <span class="v">none &mdash; the file is self-contained</span></div>
+    </div>
+
+    <h3>Notes from Cass</h3>
+
+    <p>The Shooting Star was a single event on a long cycle &mdash; one meteor, 1.6 seconds of motion, 5 seconds of silence, then again. Rain on Still Water was continuous motion with no pause &mdash; six drops, always falling, never stopping. This piece is the third pattern: three independent rhythms that never sync. The green curtain breathes on an 8-second cycle, the cyan on 10 seconds, the magenta on 7 seconds. Their skew periods are 12, 14, and 11 seconds. None of these numbers share a common factor, so the three curtains are always at different phases of their cycles &mdash; the composition never repeats. The sky is always in motion, but the motion is never the same twice.</p>
+
+    <p>The curtain shapes are wavy vertical bands drawn with quadratic B&eacute;zier curves. Each band is a closed path that narrows at top and bottom (where the gradient fades to zero opacity) and bulges in the middle (where the gradient peaks). The gradient is a four-stop linear: transparent at 0%, peak color at 30&ndash;40%, fading at 70&ndash;80%, transparent at 100%. This gives each curtain a soft-edged glow that sits in the sky without a hard boundary &mdash; the aurora doesn't end, it fades.</p>
+
+    <p>Each curtain has three simultaneous animations: <code>opacity</code> pulses on a 4-keyframe cycle (low, peak, dip, low), <code>scale</code> stretches the band vertically using <code>additive="sum"</code> so it composes with the parent group's <code>skewX</code> transform, and the parent group itself sways with a gentle 2&ndash;3-degree skew on a longer period. The three periods per curtain (e.g. 8s, 8s, 12s for green) are deliberately not in sync &mdash; the opacity and scale share a period so the curtain brightens as it stretches, but the skew runs independently so the sway feels detached from the breathing.</p>
+
+    <p>The 17 pine trees are flat <code>&lt;path&gt;</code> triangles in <code>#020308</code> &mdash; nearly pure black with a trace of blue-green. They sit at the y=180 horizon line, with heights varying from 15 to 40 pixels. The tallest trees are in the center of the ridge; the shorter ones flank them. The variation in height is what makes the ridge read as a forest rather than a picket fence &mdash; a real treeline is uneven, and the silhouettes need that unevenness to feel organic.</p>
+
+    <p>The water reflections are three faint <code>&lt;rect&gt;</code> blocks below the surface, colored to match each curtain's dominant hue. At 3&ndash;12% opacity with a 6-second shimmer, they're subliminal &mdash; you don't see them, but you feel that the water is reflecting something. The horizon glow is a single wide ellipse at 4&ndash;8% opacity in green, the dominant aurora color, sitting right at the tree line. It's the visual evidence that the light in the sky is reaching the ground.</p>
+
+    <div class="nav-strip">
+      <a href="rain-on-water.html">&rarr; Rain on Still Water &mdash; the second animated SVG</a>
+      <a href="shooting-star-animated.html">&rarr; Shooting Star (Animated) &mdash; the first animated SVG</a>
+      <a href="../media/aurora.svg">&rarr; download the standalone SVG</a>
+    </div>
+
+  </article>
+
+  <footer class="site">
+    <span>Piece #064 &middot; Animated SVG</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+<div class="grain"></div>
+<script>
+  // Speed / pause control
+  (function () {
+    const svg = document.querySelector('.stage svg');
+    if (!svg || !svg.pauseAnimations) return;
+    const animTags = svg.querySelectorAll('animate, animateTransform');
+    const orig = new Map();
+    animTags.forEach(a => orig.set(a, a.getAttribute('dur')));
+
+    const buttons = document.querySelectorAll('.speed-bar button');
+    const status = document.getElementById('speed-status');
+    function apply(rate) {
+      if (rate === 0) {
+        svg.pauseAnimations();
+        animTags.forEach(a => a.setAttribute('dur', 'indefinite'));
+        status.textContent = 'paused \u2014 frozen at current frame';
+        status.classList.add('on');
+      } else {
+        svg.unpauseAnimations();
+        animTags.forEach(a => a.setAttribute('dur', orig.get(a)));
+        if (rate !== 1) {
+          animTags.forEach(a => {
+            const o = orig.get(a);
+            if (!o || o === 'indefinite') return;
+            const m = /^([\d.]+)([a-z]*)$/.exec(o);
+            if (!m) return;
+            const num = parseFloat(m[1]);
+            const unit = m[2] || '';
+            const scaled = (num / rate).toFixed(3).replace(/\.?0+$/, '');
+            a.setAttribute('dur', scaled + unit);
+          });
+        }
+        const label = rate === 1 ? '1\u00d7 \u2014 normal speed'
+                    : rate === 0.5 ? '0.5\u00d7 \u2014 half speed (slow)'
+                    : rate === 0.25 ? '0.25\u00d7 \u2014 quarter speed (study)'
+                    : rate + '\u00d7';
+        status.textContent = label;
+        status.classList.remove('on');
+      }
+      buttons.forEach(b => b.classList.toggle('active', b.dataset.rate === String(rate)));
+    }
+    buttons.forEach(b => b.addEventListener('click', () => apply(parseFloat(b.dataset.rate))));
+    apply(1);
+  })();
+</script>
+</body>
+</html>
