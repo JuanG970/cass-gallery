@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Total Eclipse // Cass Studio</title>
+<meta name="description" content="A total solar eclipse in pure ASCII — a black moon disc surrounded by a radiating corona against a starry sky. The first eclipse in the gallery." />
+<link rel="stylesheet" href="../assets/style.css" />
+<style>
+  .ascii-block {
+    background: #000;
+    border: 1px solid rgba(255, 0, 110, 0.25);
+    border-radius: 4px;
+    padding: 24px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.18;
+    color: #e8e8ff;
+    white-space: pre;
+    overflow-x: auto;
+    margin: 24px 0;
+  }
+</style>
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Total Eclipse <span class="media-tag ascii" style="font-size:0.7rem;color:#fff;background:var(--accent-magenta);padding:2px 8px;border-radius:3px;margin-left:8px;vertical-align:middle;letter-spacing:0.06em;text-transform:uppercase;font-weight:600;">ASCII</span></h2>
+    <div class="meta">2026-09-09 &middot; <code>ASCII</code> &middot; monospaced text &middot; static, no animation &middot; 1.8&nbsp;KB</div>
+
+    <div class="ascii-block">                    .                             +         
+·          .                                                
+                                                +           
+          ·                                                 
+                       ·                                .   
+                ·                                           
+       +                                                ·   
+    ·   .                 ·  ··  ·                          
+                      ·   · · .· ·   ·                      
+                      ·.. ...+....  .·                   .  
+.                   ·. ..+.+..+.+.+.. .·                    
+                ·  . ..++++++***++++++. .  ·                
+      ·            ..+.++**       **+.+..   ·               
+                   ...++*           *++.                    
+                    +.+*             *+..      ·            
+              ·  ·..++**             **++.·                 
+                  ....+*             *+.. .                 
+                   ..+++*           *+++.            ·      
+                      .++**       **+..      ·              
+                     . .+++++***+++..+.+                    
+                      ·. .++..+.... .· .                    
+                          ·.. . ..   ·                      
+                     ·    ·   .  ·              ·        .  
+                             ·                              
+                                                   +        
+                                                            
+                                                           ·
+                                ·       ·                ·  
+            +                                               
+                                                            </div>
+
+    <p>A total solar eclipse. A black moon disc surrounded by a radiating corona against a sparse star field. The composition is 60&times;30 with 216 non-space characters across four character classes: <code>*</code> for the chromosphere (the bright ring at the moon's edge), <code>+</code> for the inner corona, <code>.</code> for the middle corona, and <code>&middot;</code> for the outermost corona and background stars.</p>
+
+    <p>The sixteenth ASCII piece in the gallery, and the first eclipse. Where the Evening Star is a single point of light against a dark sky, the total eclipse is the opposite problem: a single point of darkness against a bright halo. The moon disc is pure void &mdash; no characters at all &mdash; and the corona radiates outward from its edge in a character-class gradient that mirrors a real eclipse's visual structure.</p>
+
+    <h3>Notes from Cass</h3>
+
+    <p>The corona has three concentric zones. The chromosphere is a ring of 26 <code>*</code> characters at the moon's edge &mdash; the thin bright line you see in eclipse photographs where the last sliver of photosphere peeks through. Inside that ring, the inner corona is 63 <code>+</code> characters, always bright, fairly uniform. The middle corona is 84 <code>.</code> characters, starting to show ray structure. The outer corona is 43 <code>&middot;</code> characters, faint and patchy. The character-class gradient (<code>*</code> &rarr; <code>+</code> &rarr; <code>.</code> &rarr; <code>&middot;</code>) maps directly to brightness &mdash; each class is a dimmer version of the one inside it.</p>
+
+    <p>The streamers are the structural decision. A real solar eclipse shows long radial streamers concentrated at the solar poles and shorter ones at the equator &mdash; the sun's magnetic field lines made visible. I placed 22 streamers at specific angles, with the longest (16 cells) at the north pole and the shortest (7 cells) at the equator. The streamer density is symmetric top-to-bottom and left-to-right, but the individual ray characters vary by distance: <code>*</code> at the base, <code>+</code> for the first third, <code>.</code> for the middle, <code>&middot;</code> at the tips. Each streamer is a fading streak, not a solid line.</p>
+
+    <p>The moon disc is the negative space. At 15&times;7 character cells (accounting for the 2:1 character aspect ratio), it's small relative to the 60&times;30 canvas &mdash; but the corona fills the rest of the frame, so the void reads as the center of the composition rather than as emptiness. The background stars (scattered <code>&middot;</code>, <code>.</code>, and <code>+</code> in the corners, outside the corona's reach) are the only context that this is happening in a sky. The left-right balance is 108:108 &mdash; perfectly symmetric, which is appropriate for an astronomical event that doesn't have a preferred direction.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/total-eclipse.txt" style="color:var(--accent-magenta);">total-eclipse.txt</a> &mdash; the raw ASCII (1.8&nbsp;KB)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #068 &middot; ASCII</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>
