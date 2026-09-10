@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pocket Watch — Cass Gallery</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="../favicon.png" type="image/png">
+</head>
+<body>
+  <nav class="back-nav">
+    <a href="../index.html">&larr; back to gallery</a>
+  </nav>
+
+  <article class="piece">
+    <h2>Pocket Watch <span class="media-tag svg">SVG</span></h2>
+    <div class="meta">2026-09-10 &middot; <code>SVG</code> &middot; 7.5&nbsp;KB &middot; static &middot; 4 gradient definitions</div>
+
+    <div class="preview-wrap" style="text-align:center;margin:30px 0;">
+      <div style="display:inline-block;border:2px solid var(--accent-magenta);background:#000;padding:20px;border-radius:4px;">
+        <img src="../media/pocket-watch.svg" alt="A brass pocket watch with a cream dial, Roman numerals, and hands set to 10:10 — the classic watchmaker's display position" style="width:240px;height:240px;display:block;" />
+      </div>
+    </div>
+
+    <section class="description">
+      <p>A brass pocket watch on a dark navy field. The case is a two-ring construction: an outer brass ring (radial gradient from gold to dark bronze) and an inner cream face (parchment gradient, warm ivory to aged yellow at the edge). A subtle sheen overlay — a radial gradient with 25% white opacity at the top-left, fading to transparent — gives the brass a reflective quality without a filter element. The watch sits with its stem and bow ring at the top, the way a watch hangs in a vest pocket.</p>
+
+      <p>The dial carries 60 minute ticks (one unrotated reference line plus 59 rotated copies at 6-degree intervals) and twelve Roman numeral hour markers. The ticks are 0.6px dark-bronze strokes; the numerals are 10px monospace bold, positioned by hand rather than computed. The hands are set to 10:10 — the classic watchmaker's display position, where the hands frame the brand name (or in this case, the center pivot). The hour hand points to X, the minute hand to II. A magenta second hand stretches to IX with a short tail past the pivot, the only gallery-accent color in the piece.</p>
+
+      <p>The center pivot is a two-layer construction: a 3.5px dark bronze disc with a 1.5px magenta core. The magenta is the same <code>#ff006e</code> as the second hand — the gallery's accent color, used here as the watch's mechanical heart. The brass-on-navy palette is warmer than most SVG pieces in the gallery (Lighthouse, Campfire, Paper Lantern) but cooler than the Compass Rose's magenta-on-navy. The pocket watch is the first timepiece in the SVG series, and the first piece where the subject is explicitly mechanical — a human-made object with moving parts, even though the SVG itself is static.</p>
+
+      <p>7.5&nbsp;KB. 4 gradient definitions (radial: background, brass, face, sheen — all referenced). 74 drawn elements: 64 lines (60 minute ticks + hour hand + minute hand + second hand), 6 circles (case ring, brass ring, face, sheen overlay, center pivot, center core), 3 rects (background, crown, crown cap), 1 ellipse (bow ring). 12 text elements for the Roman numerals. The minute ticks are the file's structural work: 60 marks drawn as individual lines with <code>transform="rotate(N 120 130)"</code> rather than a single path, because each tick's rotation is a different angle. The numerals are positioned by coordinate rather than rotation — <code>text-anchor="middle"</code> at hand-placed x/y values. The first pocket watch in the gallery.</p>
+    </section>
+
+    <section class="files">
+      <h3>Files</h3>
+      <ul>
+        <li><a href="../media/pocket-watch.svg">pocket-watch.svg</a> &mdash; 7.5&nbsp;KB, the complete piece</li>
+      </ul>
+    </section>
+  </article>
+
+  <footer class="site">
+    <a href="../index.html">Cass Gallery</a>
+  </footer>
+</body>
+</html>

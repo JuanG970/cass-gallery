@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <defs>
+    <radialGradient id="pw-bg" cx="0.5" cy="0.45" r="0.7">
+      <stop offset="0%" stop-color="#1a1f3a"/>
+      <stop offset="100%" stop-color="#0a0e27"/>
+    </radialGradient>
+    <radialGradient id="pw-brass" cx="0.35" cy="0.3" r="0.8">
+      <stop offset="0%" stop-color="#ffd700"/>
+      <stop offset="40%" stop-color="#daa520"/>
+      <stop offset="100%" stop-color="#8b6914"/>
+    </radialGradient>
+    <radialGradient id="pw-face" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#f5f0e0"/>
+      <stop offset="80%" stop-color="#e8dcc0"/>
+      <stop offset="100%" stop-color="#c8b890"/>
+    </radialGradient>
+    <radialGradient id="pw-sheen" cx="0.3" cy="0.25" r="0.5">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.25"/>
+      <stop offset="60%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="240" height="240" fill="url(#pw-bg)"/>
+
+  <!-- Crown (top stem) -->
+  <rect x="114" y="20" width="12" height="14" rx="2" fill="url(#pw-brass)"/>
+  <rect x="112" y="16" width="16" height="6" rx="3" fill="url(#pw-brass)"/>
+
+  <!-- Bow ring (top loop) -->
+  <ellipse cx="120" cy="16" rx="14" ry="10" fill="none" stroke="url(#pw-brass)" stroke-width="4"/>
+
+  <!-- Outer case ring -->
+  <circle cx="120" cy="130" r="82" fill="none" stroke="url(#pw-brass)" stroke-width="6"/>
+  <circle cx="120" cy="130" r="78" fill="url(#pw-brass)"/>
+  <circle cx="120" cy="130" r="74" fill="url(#pw-face)"/>
+
+  <!-- Sheen overlay on case -->
+  <circle cx="120" cy="130" r="82" fill="url(#pw-sheen)"/>
+
+  <!-- Minute ticks (60) -->
+  <g stroke="#4a3a10" stroke-width="0.6" fill="none">
+    <line x1="120" y1="60" x2="120" y2="65"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(6 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(12 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(18 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(24 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(30 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(36 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(42 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(48 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(54 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(60 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(66 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(72 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(78 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(84 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(90 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(96 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(102 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(108 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(114 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(120 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(126 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(132 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(138 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(144 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(150 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(156 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(162 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(168 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(174 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(180 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(186 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(192 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(198 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(204 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(210 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(216 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(222 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(228 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(234 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(240 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(246 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(252 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(258 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(264 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(270 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(276 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(282 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(288 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(294 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(300 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(306 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(312 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(318 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(324 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(330 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(336 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(342 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(348 120 130)"/>
+    <line x1="129" y1="60" x2="129" y2="65" transform="rotate(354 120 130)"/>
+  </g>
+
+  <!-- Hour numerals (Roman) -->
+  <g font-family="monospace" font-size="10" fill="#3a2a08" text-anchor="middle" font-weight="bold">
+    <text x="120" y="72">XII</text>
+    <text x="148" y="78">I</text>
+    <text x="170" y="98">II</text>
+    <text x="180" y="134">III</text>
+    <text x="170" y="168">IV</text>
+    <text x="148" y="188">V</text>
+    <text x="120" y="194">VI</text>
+    <text x="92" y="188">VII</text>
+    <text x="70" y="168">VIII</text>
+    <text x="60" y="134">IX</text>
+    <text x="70" y="98">X</text>
+    <text x="92" y="78">XI</text>
+  </g>
+
+  <!-- Hour hand (pointing to ~10:10 position) -->
+  <line x1="120" y1="130" x2="98" y2="100" stroke="#2a1a05" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Minute hand (pointing to ~2 position) -->
+  <line x1="120" y1="130" x2="155" y2="95" stroke="#2a1a05" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Second hand (pointing to ~9 position) -->
+  <line x1="120" y1="130" x2="80" y2="130" stroke="#ff006e" stroke-width="1" stroke-linecap="round"/>
+  <!-- Second hand tail -->
+  <line x1="120" y1="130" x2="128" y2="148" stroke="#ff006e" stroke-width="1" stroke-linecap="round"/>
+
+  <!-- Center pivot -->
+  <circle cx="120" cy="130" r="3.5" fill="#2a1a05"/>
+  <circle cx="120" cy="130" r="1.5" fill="#ff006e"/>
+</svg>
