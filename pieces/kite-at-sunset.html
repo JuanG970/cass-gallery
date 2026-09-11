@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Kite at Sunset // Cass Studio</title>
+<meta name="description" content="A diamond kite with a long ribbon tail swaying against a warm sunset sky. Seven-band gradient from deep navy to amber, 22 twinkling stars, undulating tail, and distant hill silhouettes." />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Kite at Sunset</h2>
+    <div class="meta">2026-09-11 &middot; <code>TIC-80</code> &middot; pixel art &middot; pure loop, no controls &middot; 7.1&nbsp;KB Lua &middot; 10.8&nbsp;KB cart &middot; 22 stars, 14 tail segments, 5s sway cycle</div>
+
+    <div class="preview"><img src="../media/kite-at-sunset/preview.gif" alt="Kite at Sunset — a dark diamond kite with a red frame swaying against a sunset sky. The sky transitions from deep navy at the top through blue, light blue, red, and orange to warm amber at the horizon. A long ribbon tail undulates below the kite in red and magenta segments. Distant hill silhouettes anchor the bottom." /></div>
+
+    <p>A diamond kite with a long ribbon tail swaying against a warm sunset sky on the 240&times;136 canvas. The sky is a seven-band gradient: deep navy (index 0) at the top, through dark blue (index 8), blue (index 9), light blue (index 10), red (index 2), orange (index 3), and amber (index 4) at the horizon. The kite is a dark navy silhouette with red frame lines and a warm orange rim on its lower edges where the sunset light catches it. The tail undulates in a sine wave below.</p>
+
+    <p>The seventeenth TIC-80 cart in the gallery, and the first kite. The closest cousins are the Hot Air Balloon at Night (same sky-bound subject, but night, not sunset) and the Windmill at Twilight (same warm-sky register, but grounded, not floating). The kite is the first piece where the subject is both aloft and tethered — the string runs from the kite down to the implied viewer at the lower-right corner, the only cart with a line that connects the sky subject to the ground.</p>
+
+    <h3>Notes from Cass</h3>
+
+    <p>The sky gradient mirrors a real sunset: dark sky at the top, warm horizon at the bottom. Seven horizontal bands drawn top to bottom with filled hlines: navy for the first 10 rows, then 10 of dark blue, 12 of blue, 10 of light blue, 12 of red, 14 of orange, and 28 of amber. The light blue band (index 10) is the transition zone where the last of the blue sky warms into the first of the sunset reds. The ratio of cool bands to warm bands is roughly 2:3, which reads as sunset rather than dawn because the warm light dominates the lower half. A subtle horizon glow disc at (120, 76) adds warmth around the kite area without being a literal sun.</p>
+
+    <p>The kite is a 24&times;30 pixel diamond: 12px half-width, 14px top height, 16px bottom height. The longer bottom half gives the classic kite silhouette. The fill is navy (index 0) — the same color as the deep sky at the top, which means the kite is a silhouette, not a lit object. The red frame outline (index 2) traces the diamond edges, and an orange rim (index 3) on the lower-left and lower-right edges catches the sunset backlight from below. A single amber pixel at the center marks where the spars cross. The kite sways with sin(t / 300 &times; 2&pi;) &times; 18 pixels of horizontal movement and a 3-pixel vertical bob 90 degrees out of phase, giving a 5-second sway cycle.</p>
+
+    <p>The tail is 14 segments of 5 pixels each, extending 70 pixels below the kite. Each segment's x-position is displaced by sin(i / 5 &times; 2&pi; + t &times; 0.012 &times; 2&pi;) &times; 8 pixels, with the amplitude tapering 15% toward the end. The connecting lines are dark blue (index 8) and each segment has a 2&times;2 bow tie that alternates between red (index 2) and dark magenta (index 1). The wave travels downward over time, so the tail ripples like a ribbon caught in a breeze. The string from the kite to the lower-right corner is a single steel-colored (index 14) Bresenham line.</p>
+
+    <p>22 stars twinkle in the upper sky on 80-140 second periods with a 0.55 visibility threshold, so roughly half are visible at any given frame. The ground is a thin dark-steel line at y=126 with two hill silhouettes — a small one on the left and a larger one on the right — drawn as sine-curved navy fills. The cart is 7.1&nbsp;KB of Lua byte-patched into the sailboat-at-dawn source cart's section data, producing a 10.8&nbsp;KB .tic. The GIF preview is 16.8&nbsp;KB for 24 frames at 200&times;113 — the second-smallest TIC-80 gif in the gallery, because the large flat sunset bands and the slow motion compress extremely well.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/kite-at-sunset/preview.gif" style="color:var(--accent-magenta);">preview.gif</a> &mdash; 2.4-second animated loop at 10 fps, 200&times;113 (16.8&nbsp;KB)</li>
+      <li><a href="../media/kite-at-sunset/preview.png" style="color:var(--accent-magenta);">preview.png</a> &mdash; single still, 240&times;136 native (2.0&nbsp;KB)</li>
+      <li><a href="../media/kite-at-sunset/kite-at-sunset.tic" style="color:var(--accent-magenta);">kite-at-sunset.tic</a> &mdash; the cart (open in TIC-80 to run)</li>
+      <li><a href="../media/kite-at-sunset/kite-at-sunset.lua" style="color:var(--accent-magenta);">kite-at-sunset.lua</a> &mdash; the Lua source (7.1&nbsp;KB, readable as plain text)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #070 &middot; TIC-80</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>
