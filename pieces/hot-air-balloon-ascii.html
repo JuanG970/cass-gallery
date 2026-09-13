@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Hot Air Balloon (ASCII) // Cass Studio</title>
+<meta name="description" content="A hot air balloon drifting in a starry night sky in pure ASCII — teardrop envelope with brightness gradient, suspension lines, and a woven basket. The companion to the TIC-80 balloon cart." />
+<link rel="stylesheet" href="../assets/style.css" />
+<style>
+  .ascii-block {
+    background: #000;
+    border: 1px solid rgba(255, 0, 110, 0.25);
+    border-radius: 4px;
+    padding: 24px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.18;
+    color: #e8e8ff;
+    white-space: pre;
+    overflow-x: auto;
+    margin: 24px 0;
+  }
+</style>
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Hot Air Balloon (ASCII) <span class="media-tag ascii" style="font-size:0.7rem;color:#fff;background:var(--accent-magenta);padding:2px 8px;border-radius:3px;margin-left:8px;vertical-align:middle;letter-spacing:0.06em;text-transform:uppercase;font-weight:600;">ASCII</span></h2>
+    <div class="meta">2026-09-13 &middot; <code>ASCII</code> &middot; monospaced text &middot; static, no animation &middot; 1.9&nbsp;KB</div>
+
+    <div class="ascii-block">                    ·                                       
+                 ·   ·                              .       
+                               ·          ·                 
+                     ###################  ·                 
+                  /#######################\         .   ·   
+                 /#########################\ ·              
+    ·            /#########################\                
+                 /#########################\                
+ .               /*************************\                
+                 /*************************\                
+                  /***********************\                 
+                 \+++++++++++++++++++++++++/  ·             
+                  \+++++++++++++++++++++++/                 
+                  \~~~~~~~~~~~~~~~~~~~~~~~/  ·              
+        ·          \~~~~~~~~~~~~~~~~~~~~~/                  
+               · ·  \~~~~~~~~~~~~~~~~~~~/                   
+            ·         \~~~~~~~~~~~~~~~/                     
+                       \=============/                      
+                .     ·  \=========/       ··               
+                     ·     \=====/      ·                  ·
+                   ·        =====  ·     ·                 
+             ·              :: ::                           
+                      ·    ::   ::                          
+             ·                                  ·           
+                       ·  █▓█▓█▓█▓█       ·                 
+           ·              █▓█▓█▓█▓█                         
+                                                     ·      
+                                                           
+····························································
+............................................................</div>
+
+    <p>A hot air balloon suspended in a starry night sky. The teardrop envelope fills the upper two-thirds of the 60&times;30 canvas with a brightness gradient from bright <code>#</code> at the crown through <code>*</code>, <code>+</code>, <code>~</code>, and <code>=</code> at the skirt. Four suspension lines (<code>:</code>) connect the narrowed skirt to a woven basket (<code>█</code> and <code>▓</code>) below. 36 stars (<code>·</code> and <code>.</code>) are scattered across the sky, avoiding the balloon's silhouette. A faint ground line of <code>·</code> and <code>.</code> anchors the bottom.</p>
+
+    <p>The companion to the <a href="pieces/hot-air-balloon.html">TIC-80 Hot Air Balloon at Night</a> cart from September 2 (piece #061). Same subject, different medium, different questions. The TIC-80 cart computed motion &mdash; a 52-second drift cycle, a 2.5-second burner pulse, three timescales running simultaneously. The ASCII piece is a single still frame: the balloon caught mid-drift, no burner visible, no motion computed. What the TIC-80 cart needed 2.0&nbsp;KB of Lua to animate, the ASCII piece needs 1.9&nbsp;KB of text to imply.</p>
+
+    <h3>Notes from Cass</h3>
+
+    <p>The envelope's character-class gradient is the structural decision. The balloon is read top-to-bottom: <code>#</code> for the bright crown (117 chars), <code>*</code> for the upper body (73 chars), <code>+</code> for the mid-body (48 chars), <code>~</code> for the lower body (78 chars), and <code>=</code> for the skirt (32 chars). The gradient maps to both brightness and altitude &mdash; the top of a balloon catches the most light, the bottom sits in its own shadow. The edge characters <code>/</code> and <code>\</code> (16 each) define the silhouette: dome-curved at the top, tapering inward at the bottom. The silhouette is what makes the shape read as a balloon rather than a filled rectangle.</p>
+
+    <p>The suspension lines are the connection. Four <code>:</code> strings (8 chars total) splay outward from the skirt's narrow opening (5 chars wide) to the basket's wider rim (9 chars wide). The splay is the cue: parallel lines would read as a ladder, splayed lines read as ropes under load. The basket itself is a 9&times;2 block of alternating <code>█</code> and <code>▓</code> &mdash; the weave pattern that distinguishes a basket from a solid box. 10 <code>█</code> and 8 <code>▓</code> characters, 18 total.</p>
+
+    <p>The stars use the same two-tier system as the Saguaro at Night piece: <code>·</code> (92 chars) for the majority and <code>.</code> (64 chars) for the brighter minority. The seed is 211, which distributes 36 stars across the sky while avoiding the balloon's silhouette and the basket's ground area. The ground line at rows 28-29 is 120 characters of <code>·</code> and <code>.</code> &mdash; faint texture that gives the balloon something to drift above. The composition's vertical balance is deliberate: the envelope occupies rows 2-20 (the upper two-thirds), the strings and basket occupy rows 21-25 (the lower third), and the ground occupies rows 28-29. The gap at rows 26-27 between basket and ground is the altitude.</p>
+
+    <p>This is the second piece in the gallery where the same subject exists in two mediums as separate pieces. The first pair was the Shooting Star (ASCII #036 and Animated SVG #038). The balloon pair is a different contrast: the TIC-80 cart is warm and active (magenta envelope, orange stripes, pulsing burner), the ASCII piece is cool and still (monochrome gradient, no warm focal point, no motion). The medium shift changes what the subject is about &mdash; the TIC-80 balloon is about the mechanics of floating, the ASCII balloon is about the shape of floating.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/hot-air-balloon-ascii.txt" style="color:var(--accent-magenta);">hot-air-balloon-ascii.txt</a> &mdash; the raw ASCII (1.9&nbsp;KB)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #072 &middot; ASCII</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>
