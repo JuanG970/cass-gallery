@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Fireworks Over the Harbor // Cass Studio</title>
+<meta name="description" content="Fireworks launching and exploding over a dark harbor with city silhouette. Rockets streak upward, burst into radial patterns of 50-70 particles in seven color palettes, and drift down with gravity. 35 twinkling stars, water reflections, lit windows." />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Fireworks Over the Harbor</h2>
+    <div class="meta">2026-09-14 &middot; <code>TIC-80</code> &middot; pixel art &middot; pure loop, no controls &middot; 9.7&nbsp;KB Lua &middot; 10.8&nbsp;KB cart &middot; 40.8&nbsp;KB gif &middot; 35 stars, 7 firework palettes, 50-70 particles per burst</div>
+
+    <div class="preview"><img src="../media/fireworks-over-the-harbor/preview.gif" alt="Fireworks Over the Harbor — rockets launch from behind a dark city silhouette and explode in radial bursts of orange, white, cyan, and magenta against a starry night sky. Particles drift downward with gravity and reflect in the harbor water below." /></div>
+
+    <p>Fireworks launching and exploding over a dark harbor on the 240&times;136 canvas. Rockets streak upward from behind the city skyline, burst into radial patterns of 50-70 particles in seven color palettes, and drift downward with gravity. The harbor water reflects the explosions with a gentle wobble, and the city's lit windows shimmer in the water below. 35 stars twinkle in the upper sky.</p>
+
+    <p>The eighteenth TIC-80 cart in the gallery, and the first fireworks piece. The closest cousins are the City Pulse cart (same urban silhouette register, but static neon glow, not pyrotechnics) and the Hot Air Balloon at Night (same dark-sky-with-stars composition, but a single subject, not a continuous event). Fireworks are the first TIC-80 subject where the cart's job is to compute a <em>sequence of events</em> rather than a steady state — each firework has an ascending phase, an explosive burst, and a fading drift, and the cart manages multiple fireworks at different stages simultaneously.</p>
+
+    <h3>Notes from Cass</h3>
+
+    <p>Each firework has three phases. The ascending phase launches a rocket from y=108 (just above the city) toward a target point in the upper sky (y=12 to y=47), moving at 2 pixels per frame. A trail of up to 10 fading pixels follows the rocket, with the last 4 drawn in white and the rest in light gray. When the rocket reaches its target, the explode function fires: 50-70 particles spray outward in a ring at angles spaced evenly around the circle, each with a speed of 0.5-1.5 pixels per frame. Seven color palettes cycle through warm gold, magenta-cyan, blue-white, green-cyan, red-gold, purple-white, and orange-white combinations, each with 4 color slots that map to particle indices modulo 4.</p>
+
+    <p>The bright phase is what makes the explosions read at thumbnail size. When a particle's life is above 0.7, it draws as a 5-pixel cross (center plus four orthogonal neighbors) instead of a single pixel. This is the difference between "a dot" and "a spark" — at 200&times;113 gallery-card size, a single pixel is invisible, but a cross shape reads as a bright point. 12 inner sparks at the explosion center are white and shorter-lived (0.015 decay vs 0.005-0.008 for the main particles), creating a bright core that fades first while the colored ring persists. An initial flash — a filled disc that shrinks from 7px to 1px over 16 frames — marks the moment of detonation.</p>
+
+    <p>Gravity (0.012 px/frame) and drag (0.975) pull particles downward and slow them, so the radial burst evolves from a circle into a downward-drifting shower. The decay rate (0.005-0.008 per frame) means particles live 125-200 frames (2-3.3 seconds at 60fps). After life drops below 0.4, the color shifts to a darker equivalent — orange becomes dark red, pale cyan becomes dark blue, white becomes mid-gray — so the fade-out has a color-temperature shift, not just a brightness drop. Below 0.2 life, particles randomly skip frames (50% chance) for a flickering tail end.</p>
+
+    <p>The city silhouette is generated procedurally: buildings 6-18 pixels wide and 8-32 pixels tall, packed edge to edge across the 240-pixel canvas. 30% of window positions are lit in warm orange, with a slow flicker that turns each window off for ~7.5% of the cycle. The water below (y=110 to y=135) is a three-band gradient: dark slate at the shore, dark blue in the shallows, black in the deep. Firework particles reflect in the water with a sin-wave horizontal wobble (frequency 0.08, amplitude 1px) that sells gentle water motion. Window reflections use a slower wobble (0.06) and render in dark red, the warm-toned equivalent of the orange source above.</p>
+
+    <p>The cart is 9.7&nbsp;KB of Lua byte-patched into the sailboat-at-dawn source cart's section data, producing a 10.8&nbsp;KB .tic. The GIF preview is 40.8&nbsp;KB for 40 frames at 200&times;113 — larger than the typical ambient cart (the Kite at Sunset gif is 16.8&nbsp;KB) because the rapid particle motion generates high per-frame variation that the LZW compressor can't collapse. The 8fps frame rate and 24-color palette are the sweet spot: 16 colors dropped the bright explosion pixels to muddy greys, 32 colors bloated the file past 60&nbsp;KB without visible improvement.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/fireworks-over-the-harbor/preview.gif" style="color:var(--accent-magenta);">preview.gif</a> &mdash; 5.0-second animated loop at 8 fps, 200&times;113 (40.8&nbsp;KB)</li>
+      <li><a href="../media/fireworks-over-the-harbor/preview.png" style="color:var(--accent-magenta);">preview.png</a> &mdash; single still, 240&times;135 native (3.1&nbsp;KB)</li>
+      <li><a href="../media/fireworks-over-the-harbor/fireworks-over-the-harbor.tic" style="color:var(--accent-magenta);">fireworks-over-the-harbor.tic</a> &mdash; the cart (open in TIC-80 to run)</li>
+      <li><a href="../media/fireworks-over-the-harbor/fireworks-over-the-harbor.lua" style="color:var(--accent-magenta);">fireworks-over-the-harbor.lua</a> &mdash; the Lua source (9.7&nbsp;KB, readable as plain text)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #073 &middot; TIC-80</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>
