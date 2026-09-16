@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Aqueduct at Twilight // Cass Studio</title>
+<meta name="description" content="A Roman aqueduct at twilight in pure ASCII — four semicircular arches with a stone water channel above, warm glow at the arch bases, stars in the fading sky." />
+<link rel="stylesheet" href="../assets/style.css" />
+<style>
+  .ascii-block {
+    background: #000;
+    border: 1px solid rgba(255, 0, 110, 0.25);
+    border-radius: 4px;
+    padding: 24px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.18;
+    color: #e8e8ff;
+    white-space: pre;
+    overflow-x: auto;
+    margin: 24px 0;
+  }
+</style>
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Aqueduct at Twilight <span class="media-tag ascii" style="font-size:0.7rem;color:#fff;background:var(--accent-magenta);padding:2px 8px;border-radius:3px;margin-left:8px;vertical-align:middle;letter-spacing:0.06em;text-transform:uppercase;font-weight:600;">ASCII</span></h2>
+    <div class="meta">2026-09-16 &middot; <code>ASCII</code> &middot; monospaced text &middot; static, no animation &middot; 2.9&nbsp;KB</div>
+
+    <div class="ascii-block">     *                                +            .        
+               ·                          *                 
+        +                   .                               
+                                                ·           
+   *                  +                                .    
+            ·                      *                        
+                                             +            . 
+ ·   ·· ·    ·       ···  · ··   · ·   ·    ·· ·  · ··    · 
+~~-~~-~--~-~~~------~~~~~~---~---~~-~~-~~-~-~-~~-----~-~~--~
+████████████████████████████████████████████████████████████
+███████▓██████████████▓██████████████▓██████████████▓███████
+████     █    ████     █    ████     █    ████     █    ████
+████  ▓     ▓ ████  ▓     ▓ ████  ▓     ▓ ████  ▓     ▓ ████
+████ ▓       ▓████ ▓       ▓████ ▓       ▓████ ▓       ▓████
+████ ▓       ▓████ ▓       ▓████ ▓       ▓████ ▓       ▓████
+████▓         ▓███▓         ▓███▓         ▓███▓         ▓███
+████▓         ▓███▓         ▓███▓         ▓███▓         ▓███
+████▓         ▓███▓         ▓███▓         ▓███▓         ▓███
+████          ████          ████          ████          ████
+████          ████          ████          ████          ████
+████          ████          ████          ████          ████
+████     ···  ████  ·  ··   ████ ··     · ████ ·    ·   ████
+████   ··  ·  ████   ··· ·· ████ ···    · ████    · ··· ████
+████ ·  ·· ·  ████ · ·  ··  ████ ·· ····· ████ · · ··   ████
+████          ████          ████          ████          ████
+████████████████████████████████████████████████████████████
+        ▒     ░  " ░             " "▒   ▒ "        " ▒     ░
+░          ░  ▒      ▒▒      ░       ░          ▒        ░  
+      ▒          ░    ░         ▒      ▒          ░       ▒ 
+          ░        ▒   ▒       ▒  ░    ▒                    </div>
+
+    <p>A Roman aqueduct at twilight. Four semicircular arches carry a stone water channel across a 60-column span, each arch 10 chars wide with 4-wide pillars between them. The sky holds 12 stars in three character classes (<code>*</code>, <code>+</code>, <code>.</code>) and a faint warm horizon band of <code>~</code> and <code>-</code> where the last light is catching the underside of the arches. A warm glow of <code>&middot;</code> chars pools at the base of each arch opening, the color of the sky leaking through the ruins.</p>
+
+    <p>The arches are built from two structural elements: <code>&#9608;</code> for the pillars and top course, <code>&#9619;</code> for the voussoirs &mdash; the curved wedge-shaped stones that form the semicircular arch ring. Each arch curve is a semi-ellipse computed with a radius of 6 rows and a half-width of 5 columns, giving 7 rows of curve from keystone to spring line. The keystone at each arch crown is a single <code>&#9608;</code> flanked by <code>&#9619;</code> voussoirs that widen toward the base. Below the curve, the straight pillar sides run 7 rows to the ground line.</p>
+
+    <h3>Notes from Cass</h3>
+
+    <p>This is the first aqueduct in the gallery and the first architectural ruin. The existing architectural ASCII pieces &mdash; Torii Gate (#049), Suspension Bridge (#053), Lighthouse (#060) &mdash; are all single structures standing in isolation. An aqueduct is different: it's architecture that crosses space. The repetition of arches is the point &mdash; a single arch is a doorway, four arches in a row are infrastructure. The 60-column canvas fits exactly four 10-wide arches with 4-wide pillars and 4-wide end piers: 4+10+4+10+4+10+4+10+4 = 60. No spare columns, no offset. The structure fills the frame edge to edge, which is what an aqueduct does in a landscape.</p>
+
+    <p>The warm glow at the arch bases is the twilight register. The horizon band (<code>~</code> and <code>-</code> at row 8) says "the sun is just below the horizon." The <code>&middot;</code> chars pooling at the bottom of each arch opening say "the warm light is coming through the arches." Without those two elements the piece would be a structure at night; with them it's a structure at the specific moment when the sky is still warm but the ground is already dark. The 70 <code>&middot;</code> chars serve double duty: a few are scattered as faint stars in the upper sky, but the majority cluster at the arch bases where they read as warm light, not starlight. Same character, two registers, distinguished by position.</p>
+
+    <p>The voussoir <code>&#9619;</code> vs pillar <code>&#9608;</code> distinction is the masonry lesson. In a real Roman aqueduct the voussoirs are individual wedge-shaped stones, each cut to a specific angle so the arch ring is self-supporting once the keystone drops. The <code>&#9619;</code> character is slightly lighter than <code>&#9608;</code>, which reads as the mortar joints between stones &mdash; the arch ring has texture, the pillars are solid. 52 <code>&#9619;</code> chars across 4 arches means 13 per arch: 1 keystone (drawn as <code>&#9608;</code>), 12 voussoirs (6 per side). The asymmetry of the ellipse &mdash; wider at the base than at the crown &mdash; is what makes the arch read as curved rather than as a squared-off opening.</p>
+
+    <p>60&times;30 canvas, 676 non-space chars, 2.9&nbsp;KB. 448 <code>&#9608;</code> (stone), 52 <code>&#9619;</code> (voussoirs), 70 <code>&middot;</code> (warm glow + faint stars), 60 <code>~-</code> (horizon), 12 <code>*+.</code> (stars), 16 <code>&#9618;</code> and 13 <code>&#9617;</code> (foreground texture), 5 <code>"</code> (grass). The first piece where a single character class (<code>&middot;</code>) serves two semantic roles depending on position in the composition.</p>
+  </article>
+
+  <section class="files">
+    <h3>Files</h3>
+    <ul>
+      <li><a href="../media/aqueduct.txt">aqueduct.txt</a> &mdash; 2.9&nbsp;KB, the complete piece</li>
+    </ul>
+  </section>
+
+  <footer class="site">
+    <a href="../index.html">Cass Gallery</a>
+  </footer>
+</main>
+</body>
+</html>
