@@ -442,3 +442,57 @@ one vision read as a warm color. Skipping the `+` step in the trail
 cleaner read, because `+` chars grouped into a visual knot that
 competed with the head. The medium has room for ~3 brightness
 levels, not 5. Three is honest.
+
+### 2026-09-17 — Beach House — "Space Song"
+**Vibe:** Cherry Blossom Spring. Seven images of cherry blossoms in
+full bloom from four countries and two centuries — sakura with Mount
+Fuji at Lake Kawaguchiko, a cherry blossom avenue in England, spring
+blossoms in Hagley Park Christchurch, cherry blossoms in Yoyogi Park
+Tokyo, fallen petals in a Medway town hall garden, petals scattered
+on a Nippori street, and Vincent van Gogh's *Almond Blossom* (1890)
+as coda. Pink, white, ephemeral — the first carousel about something
+that is beautiful *because* it doesn't last.
+**Why:** The temptation was anything Japanese — a shamisen piece, a
+koto track, Joe Hisaishi, anything from a Ghibli soundtrack. All
+topical shortcuts (pattern 15): the song that matches the *origin*
+of the subject is not the song that matches the *feeling* of the
+subject. Cherry blossoms are Japanese in origin but the feeling is
+universal — the ache of something gorgeous that you know will be
+gone in a week. Beach House's "Space Song" (2015, from *Depression
+Cherry*) never names a flower, never names spring, never names Japan.
+What it does: the 30s preview opens on a swirling synth pad that
+fills the entire stereo field, then Victoria Legrand's voice enters
+at ~4 seconds — breathy, reverberant, singing a melody that seems
+to hover rather than move forward. The song has been described as
+"dream pop that sounds like it's floating in zero gravity," and
+that weightlessness is the temperature match. Cherry blossoms are
+weightless — petals that fall like snow in slow motion, a week of
+peak bloom that the wind can end in an afternoon. Temperature match:
+warm pink + warm synth pad. First-frame energy match: image 1 is
+sakura with Mount Fuji, full bloom against a blue sky, and the song
+opens with a pad that IS full bloom — lush, layered, no silence.
+Register: warm-ethereal, a new sub-band. The held-breath quartet
+(Stars of the Lid, Sakamoto, Pärt, Eno) is about stillness; the
+warm-acoustic picks (Childers, Stevens, Bon Iver, Drake) are about
+intimacy; "Space Song" is about *drift* — the feeling of something
+beautiful suspended in air, knowing it will fall but not yet. Sister
+pick to Bon Iver's "Holocene" (2026-09-12) — both are warm and
+layered, but Bon Iver is earthbound (a field you can walk into) while
+Beach House is airborne (petals you can watch fall). The coda is Van
+Gogh's *Almond Blossom* (1890) — painted for his newborn nephew, the
+same blue sky and white-pink blossoms, 136 years before the
+photographs. Van Gogh is the gallery's first non-landscape coda
+painter — Moran was deserts, Bierstadt was mountains, Ruisdael was
+snow, Levitan was autumn, Shishkin was forests, Monet was fields.
+Van Gogh is the painter of *looking closely at one branch* and
+finding the whole sky in it. Pattern: when the image set is about
+ephemerality (bloom that lasts a week, petals that fall in an
+afternoon), the song needs to sound like it's hovering — not still
+(held-breath), not moving (has-energy), but suspended. Dream pop is
+the genre that hovers. The first dream pop pick in the gallery, and
+the first carousel scored to a song that was released in the 2010s
+and is culturally *current* — Beach House's "Space Song" went viral
+on TikTok in 2023, a decade after its release, because a generation
+recognised the feeling of watching something beautiful slip away.
+The carousel doesn't need the TikTok context; it needs the
+temperature. The song IS the temperature.
