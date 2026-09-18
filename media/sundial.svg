@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+  <defs>
+    <radialGradient id="sd-sky" cx="50%" cy="22%" r="70%">
+      <stop offset="0%" stop-color="#1a1a3a"/>
+      <stop offset="60%" stop-color="#0a0e27"/>
+      <stop offset="100%" stop-color="#000"/>
+    </radialGradient>
+    <radialGradient id="sd-sun" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff8dc"/>
+      <stop offset="30%" stop-color="#ffea00"/>
+      <stop offset="70%" stop-color="#ff9e3a"/>
+      <stop offset="100%" stop-color="#ff5a3a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sd-dial" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4a4a6a"/>
+      <stop offset="100%" stop-color="#2a2a4a"/>
+    </linearGradient>
+    <linearGradient id="sd-gnomon" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6a6a8a"/>
+      <stop offset="100%" stop-color="#3a3a5a"/>
+    </linearGradient>
+    <linearGradient id="sd-glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffea00" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#ffea00" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="240" height="240" fill="url(#sd-sky)"/>
+
+  <!-- Stars -->
+  <circle cx="30" cy="20" r="0.8" fill="#00f5ff" opacity="0.6"/>
+  <circle cx="200" cy="15" r="0.6" fill="#fff" opacity="0.5"/>
+  <circle cx="215" cy="35" r="0.9" fill="#00f5ff" opacity="0.7"/>
+  <circle cx="15" cy="45" r="0.5" fill="#fff" opacity="0.4"/>
+  <circle cx="225" cy="60" r="0.7" fill="#ff006e" opacity="0.4"/>
+  <circle cx="45" cy="55" r="0.4" fill="#fff" opacity="0.3"/>
+
+  <!-- Sun glow -->
+  <circle cx="120" cy="52" r="38" fill="url(#sd-sun)"/>
+  <circle cx="120" cy="52" r="12" fill="#fff8dc" opacity="0.95"/>
+
+  <!-- Warm glow falling on the dial -->
+  <rect x="0" y="80" width="240" height="70" fill="url(#sd-glow)"/>
+
+  <!-- Dial base — semicircle (half disk facing up) -->
+  <path d="M 45 170 A 75 75 0 0 1 195 170 L 195 175 L 45 175 Z" fill="url(#sd-dial)" stroke="#5a5a7a" stroke-width="0.8"/>
+
+  <!-- Dial face — top surface -->
+  <ellipse cx="120" cy="170" rx="75" ry="6" fill="#3a3a5a" stroke="#6a6a8a" stroke-width="0.5"/>
+
+  <!-- Hour lines radiating from gnomon base (120,168) -->
+  <!-- 6am (left horizon) -->
+  <line x1="120" y1="168" x2="50" y2="170" stroke="#8a8aaa" stroke-width="0.6" opacity="0.7"/>
+  <!-- 7am -->
+  <line x1="120" y1="168" x2="65" y2="155" stroke="#8a8aaa" stroke-width="0.5" opacity="0.6"/>
+  <!-- 8am -->
+  <line x1="120" y1="168" x2="80" y2="143" stroke="#8a8aaa" stroke-width="0.5" opacity="0.6"/>
+  <!-- 9am -->
+  <line x1="120" y1="168" x2="95" y2="135" stroke="#8a8aaa" stroke-width="0.5" opacity="0.6"/>
+  <!-- 10am -->
+  <line x1="120" y1="168" x2="108" y2="131" stroke="#8a8aaa" stroke-width="0.5" opacity="0.6"/>
+  <!-- 12 noon (straight up) -->
+  <line x1="120" y1="168" x2="120" y2="128" stroke="#ffea00" stroke-width="0.7" opacity="0.8"/>
+  <!-- 2pm -->
+  <line x1="120" y1="168" x2="132" y2="131" stroke="#8a8aaa" stroke-width="0.5" opacity="0.6"/>
+  <!-- 3pm -->
+  <line x1="120" y1="168" x2="145" y2="135" stroke="#8a8aaa" stroke-width="0.5" opacity="0.6"/>
+  <!-- 4pm -->
+  <line x1="120" y1="168" x2="160" y2="143" stroke="#8a8aaa" stroke-width="0.5" opacity="0.6"/>
+  <!-- 5pm -->
+  <line x1="120" y1="168" x2="175" y2="155" stroke="#8a8aaa" stroke-width="0.5" opacity="0.6"/>
+  <!-- 6pm (right horizon) -->
+  <line x1="120" y1="168" x2="190" y2="170" stroke="#8a8aaa" stroke-width="0.6" opacity="0.7"/>
+
+  <!-- Hour tick marks on the dial edge -->
+  <circle cx="50" cy="170" r="1.2" fill="#ffea00" opacity="0.7"/>
+  <circle cx="65" cy="155" r="1" fill="#aaa" opacity="0.6"/>
+  <circle cx="80" cy="143" r="1" fill="#aaa" opacity="0.6"/>
+  <circle cx="95" cy="135" r="1" fill="#aaa" opacity="0.6"/>
+  <circle cx="108" cy="131" r="1" fill="#aaa" opacity="0.6"/>
+  <circle cx="120" cy="128" r="1.5" fill="#ffea00" opacity="0.8"/>
+  <circle cx="132" cy="131" r="1" fill="#aaa" opacity="0.6"/>
+  <circle cx="145" cy="135" r="1" fill="#aaa" opacity="0.6"/>
+  <circle cx="160" cy="143" r="1" fill="#aaa" opacity="0.6"/>
+  <circle cx="175" cy="155" r="1" fill="#aaa" opacity="0.6"/>
+  <circle cx="190" cy="170" r="1.2" fill="#ffea00" opacity="0.7"/>
+
+  <!-- Gnomon (triangular shadow-caster) -->
+  <path d="M 120 168 L 108 130 L 120 130 Z" fill="url(#sd-gnomon)" stroke="#7a7a9a" stroke-width="0.5"/>
+
+  <!-- Shadow cast by gnomon (pointing to ~2pm / 3pm) -->
+  <path d="M 120 168 L 112 132 L 120 132 Z" fill="#000" opacity="0.55"/>
+  <!-- Shadow extending across dial toward 3pm -->
+  <path d="M 120 168 L 145 135 L 138 135 Z" fill="#000" opacity="0.35"/>
+
+  <!-- Roman numeral markers (simplified as small text) -->
+  <text x="48" y="185" font-family="monospace" font-size="6" fill="#8a8aaa" text-anchor="middle">VI</text>
+  <text x="78" y="158" font-family="monospace" font-size="5" fill="#7a7a9a" text-anchor="middle">VIII</text>
+  <text x="120" y="124" font-family="monospace" font-size="6" fill="#ffea00" text-anchor="middle">XII</text>
+  <text x="162" y="158" font-family="monospace" font-size="5" fill="#7a7a9a" text-anchor="middle">IV</text>
+  <text x="192" y="185" font-family="monospace" font-size="6" fill="#8a8aaa" text-anchor="middle">VI</text>
+
+  <!-- Ground line -->
+  <line x1="20" y1="175" x2="220" y2="175" stroke="#3a3a5a" stroke-width="0.8" opacity="0.5"/>
+
+  <!-- Faint horizon glow -->
+  <rect x="0" y="170" width="240" height="5" fill="#ffea00" opacity="0.03"/>
+</svg>
