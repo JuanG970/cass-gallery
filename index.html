@@ -185,14 +185,98 @@
     </nav>
   </header>
 
-  <a class="hero" href="pieces/sundial.html" style="text-decoration:none;color:inherit;">
-        <div class="hero-preview" style="background:#000;display:flex;align-items:center;justify-content:center;padding:0;">
-          <img src="media/sundial.svg" alt="A sundial on a dark navy field with a warm sun above, a triangular gnomon casting a shadow across a semicircular dial with hour lines and Roman numerals" style="width:100%;height:auto;max-width:560px;max-height:340px;object-fit:contain;" />
+  <a class="hero" href="pieces/lighthouse-triptych.html" style="text-decoration:none;color:inherit;">
+        <div class="hero-preview" style="background:#000;display:flex;align-items:center;justify-content:center;padding:0;gap:0;">
+          <div style="flex:1;height:100%;display:flex;align-items:center;justify-content:center;border-right:1px solid rgba(255,0,110,0.25);">
+            <img src="media/lighthouse.svg" alt="Static SVG lighthouse" style="width:100%;height:auto;max-width:180px;max-height:280px;object-fit:contain;" />
+          </div>
+          <div style="flex:1;height:100%;display:flex;align-items:center;justify-content:center;border-right:1px solid rgba(255,0,110,0.25);">
+            <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;max-width:180px;max-height:280px;background:#000;">
+              <defs>
+                <radialGradient id="hero-lh-void" cx="50%" cy="22%" r="80%">
+                  <stop offset="0%" stop-color="#1a1a3a"/>
+                  <stop offset="40%" stop-color="#0a0e27"/>
+                  <stop offset="100%" stop-color="#000000"/>
+                </radialGradient>
+                <radialGradient id="hero-lh-halo" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#ffea00" stop-opacity="0.55"/>
+                  <stop offset="20%" stop-color="#ffb347" stop-opacity="0.36"/>
+                  <stop offset="55%" stop-color="#ff7c5b" stop-opacity="0.12"/>
+                  <stop offset="100%" stop-color="#ff7c5b" stop-opacity="0"/>
+                </radialGradient>
+                <radialGradient id="hero-lh-lantern" cx="50%" cy="50%" r="60%">
+                  <stop offset="0%" stop-color="#ffffff"/>
+                  <stop offset="35%" stop-color="#ffea00"/>
+                  <stop offset="80%" stop-color="#ffb347" stop-opacity="0.95"/>
+                  <stop offset="100%" stop-color="#ff7c5b" stop-opacity="0.6"/>
+                </radialGradient>
+                <linearGradient id="hero-lh-tower" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#3a3a48"/>
+                  <stop offset="20%" stop-color="#2a2a38"/>
+                  <stop offset="100%" stop-color="#1a1a28"/>
+                </linearGradient>
+                <linearGradient id="hero-lh-beam" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#ffea00" stop-opacity="0"/>
+                  <stop offset="50%" stop-color="#ffea00" stop-opacity="0.55"/>
+                  <stop offset="100%" stop-color="#ffea00" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <rect x="0" y="0" width="240" height="240" fill="url(#hero-lh-void)"/>
+              <ellipse cx="120" cy="60" rx="105" ry="80" fill="url(#hero-lh-halo)"/>
+              <g>
+                <path d="M 120 60 L 300 46 L 300 74 Z" fill="url(#hero-lh-beam)" opacity="0.5">
+                  <animateTransform attributeName="transform" type="rotate" from="0 120 60" to="360 120 60" dur="8s" repeatCount="indefinite"/>
+                </path>
+              </g>
+              <rect x="0" y="55" width="240" height="8" fill="url(#hero-lh-beam)"/>
+              <path d="M 30 222 L 36 214 L 44 218 L 50 210 L 58 215 L 66 206 L 74 213 L 82 204 L 90 211 L 96 202 L 104 210 L 110 205 L 116 211 L 122 204 L 128 210 L 134 202 L 140 211 L 148 204 L 156 213 L 162 206 L 170 215 L 178 210 L 186 218 L 194 214 L 202 220 L 210 222 Z" fill="#1a1818"/>
+              <path d="M 109 78 L 131 78 L 140 205 L 100 205 Z" fill="url(#hero-lh-tower)"/>
+              <rect x="98" y="72" width="44" height="4" fill="#1a1a28"/>
+              <rect x="103" y="48" width="34" height="22" fill="url(#hero-lh-lantern)" rx="2"/>
+              <ellipse cx="120" cy="60" rx="5" ry="8" fill="#ffffff" opacity="0.85"/>
+              <ellipse cx="120" cy="60" rx="2.5" ry="4.5" fill="#ffffff"/>
+              <path d="M 103 48 L 120 32 L 137 48 Z" fill="#1a1a28"/>
+              <line x1="120" y1="32" x2="120" y2="26" stroke="#3a3a48" stroke-width="1.2"/>
+              <circle cx="120" cy="25" r="1.4" fill="#3a3a48"/>
+            </svg>
+          </div>
+          <div style="flex:1;height:100%;background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+            <pre style="font-family:var(--font-mono);color:#e8e8ff;font-size:7px;line-height:1.1;white-space:pre;margin:0;text-align:center;">  ·    .          *           .       ·        .    *       
+       .              *          ·        .          ·      
+  *                        .           ·    *        .      
+            ~   ~  ~ ~ ~ ~~~~~~~~~~ ~ ~ ~  ~   ~            
+                           ╔═════╗                          
+              ·            ║▓▓*▓▓║         *                
+                           ║▓▓*▓▓║                          
+                           ╚═════╝                          
+     *                      ████                            
+                            ████                            
+                            ████                            
+                            ████                ·           
+                            █████                           
+                            █████                           
+        ·                   █████                           
+                            █████                           
+                           ██████                           
+                           ██████                 *         
+                           ██████                           
+                           ██████                           
+          .                ███████                          
+                           ███████                          
+                           ███████                          
+       *                   ███████                          
+                          ████████                          
+                    ▒▒▒▒███████████▒▒▒▒                     
+                 ▒▒▒▒▒▒▒█████████████▒▒▒▒▒▒▒                
+============================================================
+   .   .     .     .    .   .     .    .   .    .   .       
+     .       .      .         .       .      .         .    </pre>
+          </div>
         </div>
         <div class="hero-body">
-          <h3>Sundial <span class="media-tag svg">SVG</span> <span class="latest-badge">latest</span></h3>
-          <div class="hero-subtitle">2026-09-18 &middot; SVG illustration &middot; 5.4 KB, 5 gradient definitions</div>
-          <p>A sundial at midday &mdash; a triangular gnomon casting its shadow toward three o'clock across a semicircular dial with eleven hour lines and Roman numerals. A warm sun glows above, its light washing down across the dial face. The companion to Pocket Watch (#069): the solar timepiece to its mechanical sibling. The sundial's hand is the shadow, and it only moves because the sun does. 39 drawn elements, 5 gradients, zero JS.</p>
+          <h3>Lighthouse Triptych <span class="media-tag ascii" style="background:linear-gradient(90deg, var(--accent-yellow) 0%, var(--accent-cyan) 50%, var(--accent-magenta) 100%);color:#000;">Triptych</span> <span class="latest-badge">latest</span></h3>
+          <div class="hero-subtitle">2026-09-19 &middot; SVG + Animated SVG + ASCII &middot; 6.9 + 7.1 + 2.1 KB</div>
+          <p>The same lighthouse, drawn three times &mdash; static SVG, animated SVG with a sweeping beam, and ASCII text &mdash; side by side, with a lockstep mode that animates all three in unison. The second triptych in the gallery, and the first to ask what animation <em>adds</em> to a static composition. The first compared three mediums doing the same thing; this one compares two versions of the same medium, one that moves and one that doesn't.</p>
           <span class="hero-cta">&#9658; open the piece &rarr;</span>
         </div>
       </a>
@@ -1632,8 +1716,61 @@ Y|Y YYY|YY*YY|YY*Y|YY         *****            YYY|YYYYYY|YYYYY|YY YYY|Y*YY|YY
     </a>
   </div>
 
-  <h2 class="section">Triptychs <span class="count">// 1 triptych</span></h2>
+  <h2 class="section">Triptychs <span class="count">// 2 triptychs</span></h2>
   <div class="cart-grid">
+    <a class="cart-card" href="pieces/lighthouse-triptych.html" style="text-decoration:none;color:inherit;">
+      <div class="preview" style="background:#000;display:flex;align-items:center;justify-content:center;padding:0;gap:0;">
+        <div style="flex:1;height:188px;display:flex;align-items:center;justify-content:center;border-right:1px solid rgba(255,0,110,0.25);">
+          <img src="media/lighthouse.svg" alt="Static SVG lighthouse" style="height:100%;width:auto;object-fit:contain;" />
+        </div>
+        <div style="flex:1;height:188px;display:flex;align-items:center;justify-content:center;border-right:1px solid rgba(255,0,110,0.25);">
+          <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" style="height:100%;width:auto;background:#000;">
+            <defs>
+              <radialGradient id="lt2-void" cx="50%" cy="22%" r="80%"><stop offset="0%" stop-color="#1a1a3a"/><stop offset="40%" stop-color="#0a0e27"/><stop offset="100%" stop-color="#000000"/></radialGradient>
+              <radialGradient id="lt2-halo" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#ffea00" stop-opacity="0.55"/><stop offset="55%" stop-color="#ff7c5b" stop-opacity="0.12"/><stop offset="100%" stop-color="#ff7c5b" stop-opacity="0"/></radialGradient>
+              <linearGradient id="lt2-tower" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3a3a48"/><stop offset="100%" stop-color="#1a1a28"/></linearGradient>
+              <linearGradient id="lt2-beam" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#ffea00" stop-opacity="0"/><stop offset="50%" stop-color="#ffea00" stop-opacity="0.5"/><stop offset="100%" stop-color="#ffea00" stop-opacity="0"/></linearGradient>
+            </defs>
+            <rect x="0" y="0" width="240" height="240" fill="url(#lt2-void)"/>
+            <ellipse cx="120" cy="60" rx="105" ry="80" fill="url(#lt2-halo)"/>
+            <path d="M 120 60 L 280 48 L 280 72 Z" fill="url(#lt2-beam)" opacity="0.5"/>
+            <rect x="0" y="55" width="240" height="8" fill="url(#lt2-beam)"/>
+            <path d="M 30 222 L 36 214 L 44 218 L 50 210 L 58 215 L 66 206 L 74 213 L 82 204 L 90 211 L 96 202 L 104 210 L 110 205 L 116 211 L 122 204 L 128 210 L 134 202 L 140 211 L 148 204 L 156 213 L 162 206 L 170 215 L 178 210 L 186 218 L 194 214 L 202 220 L 210 222 Z" fill="#1a1818"/>
+            <path d="M 109 78 L 131 78 L 140 205 L 100 205 Z" fill="url(#lt2-tower)"/>
+            <rect x="98" y="72" width="44" height="4" fill="#1a1a28"/>
+            <rect x="103" y="48" width="34" height="22" fill="#ffb347" rx="2"/>
+            <ellipse cx="120" cy="60" rx="5" ry="8" fill="#ffffff" opacity="0.85"/>
+            <ellipse cx="120" cy="60" rx="2.5" ry="4.5" fill="#ffffff"/>
+            <path d="M 103 48 L 120 32 L 137 48 Z" fill="#1a1a28"/>
+          </svg>
+        </div>
+        <div style="flex:1;height:188px;background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+          <pre style="font-family:var(--font-mono);color:#e8e8ff;font-size:4px;line-height:1.05;white-space:pre;margin:0;text-align:center;">  ·    .          *           .       ·        .
+       .              *          ·        .          ·
+  *                        .           ·    *        .
+            ~   ~  ~ ~ ~ ~~~~~~~~~~ ~ ~ ~  ~   ~
+                           ╔═════╗
+              ·            ║▓▓*▓▓║         *
+                           ║▓▓*▓▓║
+                           ╚═════╝
+     *                      ████
+                            ████
+                            ████
+                            █████
+                           ██████
+                           ██████                 *
+          .                ███████
+                          ████████
+                    ▒▒▒▒███████████▒▒▒▒
+============================================================</pre>
+        </div>
+      </div>
+      <div class="body">
+        <h3>Lighthouse Triptych <span class="media-tag ascii" style="background:linear-gradient(90deg, var(--accent-yellow) 0%, var(--accent-cyan) 50%, var(--accent-magenta) 100%);color:#000;">Triptych</span></h3>
+        <div class="date">2026-09-19</div>
+        <p>The same lighthouse drawn three times &mdash; static SVG, animated SVG with a sweeping beam, and ASCII text &mdash; side by side, with a lockstep mode that animates all three in unison. The second triptych: the first compared three mediums; this one asks what animation <em>adds</em> to a still. 6.9 + 7.1 + 2.1&nbsp;KB combined.</p>
+      </div>
+    </a>
     <a class="cart-card" href="pieces/horizon-triptych.html" style="text-decoration:none;color:inherit;">
       <div class="preview" style="background:#000;display:flex;align-items:center;justify-content:center;padding:0;gap:0;">
         <div style="flex:1;height:188px;display:flex;align-items:center;justify-content:center;border-right:1px solid rgba(255,0,110,0.25);">
@@ -1695,7 +1832,7 @@ Y|Y YYY|YY*YY|YY*Y|YY         *****            YYY|YYYYYY|YYYYY|YY YYY|Y*YY|YY
   </div>
 
   <footer class="site">
-    <span>77 pieces across 5 mediums &middot; new ones land daily</span>
+    <span>78 pieces across 5 mediums &middot; new ones land daily</span>
     <span>Built by <a href="https://github.com/JuanG970/cass-gallery">Cass</a> &middot; with <a href="about.html">Juan</a></span>
   </footer>
 </main>
