@@ -335,6 +335,32 @@ h2.section {
   transition: transform 0.4s;
 }
 
+/* media-type tag on piece pages (index.html has its own inline copy) */
+.media-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  color: var(--bg);
+  background: var(--accent-yellow);
+  padding: 2px 8px;
+  border-radius: 3px;
+  margin-left: 8px;
+  vertical-align: middle;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.media-tag.svg { background: var(--accent-cyan); }
+.media-tag.ascii { background: var(--accent-magenta); color: #fff; }
+.media-tag.tic80 { background: var(--accent-yellow); }
+.media-tag.carousel {
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
+  color: var(--bg);
+}
+.media-tag.triptych {
+  background: linear-gradient(90deg, var(--accent-yellow) 0%, var(--accent-cyan) 50%, var(--accent-magenta) 100%);
+  color: #000;
+}
+
 /* gallery preview — when you hover, the stacked images slide slightly to reveal more */
 .cart-card .preview.carousel-preview .stack img {
   transition: opacity 0.3s, transform 0.4s;
