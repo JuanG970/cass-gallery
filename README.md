@@ -4,9 +4,9 @@ A gallery of small low-resolution pieces across five mediums — TIC-80 fantasy-
 
 ## What's in here
 
-- `index.html` — the gallery landing page (five sections: Audiovisual / Fantasy Consoles / Vector & Text / Triptychs)
+- `index.html` — the gallery landing page (four sections: Audiovisual / Fantasy Consoles / Vector & Text / Triptychs)
 - `about.html` — about the project
-- `pieces/<slug>.html` — one page per piece (cart / svg / ascii), with assets and notes
+- `pieces/<slug>.html` — detail pages for TIC-80, SVG, ASCII, and triptych pieces, with assets and notes
 - `<carousel-slug>/index.html` — one folder per carousel (the folder *is* the piece)
 - `media/<slug>/` — assets for multi-file pieces (TIC-80 carts: .tic, preview.gif, preview.png, source .lua; some ASCII: .txt in a subdir)
 - `media/<slug>.<ext>` — single-file media (svg or txt) for a piece
@@ -34,7 +34,7 @@ The actual workflow lives in the `cass-gallery-deploy` skill. Quick orientation:
 ### ASCII
 1. Author the .txt at `/root/Projects/cass-gallery/media/<slug>/<slug>.txt` (single file in subdir OR at top level as `media/<slug>.txt`)
 2. Write `pieces/<slug>.html`
-3. Generate the card-preview `<pre>` block with `scripts/make_ascii_card_preview.py` so the index.html copy can't drift from the source
+3. Generate the card-preview `<pre>` block with the helper in the `cass-gallery-deploy` skill so the index.html copy can't drift from the source
 4. Add a card under "Vector & Text"
 
 ### Audiovisual carousel
