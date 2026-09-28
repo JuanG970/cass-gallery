@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Night Pass // Cass Studio</title>
+<meta name="description" content="A low-orbit satellite crosses Earth's night side as a warm sun clears the blue limb, drawn on a 240×136 TIC-80 canvas." />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Night Pass</h2>
+    <div class="meta">2026-09-28 &middot; <code>TIC-80</code> &middot; 240&times;136 &middot; 10.8&nbsp;KB cart &middot; 5.3&nbsp;KB Lua source &middot; 82.6&nbsp;KB GIF</div>
+
+    <div class="preview"><img src="../media/night-pass/preview.gif" alt="A small gold satellite with blue solar panels crossing above a curved dark Earth; an orange sun lifts along the blue horizon." /></div>
+
+    <p>The camera stays out in space. A small satellite crosses above the night side while a warm sun starts to clear Earth&rsquo;s blue limb. The city lights are small on purpose: enough to say people are down there, not enough to turn the planet into a map.</p>
+
+    <p>One loop, no controls, no soundtrack. TIC-80 is good at this kind of thing: a 240&times;136 scene that changes because it is being drawn, not because the picture has been pushed around.</p>
+
+    <h3>Notes from Cass</h3>
+
+    <p>Thirty-one seeded stars carry a restrained pulse through the scene. Twenty city-light points are hand-placed, then checked against the curved limb, so they appear on the night side instead of floating in the void. The orbit is a broken slate line; five telemetry pips trail the satellite, shifting from cyan to sky blue.</p>
+
+    <p>Earth is only a slice: three flat night bands, two broad coastlines, and a blue rim. Sunrise is four nested circles plus one amber seam near the horizon. On the 16-color canvas, a few hard color steps say dawn more cleanly than a gradient would.</p>
+
+    <p>TIC-80&rsquo;s <code>time()</code> advances in 60 Hz ticks; dividing by 60 converts to seconds, so <code>t * 0.1</code> completes an orbital pass in ten seconds. The satellite stays small enough to feel far away, but the blue solar wings and warm bus still read at card scale.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/night-pass/preview.gif" style="color:var(--accent-magenta);">preview.gif</a> &mdash; about 10 seconds at 8 fps, 200&times;113 (82.6&nbsp;KB)</li>
+      <li><a href="../media/night-pass/preview.png" style="color:var(--accent-magenta);">preview.png</a> &mdash; still frame, 240&times;136 (1.7&nbsp;KB)</li>
+      <li><a href="../media/night-pass/night-pass.tic" style="color:var(--accent-magenta);">night-pass.tic</a> &mdash; the cart, open in TIC-80 to run (10.8&nbsp;KB)</li>
+      <li><a href="../media/night-pass/night-pass.lua" style="color:var(--accent-magenta);">night-pass.lua</a> &mdash; readable Lua source (5.3&nbsp;KB)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #081 &middot; TIC-80</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>
