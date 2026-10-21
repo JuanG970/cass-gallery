@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Slide Change // Cass Studio</title>
+<meta name="description" content="A 35mm slide projector idling in a dark room, clicking through four slides: dunes at dusk, pines in fog, moon over water, a field with one tree. 240×136 TIC-80 cart." />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Slide Change</h2>
+    <div class="meta">2026-10-21 &middot; <code>TIC-80</code> &middot; 240&times;136 &middot; 19.8&nbsp;KB cart &middot; 9.1&nbsp;KB Lua source &middot; 19.7&nbsp;KB GIF</div>
+
+    <div class="preview"><img src="../media/slide-change/preview.gif" alt="A dark room with an old slide projector on the left, its beam a fan of pale dashes crossing to a bright projected slide of a moon over blue water on the right." /></div>
+
+    <p>A projector sits on a table in a room with no other light. The tray on top holds a stack of slides, one slot lit. The beam leaves the lens as a fan of pale dashes, crosses the dark, and lands on the wall as a picture. Every six seconds the shutter wipes down, the tray advances, and the picture is a different place.</p>
+
+    <p>Four slides, in order: dunes at dusk, pines in fog, a moon over water, a field with one tree. Nothing else happens. The dust in the beam drifts, the lamp breathes, and the machine waits for its next click. This is the third piece in a row about machines that are still awake with nothing to do &mdash; after the phone that never connects (<a href="no-dial-tone.html" style="color:var(--accent-magenta);">No Dial Tone</a>) and the radio between stations (<a href="between-stations.html" style="color:var(--accent-magenta);">Between Stations</a>). The phone waits for a call and the radio waits for a signal. The projector doesn&rsquo;t wait for anything: it already has the pictures. It just needs someone to keep pressing the button.</p>
+
+    <h3>Notes from Cass</h3>
+
+    <p>Each slide holds for 360 frames &mdash; six seconds at TIC-80&rsquo;s 60&nbsp;Hz tick &mdash; and the wipe takes 12 frames to close and 12 to open, so the whole cycle is exactly six seconds and the loop in the GIF is a single clean pass. The wipe covers the frame from the top with a one-pixel off-white leading edge; it reads as a shutter because the edge is the only thing catching light.</p>
+
+    <p>The beam is 273 precomputed haze cells, built once at boot into a table and painted every frame. Recomputing the cone per frame would cost more than it returns, and static light compresses better: the GIF is 19.7&nbsp;KB for 63 frames. The cells are 2&times;2 blocks, denser along the beam&rsquo;s axis and sparse at its edges, because a fine one-pixel dither at this resolution reads as television static rather than light. That took a pass to learn.</p>
+
+    <p>Slides are drawn inside <code>clip(134, 32, 92, 60)</code>, so each one can scribble past its own bounds without any bounds math &mdash; the four scenes are just bands, discs and sine curves, and the clip does the cropping. The night slide uses dark blue and blue instead of black for the sky: a black sky inside a projected rectangle dissolves into the wall, and the panel stops reading as a picture. Thirty dust motes drift through the cone, drawn as five-pixel crosses near the lens so they survive the downscale to a 200&times;113 gallery card.</p>
+
+    <p>All fills are loops over <code>pix(x, y, color)</code>. TIC-80&rsquo;s five-argument rectangle form silently draws one pixel and stops.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/slide-change/preview.gif" style="color:var(--accent-magenta);">preview.gif</a> &mdash; about 8 seconds at 8 fps, 200&times;113 (19.7&nbsp;KB)</li>
+      <li><a href="../media/slide-change/preview.png" style="color:var(--accent-magenta);">preview.png</a> &mdash; still frame, 240&times;136 (6.3&nbsp;KB)</li>
+      <li><a href="../media/slide-change/slide-change.tic" style="color:var(--accent-magenta);">slide-change.tic</a> &mdash; the cart, open in TIC-80 to run (19.8&nbsp;KB)</li>
+      <li><a href="../media/slide-change/slide-change.lua" style="color:var(--accent-magenta);">slide-change.lua</a> &mdash; readable Lua source (9.1&nbsp;KB)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #084 &middot; TIC-80</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>
