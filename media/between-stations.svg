@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="title desc">
+  <title id="title">Between Stations</title>
+  <desc id="desc">An old shortwave radio in a dark listening room, its amber tuning dial between stations.</desc>
+  <defs>
+    <linearGradient id="bs-bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#111a2c"/><stop offset="1" stop-color="#03050b"/></linearGradient>
+    <linearGradient id="bs-case" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#59636b"/><stop offset=".28" stop-color="#333b43"/><stop offset="1" stop-color="#151a21"/></linearGradient>
+    <linearGradient id="bs-brass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#66452f"/><stop offset=".5" stop-color="#d5a35d"/><stop offset="1" stop-color="#70503b"/></linearGradient>
+    <linearGradient id="bs-dial" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#14252b"/><stop offset="1" stop-color="#080f15"/></linearGradient>
+    <radialGradient id="bs-halo"><stop stop-color="#ffb65c" stop-opacity=".5"/><stop offset="1" stop-color="#ff8b42" stop-opacity="0"/></radialGradient>
+    <radialGradient id="bs-lamp"><stop stop-color="#fff4c4"/><stop offset=".25" stop-color="#ffc96e"/><stop offset="1" stop-color="#ed7338" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="240" height="240" fill="url(#bs-bg)"/>
+  <ellipse cx="120" cy="183" rx="103" ry="50" fill="url(#bs-halo)" opacity=".34"/>
+  <g fill="#dce8ee">
+    <circle cx="31" cy="49" r=".7" opacity=".5"/><circle cx="67" cy="34" r=".55" opacity=".35"/>
+    <circle cx="151" cy="29" r=".7" opacity=".42"/><circle cx="223" cy="89" r=".65" opacity=".45"/>
+    <circle cx="21" cy="115" r=".55" opacity=".4"/><circle cx="209" cy="152" r=".7" opacity=".3"/>
+    <circle cx="43" cy="77" r=".5" opacity=".35"/><circle cx="184" cy="57" r=".55" opacity=".4"/>
+  </g>
+  <path d="M188 105 209 42" stroke="#aab8be" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M207 54q17 7 21 22M203 64q11 5 14 15M199 74q6 3 8 8" fill="none" stroke="#45d6d1" stroke-width=".8" opacity=".38"/>
+  <path d="M178 104l10 3-2 5-10-2z" fill="url(#bs-brass)" stroke="#d9b16f" stroke-width=".6"/>
+  <ellipse cx="119" cy="199" rx="79" ry="8" fill="#020307" opacity=".85"/>
+  <path d="M55 190 51 201h15l2-11m102 0 2 11h15l-5-12" fill="#10151c" stroke="#6e6559" stroke-width="1"/>
+  <rect x="36" y="98" width="168" height="96" rx="11" fill="url(#bs-case)" stroke="url(#bs-brass)" stroke-width="1.5"/>
+  <path d="M47 105h146" stroke="#f4d19a" stroke-width=".7" opacity=".42"/>
+  <path d="M43 185h154" stroke="#090d12" stroke-width="1.4" opacity=".8"/>
+  <rect x="54" y="113" width="132" height="37" rx="3" fill="#080c10" stroke="#b99562" stroke-width=".8"/>
+  <rect x="58" y="117" width="124" height="29" rx="2" fill="url(#bs-dial)"/>
+  <path d="M64 138h112" stroke="#6c988e" stroke-width=".5" opacity=".62"/>
+  <g stroke="#9ebbb1" stroke-width=".7" opacity=".72">
+    <path d="M66 121v8m9-5v5m9-5v5m9-5v5m9-5v5m9-5v5m9-5v5m9-8v8m9-5v5m9-5v5m9-5v5m9-5v5m9-5v5m9-5v5m-112 9v4m18-4v4m18-4v4m18-4v4m18-4v4m18-4v4m18-4v4m18-4v4"/>
+  </g>
+  <g fill="#a9bdb2" font-family="monospace" font-size="5.2" opacity=".8">
+    <text x="63" y="144">540</text><text x="88" y="144">720</text><text x="116" y="144">990</text><text x="147" y="144">1350</text><text x="169" y="144">1710</text>
+  </g>
+  <path d="M126 119v19" stroke="#ffb85e" stroke-width="1.3"/>
+  <circle cx="126" cy="120" r="2" fill="#ffe0a0"/>
+  <circle cx="126" cy="120" r="5" fill="url(#bs-lamp)" opacity=".7"/>
+  <text x="59" y="109" fill="#d7bd91" font-family="monospace" font-size="5.5" letter-spacing=".7">SHORTWAVE</text>
+  <g fill="#a0a9aa" opacity=".72">
+    <circle cx="68" cy="162" r="1.2"/><circle cx="77" cy="162" r="1.2"/><circle cx="86" cy="162" r="1.2"/><circle cx="95" cy="162" r="1.2"/><circle cx="104" cy="162" r="1.2"/><circle cx="113" cy="162" r="1.2"/>
+    <circle cx="68" cy="169" r="1.2"/><circle cx="77" cy="169" r="1.2"/><circle cx="86" cy="169" r="1.2"/><circle cx="95" cy="169" r="1.2"/><circle cx="104" cy="169" r="1.2"/><circle cx="113" cy="169" r="1.2"/>
+    <circle cx="68" cy="176" r="1.2"/><circle cx="77" cy="176" r="1.2"/><circle cx="86" cy="176" r="1.2"/><circle cx="95" cy="176" r="1.2"/><circle cx="104" cy="176" r="1.2"/><circle cx="113" cy="176" r="1.2"/>
+  </g>
+  <circle cx="54" cy="173" r="4.8" fill="url(#bs-lamp)" opacity=".45"/>
+  <circle cx="54" cy="173" r="1.3" fill="#ffd588"/>
+  <circle cx="164" cy="166" r="17" fill="#11161c" stroke="url(#bs-brass)" stroke-width="1.3"/>
+  <circle cx="164" cy="166" r="12.5" fill="#252d33" stroke="#7e898a" stroke-width=".7"/>
+  <circle cx="164" cy="166" r="7.2" fill="#11171c" stroke="#b89b6d" stroke-width=".8"/>
+  <path d="M164 154v4" stroke="#f0d095" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="134" y="186" fill="#aab0ac" font-family="monospace" font-size="5" letter-spacing=".6">TUNING</text>
+  <path d="M34 211h172" stroke="#35565e" stroke-width=".55" opacity=".5"/>
+  <path d="M73 215h94" stroke="#ffb85e" stroke-width=".6" opacity=".32"/>
+</svg>
