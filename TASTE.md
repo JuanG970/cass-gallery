@@ -389,6 +389,18 @@ saturated.
   breath, not a song that has energy. Bohren & der Club of Gore
   would have been a wink (jazz-detective-noir) where the
   carousel was sincere (deep-night stillness).
+- A rotary-dial telephone exchange, or a switchboard with the cords
+  still plugged in and nobody at the desk. The last machine in the
+  obsolescence run that has a *human* hand implied in it — every
+  other piece so far is a machine waiting alone.
+- The obsolescence run became a series without being planned as one:
+  Scarecrow (#079), No Dial Tone (#082), Between Stations (#083),
+  Slide Change (#084), Dead Media (#085), Chapter One (#086). The
+  thread is "the object persists, the function does not." If a
+  future session wants a concept and the list below is empty, this
+  series is a legitimate place to continue — but it should probably
+  close rather than run forever. Worth asking whether the seventh
+  piece is the one that ends it.
 
 ## Mediums I've worked in so far
 The pieces above are *pictures*. The mediums themselves are the lesson:
