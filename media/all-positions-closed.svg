@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="A cord board switchboard, front on, with three cords still plugged in and nobody at the desk">
+<defs>
+<radialGradient id="apc-room" cx="50%" cy="38%" r="72%"><stop offset="0%" stop-color="#0d131c"/><stop offset="100%" stop-color="#04060a"/></radialGradient>
+<linearGradient id="apc-panel" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1d2733"/><stop offset="55%" stop-color="#18202b"/><stop offset="100%" stop-color="#111821"/></linearGradient>
+<linearGradient id="apc-desk" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#161d26"/><stop offset="100%" stop-color="#0a0e14"/></linearGradient>
+<radialGradient id="apc-glow"><stop offset="0%" stop-color="#ffbe62" stop-opacity="0.85"/><stop offset="45%" stop-color="#ff9d2e" stop-opacity="0.30"/><stop offset="100%" stop-color="#ff8a1f" stop-opacity="0"/></radialGradient>
+<g id="apc-jack"><circle r="3.6" fill="#39465a"/><circle r="2.1" fill="#05080d"/></g>
+</defs>
+<rect width="240" height="240" fill="url(#apc-room)"/>
+<rect x="0" y="196" width="240" height="44" fill="url(#apc-desk)"/>
+<path d="M0,196 H240" stroke="#2b3746" stroke-width="1"/>
+<rect x="14" y="26" width="212" height="168" rx="3" fill="url(#apc-panel)" stroke="#2e3a49" stroke-width="1.2"/>
+<rect x="19" y="31" width="202" height="158" rx="1.5" fill="none" stroke="#0a0f15" stroke-width="1"/>
+<path d="M23,64.0 H217" stroke="#212b37" stroke-width="0.6"/>
+<path d="M23,88.0 H217" stroke="#212b37" stroke-width="0.6"/>
+<path d="M23,112.0 H217" stroke="#212b37" stroke-width="0.6"/>
+<path d="M23,136.0 H217" stroke="#212b37" stroke-width="0.6"/>
+<path d="M23,160.0 H217" stroke="#212b37" stroke-width="0.6"/>
+<rect x="24" y="38" width="16" height="148" rx="2" fill="#0d131b" stroke="#252f3c" stroke-width="0.6"/>
+<circle cx="32" cy="76" r="12" fill="url(#apc-glow)"/>
+<circle cx="32" cy="148" r="12" fill="url(#apc-glow)"/>
+<circle cx="32" cy="52" r="3.4" fill="#222b36" stroke="#2c3644" stroke-width="0.6"/>
+<circle cx="32" cy="76" r="3.4" fill="#ffb347" stroke="#ffd79a" stroke-width="0.6"/>
+<circle cx="32" cy="100" r="3.4" fill="#222b36" stroke="#2c3644" stroke-width="0.6"/>
+<circle cx="32" cy="124" r="3.4" fill="#222b36" stroke="#2c3644" stroke-width="0.6"/>
+<circle cx="32" cy="148" r="3.4" fill="#ffb347" stroke="#ffd79a" stroke-width="0.6"/>
+<circle cx="32" cy="172" r="3.4" fill="#222b36" stroke="#2c3644" stroke-width="0.6"/>
+<use href="#apc-jack" x="52" y="52"/>
+<use href="#apc-jack" x="74" y="52"/>
+<use href="#apc-jack" x="96" y="52"/>
+<use href="#apc-jack" x="118" y="52"/>
+<use href="#apc-jack" x="140" y="52"/>
+<use href="#apc-jack" x="162" y="52"/>
+<use href="#apc-jack" x="184" y="52"/>
+<use href="#apc-jack" x="206" y="52"/>
+<use href="#apc-jack" x="52" y="76"/>
+<use href="#apc-jack" x="74" y="76"/>
+<use href="#apc-jack" x="96" y="76"/>
+<use href="#apc-jack" x="118" y="76"/>
+<use href="#apc-jack" x="140" y="76"/>
+<use href="#apc-jack" x="162" y="76"/>
+<use href="#apc-jack" x="184" y="76"/>
+<use href="#apc-jack" x="206" y="76"/>
+<use href="#apc-jack" x="52" y="100"/>
+<use href="#apc-jack" x="74" y="100"/>
+<use href="#apc-jack" x="96" y="100"/>
+<use href="#apc-jack" x="118" y="100"/>
+<use href="#apc-jack" x="140" y="100"/>
+<use href="#apc-jack" x="162" y="100"/>
+<use href="#apc-jack" x="184" y="100"/>
+<use href="#apc-jack" x="206" y="100"/>
+<use href="#apc-jack" x="52" y="124"/>
+<use href="#apc-jack" x="74" y="124"/>
+<use href="#apc-jack" x="96" y="124"/>
+<use href="#apc-jack" x="118" y="124"/>
+<use href="#apc-jack" x="140" y="124"/>
+<use href="#apc-jack" x="162" y="124"/>
+<use href="#apc-jack" x="184" y="124"/>
+<use href="#apc-jack" x="206" y="124"/>
+<use href="#apc-jack" x="52" y="148"/>
+<use href="#apc-jack" x="74" y="148"/>
+<use href="#apc-jack" x="96" y="148"/>
+<use href="#apc-jack" x="118" y="148"/>
+<use href="#apc-jack" x="140" y="148"/>
+<use href="#apc-jack" x="162" y="148"/>
+<use href="#apc-jack" x="184" y="148"/>
+<use href="#apc-jack" x="206" y="148"/>
+<use href="#apc-jack" x="52" y="172"/>
+<use href="#apc-jack" x="74" y="172"/>
+<use href="#apc-jack" x="96" y="172"/>
+<use href="#apc-jack" x="118" y="172"/>
+<use href="#apc-jack" x="140" y="172"/>
+<use href="#apc-jack" x="162" y="172"/>
+<use href="#apc-jack" x="184" y="172"/>
+<use href="#apc-jack" x="206" y="172"/>
+<circle cx="20" cy="32" r="1.6" fill="#2f3b4a"/>
+<circle cx="220" cy="32" r="1.6" fill="#2f3b4a"/>
+<circle cx="20" cy="188" r="1.6" fill="#2f3b4a"/>
+<circle cx="220" cy="188" r="1.6" fill="#2f3b4a"/>
+<path d="M74,52 Q118.0,144.0 162,100" fill="none" stroke-linecap="round" stroke="#3f4d5f" stroke-width="2.4"/>
+<path d="M118,76 Q152.0,132.0 118,148" fill="none" stroke-linecap="round" stroke="#3f4d5f" stroke-width="2.4"/>
+<path d="M184,124 Q151.0,200.0 118,172" fill="none" stroke-linecap="round" stroke="#4c342b" stroke-width="2.4"/>
+<path d="M52,124 Q44,162 48,196" fill="none" stroke-linecap="round" stroke="#3f4d5f" stroke-width="2.4"/>
+<rect x="46.5" y="196" width="10" height="9" rx="2" fill="#3f4d5f" stroke="#5a6a80" stroke-width="0.5"/>
+<rect x="51" y="205" width="8" height="3.4" rx="1.4" fill="#2e3948"/>
+<path d="M206,148 C213,180 202,206 193.5,214.3" fill="none" stroke-linecap="round" stroke="#3f4d5f" stroke-width="2.4"/>
+<g transform="translate(196,219) rotate(-24) scale(1.3)">
+<path d="M-7.4,-0.6 Q0,-4.8 7.4,-0.6" fill="none" stroke="#26313f" stroke-width="6.6" stroke-linecap="round"/>
+<ellipse cx="-10.2" cy="0.6" rx="4.8" ry="4.2" fill="#1b2330" stroke="#46566c" stroke-width="0.6"/>
+<ellipse cx="10.2" cy="0.6" rx="4.8" ry="4.2" fill="#1b2330" stroke="#46566c" stroke-width="0.6"/>
+<path d="M-13.2,-1.4 a4.4,3.8 0 0 1 1.6,-2.2" fill="none" stroke="#5a6c84" stroke-width="0.7"/>
+<path d="M7.2,-3.2 a4.4,3.8 0 0 1 4.4,-0.6" fill="none" stroke="#3a4859" stroke-width="0.7"/>
+</g>
+</svg>
