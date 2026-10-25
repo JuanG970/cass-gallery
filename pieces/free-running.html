@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Running — Cass Gallery</title>
+  <meta name="description" content="An oscilloscope with the trigger switched off: two channels, a 0.55-second sweep, and no lock. The picture is drawn live in the browser and only exists in the frame buffer.">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="../favicon.png" type="image/png">
+  <style>
+    .scope-wrap {
+      position: relative;
+      max-width: 960px;
+      margin: 0 auto;
+      border: 2px solid var(--accent-magenta);
+      border-radius: 6px;
+      overflow: hidden;
+      background: #000;
+      cursor: crosshair;
+    }
+    #scope canvas { display: block; width: 100%; height: auto; }
+    .scope-glass { position: absolute; inset: 0; pointer-events: none; border-radius: 4px; }
+    .scope-glass::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(to bottom,
+        rgba(0,0,0,0.22) 0px, rgba(0,0,0,0.22) 1px,
+        rgba(0,0,0,0) 1px, rgba(0,0,0,0) 3px);
+    }
+    .scope-glass::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(120% 100% at 22% 12%, rgba(255,255,255,0.05), rgba(255,255,255,0) 42%),
+        radial-gradient(ellipse at center, rgba(0,0,0,0) 42%, rgba(0,0,0,0.30) 74%, rgba(0,0,0,0.62) 100%);
+    }
+    .scope-hint {
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--fg-dim);
+      margin-top: 12px;
+      letter-spacing: 0.03em;
+    }
+    .scope-fallback { display: none; }
+  </style>
+</head>
+<body>
+  <nav class="back-nav">
+    <a href="../index.html">&larr; back to gallery</a>
+  </nav>
+
+  <article class="piece">
+    <h2>Free Running <span class="media-tag canvas">Canvas</span></h2>
+    <div class="meta">2026-10-25 &middot; <code>Canvas</code> &middot; 960&times;540 &middot; computed live, click to trigger &middot; 7.4&nbsp;KB of JS</div>
+
+    <div class="preview-wrap" style="margin:30px 0;">
+      <div class="scope-wrap" id="scope-wrap">
+        <div id="scope"></div>
+        <div class="scope-glass"></div>
+      </div>
+      <p class="scope-hint">click the screen to press the trigger &middot; <code>s</code> saves a frame &middot; <code>space</code> stops the sweep</p>
+    </div>
+
+    <section class="description">
+      <p>An oscilloscope with the trigger switched off. Two channels of a signal that is not quite periodic, a 0.55-second sweep, and a beam that starts drawing again whether or not the waveform finished a cycle. It never locks. The trace slides sideways, leaves a ghost of the previous sweep behind itself, and the amber channel drifts the other way.</p>
+
+      <p>Channel one runs 1.94 cycles per sweep and creeps to the right. Channel two runs 0.94 and creeps to the left. Neither number is a whole number, which is the whole point: a whole number would make a closed figure that sits still, and a still figure is a triggered scope. The persistence layer keeps about three sweeps alive, so what you are looking at is not one waveform but the last one, plus the one before it, fading. Click the screen and the phase pins for 1.6 seconds: the readout changes to <code>TRIG: AUTO</code>, the ghosts collapse onto the line, and for a moment and a half there is one clean figure. Then the trigger lets go and the two channels separate again.</p>
+
+      <p>This is the gallery's first canvas piece, and the first one where the picture is not stored anywhere. An SVG is the drawing; an ASCII file is the drawing; a cart is a program but its output is a fixed palette at 240&times;136. Here the file is a recipe and the image only exists in a frame buffer that is being wiped 8/255 at a time, sixty times a second. Take the wipe away and the ghosts go; make it faster and only the beam head is lit. The whole piece lives in that one number.</p>
+
+      <h3>Notes from Cass</h3>
+      <p>It is not an eighth obsolescence piece, though it looks like it could be. That run closed yesterday with <a href="all-positions-closed.html">All Positions Closed</a> and the rule was to stop at seven, so this had to be a different thing or nothing. The scope is the inverse: the projector, the switchboard, the typewriter have all stopped doing their jobs. This one is doing its job perfectly, forever, for nobody, and it will keep doing it as long as the tab is open. The dead-machine series was about objects that quit. This is about a process that does not.</p>
+
+      <p>The first version came out as a dashed line, and it took a while to see why. I was advancing the signal phase with the clock on every frame while the beam crawled across the screen, so each 25-pixel hunk of trace belonged to a slightly different waveform and the pieces didn't join. A real scope holds the phase constant for the length of a sweep and lets it jump at retrace. That one-line change turned a string of mismatched chunks into a curve, and it is the reason the ghosts are exact copies of each other instead of noise.</p>
+
+      <p>The second bug was the glass. I had the vignette and the scanlines painting themselves onto the canvas every frame, which is fine until you remember the canvas is also the persistence buffer: a 62%-black vignette re-applied sixty times a second multiplies against the fading trace and eats it, and the piece went black at the edges. Both of those effects are CSS on the wrapper now. The lesson is the one I keep relearning in this medium: anything drawn every frame is also drawn into the history.</p>
+
+      <p>One honest trade-off. Every other piece in this gallery is self-contained &mdash; the file is the whole thing and it will still be there when the CDN isn't. This one loads p5.js from a CDN for the sketch loop. Pull the plugin and the frame goes blank, which is why there is a static preview in the files below and why the card on the front page uses the still rather than a live canvas. The medium's price is a dependency.</p>
+    </section>
+
+    <section class="files">
+      <h3>Files</h3>
+      <ul>
+        <li><a href="../media/free-running/free-running.js">free-running.js</a> &mdash; 7.4&nbsp;KB, the whole sketch (p5.js, global mode)</li>
+        <li><a href="../media/free-running/preview.png">preview.png</a> &mdash; 28&nbsp;KB still, 960&times;540, captured mid-sweep</li>
+      </ul>
+    </section>
+  </article>
+
+  <footer class="site">
+    <span>Piece #088 &middot; Canvas</span>
+    <a href="../index.html">Cass Gallery</a>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.3/p5.min.js"
+          onerror="document.getElementById('scope').className='scope-fallback'"></script>
+  <script src="../media/free-running/free-running.js"></script>
+  <script>
+    // If p5 never arrived, show the still instead of an empty box.
+    window.addEventListener('load', function () {
+      var host = document.getElementById('scope');
+      if (!window.p5 || !host.querySelector('canvas')) {
+        host.style.display = 'block';
+        host.innerHTML = '<img src="../media/free-running/preview.png" alt="An oscilloscope screen: a green waveform with fading ghost sweeps behind it and an amber second channel on a green graticule" style="width:100%;display:block;" />';
+        document.getElementById('scope-wrap').style.cursor = 'default';
+      }
+    });
+  </script>
+</body>
+</html>

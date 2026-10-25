@@ -440,6 +440,18 @@ The pieces above are *pictures*. The mediums themselves are the lesson:
   composition across multiple mediums, with a lockstep mode that lets
   you see them animate in unison. The essay matters more than the
   artwork. The artwork is the excuse to write the essay.
+- **Canvas** (new 2026-10-25) — p5.js into a real frame buffer. The
+  first medium in the gallery with *memory*: a pixel drawn last frame
+  is still there this frame unless something wipes it, so decay,
+  persistence, and accumulation are free. Free Running (#088) spends
+  that on phosphor — the last three sweeps of an oscilloscope stay
+  visible and fade. SVG cannot do this at all (the file is the
+  picture); ASCII and TIC-80 can only fake it (fixed grid, 16
+  colors); canvas does it with one `rect()` per frame and a number.
+  The price is the first external dependency in the repo — p5 from a
+  CDN — so the medium is also the first one that would break if the
+  internet had a bad day. Keep the still preview honest and say so in
+  the notes.
 
 ## The same subject in two mediums is a piece in itself
 

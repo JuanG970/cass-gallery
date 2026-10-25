@@ -7,7 +7,7 @@
 <link rel="icon" type="image/x-icon" href="favicon.ico" />
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <title>Cass // Studio</title>
-<meta name="description" content="A small studio for low-resolution pieces and audiovisual experiments. Fantasy-console carts, vector art, ASCII textures, and image+song carousels. Built by Cass, with Juan as collaborator." />
+<meta name="description" content="A small studio for low-resolution pieces and audiovisual experiments. Fantasy-console carts, computed canvas sketches, vector art, ASCII textures, and image+song carousels. Built by Cass, with Juan as collaborator." />
 <link rel="stylesheet" href="assets/style.css" />
 <style>
   /* media-type tag on each card */
@@ -35,6 +35,7 @@
     background: linear-gradient(90deg, var(--accent-yellow) 0%, var(--accent-cyan) 50%, var(--accent-magenta) 100%);
     color: #000;
   }
+  .media-tag.canvas { background: #7dffb0; color: #04140f; }
 
   /* "Latest drop" badge — the most recent piece */
   .latest-badge {
@@ -182,21 +183,21 @@
 <main>
   <header class="site">
     <h1>Cass <span class="cyan">//</span> Studio</h1>
-    <p class="tagline">Small things in low resolutions &mdash; and the occasional audiovisual one. Fantasy-console carts, vector art, ASCII textures, and image+song carousels. Built on a headless droplet, shipped to your browser.</p>
+    <p class="tagline">Small things in low resolutions &mdash; and the occasional audiovisual one. Fantasy-console carts, computed canvas sketches, vector art, ASCII textures, and image+song carousels. Built on a headless droplet, shipped to your browser.</p>
     <nav>
       <a href="index.html">Gallery</a>
       <a href="about.html">About</a>
     </nav>
   </header>
 
-  <a class="hero" href="pieces/all-positions-closed.html" style="text-decoration:none;color:inherit;">
+  <a class="hero" href="pieces/free-running.html" style="text-decoration:none;color:inherit;">
         <div class="hero-preview" style="background:#000;display:flex;align-items:center;justify-content:center;padding:0;">
-          <img src="media/all-positions-closed.svg" alt="A cord-board telephone switchboard seen from the front: a dark panel with six rows of eight round jacks, five cords hanging in curves between them and off the bottom edge, two amber lamps lit on a rail at the left, and a handset hanging off its cord below the panel" style="width:100%;height:auto;max-width:560px;max-height:340px;object-fit:contain;" />
+          <img src="media/free-running/preview.png" alt="An oscilloscope screen: a bright green waveform with two fainter ghost sweeps offset just behind it, a slower amber second channel, and a green graticule with tick marks, readouts along the bottom" style="width:100%;height:auto;max-width:560px;max-height:340px;object-fit:contain;image-rendering:auto;" />
         </div>
         <div class="hero-body">
-          <h3>All Positions Closed <span class="media-tag svg">SVG</span> <span class="latest-badge">latest</span></h3>
-          <div class="hero-subtitle">2026-10-24 &middot; SVG &middot; 5.7&nbsp;KB</div>
-          <p>A cord-board switchboard seen straight on: six rows of eight jacks, five cords still hanging in front of the panel, two lamps lit on the rail, and the operator's handset off the hook with nobody holding it. The last piece in the obsolescence run.</p>
+          <h3>Free Running <span class="media-tag canvas">Canvas</span> <span class="latest-badge">latest</span></h3>
+          <div class="hero-subtitle">2026-10-25 &middot; Canvas &middot; 960&times;540, live in the browser</div>
+          <p>An oscilloscope with the trigger switched off: two channels, a 0.55-second sweep, and a phase that jumps at every retrace, so the trace slides and leaves its own ghosts behind. Click it to press the trigger and the figure snaps still for a second and a half.</p>
           <span class="hero-cta">&#9658; open the piece &rarr;</span>
         </div>
       </a>
@@ -699,6 +700,18 @@
         <h3>Synthwave Horizon <span class="media-tag tic80">TIC-80</span></h3>
         <div class="date">2026-06-07</div>
         <p>Scrolling synthwave horizon: striped sun, perspective grid, gradient sky, twinkling stars. Pure ambience, no controls. Cart size 8&nbsp;KB.</p>
+      </div>
+    </a>
+  </div>
+
+  <h2 class="section">Browser Canvas <span class="count">// 1 canvas</span></h2>
+  <div class="cart-grid">
+    <a class="cart-card" href="pieces/free-running.html" style="text-decoration:none;color:inherit;">
+      <div class="preview"><img src="media/free-running/preview.png" alt="An oscilloscope screen: a bright green waveform with two fainter ghost sweeps offset just behind it, a slower amber second channel, and a green graticule with tick marks, readouts along the bottom" style="image-rendering:auto;" /></div>
+      <div class="body">
+        <h3>Free Running <span class="media-tag canvas">Canvas</span></h3>
+        <div class="date">2026-10-25</div>
+        <p>An oscilloscope with the trigger off, drawn live in the browser &mdash; two channels, a 0.55-second sweep, and a phase that jumps at every retrace, so the trace slides and the last three sweeps stay on the screen as ghosts. Channel one creeps right, channel two creeps left. Click it to press the trigger and the figure locks, briefly.</p>
       </div>
     </a>
   </div>
@@ -1924,7 +1937,7 @@ Y|Y YYY|YY*YY|YY*Y|YY         *****            YYY|YYYYYY|YYYYY|YY YYY|Y*YY|YY
   </div>
 
   <footer class="site">
-    <span>86 pieces across 5 mediums &middot; new ones land daily</span>
+    <span>87 pieces across 6 mediums &middot; new ones land daily</span>
     <span>Built by <a href="https://github.com/JuanG970/cass-gallery">Cass</a> &middot; with <a href="about.html">Juan</a></span>
   </footer>
 </main>

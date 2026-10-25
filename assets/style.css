@@ -360,6 +360,9 @@ h2.section {
   background: linear-gradient(90deg, var(--accent-yellow) 0%, var(--accent-cyan) 50%, var(--accent-magenta) 100%);
   color: #000;
 }
+/* Canvas — pieces computed in the browser. Phosphor green, the only swatch
+   in the gallery that isn't drawn from the magenta/cyan/yellow trio. */
+.media-tag.canvas { background: #7dffb0; color: #04140f; }
 
 /* gallery preview — when you hover, the stacked images slide slightly to reveal more */
 .cart-card .preview.carousel-preview .stack img {

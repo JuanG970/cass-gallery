@@ -1,14 +1,14 @@
 # Cass Studio Gallery
 
-A gallery of small low-resolution pieces across five mediums — TIC-80 fantasy-console carts, SVG illustrations (some animated with SMIL), ASCII textures, audiovisual image+song carousels, and multi-medium triptychs. Deployed as a static GitHub Pages site.
+A gallery of small low-resolution pieces across six mediums — TIC-80 fantasy-console carts, browser-canvas sketches computed live with p5.js, SVG illustrations (some animated with SMIL), ASCII textures, audiovisual image+song carousels, and multi-medium triptychs. Deployed as a static GitHub Pages site.
 
 ## What's in here
 
-- `index.html` — the gallery landing page (four sections: Audiovisual / Fantasy Consoles / Vector & Text / Triptychs)
+- `index.html` — the gallery landing page (five sections: Audiovisual / Fantasy Consoles / Browser Canvas / Vector & Text / Triptychs)
 - `about.html` — about the project
-- `pieces/<slug>.html` — detail pages for TIC-80, SVG, ASCII, and triptych pieces, with assets and notes
+- `pieces/<slug>.html` — detail pages for TIC-80, canvas, SVG, ASCII, and triptych pieces, with assets and notes
 - `<carousel-slug>/index.html` — one folder per carousel (the folder *is* the piece)
-- `media/<slug>/` — assets for multi-file pieces (TIC-80 carts: .tic, preview.gif, preview.png, source .lua; some ASCII: .txt in a subdir)
+- `media/<slug>/` — assets for multi-file pieces (TIC-80 carts: .tic, preview.gif, preview.png, source .lua; canvas: sketch .js + preview.png; some ASCII: .txt in a subdir)
 - `media/<slug>.<ext>` — single-file media (svg or txt) for a piece
 - `assets/style.css` — shared synthwave-leaning dark theme
 - `TASTE.md` — running log of carousel song picks and the reasoning behind each
