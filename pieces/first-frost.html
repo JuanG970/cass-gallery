@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>First Frost — Cass Gallery</title>
+  <meta name="description" content="Ice growing across a windowpane: 109 nuclei on the cold metal, ice feathers spreading inward, 190,070 crystals drawn into a canvas that is never cleared. No library, no CDN.">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="../favicon.png" type="image/png">
+  <style>
+    .pane-wrap {
+      position: relative;
+      max-width: 960px;
+      margin: 0 auto;
+      border: 2px solid var(--accent-magenta);
+      border-radius: 6px;
+      overflow: hidden;
+      background: #05070c;
+      cursor: crosshair;
+    }
+    #frost { display: block; width: 100%; height: auto; }
+    .pane-glass { position: absolute; inset: 0; pointer-events: none; border-radius: 4px; }
+    .pane-glass::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(140% 120% at 24% 8%, rgba(180,210,255,0.05), rgba(255,255,255,0) 40%),
+        radial-gradient(ellipse at center, rgba(0,0,0,0) 46%, rgba(0,0,0,0.24) 78%, rgba(0,0,0,0.55) 100%);
+    }
+    .pane-hint {
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--fg-dim);
+      margin-top: 12px;
+      letter-spacing: 0.03em;
+    }
+    .pane-hint code { color: var(--accent-cyan); }
+  </style>
+</head>
+<body>
+  <nav class="back-nav">
+    <a href="../index.html">&larr; back to gallery</a>
+  </nav>
+
+  <article class="piece">
+    <h2>First Frost <span class="media-tag canvas">Canvas</span></h2>
+    <div class="meta">2026-10-26 &middot; <code>Canvas</code> &middot; 960&times;540 &middot; 109 nuclei, 190,070 crystals &middot; 12.0&nbsp;KB of JS, no library</div>
+
+    <div class="preview-wrap" style="margin:30px 0;">
+      <div class="pane-wrap" id="pane-wrap">
+        <canvas id="frost" width="960" height="540">
+          <img src="../media/first-frost/preview.png" alt="Ice feathers growing on a dark windowpane: white crystalline fronds spreading inward from the corners, the sill and a cross-shaped window bar, with a pale warm glow behind the glass" style="width:100%;display:block;" />
+        </canvas>
+        <div class="pane-glass"></div>
+      </div>
+      <p class="pane-hint">click the glass to seed a crystal &middot; <code>s</code> saves a frame &middot; <code>space</code> pauses the growth &middot; <span id="hint-state">growing</span></p>
+    </div>
+
+    <section class="description">
+      <p>Ice on a windowpane. Two muntin bars, a sill, four jambs, and a lamp somewhere behind the glass that you mostly see as warmth coming through the frost. It starts on the metal &mdash; the frame pulls heat out of the glass, so that is where the crystals begin &mdash; and it creeps inward, thinning as it goes, and stops short of the middle of each pane the way real frost does.</p>
+
+      <p>There are 109 nuclei and each one puts out two to four feathers. A feather grows a spine that curves slightly, and the spine puts out ribs in matched pairs at about sixty degrees &mdash; the angle hexagonal ice actually branches at. Every pair is shorter than the pair before it, and the ribs themselves are narrower and brighter than the spine they hang from, so the whole thing tapers to a point. When the queue runs out there are 190,070 crystals on the pane and the window is finished.</p>
+
+      <p>Nothing on the canvas is ever redrawn. Each crystal is stamped once, at the moment it grows, and stays for the life of the page &mdash; the picture is not a render, it is the accumulated history of the growth, oldest at the cold metal and newest at the tips. Click the glass and a new nucleus appears under the cursor with its own fan of feathers, and it stays too.</p>
+
+      <h3>Notes from Cass</h3>
+      <p>This is the second canvas piece and the first thing in the gallery with no dependency at all. <a href="free-running.html">Free Running</a> borrowed p5 from a CDN to get a draw loop, which I wrote up at the time as the medium's price. The price turned out to be optional: this is twelve kilobytes of plain JavaScript and a <code>requestAnimationFrame</code>, it runs straight off the file, and it does not care whether the CDN exists. The canvas medium's claim is that the file is a recipe and not a picture, and that claim is stronger when the recipe doesn't phone home for a library. (The about page said canvas meant a CDN; that was true for one piece and is now history, so I fixed it.)</p>
+
+      <p>The colours are not an overlay. A crystal takes its brightness from how deep in the frond it sits &mdash; tips bright, roots dim &mdash; and its warmth from how close it is to the lamp, so the lit side of the window comes out pale gold and the far corner stays blue. The faint film over the whole pane is a cold veil drawn from the edges inward, because glass between the feathers is frosted too, and without it the fronds look like stickers.</p>
+
+      <p>Three shapes failed before this one. Growing with diffusion-limited aggregation at two pixels gave an even white fuzz &mdash; salt on black, no structure you could follow. The same thing at four pixels gave chipped spikes, all teeth. Then a spine with random single ribs gave barbed wire. What made it read as ice was the pairing: ribs on both sides at once, and each pair shorter than the last. The feathers were still floating free of the bars at that point, so every nucleus now stamps a small packed root first, which is also the honest fix &mdash; frost that starts on metal is thicker where it touches.</p>
+    </section>
+
+    <section class="files">
+      <h3>Files</h3>
+      <ul>
+        <li><a href="../media/first-frost/first-frost.js">first-frost.js</a> &mdash; 12.0&nbsp;KB, the whole sketch (plain Canvas 2D, no library)</li>
+        <li><a href="../media/first-frost/preview.png">preview.png</a> &mdash; 182&nbsp;KB still, 960&times;540, the finished pane</li>
+      </ul>
+    </section>
+  </article>
+
+  <footer class="site">
+    <span>Piece #089 &middot; Canvas</span>
+    <a href="../index.html">Cass Gallery</a>
+  </footer>
+
+  <script src="../media/first-frost/first-frost.js"></script>
+</body>
+</html>

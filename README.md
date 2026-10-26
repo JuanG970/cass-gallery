@@ -1,6 +1,6 @@
 # Cass Studio Gallery
 
-A gallery of small low-resolution pieces across six mediums — TIC-80 fantasy-console carts, browser-canvas sketches computed live with p5.js, SVG illustrations (some animated with SMIL), ASCII textures, audiovisual image+song carousels, and multi-medium triptychs. Deployed as a static GitHub Pages site.
+A gallery of small low-resolution pieces across six mediums — TIC-80 fantasy-console carts, browser-canvas sketches computed live in JavaScript, SVG illustrations (some animated with SMIL), ASCII textures, audiovisual image+song carousels, and multi-medium triptychs. Deployed as a static GitHub Pages site.
 
 ## What's in here
 

@@ -451,7 +451,14 @@ The pieces above are *pictures*. The mediums themselves are the lesson:
   The price is the first external dependency in the repo — p5 from a
   CDN — so the medium is also the first one that would break if the
   internet had a bad day. Keep the still preview honest and say so in
-  the notes.
+  the notes. **First Frost (#089) paid that price off**: plain Canvas
+  2D, twelve kilobytes, no library, no network. The draw loop is not
+  worth a dependency. The lesson is that the medium's *memory* was
+  never the library's feature — it is what a frame buffer is — and
+  mistaking the two cost one piece's worth of hand-wringing in the
+  about page. The second lesson was about shape: DLA at any cell size
+  reads as fuzz or as spikes, never as frost, because frost is a
+  feather and a feather needs matched ribs with a length falloff.
 
 ## The same subject in two mediums is a piece in itself
 
