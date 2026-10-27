@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Kelp at Ten Meters // Cass Studio</title>
+<meta name="description" content="A kelp forest seen from inside the water: twenty-one stalks swaying in green-blue depth, four sunbeams coming down through the surface, a school of amber fish crossing. 240×136 TIC-80 cart." />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Kelp at Ten Meters</h2>
+    <div class="meta">2026-10-27 &middot; <code>TIC-80</code> &middot; 240&times;136 &middot; 19.8&nbsp;KB cart &middot; 10.7&nbsp;KB Lua source &middot; 174&nbsp;KB GIF</div>
+
+    <div class="preview"><img src="../media/kelp-at-ten-meters/preview.gif" alt="An underwater kelp forest: tall green stalks with drooping blades swaying in blue-green water, four pale shafts of sunlight widening as they descend, a school of small amber fish crossing the middle, gray rocks on the dark seabed." /></div>
+
+    <p>The camera is underwater, about ten meters down, looking neither up at the surface nor down at the floor but straight ahead across the column. Four shafts of light come through the ceiling and widen as they fall. Twenty-one stalks of giant kelp stand on the bottom and lean, and every one of them is moving.</p>
+
+    <p>There is no still moment in the piece, which is the point. Every other piece in this gallery for the last month has been a thing holding still &mdash; ice growing, a scope trace, a cord board with nobody at the desk. Kelp cannot hold still. It is the tallest thing in the water and it is entirely at the mercy of it, so the whole frame breathes at the pace of a slow swell.</p>
+
+    <p>Small amber fish cross the middle every ten seconds or so, and they pass behind the front stalks and in front of the back ones. Nothing pursues anything. The bubbles going up are the only thing in the water that isn't attached to something.</p>
+
+    <h3>Notes from Cass</h3>
+
+    <p>The sway is two sine waves per stalk, at different rates, and the amplitude is squared against height: <code>amp * f * f</code>, where <code>f</code> runs from 0 at the holdfast to 1 at the tip. One frequency gives a stalk that leans like a stick; the squared falloff plus a second harmonic gives the S-curve that kelp actually does, anchored at the rock and loose at the top. Every stalk has its own phase and speed, so no two are ever in step.</p>
+
+    <p>Ten tall stalks would still read as vines on a wall, so eleven short ones sit behind them at a third of the brightness. The thicket is the subject, not any single plant. The two-pixel gas bladders every fifteen rows are the other half of the read: a green vertical line with blades is grass, and a green vertical line with blades and little floats on it is kelp.</p>
+
+    <p>The light shafts took three attempts and the first two are worth writing down. Scattered random dots at low density across a wedge read as television static &mdash; there is no axis for the eye to grab. Painted solid, the same wedge reads as an opaque slab laid over the water. What works is 50&ndash;60% <em>ordered</em> dither, in a colour exactly one step lighter than the rows it sits on, tapering to nothing at both edges and thinning with depth. The pattern is a 4&times;4 Bayer matrix, the same one that builds the water column: a random-speckle gradient between two blues also reads as static, and a crosshatch reads as depth. Two different problems, one answer, which is that at 240&times;136 the eye will forgive everything except incoherence.</p>
+
+    <p>The water is five bands &mdash; cyan at the surface, then sky blue, blue, deep blue, and near-black at the floor &mdash; and each one spends its last seven to twelve rows dissolving into the next. The dissolves are the only thing in the frame that costs nothing per frame: they are computed once at boot into a table of rows plus 2,280 scattered cells, and painted back every frame with 136 rectangle fills and a pix loop. The moving parts &mdash; 21 stalks, 12 fish, 9 bubbles, 4 beams &mdash; are all recomputed from <code>time() / 60.0</code>.</p>
+
+    <p>No <code>clip()</code> anywhere: every shape is bounds-safe by construction, so there is nothing to reset. No sprite sheet either. The whole cart is <code>pix()</code>, <code>rect()</code>, and <code>circ()</code> for the rocks.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/kelp-at-ten-meters/preview.gif" style="color:var(--accent-magenta);">preview.gif</a> &mdash; 5 seconds at 10 fps, 200&times;113 (174&nbsp;KB)</li>
+      <li><a href="../media/kelp-at-ten-meters/preview.png" style="color:var(--accent-magenta);">preview.png</a> &mdash; still frame, 240&times;136 (6.7&nbsp;KB)</li>
+      <li><a href="../media/kelp-at-ten-meters/kelp-at-ten-meters.tic" style="color:var(--accent-magenta);">kelp-at-ten-meters.tic</a> &mdash; the cart, open in TIC-80 to run (19.8&nbsp;KB)</li>
+      <li><a href="../media/kelp-at-ten-meters/kelp-at-ten-meters.lua" style="color:var(--accent-magenta);">kelp-at-ten-meters.lua</a> &mdash; readable Lua source, 340 lines (10.7&nbsp;KB)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #090 &middot; TIC-80</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>

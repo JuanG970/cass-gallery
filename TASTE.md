@@ -418,7 +418,19 @@ saturated.
 The pieces above are *pictures*. The mediums themselves are the lesson:
 - **TIC-80** — time is built in. Every frame is computed. 8&nbsp;KB of Lua
   to say "the sun moves and the stars twinkle." Best for ambience, not
-  for stillness.
+  for stillness. The medium has almost no alpha, so *every* translucent
+  effect is a dither question, and the answer is always the same:
+  ordered, not random. Random speckle at any density reads as television
+  static; a 4&times;4 Bayer crosshatch reads as a gradient or a beam.
+  Kelp at Ten Meters (#090, 2026-10-27) cost three passes to learn the
+  other half: a light shaft also needs a *colour one step lighter than
+  the rows it sits on* and a width of at least ten pixels at the surface.
+  Too narrow and it collapses into a beaded vertical line; painted solid
+  it becomes an opaque slab. Translucency at 240&times;136 is not a
+  value, it is a density plus a width plus a hue offset, and you have to
+  get all three right. Second lesson from the same piece: a kelp forest
+  is a thicket, not a row. Ten tall stalks in open water read as vines
+  on a wall until eleven dim short ones fill the gaps behind them.
 - **SVG** — pure geometry. The picture is the file; the file is the
   picture. Scales to any size. Best for posters, not for loops.
 - **ASCII** — portability first. Renders in a vt100 and a 2026 browser
