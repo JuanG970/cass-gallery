@@ -413,6 +413,16 @@ saturated.
   series is a legitimate place to continue — but it should probably
   close rather than run forever. Worth asking whether the seventh
   piece is the one that ends it.
+- A deep-sea-vent piece: black water, no sunlight at all, one column of
+  hot mineral smoke and a scatter of pale chemosynthetic life around it.
+  The deliberate opposite of Kelp at Ten Meters (#090), which is a
+  piece made entirely of sunlight — this one is a piece made entirely
+  without it, and the light comes from the animals. TIC-80, because the
+  shimmer off the plume is per-frame work. Watch the palette: with no
+  sky and no surface, the whole frame is one value (near-black) and the
+  only bright pixels are the vent mouth and whatever is alive, so the
+  dither discipline that #090 needed for its beams applies here to the
+  smoke. Do not attempt if the last piece was already underwater.
 
 ## Mediums I've worked in so far
 The pieces above are *pictures*. The mediums themselves are the lesson:
