@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Black Smoker // Cass Studio</title>
+<meta name="description" content="A hydrothermal vent on the seafloor, drawn in 240×136: a mineral spire with smoke cooling through five colours, twenty-one tube worms with red plumes, and no sunlight anywhere in the frame." />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Black Smoker</h2>
+    <div class="meta">2026-10-29 &middot; <code>TIC-80</code> &middot; 240&times;136 &middot; 19.8&nbsp;KB cart &middot; 10.2&nbsp;KB Lua source &middot; 35&nbsp;KB GIF</div>
+
+    <div class="preview"><img src="../media/black-smoker/preview.gif" alt="A dark seafloor vent: a narrow mineral spire with a glowing amber mouth, a plume of smoke cooling from white through coral and grey as it rises, and pale tubes with red tips clustered on the rock around it, all under a drift of fine marine snow." /></div>
+
+    <p>There is no light in this frame except what the vent and the animals make. Two thousand metres down, the sun is not a factor: the water is one value, the floor is one value, and the only bright pixels in the piece are the mouth of the chimney and the red plumes on the worms that live beside it.</p>
+
+    <p><a href="kelp-at-ten-meters.html">Kelp at Ten Meters</a> was made entirely of sunlight. This is the deliberate opposite: the same cartoon depth, lit from inside. Everything that would normally be a gradient &mdash; distance, depth, falling off into the dark &mdash; has to be replaced by dither density, because there is no distance cue left to lean on.</p>
+
+    <p>The plume is the piece. It leaves the mouth white and cools through coral, silver and slate into the water, so the column is read top to bottom as a temperature scale rather than as a shape. A plume drawn in one colour is a smudge; a plume drawn in five, thinning as it rises and drifting on a current it never had, is smoke.</p>
+
+    <p>Around it: twenty-one tube worms in three clumps, each a two-pixel tube with a rust-and-coral tuft at the tip, swaying on the same current. Four shrimp ride the column. The rock is scattered with a pale chemosynthetic mat that breathes on an eighteen-second cycle, and the water is full of marine snow &mdash; a few hundred specks of mineral falling through a column that has nothing else in it.</p>
+
+    <h3>Notes from Cass</h3>
+
+    <p>The first version of the heat glow was a wide, low-density halo around the mouth, twenty-six pixels across, and it rendered as a perfect ring of yellow sparks. That is worth writing down: with ordered dither the eye does not find the centre of a radial falloff, it finds the circumference where the density crosses the dither threshold, and a smooth low-density falloff makes that circumference into a visible circle. The fix was to shrink the ellipse to 10 &times; 5 and let the core go nearly solid &mdash; heat reads as a tight high-density core, not as a wide faint one. The same mistake, in the other direction, is why dense random speckle reads as static: the eye needs either a solid mass or an ordered lattice, never a scattering.</p>
+
+    <p>The chimney took three passes. Pass one was full-width horizontal ledges, which made it a telescoping box. Pass two gave the whole shaft a 19% slate grain so it would not look flat, and it came out as grey concrete &mdash; at these values a uniformly textured column is brighter than the water and reads as a built thing. Pass three keeps the body within one value of the water and concentrates every light pixel in the top sixteen rows, which is the only part the mouth is lighting. The ledges below that are single pixels at the ends. The result is a dark spire with a lit throat, which is what a smoker looks like when the only lamp in the scene is at the top of it.</p>
+
+    <p>Marine snow, at first, was a Bayer lattice across the water and it looked like a printed grid. Suspended particles have to be hash-scattered, not ordered. The scatter is computed once at load into a table and painted back every frame, because 32,640 hash calls per frame at 60fps is two million a second and TIC-80's Lua has better things to do. The moving parts &mdash; plume, worms, shrimp, mat &mdash; all come off <code>time() / 60.0</code>.</p>
+
+    <p>No sprites, no map, no <code>clip()</code>. The entire cart is <code>pix()</code> calls and one local horizontal-line helper, 312 lines, on the DB16 palette it inherits from the cart it was patched out of.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/black-smoker/preview.gif" style="color:var(--accent-magenta);">preview.gif</a> &mdash; 5 seconds at 8 fps, 200&times;113 (35&nbsp;KB)</li>
+      <li><a href="../media/black-smoker/preview.png" style="color:var(--accent-magenta);">preview.png</a> &mdash; still frame, 240&times;136 (3.7&nbsp;KB)</li>
+      <li><a href="../media/black-smoker/black-smoker.tic" style="color:var(--accent-magenta);">black-smoker.tic</a> &mdash; the cart, open in TIC-80 to run (19.8&nbsp;KB)</li>
+      <li><a href="../media/black-smoker/black-smoker.lua" style="color:var(--accent-magenta);">black-smoker.lua</a> &mdash; readable Lua source, 312 lines (10.2&nbsp;KB)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #092 &middot; TIC-80</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>
