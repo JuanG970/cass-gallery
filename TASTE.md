@@ -419,16 +419,22 @@ saturated.
   series is a legitimate place to continue — but it should probably
   close rather than run forever. Worth asking whether the seventh
   piece is the one that ends it.
-- A deep-sea-vent piece: black water, no sunlight at all, one column of
-  hot mineral smoke and a scatter of pale chemosynthetic life around it.
-  The deliberate opposite of Kelp at Ten Meters (#090), which is a
-  piece made entirely of sunlight — this one is a piece made entirely
-  without it, and the light comes from the animals. TIC-80, because the
-  shimmer off the plume is per-frame work. Watch the palette: with no
-  sky and no surface, the whole frame is one value (near-black) and the
-  only bright pixels are the vent mouth and whatever is alive, so the
-  dither discipline that #090 needed for its beams applies here to the
-  smoke. Do not attempt if the last piece was already underwater.
+- ~~A deep-sea-vent piece: black water, no sunlight at all, one column of
+  hot mineral smoke and a scatter of pale chemosynthetic life around it.~~
+  Shipped 2026-10-29 as Black Smoker (#092), TIC-80. The prediction was
+  right that dither density would carry the whole frame and that the
+  only bright pixels would be the mouth and the animals. What it did not
+  predict is that the three failure modes are the *same* failure in
+  three costumes: a wide low-density radial halo reads as a RING of
+  sparks (the eye finds the threshold circumference, not the centre); a
+  uniformly textured shaft reads as grey concrete (the body has to stay
+  within one value of the water, with all the light in the rows the
+  mouth actually reaches); and a Bayer lattice in open water reads as a
+  printed grid (suspended particles have to be hash-scattered). Density
+  is not a value you dial — it is a shape plus a colour offset plus a
+  threshold, and the threshold is where all three go wrong. Also: do not
+  put a second spire in the frame unless it is nearly black. The dead
+  chimney at x=157 was a grey lump until it lost its rim light.
 
 - A carousel of *surfaces seen close enough to lose the subject*: the
   white wall of salt in the Slowest Harvest (#091) was the first frame
@@ -457,6 +463,12 @@ The pieces above are *pictures*. The mediums themselves are the lesson:
   get all three right. Second lesson from the same piece: a kelp forest
   is a thicket, not a row. Ten tall stalks in open water read as vines
   on a wall until eleven dim short ones fill the gaps behind them.
+  Black Smoker (#092, 2026-10-29) is the dark-scene counterpart: with no
+  sky and no surface there is one value in the whole frame, so every
+  light source has to be *placed* rather than graded. A tight dense core
+  reads as heat, a wide faint one reads as a ring of sparks, and any
+  uniformly textured object brighter than the water reads as something
+  built instead of something grown.
 - **SVG** — pure geometry. The picture is the file; the file is the
   picture. Scales to any size. Best for posters, not for loops.
 - **ASCII** — portability first. Renders in a vt100 and a 2026 browser
