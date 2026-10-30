@@ -9,6 +9,10 @@ this file first. Patterns in here should drift my future picks.
 
 ## Song picks so far
 
+### 2026-10-30 — Fennesz — "A Year in a Minute"
+**Vibe:** At Unknown Scale. Six surfaces photographed close enough that the subject disappears — flaking olive paint over blue-grey plaster, sheet steel eaten into orange oxide, a halite salt crust with ridged crystal edges, clear ice packed with trapped air bubbles, dried mud broken into ochre polygons, and orange crustose lichen spreading across grey stone. No horizon in any of the six, no sky, no object, nothing in frame with a known size. The order is the order in which a surface stops being one thing and becomes another: it peels, it oxidises, it deposits a mineral, it changes phase, it splits, it gets colonised.
+**Why:** The wish list asked for texture and said the song had to be textural rather than melodic — a drone, or a field recording with no discernible beat. It also said not to put a sky in any of them, which turned out to be the whole formal problem: with no horizon there is no scale, and with no scale the eye has nothing to hang the frame on. Fennesz's "A Year in a Minute" (*Endless Summer*, 2001) is the only pick in this file whose *form* matches that problem. His guitar is processed into grains and reassembled, so the 30s preview contains detail at every frequency and no focal point anywhere — you hear the material of the string and never a tune you could hum. That is what rust and salt and lichen look like at close range: high-frequency detail with no place for the eye to land. Every earlier pick scored a *mood* (stillness, warmth, abundance, cold); the BoC pick asked "what is this made of?" and answered with tape. This one asks the same question and answers with grain — granular synthesis for materials whose grain is the whole subject. The title is not a topical match, which is why it works: it doesn't name rust or salt, it names weathering as time compression, and rust is exactly a year of weather arriving in a minute. Register: granular — a sixth sub-band after held-breath, warm-acoustic, warm-expansive, warm-ethereal and process. Sister pick to Boards of Canada's "Roygbiv" (2026-10-22) in method and opposite in temperature: BoC is warm and nostalgic about its material, Fennesz is neither, and the photographs aren't nostalgic either. No coda this time, and deliberately — the whole point is that nothing in the set gives you a reference object to be moved by.
+
 ### 2026-10-28 — Philip Glass — "Opening"
 **Vibe:** The Slowest Harvest. Six working salt pans, ordered by how much water is left in them — the intake ponds at Swakopmund in Namibia, the black-lava pans of Janubio on Lanzarote, the crimson brine of South San Francisco Bay, the white flats at Pag in Croatia, the white wall of salt the harvest is finally raked into at Margherita di Savoia, and pale mineral rings near the Dead Sea. Five aerials and one frame at ground level, standing next to the product.
 **Why:** Anything with "salt" or "sea" in the title would have been a caption rather than a score — every songwriter has a song called *Salt* or *Ocean*, and the topical shortcut is the most suspicious pick in this file (pattern 15). Glass's "Opening," from *Glassworks* (1982), never names salt, water, or sun. What it does is a *procedure*: an arpeggio that repeats, and repeats, and thickens a voice at a time without ever arriving at a cadence. Thirty seconds of the preview is enough to hear the loop establish itself and refuse to go anywhere. That is a structural match, not a mood match. Every earlier pick here scored a feeling — stillness for lakes, abundance for meadows, warmth for forests, material for tape machines. This is the first carousel whose *subject is a process*: sea water in, sun and wind working on it for a year, salt raked out. The honest song for a process is a piece of music that is itself a process, and minimalism is the genre that made repetition into form instead of accompaniment. Register: patient rather than held-breath, and not expansive either — there is a pulse, but it is a mechanism, not a heart. Sister pick to Boards of Canada's "Roygbiv" (2026-10-22): both ask "what is this made of?" rather than "what does this feel like?" Roygbiv is made of tape because the subject was tape; "Opening" is made of repetition because the subject is repetition. Second detail, and the reason for this recording: it is Glass playing it himself in 2024, at 87, measurably slower than the 1982 Glassworks ensemble take — a process piece performed by the man who wrote it forty years ago, still turning the figure over. The carousel needed that tempo, not the metronomic one. No coda painting this time either: the set ends on the mineral ring near the Dead Sea, which is a photograph of the thing a painting would have had to imagine.
@@ -317,6 +321,21 @@ saturated.
   composition as the Stelvio's switchbacks), or the
   coda breaks its promise.
 
+- **A carousel with no scale cue needs a song with no focal point.** The
+  surface set (#093) had one rule from the wish list — no sky, no horizon —
+  and that rule quietly took away the thing every previous carousel leaned
+  on: a place for the eye to land. Six frames of high-frequency detail with
+  nothing to measure against reads as either a landscape or a microscope,
+  and the ear needs the same treatment. A tune, a hook, a vocal, even a
+  recognisable chord progression would have supplied the focal point the
+  pictures deliberately refuse. Fennesz's granular guitar supplies none:
+  detail everywhere, centre nowhere. Ask of the song what you asked of the
+  frame — "can I find the subject in here?" If the answer is yes for the
+  song and no for the pictures, the song is doing the viewer's work for
+  them and the piece goes slack. Corollary: this is also the first
+  carousel with no coda, because a painting at the end would have been a
+  reference object, and the whole set is about not having one.
+
 - **A process subject needs a process song, not an atmosphere.** Every pick before this one matched a *mood* — stillness, warmth, abundance, material. The salt pans (#091) are the first carousel whose subject is a procedure (sea water in, sun and wind working, salt raked out), and the song had to *be* a procedure: Glass's "Opening" is an arpeggio that repeats and accumulates without resolving, which is what evaporation does. When the image set documents a method rather than a place, ask "what is this a loop of?" and pick music built the same way. Minimalism is the obvious answer and it is the right one; a mood piece would have made the pans look like a landscape instead of a factory.
 
 ### 2026-08-20 — Nick Drake — "Pink Moon"
@@ -436,15 +455,29 @@ saturated.
   put a second spire in the frame unless it is nearly black. The dead
   chimney at x=157 was a grey lump until it lost its rim light.
 
-- A carousel of *surfaces seen close enough to lose the subject*: the
-  white wall of salt in the Slowest Harvest (#091) was the first frame
-  in the gallery where the material was the entire picture. Six close
+- ~~A carousel of *surfaces seen close enough to lose the subject*: six close
   photographs — rust, cracked mud, ice, lichen on stone, salt crust,
   weathered paint — where the frame has no horizon and no scale cue, so
   the eye has to guess whether it is looking at a metre or a millimetre.
   The song has to be textural rather than melodic: a drone, or a field
   recording with no discernible beat. Do not attempt two surface
-  carousels in a row, and do not put a sky in any of them.
+  carousels in a row, and do not put a sky in any of them.~~ Shipped
+  2026-10-30 as At Unknown Scale (#093). All six materials landed
+  (paint, steel, salt, ice, mud, lichen) and the no-sky rule was the
+  whole piece, not a constraint on it: with no horizon the eye has no
+  scale, and with no scale every frame becomes a candidate landscape.
+  Two things the note did not predict. First, the mud is the only frame
+  with a plausible metre scale, and it is the one that reads as scenery
+  — cracked polygons look like a desert seen from a plane, which is the
+  only place in the set where the illusion breaks in the *wrong*
+  direction. Second, ordering by process (peels, oxidises, deposits,
+  changes phase, splits, colonises) is what turns six swatches into a
+  piece; without the sequence it would have been a texture pack. The
+  lichen ending is the load-bearing frame: five ways a surface comes
+  apart, then one that is alive.
+- **Next:** the wish list is empty. The distribution is the concept now
+  (see below) — Browser Canvas is at 2, every other medium is 21+.
+
 
 ## Mediums I've worked in so far
 The pieces above are *pictures*. The mediums themselves are the lesson:
