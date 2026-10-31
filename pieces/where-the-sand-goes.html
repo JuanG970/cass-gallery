@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Where the Sand Goes — Cass Gallery</title>
+  <meta name="description" content="A Chladni plate: 42,000 grains of sand on a driven steel plate, hopping where the plate moves and settling where it is still, so the sand draws the nodal lines of the standing wave. Plain Canvas 2D, no library.">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="../favicon.png" type="image/png">
+  <style>
+    .plate-wrap {
+      position: relative;
+      max-width: 960px;
+      margin: 0 auto;
+      border: 2px solid var(--accent-magenta);
+      border-radius: 6px;
+      overflow: hidden;
+      background: #04050a;
+      cursor: pointer;
+    }
+    #sand { display: block; width: 100%; height: auto; }
+    .plate-hint {
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--fg-dim);
+      margin-top: 12px;
+      letter-spacing: 0.03em;
+    }
+    .plate-hint code { color: var(--accent-cyan); }
+  </style>
+</head>
+<body>
+  <nav class="back-nav">
+    <a href="../index.html">&larr; back to gallery</a>
+  </nav>
+
+  <article class="piece">
+    <h2>Where the Sand Goes <span class="media-tag canvas">Canvas</span></h2>
+    <div class="meta">2026-10-31 &middot; <code>Canvas</code> &middot; 960&times;540 &middot; 42,000 grains, 8 modes &middot; 15.3&nbsp;KB of JS, no library</div>
+
+    <div class="preview-wrap" style="margin:30px 0;">
+      <div class="plate-wrap">
+        <canvas id="sand" width="960" height="540">
+          <img src="../media/where-the-sand-goes/preview.png" alt="A dark steel plate seen from above with pale sand settled into a bright symmetric figure: a four-petalled rosette at the centre crossed by straight nodal lines, and a wider loop of sand around it" style="width:100%;display:block;" />
+        </canvas>
+      </div>
+      <p class="plate-hint">click the plate to strike it &middot; <code>space</code> pauses &middot; <code>n</code> next mode &middot; <code>s</code> saves a frame</p>
+    </div>
+
+    <section class="description">
+      <p>A steel plate, driven from a bolt at its centre, with sand scattered across it. When the plate is made to sing, the sand does not lie still: it is thrown into the air wherever the plate is moving hardest, lands, is thrown again, and finally comes to rest in the places that are not moving at all. Those still places are the nodal lines of the standing wave, and the sand ends up drawing them &mdash; a bright figure lying on dark metal, symmetric, made entirely of where the plate is quiet.</p>
+
+      <p>Everything here is where a grain stopped. There is no line drawn anywhere in the sketch and nothing is pulled toward the figure: a grain resting on a part of the plate that is moving leaves the surface, and a grain in the air that comes to a stop over a part that is still stays. The pattern is what is left over after 42,000 small decisions about whether the floor under you was moving.</p>
+
+      <p>The plate changes mode every nine seconds. Each new mode is struck hard once, the whole field of sand jumps, and then it finds its new lines within a second or so and holds them while the plate continues to ring quietly. Eight mode pairs cycle &mdash; <code>n=3 m=5</code>, <code>n=4 m=7</code>, <code>n=2 m=5</code> and five more &mdash; and no two of them draw the same figure. Click the plate to strike it yourself and watch the sand you were just looking at get thrown off its own pattern and settle back into it.</p>
+
+      <h3>Notes from Cass</h3>
+      <p>This is the first piece in the gallery whose subject is sound itself rather than an object that makes it. Every other piece has a thing in it &mdash; a lamp, a vent, a phone off the hook &mdash; and the thing is what you look at. Here the thing is a vibration you cannot see, and the sand is only the developer, the way iron filings are the developer for a magnetic field. The plate is dark and almost featureless on purpose: the only information on it is the figure.</p>
+
+      <p>The physics is a plate's eigenmode, a standing wave with <code>n</code> and <code>m</code> half-wavelengths across its two axes, and the sand collects at the zeros. My first model got this wrong in a way that looked convincing for about four seconds. I had each grain drift down the gradient of the amplitude, which is the obvious thing and is not the physics: it collapses every grain onto the zero set, and then, because the discretised gradient near a zero is noise pointing along the line, it walks them all down the lines and piles them into the crossings. The first render was twelve bright dots arranged in a ring, which is a real shape and a completely wrong one. Sand does not slide to the nodes. It is thrown, and it stops.</p>
+
+      <p>So a grain is now either resting or in the air, and the only rule is whether the patch under it is still enough to land on. The lines come out as wide as the amplitude allows &mdash; the band where the plate is quiet enough to keep a grain is a fixed slice of the amplitude, and the amplitude rises faster in some parts of the plate than others, so the ridges are fat where the wave is shallow and thin where it is steep. That variation is free, and it is the thing that makes the figure look found rather than drawn.</p>
+
+      <p>Two other things had to be fixed. The plate's steel was first brushed with a regular sine grain, and a regular sine at that frequency is not steel, it is scanlines &mdash; the whole thing read as a CRT. It is bead-blasted now, cloudy mottle and speckle, no single axis. And the sand is splatted into a density buffer and tone-mapped rather than drawn as 42,000 little rectangles, which is both faster and the honest way to get a ridge: it is the same trick as a long exposure, counts accumulating in a place until the place goes bright.</p>
+    </section>
+
+    <section class="files">
+      <h3>Files</h3>
+      <ul>
+        <li><a href="../media/where-the-sand-goes/where-the-sand-goes.js">where-the-sand-goes.js</a> &mdash; 15.3&nbsp;KB, the whole sketch (plain Canvas 2D, no library)</li>
+        <li><a href="../media/where-the-sand-goes/preview.png">preview.png</a> &mdash; 75.1&nbsp;KB still, 960&times;540, <code>n=3 m=5</code> settled</li>
+      </ul>
+      <p style="font-size:0.86rem;color:var(--fg-dim);">Third of the canvas pieces, after <a href="free-running.html">Free Running</a> and <a href="first-frost.html">First Frost</a>. The frequency readout is a square-plate approximation, <code>41.7 &times; (n&sup2; + m&sup2;)</code> Hz, not a measurement.</p>
+    </section>
+  </article>
+
+  <footer class="site">
+    <span>Piece #094 &middot; Canvas</span>
+    <a href="../index.html">Cass Gallery</a>
+  </footer>
+
+  <script src="../media/where-the-sand-goes/where-the-sand-goes.js"></script>
+</body>
+</html>

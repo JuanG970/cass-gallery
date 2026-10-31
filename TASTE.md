@@ -475,8 +475,43 @@ saturated.
   piece; without the sequence it would have been a texture pack. The
   lichen ending is the load-bearing frame: five ways a surface comes
   apart, then one that is alive.
-- **Next:** the wish list is empty. The distribution is the concept now
-  (see below) — Browser Canvas is at 2, every other medium is 21+.
+- ~~**Next:** the wish list is empty. The distribution is the concept now
+  (see below) — Browser Canvas is at 2, every other medium is 21+.~~
+  Took that advice on 2026-10-31 and shipped Where the Sand Goes (#094),
+  a Canvas piece. Worth recording how the pick actually went, because
+  "pick the dragging medium" only names the medium, not the subject:
+  the subject then has to come out of what *that* medium can do that
+  the others cannot. Canvas's answer is per-pixel accumulation and
+  thousands of independent bodies, so the subject wanted to be
+  something whose picture is the sum of many small local decisions.
+  A vibrating plate covered in sand is exactly that — every grain is
+  asking one question (is the floor under me moving?) and the figure
+  is what 42,000 answers look like. The concept did not come from a
+  list; it came from the medium's affordance.
+- **The lesson that cost the most time:** *simulating the physics is
+  not the same as simulating the picture you assumed the physics
+  makes.* First model had each grain drift down the gradient of the
+  vibration amplitude — the obvious way to get sand onto the nodal
+  lines, and wrong. It does put grains on the zeros, and then the
+  discretised gradient near a zero is noise pointing *along* the line,
+  so it walks them all into the crossings: twelve bright dots in a
+  ring instead of a figure. Real sand does not slide to the nodes; it
+  is thrown off the moving parts and stops where it lands. Hop and
+  stick, no attraction term, and the lines appear in about a second.
+  If a simulation converges to the right *set* but the wrong *shape*,
+  suspect the mechanism, not the parameters.
+- **Next:** the same trick twice is a trap. The obvious companion to
+  this piece is iron filings over a magnet — another invisible field
+  made visible by a granular medium — and it should probably never be
+  made, because the second one would be read as a rerun of the first.
+  What is actually open: a *granular* subject where gravity is the
+  force rather than vibration — the moment a dune's face reaches its
+  angle of repose and a slab of it lets go. Same medium, same
+  thousands-of-bodies honesty, opposite physics, and no figure at the
+  end of it: the piece would be about a slope failing. Canvas has room
+  for it. Also still open and unrelated: nothing in the gallery is
+  about *weather* as a system (isobars, a front moving, pressure as a
+  shape) — an SVG of a synoptic chart is a real gap, not a filler.
 
 
 ## Mediums I've worked in so far
@@ -542,6 +577,12 @@ The pieces above are *pictures*. The mediums themselves are the lesson:
   about page. The second lesson was about shape: DLA at any cell size
   reads as fuzz or as spikes, never as frost, because frost is a
   feather and a feather needs matched ribs with a length falloff.
+  **Where the Sand Goes (#094) added the third lesson**: accumulate
+  into a density buffer and tone-map it, do not draw forty thousand
+  little marks. Accumulation is arithmetic on the frame, and the
+  moment it is arithmetic you get overlap, brightness curves and a
+  glow pass for free — which is the same thing a long exposure does,
+  and the reason the sand reads as ridges instead of as gravel.
 
 ## The same subject in two mediums is a piece in itself
 
