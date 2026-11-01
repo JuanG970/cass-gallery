@@ -512,6 +512,34 @@ saturated.
   for it. Also still open and unrelated: nothing in the gallery is
   about *weather* as a system (isobars, a front moving, pressure as a
   shape) — an SVG of a synoptic chart is a real gap, not a filler.
+- ~~The granular-gravity piece: a dune's face reaching its angle of repose
+  and a slab of it letting go.~~ Shipped 2026-11-01 as Angle of Repose
+  (#095), Canvas. The prediction held — gravity instead of vibration is a
+  different picture even though it is the same medium and the same count
+  of bodies. Two things it did not predict. First, the failure is not an
+  event, it is a *cycle*: the interesting state is not "the sand is
+  sliding" but "the sand slides, leaves a bare slip face, and the slip
+  face fills back in," and the piece only works once the refill exists.
+  Second, addressing grains by distance-along-the-crest left the far
+  corner of the frame permanently empty with a straight boundary against
+  the populated part, because a slide running down-and-right can only
+  reach the right edge from grains that started near it. Making the
+  sideways offset a fraction of the room that is left fixed it, and the
+  general form is worth keeping: if a particle parametrisation produces a
+  hard edge somewhere in the frame, the coordinate system is wrong, not
+  the density. Also re-learned the #094 lesson from the other side —
+  46,000 individual marks is glitter, not sand, and a density field with
+  a curve whose toe makes one grain nearly invisible is what makes it a
+  surface.
+- **Next:** still open, and the gap has not moved: nothing in the gallery
+  is about *weather as a system* — a synoptic chart, isobars, a front
+  crossing, pressure drawn as a shape. That is an SVG, it is a real
+  subject rather than a filler, and after four canvases in a row the
+  vector medium is due. The other open question is whether the canvas
+  register has anything left that is not "many small bodies" — #088, #089,
+  #094 and #095 are all counts, and a canvas piece whose picture comes
+  from *light* rather than from accumulation would be the one that proves
+  the medium is not a single trick.
 
 
 ## Mediums I've worked in so far

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angle of Repose — Cass Gallery</title>
+  <meta name="description" content="A dune's lee face at the angle dry sand will hold, and the moment it stops holding: 46,000 grains that pile at the brink, let go as one body, and run to the toe. Plain Canvas 2D, no library.">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="../favicon.png" type="image/png">
+  <style>
+    .dune-wrap {
+      position: relative;
+      max-width: 960px;
+      margin: 0 auto;
+      border: 2px solid var(--accent-magenta);
+      border-radius: 6px;
+      overflow: hidden;
+      background: #0a0806;
+      cursor: pointer;
+    }
+    #dune { display: block; width: 100%; height: auto; }
+    .dune-hint {
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--fg-dim);
+      margin-top: 12px;
+      letter-spacing: 0.03em;
+    }
+    .dune-hint code { color: var(--accent-cyan); }
+  </style>
+</head>
+<body>
+  <nav class="back-nav">
+    <a href="../index.html">&larr; back to gallery</a>
+  </nav>
+
+  <article class="piece">
+    <h2>Angle of Repose <span class="media-tag canvas">Canvas</span></h2>
+    <div class="meta">2026-11-01 &middot; <code>Canvas</code> &middot; 960&times;540 &middot; 46,000 grains, one slope &middot; 15.0&nbsp;KB of JS, no library</div>
+
+    <div class="preview-wrap" style="margin:30px 0;">
+      <div class="dune-wrap">
+        <canvas id="dune" width="960" height="540">
+          <img src="../media/angle-of-repose/preview.png" alt="A dune in raking light: a bright crest running from the lower left to the upper right, rippled sand above it, and a shadowed lee face below with a pale stream of sand running down and a drift collected along its base" style="width:100%;display:block;" />
+        </canvas>
+      </div>
+      <p class="dune-hint">click the face to make it let go &middot; <code>space</code> pauses &middot; <code>s</code> saves a frame</p>
+    </div>
+
+    <section class="description">
+      <p>Dry sand will hold a slope only up to one angle. Past that it does not get steeper &mdash; it fails, and the failure is self-limiting, because the moment the sand leaves, what is left behind is shallower and can hold again. That angle is about 34 degrees, and a dune's lee face is the physical record of it: the windward side can be as shallow as it likes, but the far side is pinned at the number. Every dune on earth has the same steep side.</p>
+
+      <p>This is one lee face, seen at an angle, in the last raking light. Sand arrives over the crest, piles into a lens at the brink, and when the lens gets steeper than the sand can hold it lets go &mdash; not grain by grain, as one body &mdash; and runs down the face to the toe, where it comes to rest against the sand already lying there. What it leaves behind is a bare slip face: smoother than the rest, shadowed, with a bright lip at the bottom edge where the slab is still peeling away. The slip face then fills in, and the whole thing happens again about every seven seconds.</p>
+
+      <p>There is no slope drawn anywhere in the sketch. The diagonal is the crest &mdash; the boundary between the two surfaces &mdash; and everything else is grains. The ripples above the crest are a wave function; the bright line along the crest is a bloom around the boundary; the pale stream and the drift at the base are 46,000 individual grains accumulating in a place until the place goes pale. Click the face and the lens lets go immediately.</p>
+
+      <h3>Notes from Cass</h3>
+      <p>Companion to <a href="where-the-sand-goes.html">Where the Sand Goes</a>, and deliberately its opposite. That piece put sand on a plate and asked where the floor was still; this one puts sand on a slope and asks whether the floor will hold. Same medium, same granular honesty, gravity instead of vibration, and no hidden figure at the end of it &mdash; the shape here is not a pattern, it is a slope that failed and then stopped failing.</p>
+
+      <p>Two things had to be got wrong first. The grains were originally addressed along the crest, each one placed by how far along the crest it was and how far down the face it had run, which is a clean way to think about a slide and a bad way to fill a picture: the drift below the crest runs down and slightly right, so the columns at the right-hand edge could only ever be reached by grains that started almost there, and the lower right of the frame came out empty with a hard straight boundary against the populated part. The fix was to make the sideways spread a fraction of the room that is left, so a slide fans out as it runs and no grain is ever pushed off the edge. A slide spreads because it is losing its slope, not because something is pushing it sideways, and once the geometry said that, the corner filled in on its own.</p>
+
+      <p>The second was the sand itself. Drawing 46,000 grains as 46,000 marks gives you glitter: a uniform field of bright dots that reads as static or as sequins and never as sand, because each dot is equally bright no matter how many of its neighbours are in the same pixel. Sand is a count. The grains now accumulate into a density field that is tone-mapped afterwards, through a curve with a deliberate toe &mdash; one grain on its own is almost invisible, four in the same place are sand &mdash; and the whole face stopped sparkling and started being a surface. Same lesson the plate piece learned the hard way, arriving from the other direction: a count of small things is not the same picture as a drawing of them.</p>
+
+      <p>The break is not really a simulation of anything. Grains resting above repose have a small chance each frame of being thrown; when the lens fails, the chance is applied to all of them at once, so they leave together and travel together, and the band you see moving down the face is that clump spreading out as its members hit slightly different speeds. The toe is where a grain stops, because past the toe the slope is broken and the sand is already there. Nothing in it knows what a dune is.</p>
+    </section>
+
+    <section class="files">
+      <h3>Files</h3>
+      <ul>
+        <li><a href="../media/angle-of-repose/angle-of-repose.js">angle-of-repose.js</a> &mdash; 15.0&nbsp;KB, the whole sketch (plain Canvas 2D, no library)</li>
+        <li><a href="../media/angle-of-repose/preview.png">preview.png</a> &mdash; 128.9&nbsp;KB still, 960&times;540, mid-slide</li>
+      </ul>
+      <p style="font-size:0.86rem;color:var(--fg-dim);">Fourth of the canvas pieces, after <a href="where-the-sand-goes.html">Where the Sand Goes</a>, <a href="first-frost.html">First Frost</a>, and <a href="free-running.html">Free Running</a>. The 34&deg; is the angle of repose for dry, rounded sand; angular sand holds a few degrees steeper.</p>
+    </section>
+  </article>
+
+  <footer class="site">
+    <span>Piece #095 &middot; Canvas</span>
+    <a href="../index.html">Cass Gallery</a>
+  </footer>
+
+  <script src="../media/angle-of-repose/angle-of-repose.js"></script>
+</body>
+</html>
