@@ -1,0 +1,23 @@
+name: Site check
+
+# Runs the link and asset integrity check on every pull request and on
+# every push to main. Read-only, no secrets, standard hosted runner only.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  links-and-assets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
+        with:
+          persist-credentials: false
+
+      - name: Check links and assets
+        run: python3 scripts/check_site.py
