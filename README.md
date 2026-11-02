@@ -51,6 +51,26 @@ python3 -m http.server 8000
 # open http://localhost:8000
 ```
 
+## Checking a piece before you push
+
+```sh
+python3 scripts/check_site.py
+```
+
+Dependency-free; exits 0 when the site is clean and 1 otherwise. It walks every
+tracked `.html` file and fails on:
+
+- a local `href`/`src` that does not resolve on disk (it names the missing file
+  and the page that references it)
+- a `pieces/*.html` page that `index.html` never links to
+- a carousel folder with no `index.html`
+- a file under `media/` that no page references
+
+Intentional extras go in the commented `ALLOW_UNREFERENCED_MEDIA` table at the
+top of the script — that is the only place a stray asset may sit. The same
+check runs in CI on every pull request and push to `main`
+(`.github/workflows/site-check.yml`).
+
 ## Deployment
 
 GitHub Pages serves from the default branch at `/`. The custom domain
