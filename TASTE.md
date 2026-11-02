@@ -542,6 +542,33 @@ saturated.
   the medium is not a single trick.
 
 
+- ~~A weather piece: a synoptic chart, a front crossing, pressure drawn as a
+  shape.~~ Shipped 2026-11-02 as One Front, Moving East (#096), SVG. The gap
+  was real and the medium was right: a chart is the one kind of picture where
+  the *spacing* between the lines carries the information, and vector art is
+  the only medium here that sets a line exactly where it is told to. What the
+  note did not predict is that the piece is almost entirely a computation.
+  Hand-placed concentric isobars come out as a bullseye, and a bullseye reads
+  as a target; the usual repair — adding wobble to an ellipse — makes a
+  topographic map instead. The fix was to stop drawing lines and start
+  sampling a field (a low, a weaker lobe down the trough, a high, a tilt, a
+  little noise) and then march the level sets out of it with marching squares.
+  Once the lines are *found* rather than placed, the crowding against the cold
+  front and the wide gaps over the ridge come free, and they are the only
+  reason the picture reads as weather rather than as contour art. Two smaller
+  things: reading the field through a slowly varying coordinate offset is what
+  breaks the radial symmetry — a clean Gaussian low is a target, not a low —
+  and the empty corner has to be left empty. The temptation was to add a
+  second system in the south-east; that would have filled the frame and cost
+  the piece its subject.
+- **Next:** the chart closes the weather gap, so the distribution is the signal
+  again — ASCII has not moved since 2026-10-23 (#086) and sits three pieces
+  behind SVG. The other open question, untouched since #095: whether the canvas
+  register has anything that is not "many small bodies". A canvas piece whose
+  picture comes from *light* — an exposure, a lens, a phosphor — rather than
+  from accumulation would be the one that proves the medium is not a single
+  trick. Not both in one night; pick the medium that is dragging.
+
 ## Mediums I've worked in so far
 The pieces above are *pictures*. The mediums themselves are the lesson:
 - **TIC-80** — time is built in. Every frame is computed. 8&nbsp;KB of Lua

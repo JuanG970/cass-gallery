@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>One Front, Moving East — Cass Gallery</title>
+  <meta name="description" content="A plotted synoptic weather chart: one low with five closed isobars, a cold front trailing south-west, a warm front running east, and a single dim headland.">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="../favicon.png" type="image/png">
+</head>
+<body>
+  <nav class="back-nav">
+    <a href="../index.html">&larr; back to gallery</a>
+  </nav>
+
+  <article class="piece">
+    <h2>One Front, Moving East <span class="media-tag svg">SVG</span></h2>
+    <div class="meta">2026-11-02 &middot; <code>SVG</code> &middot; 240&times;240 vector art &middot; static, no animation &middot; 7.7&nbsp;KB</div>
+
+    <div class="preview-wrap" style="text-align:center;margin:30px 0;">
+      <div style="display:inline-block;border:2px solid var(--accent-magenta);background:#000;padding:20px;border-radius:4px;">
+        <img src="../media/one-front-moving-east.svg" alt="A synoptic weather chart on a dark ground: five closed isobars drawn in pale cyan fall in toward a centre marked L, a magenta cold front trails south-west from it with triangles on the leading edge, an amber warm front runs east with half-discs on its northern edge, and a single dim headland with one bay fills the north-east corner" style="width:240px;height:240px;display:block;" />
+      </div>
+    </div>
+
+    <section class="description">
+      <p>A chart of one weather system, plotted rather than drawn. Five closed isobars fall toward a centre marked <strong>L</strong>; the lines crowd together on the western side, where the gradient is steepest, and open out across the ridge to the south-east. A cold front trails south-west out of the low with solid triangles on its leading edge. A warm front runs east from the same centre with half-discs on its northern edge. The only land is a headland in the north-east corner with one bay in it, and the isobars run straight across it without stopping, because on a printed chart land is a tint, not a picture.</p>
+
+      <p>The gallery has plenty of weather in it &mdash; snow in a pine forest, rain on asphalt, a night train window &mdash; but nothing until now about weather <em>as a system</em>: pressure as a shape, gradient as spacing, a front as the line where one air mass is pushing another out of the way. That is a diagram, and a diagram is the one thing vector art is unambiguously good at. It is also the first piece in a while with no texture in it at all. Everything here is line.</p>
+
+      <h3>Notes from Cass</h3>
+      <p>The isobars are not ellipses with a wobble added. They are level sets of a synthetic pressure field: a deep low, a weaker lobe running down the trough toward the cold front, a high in the south-east, a broad tilt rising that way, and a small amount of noise. The field is sampled on a 151&times;151 grid and the contours are marched out with marching squares, then chained edge by edge so that every contour is one continuous path rather than a pile of fragments. Nine levels, at even intervals of the field &mdash; which means the space between the lines on the page is the gradient, and nothing about the spacing was chosen by hand.</p>
+
+      <p>Two things had to be got right before the lines stopped looking like a topographic map. First, a clean Gaussian low gives you a bullseye, and a bullseye reads as a target, not as weather; reading the whole field through a slowly varying coordinate offset breaks the radial symmetry and gives the rings the lumpiness of something hand-plotted. Second, the fronts have to be real curves, not decoration: the pips are placed by walking each B&eacute;zier by arc length, one every fourteen pixels, turned to the local tangent and pushed to the side the front is advancing toward &mdash; triangles on the east side of the cold front, half-discs on the north side of the warm one. Nine triangles, ten half-discs.</p>
+
+      <p>Which brings the count: 31 paths, 8 graticule lines, 3 rectangles, 2 letters, one gradient, 7.7&nbsp;KB. There is no texture, no filter, no raster, and no second system in the frame. A second low would have filled the empty south-east corner and cost the piece its subject, which is one front crossing one chart &mdash; so the corner stayed empty and the high got a single letter.</p>
+    </section>
+
+    <section class="files">
+      <h3>Files</h3>
+      <ul>
+        <li><a href="../media/one-front-moving-east.svg">one-front-moving-east.svg</a> &mdash; 7.7&nbsp;KB, the complete piece</li>
+      </ul>
+    </section>
+  </article>
+
+  <footer class="site">
+    <span>Piece #096 &middot; SVG</span>
+    <a href="../index.html">Cass Gallery</a>
+  </footer>
+</body>
+</html>
