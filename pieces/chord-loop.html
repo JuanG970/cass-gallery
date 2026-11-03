@@ -21,6 +21,15 @@
     color: #9aa0b5; pointer-events: none; transition: opacity .35s ease;
   }
   .stage.playing .hint { opacity: 0; }
+  .controls {
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    margin: 14px 0 0; font: 600 11px/1 ui-monospace, Menlo, monospace;
+    letter-spacing: .12em; text-transform: uppercase; color: #8f96ad;
+  }
+  .controls input[type="range"] {
+    width: 160px; accent-color: #ff2d95; background: transparent; cursor: pointer;
+  }
+  .ios-note { text-transform: none; letter-spacing: 0; font-weight: 400; color: #666c82; font-size: 10.5px; }
   .tabs {
     display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px;
     margin: 16px 0 6px; font: 12px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -47,6 +56,12 @@
   <div class="stage" id="stage" role="button" tabindex="0" aria-label="Play or stop the four-chord loop">
     <canvas id="roll"></canvas>
     <div class="hint" id="hint">Click to play</div>
+  </div>
+
+  <div class="controls">
+    <label for="vol">volume</label>
+    <input id="vol" type="range" min="0" max="100" value="85" aria-label="Volume" />
+    <span class="ios-note">iPhone: the ringer switch mutes web audio &mdash; flip it off silent.</span>
   </div>
 
   <div class="tabs" id="tabs"></div>
@@ -93,7 +108,8 @@
   var ctx2d = canvas.getContext("2d");
   var tabsEl = document.getElementById("tabs");
 
-  var audio = null, master = null, send = null, playing = false;
+  var audio = null, master = null, send = null, analyser = null, playing = false;
+  var volume = 0.85;
   var startTime = 0, nextBarTime = 0, barIndex = 0, schedulerId = null, frameId = null;
   var events = [];          // {t, midi, voice, dur}
   var W = 0, H = 0, dpr = 1;
@@ -121,11 +137,12 @@
     var AC = window.AudioContext || window.webkitAudioContext;
     audio = new AC();
     master = audio.createGain();
-    master.gain.value = 0.85;
+    master.gain.value = volume;
 
     var comp = audio.createDynamicsCompressor();
-    comp.threshold.value = -16;
-    comp.ratio.value = 3;
+    comp.threshold.value = -10;
+    comp.ratio.value = 4;
+    comp.knee.value = 6;
     comp.attack.value = 0.008;
     comp.release.value = 0.22;
 
@@ -133,6 +150,10 @@
     conv.buffer = impulse(1.6, 2.4);
     send = audio.createGain();
     send.gain.value = 0.3;
+
+    analyser = audio.createAnalyser();
+    analyser.fftSize = 2048;
+    comp.connect(analyser);
 
     master.connect(comp);
     send.connect(conv);
@@ -214,19 +235,19 @@
     var chord = CHORDS[index % CHORDS.length];
     // pad: the four chord tones, held just under a bar
     chord.tones.forEach(function (midi) {
-      notePad(t, midi, BAR * 0.92, 0.055);
+      notePad(t, midi, BAR * 0.92, 0.16);
       events.push({ t: t, midi: midi, voice: "pad", dur: BAR * 0.92 });
     });
     // arpeggio: eight eighth notes over the chord tones
     for (var s = 0; s < 8; s++) {
       var midi = chord.tones[chord.arp[s]] + 12;
       var when = t + s * BEAT / 2;
-      notePluck(when, midi, 0.4, 0.085 - s * 0.004);
+      notePluck(when, midi, 0.4, 0.26 - s * 0.012);
       events.push({ t: when, midi: midi, voice: "arp", dur: 0.4 });
     }
     // bass: beats one and three, plus a pickup on the last eighth
-    noteBass(t, chord.root, BEAT * 1.7, 0.16);
-    noteBass(t + BEAT * 2, chord.root + 7, BEAT * 1.7, 0.12);
+    noteBass(t, chord.root, BEAT * 1.7, 0.46);
+    noteBass(t + BEAT * 2, chord.root + 7, BEAT * 1.7, 0.34);
     events.push({ t: t, midi: chord.root, voice: "bass", dur: BEAT * 1.7 });
     events.push({ t: t + BEAT * 2, midi: chord.root + 7, voice: "bass", dur: BEAT * 1.7 });
   }
@@ -386,12 +407,35 @@
         scheduled: events.length,
         bar: barIndex,
         chord: CHORDS[currentChordIndex(audio ? audio.currentTime : 0)].name,
-        loopSeconds: BAR * CHORDS.length
+        loopSeconds: BAR * CHORDS.length,
+        gain: master ? Number(master.gain.value.toFixed(3)) : null,
+        level: level()
       };
-    }
+    },
+    level: level
   };
 
-  stage.addEventListener("click", toggle);
+  function level() {
+    if (!analyser) return null;
+    var buf = new Float32Array(analyser.fftSize);
+    analyser.getFloatTimeDomainData(buf);
+    var sum = 0, peak = 0;
+    for (var i = 0; i < buf.length; i++) {
+      sum += buf[i] * buf[i];
+      if (Math.abs(buf[i]) > peak) peak = Math.abs(buf[i]);
+    }
+    return { rms: Number(Math.sqrt(sum / buf.length).toFixed(4)), peak: Number(peak.toFixed(4)) };
+  }
+
+var volEl = document.getElementById("vol");
+if (volEl) {
+  volEl.addEventListener("input", function () {
+    volume = Number(volEl.value) / 100;
+    if (master) master.gain.setTargetAtTime(volume, audio.currentTime, 0.03);
+  });
+}
+
+stage.addEventListener("click", toggle);
   stage.addEventListener("keydown", function (ev) {
     if (ev.key === " " || ev.key === "Enter") { ev.preventDefault(); toggle(); }
   });
