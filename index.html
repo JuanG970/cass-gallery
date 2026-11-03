@@ -190,14 +190,14 @@
     </nav>
   </header>
 
-  <a class="hero" href="pieces/one-front-moving-east.html" style="text-decoration:none;color:inherit;">
-        <div class="hero-preview" style="background:#000;display:flex;align-items:center;justify-content:center;padding:0;">
-          <img src="media/one-front-moving-east.svg" alt="A synoptic weather chart: five closed isobars in pale cyan falling toward a centre marked L, a magenta cold front trailing south-west with triangles on its leading edge, an amber warm front running east with half-discs, and a dim headland in the north-east corner" style="width:100%;height:auto;max-width:560px;max-height:340px;object-fit:contain;" />
+  <a class="hero" href="pieces/chord-loop.html" style="text-decoration:none;color:inherit;">
+        <div class="hero-preview" style="background:#05060c;display:flex;align-items:center;justify-content:center;padding:0;">
+          <img src="media/chord-loop/preview.png" alt="A piano roll on black: magenta, cyan and amber bars falling toward a pale strike line, the chord name Fmaj7 with its Roman numeral in the upper left, and four loop dots across the upper right" style="width:100%;height:auto;max-width:560px;max-height:340px;object-fit:contain;" />
         </div>
         <div class="hero-body">
-          <h3>One Front, Moving East <span class="media-tag svg">SVG</span> <span class="latest-badge">latest</span></h3>
-          <div class="hero-subtitle">2026-11-02 &middot; SVG &middot; 9 isobars, two fronts</div>
-          <p>A single low plotted as a weather chart: five closed isobars crowding where the gradient is steepest, a cold front trailing south-west with triangles on the leading edge, a warm front running east with half-discs. The isobars are level sets of a pressure field, not ellipses with a wobble &mdash; which is why nothing in the frame is evenly spaced.</p>
+          <h3>Chord Loop <span class="media-tag canvas">Canvas + Sound</span> <span class="latest-badge">latest</span></h3>
+          <div class="hero-subtitle">2026-11-02 &middot; Audio &middot; four chords, twelve seconds, no audio files</div>
+          <p>Am7, Fmaj7, Cmaj7, G6 &mdash; one bar each, looping in the browser. Every note is an oscillator born at the moment it sounds: a pad, a plucked arpeggio, a sine bass, and a reverb built from a noise burst decaying over 1.6 seconds. Click the roll to start it. Nothing to download, because nothing is recorded.</p>
           <span class="hero-cta">&#9658; open the piece &rarr;</span>
         </div>
       </a>
@@ -753,8 +753,16 @@
     </a>
   </div>
 
-  <h2 class="section">Browser Canvas <span class="count">// 4 canvases</span></h2>
+  <h2 class="section">Browser Canvas <span class="count">// 5 canvases, 1 with sound</span></h2>
   <div class="cart-grid">
+    <a class="cart-card" href="pieces/chord-loop.html" style="text-decoration:none;color:inherit;">
+      <div class="preview"><img src="media/chord-loop/preview.png" alt="A piano roll on black: magenta, cyan and amber bars falling toward a pale strike line, the chord name Fmaj7 with its Roman numeral, and four loop dots" style="image-rendering:auto;" /></div>
+      <div class="body">
+        <h3>Chord Loop <span class="media-tag canvas">Canvas + Sound</span></h3>
+        <div class="date">2026-11-02</div>
+        <p>Four chords &mdash; Am7, Fmaj7, Cmaj7, G6 &mdash; one bar each, synthesized in the browser as they are played: pad, plucked arpeggio, sine bass, and a reverb made from decaying noise. The roll is drawn from <code>AudioContext.currentTime</code>, so the picture cannot drift from the sound. Click it to play. No audio files, no library.</p>
+      </div>
+    </a>
     <a class="cart-card" href="pieces/angle-of-repose.html" style="text-decoration:none;color:inherit;">
       <div class="preview"><img src="media/angle-of-repose/preview.png" alt="A dune in raking light: a bright crest running from the lower left to the upper right, rippled sand above it, and a shadowed lee face below where a pale stream of sand runs down to a drift at the base" style="image-rendering:auto;" /></div>
       <div class="body">

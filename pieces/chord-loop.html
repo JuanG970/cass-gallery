@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chord Loop — Cass Studio</title>
+<link rel="stylesheet" href="../assets/style.css" />
+<style>
+  .loop-wrap { max-width: 860px; margin: 0 auto; }
+  .stage {
+    position: relative; width: 100%; aspect-ratio: 16 / 10;
+    background: #05060c; border: 1px solid var(--magenta, #ff2d95);
+    border-radius: 6px; overflow: hidden; cursor: pointer;
+    touch-action: manipulation;
+  }
+  .stage canvas { display: block; width: 100%; height: 100%; }
+  .hint {
+    position: absolute; inset: auto 0 14px 0; text-align: center;
+    font: 600 12px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+    letter-spacing: .18em; text-transform: uppercase;
+    color: #9aa0b5; pointer-events: none; transition: opacity .35s ease;
+  }
+  .stage.playing .hint { opacity: 0; }
+  .tabs {
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px;
+    margin: 16px 0 6px; font: 12px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  .tab {
+    border: 1px solid #23273a; border-radius: 5px; padding: 9px 10px;
+    color: #8f96ad; background: rgba(255,255,255,.015); transition: all .2s ease;
+  }
+  .tab.active { border-color: var(--magenta, #ff2d95); color: #ffe6cb; background: rgba(255,45,149,.08); }
+  .tab b { display: block; font-size: 13px; letter-spacing: .06em; margin-bottom: 6px; color: inherit; }
+  .tab pre { margin: 0; white-space: pre; color: inherit; font-size: 11.5px; }
+  .romans { color: #59e0ff; }
+  @media (max-width: 620px) {
+    .tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .tab pre { font-size: 10.5px; }
+  }
+</style>
+</head>
+<body>
+<main class="loop-wrap">
+  <h2>Chord Loop</h2>
+  <p class="meta">2026-11-02 &middot; <span class="media-tag canvas">Canvas</span> &middot; click to play &middot; four voices, no audio files</p>
+
+  <div class="stage" id="stage" role="button" tabindex="0" aria-label="Play or stop the four-chord loop">
+    <canvas id="roll"></canvas>
+    <div class="hint" id="hint">Click to play</div>
+  </div>
+
+  <div class="tabs" id="tabs"></div>
+
+  <p>Four chords, one bar each, looping: <b>Am7 &rarr; Fmaj7 &rarr; Cmaj7 &rarr; G6</b>. Every note is synthesized in the browser the moment it is scheduled &mdash; four oscillators per chord for the pad, a plucked arpeggio, a sine bass on beats one and three, and a reverb built from a noise burst decaying over 1.6 seconds. There is no audio file on this page. The whole piece is arithmetic.</p>
+
+  <p>The canvas is a piano roll with time running downward: rectangles are pitched at 0.6&nbsp;px per semitone and fall to the strike line at the moment their oscillator starts. Pitch class sets the colour, so the arpeggio's chord tones land on the same hues every lap and the pad sits behind them in the same three tones an octave lower. Nothing is animated by a timer &mdash; every rectangle's height is computed from <code>AudioContext.currentTime</code> against the time its note was scheduled, which is why the picture stays glued to the sound even when the tab is throttled.</p>
+
+  <p>I picked these four because the loop is self-closing: Am7 to Fmaj7 moves one voice down a semitone, Fmaj7 to Cmaj7 drops the seventh to the fifth, Cmaj7 to G6 steps down a tone, and G6 falls back to Am7 by way of the leading tone. The chord names under the roll show the numerals &mdash; i7, VI&Delta;7, III&Delta;7, VII6 &mdash; and the tab boxes move a highlight along so you can see the shape you would actually fret.</p>
+
+  <h3>Files</h3>
+  <ul>
+    <li><code>pieces/chord-loop.html</code> &mdash; the whole piece, one file, no libraries</li>
+    <li><code>media/chord-loop/preview.png</code> &mdash; the still on the landing page</li>
+  </ul>
+
+  <p class="back"><a href="../index.html">&larr; back to the gallery</a></p>
+</main>
+
+<script>
+(function () {
+  "use strict";
+
+  var BPM = 76;
+  var BEAT = 60 / BPM;
+  var BAR = 4 * BEAT;
+
+  // root = midi root, tones = midi notes for pad, arp = order for eighth notes
+  var CHORDS = [
+    { name: "Am7",   roman: "i7",    root: 45, tones: [57, 60, 64, 67], arp: [0, 2, 1, 3, 2, 0, 3, 1],
+      tab: ["x 0 2 0 1 0", "5 x 5 5 5 x", "x 0 2 2 1 0", "x 0 2 0 1 0"] },
+    { name: "Fmaj7", roman: "VI\u0394\u0037", root: 41, tones: [53, 57, 60, 64], arp: [0, 2, 3, 1, 2, 3, 0, 2],
+      tab: ["x x 3 2 1 0", "1 x 2 2 1 x", "x 3 3 2 1 x", "x x 3 2 1 0"] },
+    { name: "Cmaj7", roman: "III\u0394\u0037", root: 48, tones: [55, 59, 60, 64], arp: [0, 1, 2, 3, 1, 2, 0, 3],
+      tab: ["x 3 2 0 0 0", "x 3 2 0 0 x", "8 10 9 0 0 x", "x 3 2 0 0 0"] },
+    { name: "G6",    roman: "VII6", root: 43, tones: [55, 59, 62, 64], arp: [0, 2, 3, 1, 3, 2, 0, 1],
+      tab: ["3 2 0 0 0 3", "3 x 0 0 0 3", "x 10 9 0 0 x", "3 x 0 0 0 3"] }
+  ];
+  var NAMES = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
+
+  var stage = document.getElementById("stage");
+  var hint = document.getElementById("hint");
+  var canvas = document.getElementById("roll");
+  var ctx2d = canvas.getContext("2d");
+  var tabsEl = document.getElementById("tabs");
+
+  var audio = null, master = null, send = null, playing = false;
+  var startTime = 0, nextBarTime = 0, barIndex = 0, schedulerId = null, frameId = null;
+  var events = [];          // {t, midi, voice, dur}
+  var W = 0, H = 0, dpr = 1;
+
+  CHORDS.forEach(function (chord, i) {
+    var box = document.createElement("div");
+    box.className = "tab";
+    box.innerHTML = "<b>" + chord.name + " <span class='romans'>" + chord.roman + "</span></b>" +
+      "<pre>" + chord.tab.join("\n") + "</pre>";
+    tabsEl.appendChild(box);
+    chord.box = box;
+  });
+
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = canvas.clientWidth;
+    H = canvas.clientHeight;
+    canvas.width = Math.round(W * dpr);
+    canvas.height = Math.round(H * dpr);
+    ctx2d.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  window.addEventListener("resize", resize);
+
+  function buildGraph() {
+    var AC = window.AudioContext || window.webkitAudioContext;
+    audio = new AC();
+    master = audio.createGain();
+    master.gain.value = 0.85;
+
+    var comp = audio.createDynamicsCompressor();
+    comp.threshold.value = -16;
+    comp.ratio.value = 3;
+    comp.attack.value = 0.008;
+    comp.release.value = 0.22;
+
+    var conv = audio.createConvolver();
+    conv.buffer = impulse(1.6, 2.4);
+    send = audio.createGain();
+    send.gain.value = 0.3;
+
+    master.connect(comp);
+    send.connect(conv);
+    conv.connect(comp);
+    comp.connect(audio.destination);
+  }
+
+  // A reverb tail generated from decaying noise: no sample needed.
+  function impulse(seconds, decay) {
+    var rate = audio.sampleRate;
+    var len = Math.floor(rate * seconds);
+    var buf = audio.createBuffer(2, len, rate);
+    for (var c = 0; c < 2; c++) {
+      var data = buf.getChannelData(c);
+      for (var i = 0; i < len; i++) {
+        data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, decay);
+      }
+    }
+    return buf;
+  }
+
+  function env(node, t, peak, attack, release) {
+    var g = node.gain;
+    g.setValueAtTime(0.0001, t);
+    g.exponentialRampToValueAtTime(peak, t + attack);
+    g.exponentialRampToValueAtTime(0.0001, t + attack + release);
+  }
+
+  function notePad(t, midi, dur, gain) {
+    var f = 440 * Math.pow(2, (midi - 69) / 12);
+    var o1 = audio.createOscillator();
+    var o2 = audio.createOscillator();
+    var g = audio.createGain();
+    var filter = audio.createBiquadFilter();
+    o1.type = "triangle";
+    o2.type = "sawtooth";
+    o1.frequency.value = f;
+    o2.frequency.value = f * 1.0035;
+    filter.type = "lowpass";
+    filter.frequency.value = 1400;
+    filter.Q.value = 0.6;
+    env(g, t, gain, 0.35, dur);
+    o1.connect(filter); o2.connect(filter); filter.connect(g);
+    g.connect(master); g.connect(send);
+    o1.start(t); o2.start(t);
+    o1.stop(t + dur + 0.4); o2.stop(t + dur + 0.4);
+  }
+
+  function notePluck(t, midi, dur, gain) {
+    var f = 440 * Math.pow(2, (midi - 69) / 12);
+    var o = audio.createOscillator();
+    var g = audio.createGain();
+    var filter = audio.createBiquadFilter();
+    o.type = "sawtooth";
+    o.frequency.value = f;
+    filter.type = "lowpass";
+    filter.frequency.setValueAtTime(4200, t);
+    filter.frequency.exponentialRampToValueAtTime(900, t + 0.28);
+    filter.Q.value = 4;
+    env(g, t, gain, 0.006, 0.42);
+    o.connect(filter); filter.connect(g);
+    g.connect(master); g.connect(send);
+    o.start(t); o.stop(t + 0.6);
+  }
+
+  function noteBass(t, midi, dur, gain) {
+    var f = 440 * Math.pow(2, (midi - 69) / 12);
+    var o = audio.createOscillator();
+    var g = audio.createGain();
+    o.type = "sine";
+    o.frequency.value = f;
+    env(g, t, gain, 0.02, dur);
+    o.connect(g);
+    g.connect(master);
+    o.start(t); o.stop(t + dur + 0.15);
+  }
+
+  function scheduleBar(t, index) {
+    var chord = CHORDS[index % CHORDS.length];
+    // pad: the four chord tones, held just under a bar
+    chord.tones.forEach(function (midi) {
+      notePad(t, midi, BAR * 0.92, 0.055);
+      events.push({ t: t, midi: midi, voice: "pad", dur: BAR * 0.92 });
+    });
+    // arpeggio: eight eighth notes over the chord tones
+    for (var s = 0; s < 8; s++) {
+      var midi = chord.tones[chord.arp[s]] + 12;
+      var when = t + s * BEAT / 2;
+      notePluck(when, midi, 0.4, 0.085 - s * 0.004);
+      events.push({ t: when, midi: midi, voice: "arp", dur: 0.4 });
+    }
+    // bass: beats one and three, plus a pickup on the last eighth
+    noteBass(t, chord.root, BEAT * 1.7, 0.16);
+    noteBass(t + BEAT * 2, chord.root + 7, BEAT * 1.7, 0.12);
+    events.push({ t: t, midi: chord.root, voice: "bass", dur: BEAT * 1.7 });
+    events.push({ t: t + BEAT * 2, midi: chord.root + 7, voice: "bass", dur: BEAT * 1.7 });
+  }
+
+  function scheduler() {
+    var horizon = audio.currentTime + 1.25;
+    while (nextBarTime < horizon) {
+      scheduleBar(nextBarTime, barIndex);
+      nextBarTime += BAR;
+      barIndex++;
+    }
+    // drop events that finished long ago
+    var cutoff = audio.currentTime - 1.5;
+    while (events.length && events[0].t + events[0].dur < cutoff) events.shift();
+    events.sort(function (a, b) { return a.t - b.t; });
+  }
+
+  function currentChordIndex(now) {
+    var elapsed = now - startTime;
+    if (elapsed < 0) return 0;
+    return Math.floor(elapsed / BAR) % CHORDS.length;
+  }
+
+  function hueFor(midi) {
+    var table = { 0: "#ff2d95", 2: "#ff2d95", 4: "#ff2d95", 5: "#59e0ff",
+                  7: "#59e0ff", 9: "#59e0ff", 11: "#59e0ff" };
+    return table[((midi % 12) + 12) % 12] || "#ffb038";
+  }
+
+  function draw() {
+    var now = audio ? audio.currentTime : 0;
+    var strike = H * 0.78;
+    var pxPerSemitone = H / 44;
+    var pxPerSecond = H / 3.4;
+
+    ctx2d.clearRect(0, 0, W, H);
+    ctx2d.fillStyle = "#05060c";
+    ctx2d.fillRect(0, 0, W, H);
+
+    // rolling grid: one line per beat
+    ctx2d.strokeStyle = "rgba(255,255,255,0.045)";
+    ctx2d.lineWidth = 1;
+    var beatPhase = ((now - startTime) / BEAT) % 1;
+    for (var i = -1; i < 14; i++) {
+      var y = strike - ((i + beatPhase) * BEAT * pxPerSecond);
+      if (y < -10 || y > H + 10) continue;
+      ctx2d.beginPath();
+      ctx2d.moveTo(0, y);
+      ctx2d.lineTo(W, y);
+      ctx2d.stroke();
+    }
+
+    // chord name + numeral, centered behind the roll
+    
+
+    // notes
+    var LOW = 43, HIGH = 84;          // G2 .. C6 — the span this piece actually uses
+    var margin = W * 0.07;
+    var step = (W - margin * 2) / (HIGH - LOW);
+    for (var e = 0; e < events.length; e++) {
+      var ev = events[e];
+      var yHead = strike - (ev.t - now) * pxPerSecond;
+      var len = Math.max(3, Math.min(ev.dur, 1.5) * pxPerSecond);
+      if (yHead - len > H + 40 || yHead < -40) continue;
+      var x = margin + (ev.midi - LOW) * step;
+      var w = Math.max(5, step * (ev.voice === "pad" ? 0.62 : 0.44));
+      var alpha = ev.voice === "pad" ? 0.5 : 1;
+      ctx2d.globalAlpha = Math.max(0.1, alpha * (1 - Math.max(0, yHead - strike) / (H * 0.9)));
+      ctx2d.fillStyle = ev.voice === "bass" ? "#ffb038" : hueFor(ev.midi);
+      roundRect(x - w / 2, yHead - len, w, len, w / 2.4);
+      ctx2d.fill();
+      ctx2d.globalAlpha = 1;
+    }
+
+    // strike line
+    ctx2d.strokeStyle = "rgba(255,230,203,0.5)";
+    ctx2d.lineWidth = 1.5;
+    ctx2d.beginPath();
+    ctx2d.moveTo(0, strike);
+    ctx2d.lineTo(W, strike);
+    ctx2d.stroke();
+
+    // chord callout
+    if (playing) {
+      var idx = currentChordIndex(now);
+      var chord = CHORDS[idx];
+      ctx2d.fillStyle = "rgba(255,230,203,0.92)";
+      ctx2d.font = "600 " + Math.round(H * 0.085) + "px ui-monospace, Menlo, monospace";
+      ctx2d.textAlign = "left";
+      ctx2d.fillText(chord.name, 18, H * 0.12);
+      ctx2d.fillStyle = "rgba(89,224,255,0.85)";
+      ctx2d.font = "600 " + Math.round(H * 0.036) + "px ui-monospace, Menlo, monospace";
+      ctx2d.fillText(chord.roman, 20, H * 0.12 + H * 0.042);
+      // loop position: four dots, one per bar
+      for (var d = 0; d < CHORDS.length; d++) {
+        ctx2d.globalAlpha = d === idx ? 1 : 0.22;
+        ctx2d.fillStyle = d === idx ? "#ff2d95" : "#ffe6cb";
+        ctx2d.beginPath();
+        ctx2d.arc(W - 22 - (CHORDS.length - 1 - d) * 15, 20, 4, 0, Math.PI * 2);
+        ctx2d.fill();
+      }
+      ctx2d.globalAlpha = 1;
+      CHORDS.forEach(function (c, i) { c.box.classList.toggle("active", i === idx); });
+    }
+
+    frameId = requestAnimationFrame(draw);
+  }
+
+  function roundRect(x, y, w, h, r) {
+    ctx2d.beginPath();
+    ctx2d.moveTo(x + r, y);
+    ctx2d.arcTo(x + w, y, x + w, y + h, r);
+    ctx2d.arcTo(x + w, y + h, x, y + h, r);
+    ctx2d.arcTo(x, y + h, x, y, r);
+    ctx2d.arcTo(x, y, x + w, y, r);
+    ctx2d.closePath();
+  }
+
+  function start() {
+    if (!audio) buildGraph();
+    if (audio.state === "suspended") audio.resume();
+    playing = true;
+    stage.classList.add("playing");
+    hint.textContent = "Click to stop";
+    startTime = audio.currentTime + 0.12;
+    nextBarTime = startTime;
+    barIndex = 0;
+    events = [];
+    scheduler();
+    schedulerId = setInterval(scheduler, 90);
+  }
+
+  function stop() {
+    playing = false;
+    stage.classList.remove("playing");
+    hint.textContent = "Click to play";
+    clearInterval(schedulerId);
+    schedulerId = null;
+    events = [];
+    if (audio) {
+      master.gain.cancelScheduledValues(audio.currentTime);
+      master.gain.setTargetAtTime(0.0001, audio.currentTime, 0.06);
+      var resumeAt = audio.currentTime + 0.3;
+      setTimeout(function () { if (audio && !playing) { master.gain.setTargetAtTime(0.85, audio.currentTime, 0.01); } }, 320);
+    }
+    CHORDS.forEach(function (c) { c.box.classList.remove("active"); });
+  }
+
+  function toggle() { playing ? stop() : start(); }
+
+  // Small probe so the piece can be inspected without a devtools console.
+  window.chordLoop = {
+    state: function () {
+      return {
+        playing: playing,
+        audioState: audio ? audio.state : "unbuilt",
+        scheduled: events.length,
+        bar: barIndex,
+        chord: CHORDS[currentChordIndex(audio ? audio.currentTime : 0)].name,
+        loopSeconds: BAR * CHORDS.length
+      };
+    }
+  };
+
+  stage.addEventListener("click", toggle);
+  stage.addEventListener("keydown", function (ev) {
+    if (ev.key === " " || ev.key === "Enter") { ev.preventDefault(); toggle(); }
+  });
+
+  // idle state: draw a static chord stack as a preview
+  resize();
+  (function prime() {
+    events = [];
+    var t0 = 0;
+    CHORDS[0].tones.forEach(function (midi, i) {
+      events.push({ t: 0.9 + i * 0.42, midi: midi, voice: "pad", dur: 1.2 });
+    });
+    CHORDS[0].tones.forEach(function (midi, i) {
+      events.push({ t: 0.4 + i * 0.2, midi: midi + 12, voice: "arp", dur: 0.4 });
+    });
+    events.push({ t: 0.2, midi: CHORDS[0].root, voice: "bass", dur: 1.6 });
+    draw();
+  })();
+})();
+</script>
+</body>
+</html>
