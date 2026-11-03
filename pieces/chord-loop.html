@@ -61,7 +61,7 @@
   <div class="controls">
     <label for="vol">volume</label>
     <input id="vol" type="range" min="0" max="100" value="85" aria-label="Volume" />
-    <span class="ios-note">iPhone: the ringer switch mutes web audio &mdash; flip it off silent.</span>
+    <span class="ios-note">iPhone: the ringer switch is handled &mdash; if it stays quiet, raise the volume slider or check the media volume.</span>
   </div>
 
   <div class="tabs" id="tabs"></div>
@@ -132,6 +132,62 @@
     ctx2d.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
   window.addEventListener("resize", resize);
+
+  // iOS routes Web Audio through the "ambient" session, which the hardware
+  // ringer switch silences. Media elements (<audio>/<video>) get the
+  // "playback" session instead, which is why music sites keep playing with
+  // the switch on silent. Two ways to claim that session for ourselves:
+  var silentSrc = null;
+  var keepAlive = null;
+  var lastSession = "none";
+
+  // A half second of digital silence, generated rather than embedded.
+  function silentWavUrl() {
+    if (silentSrc) return silentSrc;
+    var rate = 8000, n = rate / 2;
+    var buf = new ArrayBuffer(44 + n * 2);
+    var v = new DataView(buf);
+    function str(off, s) { for (var i = 0; i < s.length; i++) v.setUint8(off + i, s.charCodeAt(i)); }
+    str(0, "RIFF"); v.setUint32(4, 36 + n * 2, true); str(8, "WAVE");
+    str(12, "fmt "); v.setUint32(16, 16, true); v.setUint16(20, 1, true);
+    v.setUint16(22, 1, true); v.setUint32(24, rate, true); v.setUint32(28, rate * 2, true);
+    v.setUint16(32, 2, true); v.setUint16(34, 16, true);
+    str(36, "data"); v.setUint32(40, n * 2, true);
+    silentSrc = URL.createObjectURL(new Blob([buf], { type: "audio/wav" }));
+    return silentSrc;
+  }
+
+  // Must be called synchronously inside the user gesture.
+  function claimPlaybackSession() {
+    // Safari 16.4+ / the AudioSession API: ask for the media session directly.
+    try {
+      if (navigator.audioSession) {
+        navigator.audioSession.type = "playback";
+        return "audiosession";
+      }
+    } catch (e) { /* fall through */ }
+    // Older iOS: a playing media element flips the whole page to playback,
+    // and Web Audio output is then carried along by the same session.
+    try {
+      if (!keepAlive) {
+        keepAlive = new Audio(silentWavUrl());
+        keepAlive.loop = true;
+        keepAlive.volume = 0;
+        keepAlive.preload = "auto";
+        keepAlive.setAttribute("playsinline", "");
+        keepAlive.setAttribute("aria-hidden", "true");
+        keepAlive.setAttribute("tabindex", "-1");
+        // In the DOM but parked off-canvas: some iOS builds skip playback
+        // requests from elements that were never attached to a document.
+        keepAlive.style.cssText = "position:fixed;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;pointer-events:none";
+        document.body.appendChild(keepAlive);
+        keepAlive.load();
+      }
+      keepAlive.play().catch(function () {});
+      return "element";
+    } catch (e) { /* fall through */ }
+    return "none";
+  }
 
   function buildGraph() {
     var AC = window.AudioContext || window.webkitAudioContext;
@@ -367,8 +423,12 @@
   }
 
   function start() {
+    var sessionMode = claimPlaybackSession();
+    lastSession = sessionMode;
     if (!audio) buildGraph();
-    if (audio.state === "suspended") audio.resume();
+    if (audio.state !== "running") audio.resume();
+    // Reported once so a silent phone can be diagnosed from the console.
+    if (window.console) console.info("[chord-loop] audio session: " + sessionMode + ", context: " + audio.state);
     playing = true;
     stage.classList.add("playing");
     hint.textContent = "Click to stop";
@@ -398,12 +458,22 @@
 
   function toggle() { playing ? stop() : start(); }
 
+  // iOS silently interrupts the context when the page is backgrounded or the
+  // phone locks; resume without needing another tap once it comes back.
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden || !playing) return;
+    if (audio && audio.state !== "running") audio.resume();
+    if (keepAlive && keepAlive.paused) keepAlive.play().catch(function () {});
+  });
+
   // Small probe so the piece can be inspected without a devtools console.
   window.chordLoop = {
     state: function () {
       return {
         playing: playing,
         audioState: audio ? audio.state : "unbuilt",
+        session: lastSession,
+        keepAlive: keepAlive ? (keepAlive.paused ? "paused" : "playing") : "absent",
         scheduled: events.length,
         bar: barIndex,
         chord: CHORDS[currentChordIndex(audio ? audio.currentTime : 0)].name,
