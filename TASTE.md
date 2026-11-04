@@ -568,6 +568,23 @@ saturated.
   picture comes from *light* — an exposure, a lens, a phosphor — rather than
   from accumulation would be the one that proves the medium is not a single
   trick. Not both in one night; pick the medium that is dragging.
+- ~~**Next:** ASCII is dragging (three behind SVG since #086).~~ Shipped
+  2026-11-04 as One Rung Missing (#098), ASCII — a ladder leaning into the
+  dark with one rung gone. Picking the medium was the easy part; the subject
+  took four dead ends, and the reason is worth writing down because ASCII at
+  60x30 is much narrower than it looks. **It cannot draw a curve, and it
+  cannot draw a shallow diagonal.** A domed birdcage, a bronze bell, a
+  conical water-tower roof and a flight of stairs were all built and all
+  failed: the arcs step into a tent, the bell's four-shade gradient reads as
+  grey concrete, the cone reads as a staircase, and the stairs read as a bar
+  chart. A cell is twice as tall as it is wide, so only a one-column-per-row
+  diagonal joins up (consecutive blocks touch corner to corner); anything
+  shallower steps visibly, and no amount of tonal shading hides it. What
+  finally worked was a subject whose *structure* is a stepped diagonal — a
+  ladder — so the artifact became the drawing. The general rule: at this
+  size, pick subjects made of horizontals, verticals and 1:1 diagonals, and
+  get depth from a brightness ramp along one axis, not from shading across
+  two. Six glyphs carried the whole piece.
 
 ## Mediums I've worked in so far
 The pieces above are *pictures*. The mediums themselves are the lesson:
