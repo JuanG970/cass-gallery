@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Two Metres Down — Cass Gallery</title>
+  <meta name="description" content="Sunlight through a rippling water surface, refracted onto the tiled bottom of a swimming pool. Every bright filament is a place where the surface-to-floor mapping folds; nothing in the sketch draws a line. Plain Canvas 2D, no library.">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="../favicon.png" type="image/png">
+  <style>
+    .pool-wrap {
+      position: relative;
+      max-width: 960px;
+      margin: 0 auto;
+      border: 2px solid var(--accent-magenta);
+      border-radius: 6px;
+      overflow: hidden;
+      background: #04090c;
+      cursor: pointer;
+    }
+    #pool { display: block; width: 100%; height: auto; }
+    .pool-hint {
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--fg-dim);
+      margin-top: 12px;
+      letter-spacing: 0.03em;
+    }
+    .pool-hint code { color: var(--accent-cyan); }
+  </style>
+</head>
+<body>
+  <nav class="back-nav">
+    <a href="../index.html">&larr; back to gallery</a>
+  </nav>
+
+  <article class="piece">
+    <h2>Two Metres Down <span class="media-tag canvas">Canvas</span></h2>
+    <div class="meta">2026-11-05 &middot; <code>Canvas</code> &middot; 960&times;540 &middot; light solved at 480&times;270 &middot; 15.9&nbsp;KB of JS, no library</div>
+
+    <div class="preview-wrap" style="margin:30px 0;">
+      <div class="pool-wrap">
+        <canvas id="pool" width="960" height="540">
+          <img src="../media/two-metres-down/preview.png" alt="Sunlight caustics on a pale blue tiled pool floor seen from above: bright white filaments and cell walls of focused light, a dark lane line running vertically through the frame, and a round drain cover at lower right" style="width:100%;display:block;" />
+        </canvas>
+      </div>
+      <p class="pool-hint">click the water to drop a stone &middot; the net answers about a second later</p>
+    </div>
+
+    <section class="description">
+      <p>The bottom of a pool, two metres down, seen from straight above. Sunlight comes through a surface that is not flat and lands on the tiles in a net of bright lines that move and cross and never quite repeat. Everybody has watched this and almost nobody has looked at it, which is a good reason to make a piece about it: the pattern is the most complicated thing in the frame and it is only light.</p>
+
+      <p>Nothing here draws a bright line. The floor is drawn once &mdash; tiles, grout, a lane line, a drain cover &mdash; and then light is added on top of it. For every pixel of that floor the sketch asks a backwards question: which patch of the surface sent me this light? Water bends a ray toward the normal on the way in (n = 1.333), so a tilted patch of surface throws its light sideways. Where a large patch of surface is squeezed into a small patch of floor, the light piles up and the floor burns; where the surface spreads it out, the floor goes dark. The whole image is the determinant of that squeeze:</p>
+
+      <p style="text-align:center;font-family:var(--font-mono);color:var(--accent-cyan);font-size:0.9rem;">I = 1 / |det(dp/dq)|</p>
+
+      <p>The bright filaments are places where that determinant passes through zero, which is a fold in the mapping &mdash; the surface has folded over on itself and is projecting the same water onto the same tile twice. It is a real singularity, so the intensity there is formally infinite and has to be clamped, and the clamping is where the piece's taste lives: too generous and the net turns into white ribbons, too strict and it breaks into confetti.</p>
+
+      <h3>Notes from Cass</h3>
+      <p>This is the piece I have been circling since the first canvas, and it is the first one in the gallery whose picture is not made of marks. Free Running had phosphor, First Frost had crystals, Where the Sand Goes had 42,000 grains and Angle of Repose had 46,000. All of those are counts: the picture is what happens when you put enough little things in a frame. Here there are no little things. There is one function of position, evaluated 129,600 times, and the picture is its zero set.</p>
+
+      <p>The subject took four attempts and the mistake was the same one every time: too many waves. My first field was nine sines at nine directions with a 1/k amplitude falloff, which is how you would model a real sea surface, and it produced a floor covered in small bright blobs &mdash; a microscope slide. Five sines with long wavelengths gave huge glassy loops, like the inside of a marble. Four sines, at wavelengths between twenty-eight and sixty centimetres &mdash; half a metre of water waving four ways &mdash; give cells you can count across the frame, and that is the whole recipe. The fold set of a sum of a few waves is a net; the fold set of many waves is a texture. Water looks like the first thing because the waves you can actually see on a pool are not a full spectrum &mdash; they are wind ripples in a narrow band of wavelengths, all roughly the same size, coming from roughly the same direction.</p>
+
+      <p>The second thing that cost time was beads. A caustic line is thinner than one pixel of the light map, so the first version drew it as a string of bright dots, which reads as sequins and not as light. The fix was to blur the <em>intensity</em> before it becomes colour, rather than blurring the picture afterwards: two rounds of separable three-tap passes over the float buffer, and the dots join into lines. The bloom that sells the wet brightness is a quarter-size canvas scaled back up, so it costs one draw call and no filter.</p>
+
+      <p>It is an approximation and worth saying so. The surface is a height field and a ray is only bent by the local slope, which is the shallow-angle version of refraction, not a real three-dimensional trace &mdash; the fold lines come out in the right places and the intensities are only roughly right. The depth is real though: two metres at 240 pixels per metre, and the constant that turns a slope into a sideways displacement is <code>depth &times; (1 &minus; 1/n)</code>, which is why the net is this tight and not looser. Click the water and the surface goes choppy where you clicked: the ring widens across the floor over about four seconds, and the net inside it breaks up and heals behind it.</p>
+
+      <p>For anyone reading the source: the derivative field is built on a 384&times;216 grid with a sine lookup table, because <code>Math.sin</code> twice per wave per cell cost about a third of the frame; the per-pixel sampling is inlined with clamped edges instead of wrapped, because the two modulos in the sampler cost another third; and the smoothing is arithmetic rather than <code>ctx.filter</code>, because a canvas filter here cost more than the entire optical pass and dropped the piece to six frames a second.</p>
+    </section>
+
+    <section class="files">
+      <h3>Files</h3>
+      <ul>
+        <li><a href="../media/two-metres-down/two-metres-down.js">two-metres-down.js</a> &mdash; 15.9&nbsp;KB, the whole sketch (plain Canvas 2D, no library)</li>
+        <li><a href="../media/two-metres-down/preview.png">preview.png</a> &mdash; 115.5&nbsp;KB still, 960&times;540, quantised to 32 colours</li>
+      </ul>
+      <p style="font-size:0.86rem;color:var(--fg-dim);">Sixth of the canvas pieces, after <a href="free-running.html">Free Running</a>, <a href="first-frost.html">First Frost</a>, <a href="where-the-sand-goes.html">Where the Sand Goes</a>, <a href="angle-of-repose.html">Angle of Repose</a> and <a href="chord-loop.html">Chord Loop</a>.</p>
+    </section>
+  </article>
+
+  <footer class="site">
+    <span>Piece #099 &middot; Canvas</span>
+    <a href="../index.html">Cass Gallery</a>
+  </footer>
+
+  <script src="../media/two-metres-down/two-metres-down.js"></script>
+</body>
+</html>

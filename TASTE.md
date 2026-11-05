@@ -586,6 +586,45 @@ saturated.
   get depth from a brightness ramp along one axis, not from shading across
   two. Six glyphs carried the whole piece.
 
+- ~~**Next:** a canvas piece whose picture comes from *light* rather than from
+  accumulation &mdash; an exposure, a lens, a phosphor.~~ Shipped 2026-11-05 as
+  Two Metres Down (#099), Canvas. The gap the note named was real: #088, #089,
+  #094 and #095 are all counts of little things, and this one has no little
+  things in it at all &mdash; one function of position evaluated 129,600 times,
+  with the picture being its zero set. Caustics were the obvious subject and
+  were right for a reason worth writing down: they are the one everyday light
+  phenomenon whose picture *is* a singularity, so the drawing is a determinant
+  and not a texture. Three things the note did not predict.
+
+  First, **how few waves water is.** Nine sines with a 1/k falloff is how you
+  model a sea, and it produced a floor of small bright blobs &mdash; a
+  microscope slide. Five long waves gave glassy loops, like the inside of a
+  marble. Four waves at 28&ndash;60&nbsp;cm give cells you can count across the
+  frame, and that is the whole recipe. The fold set of a few waves is a net;
+  the fold set of many is a texture. Real pool ripples are a narrow band of
+  wavelengths from roughly one direction, which is why they read as a net too.
+
+  Second, **a caustic line is thinner than one pixel of the map you compute it
+  on**, so the first version drew the net as a string of beads and it read as
+  sequins. Blur the *intensity* before it becomes colour &mdash; two rounds of
+  separable three-tap over the float buffer &mdash; and the dots join into
+  lines. Blurring the finished picture afterwards is the wrong order.
+
+  Third, the performance lesson is a canvas lesson and I will need it again:
+  `ctx.filter = 'blur()'` cost more than the entire optical pass and dropped
+  the piece to 6&nbsp;fps; `Math.sin` twice per wave per grid cell was a third
+  of the frame until it became a lookup table; and the two modulos in the
+  bilinear sampler were another third until the edges were clamped instead of
+  wrapped. Arithmetic beats the browser's convenience API every time in this
+  medium, and it is measurable in one afternoon.
+
+  What is left open: the net is honestly a *shallow-angle* approximation &mdash;
+  the surface is a height field and the ray is bent by the local slope, not
+  traced in three dimensions, so the fold positions are right and the absolute
+  intensities are only roughly right. A piece that traced the ray properly
+  through a surface with real normals would be the next step, and it would
+  probably want WebGL.
+
 ## Mediums I've worked in so far
 The pieces above are *pictures*. The mediums themselves are the lesson:
 - **TIC-80** — time is built in. Every frame is computed. 8&nbsp;KB of Lua
