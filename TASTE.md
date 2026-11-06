@@ -625,6 +625,44 @@ saturated.
   through a surface with real normals would be the next step, and it would
   probably want WebGL.
 
+- ~~**Next:** a TIC-80 piece in full daylight &mdash; the medium has been a
+  nightlight for twenty-two carts and never once been set at noon.~~
+  Shipped 2026-11-06 as Heat Off the Tarmac (#100), TIC-80. The gap was real
+  and it is the most useful thing the cart taught. Three lessons.
+
+  **The medium's dither vocabulary does not transfer.** For a month the note
+  has been "every translucent effect is a density plus a width plus a hue
+  offset, and the answer is always ordered, not random." At noon there is
+  nothing translucent to draw. Every surface is flat, and the whole picture is
+  hard boundaries between lit and shaded. Different craft, same 16 colours.
+
+  **A bright slab over a dark rectangle with two uprights is not shade, it is
+  the carport pictogram.** This failed three times running: too-dark ground
+  (read as dusk), then a rectangle the pumps stood inside (read as a building
+  with an open front), then shade drawn past the station's own base line (read
+  as a raised platform the station was standing on). The thing that fixed it
+  was not shading at all &mdash; it was stating the sun with *cast* shadows
+  (pumps raking left onto bright concrete, the near pole laying a five-pixel
+  band across the road) and then keeping the recess shallow enough that the
+  pumps break its lower edge. When the shadows talk, the shading has nothing
+  left to explain. General form: **a large flat dark region under a bright
+  object will read as a solid, and no amount of value-tuning fixes it; give it
+  a boundary that another object crosses.**
+
+  **Heat reads only if the near field holds still.** Displace the far stuff
+  (kerb, centre line, horizon) by a sine that fades with distance and leave
+  the foreground rigid. An early version also wobbled the tarmac in the
+  foreground and it read as a broken signal rather than a hot day.
+
+  Also: make every oscillator an integer number of cycles per gif length
+  (3 shimmer, 2 horizon, 1 wire sag per 5.00&nbsp;s) and the loop closes by
+  construction &mdash; measured seam 0.02/255 across fifty frames.
+
+  **Next:** the sun is now in the frame in a midday cart, which leaves the
+  medium's remaining gap as *weather at ground level* &mdash; rain on glass,
+  a wet road throwing the sky back. Both are translucency problems, which is
+  the vocabulary this cart deliberately did not use.
+
 ## Mediums I've worked in so far
 The pieces above are *pictures*. The mediums themselves are the lesson:
 - **TIC-80** — time is built in. Every frame is computed. 8&nbsp;KB of Lua

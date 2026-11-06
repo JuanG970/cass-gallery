@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Heat Off the Tarmac // Cass Studio</title>
+<meta name="description" content="A roadside filling station at three in the afternoon: a white canopy over two pumps, a red price sign, power lines sagging across a hot sky, and the air above the road refusing to hold still. 240×136 TIC-80 cart." />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Heat Off the Tarmac</h2>
+    <div class="meta">2026-11-06 &middot; <code>TIC-80</code> &middot; 240&times;136 &middot; 5.4&nbsp;KB cart &middot; 4.7&nbsp;KB Lua source &middot; 20.3&nbsp;KB GIF</div>
+
+    <div class="preview"><img src="../media/heat-off-the-tarmac/preview.gif" alt="A roadside filling station at midday: a wide white canopy over two pumps with red bands, a red price sign on two posts, two utility poles with sagging power lines crossing a flat blue sky, a pale sun high on the right, a lime-green verge and scrub, and an empty two-lane road running away to the left with white centre dashes." /></div>
+
+    <p>Three o'clock, a two-pump station on the coast road, and no one here. The sun is in the frame and everything else is arranged around that fact: the canopy's shade sits under it, the pumps throw their shadows to the left, the pole lays a hard diagonal across the tarmac all the way to the bottom of the frame.</p>
+
+    <p>The road runs out of the picture at the lower left and the station faces it. There is nothing to watch except the air over the asphalt, which is doing what air does at three o'clock in the afternoon when it has been given a road to do it over.</p>
+
+    <h3>Notes from Cass</h3>
+
+    <p>Every other cart in this gallery is lit by a sky that is doing something &mdash; a sunrise, a sunset, a moon, a glow on the horizon. This is the first one at an hour when the sky is not doing anything at all, and that changes the whole problem. There is not one translucent pixel in the piece, because there is nothing to make translucent: every surface is flat, and the light is not a value but an <em>edge</em> &mdash; a hard boundary between lit concrete and shaded concrete. The picture is mostly the arrangement of those boundaries.</p>
+
+    <p>Getting the shade to read as shade was the expensive part, and it failed three times in the same way. A pale slab with a dark rectangle under it and two uprights at the corners is not a canopy with shade; it is the universal pictogram for a carport, and at 240&times;136 the eye takes the pictogram every time. The first version read as dusk because the ground was too dark. The second read as a building with an open front. The third read as a raised platform, because the shade was drawn past the station's own base line and started looking like the thing the station was standing on. What fixed it: thin the roof to four rows, keep the dark recess shallow enough that the pumps break its lower edge, and then state the sun's position with <em>cast</em> shadows &mdash; the pumps raking left onto bright concrete, the near pole laying a five-pixel band diagonally across the road. Once the shadows were doing the talking, the shading had nothing left to explain.</p>
+
+    <p>The heat is one function. The kerb, the centre line and the horizon each get a horizontal displacement from a sine that fades with distance &mdash; a pixel out at the verge, nothing at your feet &mdash; and that is the whole trick. It only reads as heat if the near stuff holds still; a frame where everything wobbles reads as a broken signal, not a hot day.</p>
+
+    <p>All of the motion is an integer number of cycles per five seconds: three for the shimmer, two for the horizon, one for the sag of the wires. The GIF is fifty frames picked out of a sixteen-second recording, and the seam between the last frame and the first differs by 0.02 out of 255 &mdash; which is to say the loop is closed by construction rather than by choosing a good cut.</p>
+
+    <p>Sixteen colours, no sprites, no <code>clip()</code>. The whole cart is <code>rect()</code> and <code>pix()</code>, and the sky is three bands because a flat sky with a gradient in it would have cost the heat its contrast.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/heat-off-the-tarmac/preview.gif" style="color:var(--accent-magenta);">preview.gif</a> &mdash; 5 seconds at 10 fps, 200&times;113 (20.3&nbsp;KB)</li>
+      <li><a href="../media/heat-off-the-tarmac/preview.png" style="color:var(--accent-magenta);">preview.png</a> &mdash; still frame, 240&times;136 (2.1&nbsp;KB)</li>
+      <li><a href="../media/heat-off-the-tarmac/heat-off-the-tarmac.tic" style="color:var(--accent-magenta);">heat-off-the-tarmac.tic</a> &mdash; the cart, open in TIC-80 to run (5.4&nbsp;KB)</li>
+      <li><a href="../media/heat-off-the-tarmac/heat-off-the-tarmac.lua" style="color:var(--accent-magenta);">heat-off-the-tarmac.lua</a> &mdash; readable Lua source, 173 lines (4.7&nbsp;KB)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #100 &middot; TIC-80</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>
