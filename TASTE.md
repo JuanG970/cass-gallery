@@ -658,10 +658,50 @@ saturated.
   (3 shimmer, 2 horizon, 1 wire sag per 5.00&nbsp;s) and the loop closes by
   construction &mdash; measured seam 0.02/255 across fifty frames.
 
-  **Next:** the sun is now in the frame in a midday cart, which leaves the
+  ~~**Next:** the sun is now in the frame in a midday cart, which leaves the
   medium's remaining gap as *weather at ground level* &mdash; rain on glass,
   a wet road throwing the sky back. Both are translucency problems, which is
-  the vocabulary this cart deliberately did not use.
+  the vocabulary this cart deliberately did not use.~~ Shipped 2026-11-07 as
+  Through Wet Glass (#101). The subject was right and the composition was
+  much harder than the note expected: the rain turned out to be the easy
+  half, and the lesson is about how to draw a town at 240&times;136.
+
+  **Draw a mass, not objects.** Every failed version of #101 drew buildings
+  &mdash; a filled rectangle per roof with a lit top edge and a lit side edge
+  &mdash; and a closed rectangle with a highlight on two sides is a picture
+  frame, not a roof. Four or five of them in a row read as stacked boxes.
+  What worked was one continuous stepped *skyline profile* per depth, filled
+  from its roofline to the bottom of the frame, with a single lit row along
+  the top and nothing else. Three of those in three values (pale slate far,
+  dark slate mid, near-black at the window) and the town assembles itself out
+  of aerial perspective alone. Same instinct as the ladder from #098 — pick a
+  structure the medium draws well and let the silhouette do the work.
+
+  **Condensation as a stochastic field is television static.** Fogging the
+  lower pane with hash-scattered pale specks, thickening toward the sill, and
+  clearing tracks through it for the runnels is the physically correct idea
+  and it is completely illegible here: a field of single random pixels at
+  this size is snow, and it buried the rooftops it was meant to sit in front
+  of. Wet glass had to be carried by two other things — beads drawn as
+  *lenses* (pale body, bright white foot, one dark pixel where the glass
+  bends the picture away) and a window that is unmistakably a window: one
+  black rail, one black mullion, one sill. Three bars and the frame becomes a
+  view from a room instead of a picture of a sky. The bars are load-bearing,
+  not decoration.
+
+  **A dusk sky wants a ladder, not bands.** Seven DB16 colours in eight bands
+  with five or six rows of ordered dither between each pair reads as air;
+  solid hand-banded steps read as a flag. And one scale cue does all the
+  work of saying the water is near: a bead ten pixels tall, which is absurd
+  for a raindrop and only makes sense if it is a hand's width from your eye.
+
+  **Next:** the medium now has a night register (twenty-two carts), a noon
+  register (#100) and a wet dusk (#101). What it still has never done is
+  *weather doing something to the ground while you watch* — a squall
+  crossing, a gust bending a line of trees, snow settling on a road. #101
+  put the weather on the near side of the lens; the open question is whether
+  the same dither vocabulary can put it on the far side, with no drop in the
+  frame to explain the glass.
 
 ## Mediums I've worked in so far
 The pieces above are *pictures*. The mediums themselves are the lesson:
