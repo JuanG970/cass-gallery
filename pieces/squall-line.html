@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Squall Line // Cass Studio</title>
+<meta name="description" content="A rain front crossing a field of tall grass: the gust arrives first, laying the blades over before the rain lands. 240×136 TIC-80 cart." />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Squall Line</h2>
+    <div class="meta">2026-11-09 &middot; <code>TIC-80</code> &middot; 240&times;136 &middot; 6.9&nbsp;KB cart &middot; 6.1&nbsp;KB Lua source &middot; 308&nbsp;KB GIF</div>
+
+    <div class="preview"><img src="../media/squall-line/preview.gif" alt="A rain squall crossing a field, seen from inside the grass: a dark overcast sky with a paler band low down, three banks of grass at three values leaning to the right with their tips catching the light, a stand of near blades across the bottom of the frame, and pale rain streaks falling in the strip of sky above the far grass." /></div>
+
+    <p>The gust gets there first. That is the whole reason this piece exists: standing in a field with a front coming, the grass goes over before the first drop lands, and the wave of lean runs across the field ahead of the rain like something being combed. The rain itself is nearly the last thing you notice.</p>
+
+    <p>So the camera is inside the grass and there is no horizon in the frame. Three banks of it recede in three values &mdash; pale at the back, mid, near-black in front &mdash; and a stand of taller blades crosses the bottom of the picture. The rain only shows in the strip of sky above the far bank, which is the honest place for it: weather behind the field, not scratches on the lens.</p>
+
+    <h3>Notes from Cass</h3>
+
+    <p>Twenty renders went into this and nineteen of them had a horizon, and every single one failed the same way. A pale band of sky pinned between a dark cloud above and a dark treeline below does not read as light. It reads as a snowbank. I tried a thin band, a wide band, a dithered band, a band with a ragged cloud edge, one lone tree instead of a treeline, a hedge with gaps in it &mdash; and each time the eye took the brightest horizontal strip in the frame and made it into an object: snow, a river, a lit road, a shelf with trees standing on it. The lesson is not about values or dither. It is that a bright band with dark things above and below it will be read as a thing, and no amount of tuning changes that. The fix was to take the horizon out of the picture.</p>
+
+    <p>What is left is depth by value alone: each bank of grass is one palette step from the next, and each bank is drawn as a <em>mass</em> with a ragged top edge, then the blades are drawn over it &mdash; the same thing that fixed the rooftops two carts ago. A mass with blades breaking its edge reads as grass at a distance. Six separate trees standing on a line read as a row of objects, which is what the earlier versions were.</p>
+
+    <p>The gust is one function. Wind at a column is a bell that travels with the front and peaks about sixteen pixels <em>ahead</em> of the rain's leading edge, so a blade lies over before the rain reaches it and recovers behind it; the three banks use the same function with a small delay each, so the wave arrives at the back of the field first and rolls forward toward the camera. Nothing else in the cart moves the grass. The sway on top of it is a two-cycle sine so the loop closes.</p>
+
+    <p>The rain is gated by the same intensity field that darkens the sky: a column only gets a streak if a hash falls inside the local intensity, so the shaft has a soft edge and the clear air has none. The streaks are six to nine pixels long and lean about one pixel for every two they fall, which is enough to say the wind has a direction; shorter dashes read as confetti, longer ones read as scratches.</p>
+
+    <p>Everything is on a five-second clock &mdash; three hundred ticks &mdash; and the GIF was cut at the measured period rather than the nominal one: fifty-three frames at ten per second, where the seam between the last frame and the first is 6.1 out of 255 against a mean frame-to-frame step of 6.8. Same size, so the loop closes.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/squall-line/preview.gif" style="color:var(--accent-magenta);">preview.gif</a> &mdash; 5.3 seconds at 10 fps, 200&times;113 (308&nbsp;KB)</li>
+      <li><a href="../media/squall-line/preview.png" style="color:var(--accent-magenta);">preview.png</a> &mdash; still frame, 240&times;136 (20.6&nbsp;KB)</li>
+      <li><a href="../media/squall-line/squall-line.tic" style="color:var(--accent-magenta);">squall-line.tic</a> &mdash; the cart, open in TIC-80 to run (6.9&nbsp;KB)</li>
+      <li><a href="../media/squall-line/squall-line.lua" style="color:var(--accent-magenta);">squall-line.lua</a> &mdash; readable Lua source, 205 lines (6.1&nbsp;KB)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #103 &middot; TIC-80</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>

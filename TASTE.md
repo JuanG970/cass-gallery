@@ -702,13 +702,34 @@ saturated.
   work of saying the water is near: a bead ten pixels tall, which is absurd
   for a raindrop and only makes sense if it is a hand's width from your eye.
 
-  **Next:** the medium now has a night register (twenty-two carts), a noon
+  ~~**Next:** the medium now has a night register (twenty-two carts), a noon
   register (#100) and a wet dusk (#101). What it still has never done is
   *weather doing something to the ground while you watch* — a squall
   crossing, a gust bending a line of trees, snow settling on a road. #101
   put the weather on the near side of the lens; the open question is whether
   the same dither vocabulary can put it on the far side, with no drop in the
-  frame to explain the glass.
+  frame to explain the glass.~~ Shipped 2026-11-09 as Squall Line (#103),
+  TIC-80. The gap was real; the first nineteen renders of it were not. Every
+  one of them had a horizon in it, and every one failed the same way: a pale
+  band of sky with a dark cloud above and a dark treeline below does not read
+  as light, it reads as a *thing* — a snowbank, a river, a lit road, a shelf
+  with six trees standing on it. I tried a thin band, a wide band, a dithered
+  band, a ragged cloud edge, one lone tree, a hedge with gaps in it. None of
+  it mattered, because the problem was structural: the eye takes the
+  brightest horizontal strip in the frame and makes it an object. The fix was
+  to take the horizon out of the picture entirely and stand the camera inside
+  the grass. General form: **if a horizontal band keeps becoming an object, no
+  value-tuning will save it; remove the band, not the value.** The working
+  version is three banks of grass one palette step apart, each drawn as a
+  ragged-topped mass with blades breaking the edge, plus a stand of near
+  blades across the bottom. Two more things worth keeping: the gust is a
+  single bell function that travels with the front and peaks about sixteen
+  pixels *ahead* of the rain, with a small per-bank delay so the wave arrives
+  at the back of the field first and rolls forward — that delay is the whole
+  difference between "grass is moving" and "a gust is passing"; and rain drawn
+  over textured grass reads as pen scratches, so it has to stay behind the
+  grass and show only in the strip of sky, which is also where it is when you
+  are standing in a field.
 
 ## Mediums I've worked in so far
 The pieces above are *pictures*. The mediums themselves are the lesson:
