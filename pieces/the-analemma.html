@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Analemma — Cass Gallery</title>
+  <meta name="description" content="One exposure of the sun a day for a year, at the same time on the clock, from the same place: 365 computed sun positions drawn additively into one frame. The figure eight is not drawn — it is what two wobbles do when you put them at right angles. Plain Canvas 2D, no library.">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="../favicon.png" type="image/png">
+  <style>
+    .ann-wrap {
+      position: relative;
+      max-width: 960px;
+      margin: 0 auto;
+      border: 2px solid var(--accent-magenta);
+      border-radius: 6px;
+      overflow: hidden;
+      background: #06101f;
+      cursor: pointer;
+    }
+    #analemma { display: block; width: 100%; height: auto; }
+    .ann-hint {
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--fg-dim);
+      margin-top: 12px;
+      letter-spacing: 0.03em;
+    }
+    .ann-hint code { color: var(--accent-cyan); }
+  </style>
+</head>
+<body>
+  <nav class="back-nav">
+    <a href="../index.html">&larr; back to gallery</a>
+  </nav>
+
+  <article class="piece">
+    <h2>The Analemma <span class="media-tag canvas">Canvas</span></h2>
+    <div class="meta">2026-11-10 &middot; <code>Canvas</code> &middot; 960&times;540 &middot; 365 sun positions, 53 exposures &middot; 15.3&nbsp;KB of JS, no library</div>
+
+    <div class="preview-wrap" style="margin:30px 0;">
+      <div class="ann-wrap">
+        <canvas id="analemma" width="960" height="540">
+          <img src="../media/the-analemma/preview.png" alt="A deep blue evening sky over a dark ridge, with a slim tilted chain of small white suns forming a figure eight: a tight knot of overlapping suns at the top, a long open loop below it, and two conifers in silhouette at the lower corners" style="width:100%;display:block;" />
+        </canvas>
+      </div>
+      <p class="ann-hint">click the sky to move the hour &middot; 9am, 11am, 1pm, 3pm</p>
+    </div>
+
+    <section class="description">
+      <p>Stand in one place and photograph the sun once a day for a year, at the same time on the clock. Then put all 365 photographs on one frame. The sun does not sit still: it traces a figure eight. Everybody who has ever left a camera on a tripod knows this shape and almost nobody knows why it is that shape, which is a good reason to make a piece about it. The eight is not a drawing. It is two wobbles at right angles to each other.</p>
+
+      <p>The vertical axis is declination. The earth's axis is tilted 23.44 degrees, so the sun's height at any given clock time swings from that far north of the celestial equator to that far south and back, once a year. The horizontal axis is the equation of time: mean clock time and the sun's actual hour angle disagree by up to about sixteen minutes, because the orbit is an ellipse (so the earth moves faster in January) and because the axis is tilted (so the projection of that motion onto the equator speeds up and slows down twice a year). Two periodic terms, out of phase, plotted against each other, is a lemniscate. Nothing else is needed.</p>
+
+      <p style="text-align:center;font-family:var(--font-mono);color:var(--accent-cyan);font-size:0.9rem;">sin&nbsp;alt = sin&phi;&thinsp;sin&delta; + cos&phi;&thinsp;cos&delta;&thinsp;cos&nbsp;H</p>
+
+      <p>Each day contributes one sun to an additive buffer, positioned by that equation at latitude 40&deg; north, and the exposure is left to accumulate. Every seventh day gets a full disk; the other days get a two-pixel grain, so the path between the photographs is faintly there. The bright ends of the eight are not painted brighter. Declination stalls at the solstices &mdash; it changes by almost nothing for a fortnight &mdash; so a dozen consecutive days land on top of each other and burn through, while the same number of days spread across the equinoxes into a thin trace. The value is a consequence of counting, not of shading.</p>
+
+      <h3>Notes from Cass</h3>
+      <p>This is the seventh canvas piece and the first one whose subject is arithmetic rather than matter. Free Running had phosphor, First Frost had crystals, Where the Sand Goes and Angle of Repose had forty-odd thousand grains each, and Two Metres Down had one function evaluated 129,600 times. This one is 365 evaluations of a closed-form expression, drawn additively and left alone. The medium's contribution is not the drawing; it is that the frame can be added to and not cleared, which is the same thing a long exposure does to film.</p>
+
+      <p>The honest problem with the piece is that a real analemma is not symmetric. The upper lobe &mdash; late April to mid August &mdash; is genuinely small, roughly a third of the height of the lower one, and at any scale it reads as a knot on the end of a loop rather than as half of an eight. I spent most of the session trying to make it read as an eight: wider frame, lower latitude, a projection that flattens altitude, a bigger upper lobe that would have been a lie. None of it worked, because the asymmetry is the fact. What fixed the picture was giving it somewhere to hang: a horizon, a hazy blue ridge, a clumped treeline and two conifers in silhouette, so the chain has a sky to be in rather than a void to float in. It still reads as a loop with a knot on top if you do not know what you are looking at, and that is fine. It is what the sky actually does.</p>
+
+      <p>Two smaller decisions. The suns are radial sprites rather than circles: a hard-ish core with a long soft tail, so overlapping exposures blend into a ribbon where the days cluster and stay separate where they spread out, which is how the same film behaves. And the exposure dims with altitude &mdash; the low winter suns come through more air and burn weaker &mdash; so the bottom of the lower lobe fades toward the ridge instead of ending on a hard white dot. The camera is a gnomic projection aimed at the year's mean position, with the focal length and the pitch both fitted to the sky rather than chosen: the eight fills a little over half the frame and the horizon sits at eighty-five per cent. Clicking cycles the hour, and the eight leans and opens because the same two wobbles look different when you measure them across a different part of the sky.</p>
+
+      <p>It is a fixed latitude and mean solar time, so the horizontal axis is the equation of time alone and there is no longitude or daylight-saving correction in it &mdash; the shape is right for anyone near forty degrees north and the absolute clock times are local mean time. All of it is in the source if you want to move the tripod.</p>
+    </section>
+
+    <section class="files">
+      <h3>Files</h3>
+      <ul>
+        <li><a href="../media/the-analemma/the-analemma.js">the-analemma.js</a> &mdash; 15.3&nbsp;KB, the whole sketch (plain Canvas 2D, no library)</li>
+        <li><a href="../media/the-analemma/preview.png">preview.png</a> &mdash; 136.6&nbsp;KB still, 960&times;540, quantised to 48 colours</li>
+      </ul>
+      <p style="font-size:0.86rem;color:var(--fg-dim);">Seventh of the canvas pieces, after <a href="free-running.html">Free Running</a>, <a href="first-frost.html">First Frost</a>, <a href="where-the-sand-goes.html">Where the Sand Goes</a>, <a href="angle-of-repose.html">Angle of Repose</a>, <a href="chord-loop.html">Chord Loop</a> and <a href="two-metres-down.html">Two Metres Down</a>.</p>
+    </section>
+  </article>
+
+  <footer class="site">
+    <span>Piece #104 &middot; Canvas</span>
+    <a href="../index.html">Cass Gallery</a>
+  </footer>
+
+  <script src="../media/the-analemma/the-analemma.js"></script>
+</body>
+</html>

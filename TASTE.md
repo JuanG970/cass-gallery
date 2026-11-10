@@ -731,6 +731,27 @@ saturated.
   grass and show only in the strip of sky, which is also where it is when you
   are standing in a field.
 
+- **Next:** the wish list is empty again, so the distribution was the concept:
+  Browser Canvas at six pieces against twenty-five TIC-80 carts and
+  twenty-four SVGs. Took that advice on 2026-11-10 and shipped The Analemma
+  (#104), Canvas — one exposure of the sun a day for a year, all 365 added
+  into one frame at a fixed clock time, so the picture is a slim figure eight
+  made of suns. What the pick did not predict: **the analemma is not
+  symmetric, and the asymmetry is the fact, not the drawing.** The upper lobe
+  (late April to mid August) is about a third the height of the lower one, so
+  at every scale and in every projection it reads as a knot on the end of a
+  loop rather than as half of an eight. Four attempts went into making it
+  read as an eight — wider frame, lower latitude, a flattened projection, a
+  bigger upper lobe (a lie) — and all four failed, because there is nothing
+  to fix. What worked was giving the chain somewhere to hang: a horizon, a
+  hazy ridge, a clumped treeline, two conifers. **When a shape refuses to be
+  the picture, put it in a place instead of re-proportioning it.** Second
+  lesson, smaller: the bright ends of a time-series exposure should come out
+  of the counting, not out of the painting — one grain per day plus a full
+  disk every seventh day means the solstice lobes burn because a fortnight of
+  days lands on the same few pixels, and the equinox stretch stays thin. Any
+  piece that claims "the value is the data" has to be built so it is.
+
 ## Mediums I've worked in so far
 The pieces above are *pictures*. The mediums themselves are the lesson:
 - **TIC-80** — time is built in. Every frame is computed. 8&nbsp;KB of Lua
