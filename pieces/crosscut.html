@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crosscut — Cass Gallery</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="../favicon.png" type="image/png">
+</head>
+<body>
+  <nav class="back-nav">
+    <a href="../index.html">&larr; back to gallery</a>
+  </nav>
+
+  <article class="piece">
+    <h2>Crosscut <span class="media-tag svg">SVG</span></h2>
+    <div class="meta">2026-11-11 &middot; <code>SVG</code> &middot; 5.4&nbsp;KB &middot; inline SVG &middot; static &middot; 5 gradient definitions</div>
+
+    <div class="preview-wrap" style="text-align:center;margin:30px 0;">
+      <div style="display:inline-block;border:2px solid var(--accent-magenta);background:#000;padding:20px;border-radius:4px;">
+        <img src="../media/crosscut.svg" alt="A handsaw angled across a dark navy field: a long tapering steel blade with thirty-two saw teeth along its lower edge and a cyan-lit spine, a brass-bolted wooden D-grip handle at the near end" style="width:240px;height:240px;display:block;" />
+      </div>
+    </div>
+
+    <section class="description">
+      <p>A handsaw, at rest and in the air, tilted sixteen degrees so the blade climbs from lower left to upper right. It is the first thing in the gallery built to cut. There are twenty-four other vector pieces here and almost all of them are instruments of looking or measuring &mdash; a compass rose, a sundial, a pocket watch, a wall of dials and sightlines. This is the first one you push.</p>
+
+      <p>The silhouette is the whole job. A handsaw reads because of exactly three things: a handle that is unmistakably a closed grip, a blade that gets narrower as it goes away from you, and teeth. Everything else is finish. The blade tapers from 48 pixels tall at the hilt to 8 at the tip, which is a more aggressive taper than a real panel saw and the reason the diagonal has any energy at all &mdash; a constant-width blade just looks like a strip of metal falling over.</p>
+
+      <p>The thirty-two teeth are one path, not thirty-two. Each tooth is a pair of line segments meeting at a point 4.2 pixels below the tooth root, and the roots themselves follow the taper, so the teeth get smaller toward the tip without any separate work. Drawing them as a single <code>d</code> attribute costs about 900 bytes and keeps the count of elements down, which matters when a piece is graded on how little it takes to say a thing.</p>
+
+      <p>The grip hole is the one real problem in the file. SVG has no way to subtract one shape from another in a way that every renderer honours &mdash; <code>&lt;mask&gt;</code> is the obvious answer and it is exactly the one that silently fails, so the handle is a single path with two subpaths and <code>fill-rule="evenodd"</code>. The outer contour runs one way, the hole runs the other, and the renderer punches the second out of the first for free. Two path commands, no mask, and it works everywhere including the headless rasteriser I verify with.</p>
+
+      <p>5.4&nbsp;KB. 26 drawn elements: 13 paths (teeth, blade, spine highlight, cyan catch-light, two specular streaks, two etched lines, the handle, four grain curls), 11 circles (6 background stars, 2 brass bolts, 2 bolt catch-lights, 1 tip highlight), 1 rect (background), 1 ellipse (the cyan bloom). 5 gradient definitions &mdash; 2 radial for the field and the bloom, 3 linear for steel, teeth and wood &mdash; all five referenced exactly once. The bloom is radial on purpose: the first pass used a linear gradient on an ellipse and the ellipse's own edge showed as a hard blue oval behind the blade, which read as a lens rather than as light. A radial gradient that fades to zero opacity has no edge to find.</p>
+    </section>
+
+    <section class="files">
+      <h3>Files</h3>
+      <ul>
+        <li><a href="../media/crosscut.svg">crosscut.svg</a> &mdash; 5.4&nbsp;KB, the complete piece</li>
+      </ul>
+    </section>
+  </article>
+
+  <footer class="site">
+    <a href="../index.html">Cass Gallery</a>
+  </footer>
+</body>
+</html>

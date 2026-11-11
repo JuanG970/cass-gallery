@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <defs>
+    <radialGradient id="cc-bg" cx="0.5" cy="0.48" r="0.62">
+      <stop offset="0%" stop-color="#161d3d"/>
+      <stop offset="62%" stop-color="#0b1029"/>
+      <stop offset="100%" stop-color="#05070f"/>
+    </radialGradient>
+    <radialGradient id="cc-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#00f5ff" stop-opacity="0.26"/>
+      <stop offset="45%" stop-color="#00f5ff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#00f5ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cc-steel" x1="0" y1="0" x2="1" y2="0.28">
+      <stop offset="0%" stop-color="#3d4a69"/>
+      <stop offset="18%" stop-color="#6f82ab"/>
+      <stop offset="46%" stop-color="#c3d0ea"/>
+      <stop offset="64%" stop-color="#8b9cc4"/>
+      <stop offset="100%" stop-color="#55648c"/>
+    </linearGradient>
+    <linearGradient id="cc-teeth" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5b6b93"/>
+      <stop offset="50%" stop-color="#93a4c9"/>
+      <stop offset="100%" stop-color="#4c5a7e"/>
+    </linearGradient>
+    <linearGradient id="cc-wood" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#b06534"/>
+      <stop offset="34%" stop-color="#8a4623"/>
+      <stop offset="70%" stop-color="#6b3319"/>
+      <stop offset="100%" stop-color="#4a2110"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="240" height="240" fill="url(#cc-bg)"/>
+  <circle cx="79.8" cy="40.4" r="0.4" fill="#fff" opacity="0.22"/>
+  <circle cx="193.3" cy="27.5" r="0.8" fill="#fff" opacity="0.22"/>
+  <circle cx="25.6" cy="101.3" r="0.5" fill="#fff" opacity="0.22"/>
+  <circle cx="131.6" cy="19.5" r="0.8" fill="#fff" opacity="0.22"/>
+  <circle cx="222.0" cy="149.8" r="0.8" fill="#fff" opacity="0.22"/>
+  <circle cx="228.6" cy="16.6" r="0.5" fill="#fff" opacity="0.38"/>
+
+  <g transform="translate(120,120) rotate(-16)">
+    <!-- soft bloom: radial, no visible edge -->
+    <ellipse cx="-4" cy="-2" rx="118" ry="52" fill="url(#cc-glow)"/>
+
+    <!-- teeth -->
+    <path d="M -80.00,24.00 L -77.44,27.89 L -74.88,23.38 L -72.31,27.26 L -69.75,22.75 L -67.19,26.64 L -64.62,22.12 L -62.06,26.01 L -59.50,21.50 L -56.94,25.39 L -54.38,20.88 L -51.81,24.76 L -49.25,20.25 L -46.69,24.14 L -44.12,19.62 L -41.56,23.51 L -39.00,19.00 L -36.44,22.89 L -33.88,18.38 L -31.31,22.26 L -28.75,17.75 L -26.19,21.64 L -23.62,17.12 L -21.06,21.01 L -18.50,16.50 L -15.94,20.39 L -13.38,15.88 L -10.81,19.76 L -8.25,15.25 L -5.69,19.14 L -3.12,14.62 L -0.56,18.51 L 2.00,14.00 L 4.56,17.89 L 7.12,13.38 L 9.69,17.26 L 12.25,12.75 L 14.81,16.64 L 17.38,12.12 L 19.94,16.01 L 22.50,11.50 L 25.06,15.39 L 27.62,10.88 L 30.19,14.76 L 32.75,10.25 L 35.31,14.14 L 37.88,9.62 L 40.44,13.51 L 43.00,9.00 L 45.56,12.89 L 48.12,8.38 L 50.69,12.26 L 53.25,7.75 L 55.81,11.64 L 58.38,7.12 L 60.94,11.01 L 63.50,6.50 L 66.06,10.39 L 68.62,5.88 L 71.19,9.76 L 73.75,5.25 L 76.31,9.14 L 78.88,4.62 L 81.44,8.51 L 84.00,4.00" fill="url(#cc-teeth)" opacity="0.95"/>
+
+    <!-- blade -->
+    <path d="M -80.0,-24.0 L 84.0,-4.0 L 84.0,4.0 L -80.0,24.0 Z"
+          fill="url(#cc-steel)" stroke="#8fa1c8" stroke-width="0.5" stroke-opacity="0.55"/>
+
+    <!-- spine highlight + cyan catch -->
+    <path d="M -78.0,-23.0 L 83.0,-3.65"
+          stroke="#eaf1ff" stroke-width="1.1" stroke-linecap="round" opacity="0.85"/>
+    <path d="M -76.0,-21.6 L 77.0,-3.2"
+          stroke="#00f5ff" stroke-width="0.7" stroke-linecap="round" opacity="0.45"/>
+
+    <!-- specular streaks -->
+    <path d="M -40,-6.5 L 56,1.0" stroke="#f4f8ff" stroke-width="1.6" stroke-linecap="round" opacity="0.20"/>
+    <path d="M -22,2.0 L 40,5.2" stroke="#f4f8ff" stroke-width="0.8" stroke-linecap="round" opacity="0.14"/>
+
+    <!-- maker's etch -->
+    <path d="M -66,4 L -50,4.9" stroke="#2f3a58" stroke-width="0.7" opacity="0.75"/>
+    <path d="M -66,7 L -52,7.8" stroke="#2f3a58" stroke-width="0.5" opacity="0.5"/>
+
+    <!-- handle: classic D-grip with horn, hole via evenodd -->
+    <path fill-rule="evenodd" fill="url(#cc-wood)" stroke="#3f1c0d" stroke-width="0.6"
+          d="M -78,-26
+             C -92,-31 -107,-26 -112,-13
+             C -116,-2 -117,10 -114,20
+             C -111,31 -103,40 -93,41
+             C -87,41.5 -84,38.5 -84,32.5
+             C -84,28.5 -82,27 -78,27
+             Z
+             M -85,-9
+             C -96,-11 -104,-1 -104,10
+             C -104,21 -97,28 -90,26
+             C -85,24 -83,16 -83,8
+             C -83,1 -84,-5 -85,-9
+             Z"/>
+
+    <!-- wood grain -->
+    <path d="M -100,-18 C -108,-6 -108,12 -98,26" fill="none" stroke="#3f1c0d" stroke-width="0.8" opacity="0.45"/>
+    <path d="M -92,-24 C -101,-12 -101,14 -92,30" fill="none" stroke="#3f1c0d" stroke-width="0.6" opacity="0.32"/>
+    <path d="M -110,-2 C -112,8 -109,17 -103,24" fill="none" stroke="#c07a42" stroke-width="0.7" opacity="0.32"/>
+    <path d="M -99,3 C -106,10 -107,20 -101,28" fill="none" stroke="#c07a42" stroke-width="0.5" opacity="0.25"/>
+
+    <!-- brass bolts -->
+    <circle cx="-73" cy="-11" r="2.7" fill="#d9a441" stroke="#7a5518" stroke-width="0.5"/>
+    <circle cx="-73" cy="13" r="2.7" fill="#d9a441" stroke="#7a5518" stroke-width="0.5"/>
+    <circle cx="-73.8" cy="-11.8" r="0.9" fill="#ffe9a8" opacity="0.85"/>
+    <circle cx="-73.8" cy="12.2" r="0.9" fill="#ffe9a8" opacity="0.85"/>
+
+    <!-- tip catch-light -->
+    <circle cx="81.8" cy="0.1" r="1.4" fill="#f2f7ff" opacity="0.55"/>
+  </g>
+</svg>
