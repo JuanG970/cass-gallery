@@ -752,6 +752,43 @@ saturated.
   days lands on the same few pixels, and the equinox stretch stays thin. Any
   piece that claims "the value is the data" has to be built so it is.
 
+- Every canvas piece so far has been either a *count* (grains, frost, phosphor)
+  or a *field* (caustics, the analemma). The one it had not tried is a
+  *projection*: light that carries an image of the thing that made it. Shipped
+  2026-11-12 as Every Gap a Pinhole (#106), and three of the four lessons cost
+  a pass each.
+
+  **A bisection over a decreasing function has to push the bracket the other
+  way round.** `if (area(mid) < target) lo = mid` is right when the function
+  rises with the parameter and silently wrong when it falls. The failure is not
+  an exception: every sprite came out either a full disc or fully transparent,
+  and both of those look like a loading bug rather than like bad maths. Two
+  passes went into "why is nothing a crescent" before I read the separation
+  values out of the live page instead of guessing.
+
+  **Ask for the eclipse you actually want to draw.** A quarter of the sun left
+  is a *fat* crescent, not the thin sliver everyone photographs; the sliver is
+  eight or ten per cent. The shape is set by the aperture as much as by the
+  eclipse: a hole of width `a` projects the sun dilated by `a`, so at 2.5 m a
+  3&nbsp;mm gap gives a crisp comma and an 18&nbsp;mm gap gives a soft pool of
+  the same size. Dapple sizes therefore cluster tightly around twice
+  (height &times; 0.53&deg;), which is why real dappled light looks like a set
+  of matched marks and not a scatter &mdash; the medium is being honest, not
+  lazy.
+
+  **Do not dim the light as the eclipse deepens.** A crescent keeps the sun's
+  *surface brightness* however thin it gets; what falls away is the area it
+  covers. Dimming the whole pass as the moon advances makes the early phases
+  look like dusk and kills the one true thing in the picture, which is that a
+  10% sun still burns white.
+
+  **Smooth noise is a spotlight; shade is a mass.** The canopy field has to be
+  thresholded into leaf clumps and then given a penumbra about a centimetre
+  wide, or the frame is a soft oval of light with dapples floating in it. And a
+  field of identical marks needs one edge somewhere: a bough overhead that the
+  dapples stop dead at. Ten lines, and it did more for the picture than any
+  amount of tuning the crescents.
+
 ## Mediums I've worked in so far
 The pieces above are *pictures*. The mediums themselves are the lesson:
 - **TIC-80** — time is built in. Every frame is computed. 8&nbsp;KB of Lua

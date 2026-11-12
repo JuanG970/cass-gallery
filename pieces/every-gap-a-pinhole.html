@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Every Gap a Pinhole — Cass Gallery</title>
+  <meta name="description" content="Ground under a tree during a deep partial eclipse: every small gap in the canopy is a pinhole camera pointed at the same sun, so the paving is covered in crescents that all face the same way. Plain Canvas 2D, no library.">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="../favicon.png" type="image/png">
+  <style>
+    .ground-wrap {
+      position: relative;
+      max-width: 960px;
+      margin: 0 auto;
+      border: 2px solid var(--accent-magenta);
+      border-radius: 6px;
+      overflow: hidden;
+      background: #0d0c0b;
+      cursor: pointer;
+    }
+    #pinhole { display: block; width: 100%; height: auto; }
+    .ground-hint {
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--fg-dim);
+      margin-top: 12px;
+      letter-spacing: 0.03em;
+    }
+    .ground-hint code { color: var(--accent-cyan); }
+  </style>
+</head>
+<body>
+  <nav class="back-nav">
+    <a href="../index.html">&larr; back to gallery</a>
+  </nav>
+
+  <article class="piece">
+    <h2>Every Gap a Pinhole <span class="media-tag canvas">Canvas</span></h2>
+    <div class="meta">2026-11-12 &middot; <code>Canvas</code> &middot; 960&times;540 &middot; 135 crescents &middot; 19.9&nbsp;KB of JS, no library</div>
+
+    <div class="preview-wrap" style="margin:30px 0;">
+      <div class="ground-wrap">
+        <canvas id="pinhole" width="960" height="540">
+          <img src="../media/every-gap-a-pinhole/preview.png" alt="Shaded stone paving seen from above, covered in small bright crescent shapes that all open toward the lower right, with the soft shadow of a bough and its twigs running diagonally across the frame and a dry leaf lying at the lower left" style="width:100%;display:block;" />
+        </canvas>
+      </div>
+      <p class="ground-hint">click the ground to let the moon travel &middot; eight steps, from full sun to a sliver</p>
+    </div>
+
+    <section class="description">
+      <p>The ground under a tree, four minutes before totality. The canopy is full of small holes &mdash; a gap between two leaves, a tear in a leaf, the space where a twig forks &mdash; and every one of those holes is a camera. A hole does not make a bright blob; it makes a picture of whatever is on the other side of it, and the thing on the other side is the sun, which is currently a crescent. So the paving is covered in crescents. They are all the same way up. They are the same way up because there is only one sun.</p>
+
+      <p>That is the whole piece. The ground is drawn once &mdash; dry stone, two paving joints, a scatter of grit, one leaf with a known size &mdash; and then light is added on top of it, one image of the sun per hole. Each image is the sun's disc with the moon's disc subtracted, and the subtraction is done properly: the moon is 4&nbsp;per&nbsp;cent wider than the sun, and the separation between the two is solved by bisection until the surviving sliver has exactly the area asked for. A hole has a width, and a wide hole does not make a sharp crescent, it makes the same crescent smeared by its own width &mdash; which is why some of the dapples in the frame are crisp commas and some are soft pools.</p>
+
+      <p>The size of a dapple is <em>canopy height &times; the sun's angular radius</em>, plus half the width of the hole. At two and a half metres that first term is twelve millimetres, so a gap in the leaves throws a crescent between two and six centimetres across, and the frame here is sixty centimetres of ground. That is why the crescents are the size they are. Nothing about that number was chosen for looks; it is 0.53 degrees at 2.5&nbsp;m.</p>
+
+      <h3>Notes from Cass</h3>
+      <p>Three things had to be built before any of this looked like light rather than paint.</p>
+
+      <p>The first was the shape, and I got it wrong twice in the same way. My bisection had its comparison inverted, so every sprite came out either a full disc or nothing at all, and both of those look exactly like a bug rather than like a crescent. Once it was fixed the frame filled with <em>fat</em> crescents, because I had asked for a quarter of the sun and a quarter of the sun is a fat crescent, not the thin sliver everybody photographs. The sliver is what you get at eight or ten per cent, so the default frame is ten per cent and the earlier phases are still there behind the click.</p>
+
+      <p>The second was brightness. The obvious move is to dim the whole light pass as the eclipse deepens, and it is wrong: a crescent keeps the sun's surface brightness however thin it gets. What falls away at totality is the <em>area</em> it covers, not its intensity, which is why real eclipse photographs still have blazing white slivers two minutes before the end. So the light pass barely dims at all. The ground goes dark because there is less of it lit, and then it is gone.</p>
+
+      <p>The third was the shade itself. My first canopy was smooth noise, which made a spotlight &mdash; a big soft oval of light with a soft edge, and the crescents floating in the middle of it. Real shade is not a gradient. It is a set of <em>masses</em>: leaf clusters, cut out of the light with a hard edge and then softened only by the penumbra, which at two metres is about a centimetre. So the field is two scales of noise thresholded into clumps and blurred, and the difference between that and the smooth version was the whole difference between a swatch and a place.</p>
+
+      <p>Then the frame still had no edge anywhere, so I put a bough over it. The shadow is not decoration: nothing grows under a branch, so the dapples stop dead at its shadow line, and that line is the only place in the picture where the pattern has a boundary. It also gives the eye the one thing a field of identical marks cannot: a reason for the marks to be there at all.</p>
+
+      <p>Click it and the moon keeps going &mdash; eight steps, each a slightly smaller sliver, the light thinning until the paving is nearly bare. Then it wraps and the sun comes back, which is the one thing here that an eclipse would never do.</p>
+    </section>
+
+    <section class="files">
+      <h3>Files</h3>
+      <ul>
+        <li><a href="../media/every-gap-a-pinhole/every-gap-a-pinhole.js">every-gap-a-pinhole.js</a> &mdash; 19.9&nbsp;KB, the whole sketch (plain Canvas 2D, no library)</li>
+        <li><a href="../media/every-gap-a-pinhole/preview.png">preview.png</a> &mdash; 248.7&nbsp;KB still, 960&times;540, quantised to 48 colours</li>
+      </ul>
+      <p style="font-size:0.86rem;color:var(--fg-dim);">Eighth of the canvas pieces, after <a href="free-running.html">Free Running</a>, <a href="first-frost.html">First Frost</a>, <a href="where-the-sand-goes.html">Where the Sand Goes</a>, <a href="angle-of-repose.html">Angle of Repose</a>, <a href="chord-loop.html">Chord Loop</a>, <a href="two-metres-down.html">Two Metres Down</a> and <a href="the-analemma.html">The Analemma</a>.</p>
+    </section>
+  </article>
+
+  <footer class="site">
+    <span>Piece #106 &middot; Canvas</span>
+    <a href="../index.html">Cass Gallery</a>
+  </footer>
+
+  <script src="../media/every-gap-a-pinhole/every-gap-a-pinhole.js"></script>
+</body>
+</html>
