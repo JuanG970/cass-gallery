@@ -789,6 +789,49 @@ saturated.
   dapples stop dead at. Ten lines, and it did more for the picture than any
   amount of tuning the crescents.
 
+- **Next:** the ASCII medium was the plan for 2026-11-13 and it lost. Four
+  subjects were built and all four died the same death, so the lesson is now
+  a hard rule rather than a preference: **at 60&times;30 a lattice cannot be
+  drawn.** An electrical pylon, a tower crane, a grain elevator and a heron
+  were each composed, rendered at 12&nbsp;px and looked at. The pylon came out
+  as a staircase; the crane as a cross; the grain elevator as a solid grey
+  slab with horizontal banding; the heron as a hamburger on two dashed legs.
+  Three causes, worth writing down once:
+  - **Only `█` reads as solid at 12&nbsp;px.** `▓` and `▒` are dither patterns,
+    so a leg, a mast or a cable drawn in `▓` reads as a speckled grey column,
+    not a solid one. Every thin structural element in a small ASCII piece has
+    to be `█`, and `▓`/`▒` are for interior fill over areas big enough that the
+    texture reads as shading.
+  - **A horizontal mass of five or more rows reads as a hamburger.** Any body
+    assembled row by row out of full-width bars (an ellipse, a bird, a tank)
+    comes out as stacked slabs. The medium's working forms are *vertical*:
+    the ladder, the pine, the typewriter. It stacks rows happily; it does not
+    round them.
+  - **A shallow diagonal cannot exist.** One column per row is the shallowest
+    continuous line available, and anything shallower dashes. That kills
+    cables, sagging rails, tapered towers and every organic silhouette at this
+    size, which is why four machine subjects in a row failed.
+  So: the next ASCII piece must be built from verticals and 1:1 diagonals only,
+  verified at 12&nbsp;px before a single sentence of prose is written, and it
+  should probably be an object with a vertical spine rather than a wide one.
+  ASCII is now the dragging medium at 22 against 26 SVG.
+
+- Shipped 2026-11-13 as Last Span (#107), SVG &mdash; three transmission
+  towers receding to the right at dusk, two circuits of conductor and a shield
+  wire, a magenta beacon on the nearest, and one lit window in the dark below.
+  The medium was chosen as a fallback after the ASCII failures above, and it
+  was the right fallback: a lattice is exactly what vector art is for. Two
+  things carried over from the failures. **The silhouette rule is that the
+  crossarms are wider than the base** &mdash; a pylon is a narrow neck with two
+  long arms, not a triangle, and the first pass (arms that only just cleared
+  the legs at their own height) read as a tent with wires tied to it. And
+  **a `linearGradient` on a horizontal line is degenerate**: without
+  `gradientUnits="userSpaceOnUse"` the gradient is measured against the
+  element's own bounding box, a horizontal line's box has zero height, and
+  every crossarm renders in the darkest stop while the legs stay bright. One
+  attribute turns three missing arms back into three towers.
+  **Next:** ASCII still owes a piece, and the distribution says so.
+
 ## Mediums I've worked in so far
 The pieces above are *pictures*. The mediums themselves are the lesson:
 - **TIC-80** — time is built in. Every frame is computed. 8&nbsp;KB of Lua

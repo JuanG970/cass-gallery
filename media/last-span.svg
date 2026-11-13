@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+<defs>
+<linearGradient id="ls-sky" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="#05070f"/><stop offset="42%" stop-color="#0d1430"/>
+<stop offset="74%" stop-color="#2a1440"/><stop offset="92%" stop-color="#55204a"/>
+<stop offset="100%" stop-color="#7a2a44"/></linearGradient>
+<linearGradient id="ls-ground" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="#140d1d"/><stop offset="100%" stop-color="#04050a"/></linearGradient>
+<linearGradient id="ls-steel" gradientUnits="userSpaceOnUse" x1="0" y1="40" x2="0" y2="192">
+<stop offset="0%" stop-color="#d3dff5"/><stop offset="45%" stop-color="#9db0d0"/>
+<stop offset="100%" stop-color="#4a5573"/></linearGradient>
+<linearGradient id="ls-horizon" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="240" y2="0">
+<stop offset="0%" stop-color="#b8577a" stop-opacity="0.05"/>
+<stop offset="30%" stop-color="#c9648a" stop-opacity="0.55"/>
+<stop offset="62%" stop-color="#b8577a" stop-opacity="0.42"/>
+<stop offset="100%" stop-color="#8e4468" stop-opacity="0.10"/></linearGradient>
+<radialGradient id="ls-beacon" cx="0.5" cy="0.5" r="0.5">
+<stop offset="0%" stop-color="#ff006e" stop-opacity="0.85"/>
+<stop offset="35%" stop-color="#ff006e" stop-opacity="0.28"/>
+<stop offset="100%" stop-color="#ff006e" stop-opacity="0"/></radialGradient>
+<radialGradient id="ls-glow" cx="0.5" cy="0.5" r="0.5">
+<stop offset="0%" stop-color="#ff7c5b" stop-opacity="0.35"/>
+<stop offset="100%" stop-color="#ff7c5b" stop-opacity="0"/></radialGradient>
+<radialGradient id="ls-warm" cx="0.5" cy="0.5" r="0.5">
+<stop offset="0%" stop-color="#ffb347" stop-opacity="0.55"/>
+<stop offset="45%" stop-color="#ffb347" stop-opacity="0.18"/>
+<stop offset="100%" stop-color="#ffb347" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="240" height="190" fill="url(#ls-sky)"/>
+<ellipse cx="128" cy="190" rx="150" ry="26" fill="url(#ls-glow)"/>
+<rect y="190" width="240" height="50" fill="url(#ls-ground)"/>
+<path d="M0 190H240" stroke="url(#ls-horizon)" stroke-width="0.9"/>
+<g fill="#dfe8ff"><circle cx="18" cy="24" r="0.5" opacity="0.3"/><circle cx="44" cy="12" r="0.7" opacity="0.26"/><circle cx="76" cy="31" r="0.5" opacity="0.22"/><circle cx="99" cy="9" r="0.8" opacity="0.34"/><circle cx="124" cy="22" r="0.5" opacity="0.2"/><circle cx="147" cy="15" r="0.6" opacity="0.28"/><circle cx="170" cy="38" r="0.5" opacity="0.22"/><circle cx="196" cy="11" r="0.8" opacity="0.32"/><circle cx="219" cy="27" r="0.5" opacity="0.24"/><circle cx="233" cy="48" r="0.6" opacity="0.2"/><circle cx="61" cy="52" r="0.5" opacity="0.18"/><circle cx="138" cy="47" r="0.5" opacity="0.16"/><circle cx="207" cy="60" r="0.5" opacity="0.14"/><circle cx="30" cy="70" r="0.5" opacity="0.13"/><circle cx="90" cy="66" r="0.5" opacity="0.12"/><circle cx="160" cy="72" r="0.5" opacity="0.13"/></g>
+<path d="M212.0 127.0L204.0 183.0M216.0 127.0L224.0 183.0M214.0 117.0L214.0 127.0M212.0 127.0L214.0 121.5L216.0 127.0M203.0 139.0L225.0 139.0M203.0 139.0L203.0 144.0M225.0 139.0L225.0 144.0M205.0 148.0L223.0 148.0M205.0 148.0L205.0 153.0M223.0 148.0L223.0 153.0" fill="none" stroke="url(#ls-steel)" stroke-width="0.6" opacity="0.55"/>
+<path d="M206.4 144.0L221.6 144.0M208.0 155.0L220.0 155.0M209.9 168.0L218.1 168.0" fill="none" stroke="url(#ls-steel)" stroke-width="0.48" opacity="0.396"/>
+<path d="M206.4 144.0L220.0 155.0M221.6 144.0L208.0 155.0M208.0 155.0L218.1 168.0M220.0 155.0L209.9 168.0" fill="none" stroke="url(#ls-steel)" stroke-width="0.36" opacity="0.275"/>
+<path d="M148.0 98.0L133.0 186.0M152.0 98.0L167.0 186.0M150.0 88.0L150.0 98.0M148.0 98.0L150.0 92.5L152.0 98.0M131.0 114.0L169.0 114.0M131.0 114.0L131.0 119.0M169.0 114.0L169.0 119.0M134.0 126.0L166.0 126.0M134.0 126.0L134.0 131.0M166.0 126.0L166.0 131.0" fill="none" stroke="url(#ls-steel)" stroke-width="0.85" opacity="0.8"/>
+<path d="M136.8 120.0L163.2 120.0M139.0 133.0L161.0 133.0M141.5 148.0L158.5 148.0M144.4 165.0L155.6 165.0" fill="none" stroke="url(#ls-steel)" stroke-width="0.68" opacity="0.576"/>
+<path d="M136.8 120.0L161.0 133.0M163.2 120.0L139.0 133.0M139.0 133.0L158.5 148.0M161.0 133.0L141.5 148.0M141.5 148.0L155.6 165.0M158.5 148.0L144.4 165.0" fill="none" stroke="url(#ls-steel)" stroke-width="0.51" opacity="0.4"/>
+<path d="M62.0 58.0L35.0 190.0M66.0 58.0L93.0 190.0M64.0 48.0L64.0 58.0M62.0 58.0L64.0 52.5L66.0 58.0M26.0 76.0L102.0 76.0M26.0 76.0L26.0 81.0M102.0 76.0L102.0 81.0M33.0 94.0L95.0 94.0M33.0 94.0L33.0 99.0M95.0 94.0L95.0 99.0" fill="none" stroke="url(#ls-steel)" stroke-width="1.15"/>
+<path d="M40.7 86.0L87.3 86.0M44.8 106.0L83.2 106.0M49.3 128.0L78.7 128.0M54.2 152.0L73.8 152.0M58.3 172.0L69.7 172.0" fill="none" stroke="url(#ls-steel)" stroke-width="0.92" opacity="0.72"/>
+<path d="M40.7 86.0L83.2 106.0M87.3 86.0L44.8 106.0M44.8 106.0L78.7 128.0M83.2 106.0L49.3 128.0M49.3 128.0L73.8 152.0M78.7 128.0L54.2 152.0M54.2 152.0L69.7 172.0M73.8 152.0L58.3 172.0" fill="none" stroke="url(#ls-steel)" stroke-width="0.69" opacity="0.5"/>
+<path d="M64.0 76.0Q97.5 102.0 131.0 114.0" fill="none" stroke="#9fb3d6" stroke-width="0.95" opacity="0.9"/>
+<path d="M95.0 94.0Q114.5 116.0 134.0 126.0" fill="none" stroke="#9fb3d6" stroke-width="0.95" opacity="0.9"/>
+<path d="M26.0 76.0Q10.0 87.0 -6.0 86.0" fill="none" stroke="#9fb3d6" stroke-width="0.95" opacity="0.9"/>
+<path d="M33.0 94.0Q13.5 103.0 -6.0 102.0" fill="none" stroke="#9fb3d6" stroke-width="0.95" opacity="0.9"/>
+<path d="M169.0 114.0Q186.0 129.9 203.0 139.0" fill="none" stroke="#9fb3d6" stroke-width="0.95" opacity="0.9"/>
+<path d="M166.0 126.0Q185.5 139.8 205.0 148.0" fill="none" stroke="#9fb3d6" stroke-width="0.95" opacity="0.9"/>
+<path d="M64.0 48.0Q107.0 77.0 150.0 88.0" fill="none" stroke="#9fb3d6" stroke-width="0.55" opacity="0.5"/>
+<path d="M150.0 88.0Q182.0 107.5 214.0 117.0" fill="none" stroke="#9fb3d6" stroke-width="0.5" opacity="0.42"/>
+<circle cx="64" cy="48" r="7" fill="url(#ls-beacon)"/>
+<circle cx="64" cy="48" r="1.3" fill="#ff3d86"/>
+<circle cx="64" cy="48" r="0.55" fill="#fff0f6"/>
+<circle cx="30" cy="209" r="11" fill="url(#ls-warm)"/>
+<rect x="28.6" y="207.4" width="2.8" height="2.4" fill="#ffd06a" opacity="0.95"/>
+<rect x="28.6" y="207.4" width="2.8" height="1.2" fill="#fff3c9" opacity="0.5"/>
+<path d="M0 205Q60 199 120 203T240 200" fill="none" stroke="#241a33" stroke-width="1.6"/>
+<path d="M0 218Q80 213 150 216T240 214" fill="none" stroke="#1a1328" stroke-width="1.2"/>
+</svg>
