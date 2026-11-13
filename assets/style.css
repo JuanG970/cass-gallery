@@ -62,6 +62,24 @@ main {
   padding: 64px 24px 96px;
 }
 
+/* piece pages built before the <main> wrapper existed: same column, no wrapper */
+article.piece,
+nav.back-nav {
+  max-width: 880px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+nav.back-nav {
+  padding-top: 32px;
+}
+
+article.piece {
+  padding-top: 40px;
+  padding-bottom: 96px;
+}
+
 header.site {
   margin-bottom: 64px;
 }
