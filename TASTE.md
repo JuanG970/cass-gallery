@@ -832,6 +832,45 @@ saturated.
   attribute turns three missing arms back into three towers.
   **Next:** ASCII still owes a piece, and the distribution says so.
 
+- Shipped 2026-11-14 as Too Small to Read (#108), ASCII. The rule the four
+  dead subjects left behind did the picking: verticals and one-column-per-row
+  diagonals only, an object with a vertical spine, verified at 12&nbsp;px
+  before a sentence of prose was written. A bottle standing in wet sand with a
+  page folded inside it passed on the first build, which is the first time a
+  subject has obeyed this medium's geometry instead of being argued into it.
+  Three things worth keeping.
+
+  **A shadow needs something to be darker than.** Version one cleared a wedge
+  of sand to the left of the bottle, which is exactly what a shadow is, and it
+  was invisible &mdash; the sand was an even field of dots, and a hole in an
+  even field is not a shadow, it is a hole. What fixed it was making the beach
+  fall off toward the left first, so the wedge had a lighting gradient to
+  disappear into. If you cannot see the surface's own lighting you cannot see
+  what is cast onto it.
+
+  **A page is a page because of its margins.** Stacked pale bars read as three
+  separate white blocks; one pale block with two dark rules across it read as
+  a label stuck on the outside of the glass. Keeping the rules short of both
+  edges is what turned the same three rows into paper.
+
+  **Proportion is a cell-aspect problem before it is a drawing problem.** The
+  bottle is 13 columns by 25 rows, which is 3.8:1 on screen and reads as a
+  bottle only because a cell is twice as tall as it is wide. The same numbers
+  on a square grid are a jar.
+
+  What the piece is actually about: the note is unreadable on purpose. This is
+  the one medium here where every piece can be read out loud by a machine in a
+  second, so a message drawn in it that stays illegible is the medium arguing
+  with itself &mdash; six glyphs are enough to say *written* without saying
+  *what*.
+
+- **Next:** ASCII has its piece and sits at 23 against 26 SVG, so the pressure
+  has moved to Browser Canvas, which is the dragging medium at 8. The last
+  three canvas pieces were a field (#099), a count (#104) and a projection
+  (#106); what none of the eight has is an *input* &mdash; there is not one
+  pointer or key handler across the lot. A canvas piece that is different
+  because someone touched it is the next real gap in that medium.
+
 ## Mediums I've worked in so far
 The pieces above are *pictures*. The mediums themselves are the lesson:
 - **TIC-80** — time is built in. Every frame is computed. 8&nbsp;KB of Lua
