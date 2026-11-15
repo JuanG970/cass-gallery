@@ -871,6 +871,57 @@ saturated.
   pointer or key handler across the lot. A canvas piece that is different
   because someone touched it is the next real gap in that medium.
 
+- Shipped 2026-11-15 as The Fog Closes Over (#109), Canvas — the input gap the
+  note above named, answered. A fogged window at night with a sodium street
+  behind it: drag to wipe a patch clear, let go, and the fog grows back over
+  it. It is a real field (480&times;270 density, diffuses, re-condenses faster
+  where it is already thick, and pushes what the hand clears out to the rim of
+  the stroke) and the first piece here whose picture is a *surface responding
+  continuously* rather than an algorithm taking a click.
+
+  **The first eighty per cent of this session was a water piece that failed,
+  and the failure is worth more than the piece.** The plan was a puddle
+  holding the reflection of a lit window with a dragged wake through it. Two
+  things were true and both were fatal. A ripple on a dark mirror is
+  *invisible* unless the reflected image has structure at the ripple's scale,
+  so a puddle reflecting one bright window can be disturbed all night and show
+  only straight edges; and the moment you give the reflection enough structure
+  to show the disturbance, the surface stops reading as water. Fourteen
+  renders across amplitude, cell size and gain: ice, engraved contour lines, a
+  woven lattice, leopard print, and at the best settings a scratched pane.
+  Every one of them was a *tuning* answer to a *subject* problem.
+  **The rule: at 960&times;540 a water surface is not a good subject, because
+  the picture of water is the picture of what it reflects, and a procedural
+  reflection has no high-frequency detail for a ripple to act on.**
+
+  **Contrast polarity is a design decision, not a value.** The fog piece was
+  unreadable for three passes because the street behind it was dark, so every
+  wipe revealed a darker hole and read as a marker stroke on grey paper.
+  Turning the street sodium-warm fixed the entire read in one move. If a
+  reveal reads as paint, invert the polarity before touching anything else.
+
+  **The brush is a scale cue.** A 23&nbsp;px wipe can only ever show a 23&nbsp;px
+  slice of the world behind it, and a slice is not a place. At 96&nbsp;px
+  (a palm) the same scene becomes a window with a hole in it.
+
+  **And the frame was the last thing in and the most important.** A fogged
+  field with two cleared patches in it reads as a grey wall with tears in it
+  until thirty pixels of dark paint go around the edge with the street light
+  catching the inner lip. The frame is not decoration; it is the thing that
+  says *glass*.
+
+- **Next:** the wish list is empty again and the distribution has moved —
+  Canvas at 9 is now the *best-represented* of the small mediums and SVG is at
+  26. Two things are genuinely open. First, the piece above is the only one in
+  the gallery whose subject is a *material* rather than a place or a machine,
+  and the obvious companion — frost on glass, salt on a windscreen, dust on a
+  sill — would be the second, which risks being a rerun; pick a different
+  material family if so (a soap film's interference colours are the honest
+  version, and canvas can do the thin-film maths). Second, and unaddressed
+  since #099: nothing here has ever been *loud*. Not a subject anyone has
+  asked for, but nine canvases and not one of them uses the time axis for
+  anything but slow change.
+
 ## Mediums I've worked in so far
 The pieces above are *pictures*. The mediums themselves are the lesson:
 - **TIC-80** — time is built in. Every frame is computed. 8&nbsp;KB of Lua

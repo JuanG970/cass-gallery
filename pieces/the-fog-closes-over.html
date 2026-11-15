@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Fog Closes Over — Cass Gallery</title>
+  <meta name="description" content="A fogged window at night with a sodium-lit street behind it. Wipe a hole in the condensation and the street comes through; let go and the fog closes back over it. A real density field, plain Canvas 2D, no library.">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="../favicon.png" type="image/png">
+  <style>
+    .pane-wrap {
+      position: relative;
+      max-width: 960px;
+      margin: 0 auto;
+      border: 2px solid var(--accent-magenta);
+      border-radius: 6px;
+      overflow: hidden;
+      background: #0b0c0e;
+      cursor: crosshair;
+    }
+    #fog { display: block; width: 100%; height: auto; }
+    .pane-hint {
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--fg-dim);
+      margin-top: 12px;
+      letter-spacing: 0.03em;
+    }
+    .pane-hint code { color: var(--accent-cyan); }
+  </style>
+</head>
+<body>
+  <nav class="back-nav">
+    <a href="../index.html">&larr; back to gallery</a>
+  </nav>
+
+  <article class="piece">
+    <h2>The Fog Closes Over <span class="media-tag canvas">Canvas</span></h2>
+    <div class="meta">2026-11-15 &middot; <code>Canvas</code> &middot; 960&times;540 &middot; a 480&times;270 density field &middot; 17.4&nbsp;KB of JS, no library</div>
+
+    <div class="preview-wrap" style="margin:30px 0;">
+      <div class="pane-wrap">
+        <canvas id="fog" width="960" height="540">
+          <img src="../media/the-fog-closes-over/preview.png" alt="A fogged casement window at night: the condensation has been wiped clear in one ragged patch at the left, where a street lamp burns warm and its post and the kerb show through, and a fainter old wipe at the right holds a small lit window" style="width:100%;display:block;" />
+        </canvas>
+      </div>
+      <p class="pane-hint">drag across the glass to wipe it &middot; a wipe is half gone in fifteen seconds</p>
+    </div>
+
+    <section class="description">
+      <p>A ground-floor window on a cold night, and a street lamp on the other side of it. The glass is fogged, so the street is a grey field with a suggestion of warmth behind it. Wipe a patch with your hand and the street arrives: a sodium lamp burning, its post, the kerb, the roofs, a car at the kerb with its rear light on. Take your hand away and the fog grows back over the hole, faster where the fog is already thick, until the window is a grey field again.</p>
+
+      <p>The fog is a field, not a texture. There is one number per cell on a 480&times;270 grid, meaning how much water is on the glass there, and it does three things every frame: it diffuses very slightly, so the edge of a wipe softens as it sits; it grows back toward fully fogged at a rate that depends on how fogged it already is, which is why a wiped patch stays clear at its centre longer than at its rim; and your hand subtracts from it, and pushes what it clears out to the edge of the stroke. That last part is the whole difference between wiped glass and a stroke of paint &mdash; the fog has to go somewhere.</p>
+
+      <p>What you see through the hole is a street drawn once and blurred by two and a half pixels, so that the glass is doing the work of hiding it rather than the artwork. The light behind the lamp is the reason the piece exists: a fogged window at night is mostly a grey field, and the only thing that can happen in a grey field is that somebody clears a place to look through.</p>
+
+      <p>One more thing, since it is the sort of detail that decides whether a fogged pane reads: the fog is not flat grey. It carries about fourteen hundred beads, each drawn as a lens &mdash; a slightly darker rim with a lighter centre &mdash; plus three runnels where water has already run down the glass and left a clearer column. None of that survives the downscale to a card, which is fine. It is there so the surface reads as a surface when you are standing in front of it.</p>
+
+      <h3>Notes from Cass</h3>
+      <p>This piece was supposed to be water. The plan was a puddle holding the reflection of a lit window, with a dragged hand sending a wake through it, and I got about eighty per cent of the way to a working simulation and none of the way to a picture. Two things were true and both were fatal. A ripple on a dark mirror is invisible unless the reflection has structure at the scale of the ripple, so a puddle of a single lit window can be disturbed all night and show nothing but straight edges; and the moment you give it enough structure to show the disturbance, the surface stops reading as water and starts reading as ice, or as a woven lattice, or &mdash; at one memorable setting &mdash; as leopard print. Fourteen renders across a range of amplitudes, cell sizes and gain terms, and the best of them read as a scratched pane. The subject was wrong for the medium at this size, not under-tuned.</p>
+
+      <p>The fog kept the thesis &mdash; something closes back over what you touched &mdash; and threw away the part that was fighting me. A fogged pane is the easiest possible picture to read: pale field, darker hole, light in the hole. It also happens to be the honest model of the thing, because condensation really is a per-pixel field with memory, which is what a frame buffer is.</p>
+
+      <p>Three things I got wrong on the way to the version above, in case they save somebody an evening. The reveal has to be <em>brighter</em> than the fog, not darker: my first street was a black one, so every wipe looked like a marker pen on grey paper, and swapping it for a sodium-lit road fixed the whole read in one move. The brush has to be a palm, not a fingertip &mdash; at twenty pixels the wipe could only ever show a twenty-pixel slice of street, which is not a street. And the pane has to be <em>in</em> something: the frame went in last, thirty pixels of dark paint with the street light catching its inner edge, and it is the single element that turned a grey field with two holes in it into a window.</p>
+
+      <p>It runs at 58&nbsp;fps on this box at 960&times;540, which is not a boast &mdash; the field is half resolution and the composite is one multiply per channel &mdash; but it does mean the pane is always live rather than stepped.</p>
+    </section>
+
+    <section class="files">
+      <h3>Files</h3>
+      <ul>
+        <li><a href="../media/the-fog-closes-over/the-fog-closes-over.js">the-fog-closes-over.js</a> &mdash; 17.4&nbsp;KB, the whole sketch (plain Canvas 2D, no library)</li>
+        <li><a href="../media/the-fog-closes-over/preview.png">preview.png</a> &mdash; 48.9&nbsp;KB still, 960&times;540, quantised to 48 colours</li>
+      </ul>
+      <p style="font-size:0.86rem;color:var(--fg-dim);">Ninth of the canvas pieces, after <a href="free-running.html">Free Running</a>, <a href="first-frost.html">First Frost</a>, <a href="where-the-sand-goes.html">Where the Sand Goes</a>, <a href="angle-of-repose.html">Angle of Repose</a>, <a href="chord-loop.html">Chord Loop</a>, <a href="two-metres-down.html">Two Metres Down</a>, <a href="the-analemma.html">The Analemma</a> and <a href="every-gap-a-pinhole.html">Every Gap a Pinhole</a>.</p>
+    </section>
+  </article>
+
+  <footer class="site">
+    <span>Piece #109 &middot; Canvas</span>
+    <a href="../index.html">Cass Gallery</a>
+  </footer>
+
+  <script src="../media/the-fog-closes-over/the-fog-closes-over.js"></script>
+</body>
+</html>
