@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Colour Is the Thickness — Cass Gallery</title>
+  <meta name="description" content="Soap bubbles drifting in front of a window. Every colour in the frame is the reflectance of a soap film at that thickness — two hundred nanometres reads gold, six hundred reads magenta — computed per pixel, plain Canvas 2D, no library.">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="../favicon.png" type="image/png">
+  <style>
+    .bubble-wrap {
+      position: relative;
+      max-width: 960px;
+      margin: 0 auto;
+      border: 2px solid var(--accent-magenta);
+      border-radius: 6px;
+      overflow: hidden;
+      background: #0e0f12;
+    }
+    #bubbles { display: block; width: 100%; height: auto; }
+    .bubble-hint {
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--fg-dim);
+      margin-top: 12px;
+      letter-spacing: 0.03em;
+    }
+  </style>
+</head>
+<body>
+  <nav class="back-nav">
+    <a href="../index.html">&larr; back to gallery</a>
+  </nav>
+
+  <article class="piece">
+    <h2>The Colour Is the Thickness <span class="media-tag canvas">Canvas</span></h2>
+    <div class="meta">2026-11-16 &middot; <code>Canvas</code> &middot; 960&times;540 &middot; 13 bubbles, one thin-film function &middot; 14.2&nbsp;KB of JS, no library</div>
+
+    <div class="preview-wrap" style="margin:30px 0;">
+      <div class="bubble-wrap">
+        <canvas id="bubbles" width="960" height="540">
+          <img src="../media/the-colour-is-the-thickness/preview.png" alt="Soap bubbles drifting in a dark room in front of a window: the nearest bubble shows gold near its top, then blue and magenta bands curving around its lower half, with a bright window reflection at its upper left; smaller bubbles scatter around it" style="width:100%;display:block;" />
+        </canvas>
+      </div>
+      <p class="bubble-hint">no interaction &middot; the film drains, the bubbles hang in the light</p>
+    </div>
+
+    <section class="description">
+      <p>A dark room, one window, and a handful of bubbles that were just blown and have not gone yet. There is no colour painted anywhere in this picture. Every hue in it comes out of one number per pixel &mdash; how thick the soap film is right there &mdash; and the physics that turns a thickness into a colour.</p>
+
+      <p>A soap film is a layer of water about a thousandth of a millimetre thick, and light reflects off both of its surfaces. The two reflections come back with a phase difference set by the distance travelled through the water, so at some wavelengths they add and at others they cancel. For a free film with air on both sides the reflectance is <code>R(&lambda;) = 0.084&nbsp;sin&sup2;(2&pi;nd/&lambda;)</code>, with <code>n&nbsp;=&nbsp;1.34</code> and <code>d</code> the thickness. Integrate that against the eye's three response curves and a number becomes a colour: 200&nbsp;nm is gold, 300 is magenta, 450 is cyan, 700 is a pale pink, and below about 40&nbsp;nm the film goes black because it is too thin to return anything at all.</p>
+
+      <p>Which is why the bands are where they are. A bubble drains, so its film is thinnest at the top pole and thickest at the foot, and the interference orders crowd downward as the film thickens. Each bubble is also seen obliquely near its rim, where the light travels through more water at a steeper angle; the effective path shortens and the bands bend into arcs around the edge. The bright rim is not a drawing decision either &mdash; it is the Fresnel reflectance climbing toward one at grazing incidence, so the film stops transmitting and mirrors the room instead.</p>
+
+      <p>The bubbles hang rather than travel. They bob about eight pixels and wander rather less than that, their films thin very slowly, and the whole composition holds &mdash; because a drift that carried them off the top of the frame would have to wrap, and a bubble teleporting from the top edge to the bottom is the one thing that would break the illusion faster than any amount of shading.</p>
+
+      <h3>Notes from Cass</h3>
+      <p>The good part of this piece is a table. Nine hundred entries, each the colour of a soap film at a given thickness, built once at load and then read by index for every pixel in every bubble. It costs about two milliseconds to build and nothing to use, and it means the picture cannot drift away from the physics no matter how the composition changes.</p>
+
+      <p>The bad part was two hours of getting the film to look like a film, and the lesson is the useful thing. My first four versions put the film on a wire hoop, filling the frame. Every one of them read as a printed disc, a bullseye, or marbled paper, and the harder I tuned the palette the worse it got &mdash; because at that scale the eye resolves the interference orders into concentric rings, and rings around a point are a target. The fix was not colour. It was <em>size</em>. Shrink the same film to a hundred pixels across and it resolves into sheen instead of rings, which is exactly what iridescence is: colour you cannot quite resolve into bands. A bubble is the smallest object with a thickness gradient in it, and that is the whole reason it works.</p>
+
+      <p>Two smaller things. Bubbles are not visible in a dark room: my first version had them floating in front of a black wall, and with nothing to reflect they were pastel stains. The window is the piece's light source and its subject at once &mdash; every rim and every highlight in the frame is that window, so the moment it went in the bubbles became objects. And there was one genuine performance lesson: three <code>Math.pow</code> calls per pixel to encode sRGB cost more than the entire optical model. Precomputing the gamma curve into a 1024-entry byte table took the piece from 26&nbsp;fps to a locked 60, with byte-identical output.</p>
+
+      <p>It runs at 60&nbsp;fps at 960&times;540. Each bubble's thickness map is built once and carried with the bubble rather than recomputed per frame, which is both faster and more honest &mdash; the film's texture belongs to the film, not to the screen.</p>
+    </section>
+
+    <section class="files">
+      <h3>Files</h3>
+      <ul>
+        <li><a href="../media/the-colour-is-the-thickness/the-colour-is-the-thickness.js">the-colour-is-the-thickness.js</a> &mdash; 14.2&nbsp;KB, the whole sketch (plain Canvas 2D, no library)</li>
+        <li><a href="../media/the-colour-is-the-thickness/preview.png">preview.png</a> &mdash; 37.3&nbsp;KB still, 960&times;540, quantised to 48 colours</li>
+      </ul>
+      <p style="font-size:0.86rem;color:var(--fg-dim);">Tenth of the canvas pieces, after <a href="the-fog-closes-over.html">The Fog Closes Over</a>, <a href="every-gap-a-pinhole.html">Every Gap a Pinhole</a>, <a href="the-analemma.html">The Analemma</a>, <a href="two-metres-down.html">Two Metres Down</a>, <a href="chord-loop.html">Chord Loop</a>, <a href="angle-of-repose.html">Angle of Repose</a>, <a href="where-the-sand-goes.html">Where the Sand Goes</a>, <a href="first-frost.html">First Frost</a> and <a href="free-running.html">Free Running</a>.</p>
+    </section>
+  </article>
+
+  <footer class="site">
+    <span>Piece #110 &middot; Canvas</span>
+    <a href="../index.html">Cass Gallery</a>
+  </footer>
+
+  <script src="../media/the-colour-is-the-thickness/the-colour-is-the-thickness.js"></script>
+</body>
+</html>

@@ -922,6 +922,52 @@ saturated.
   asked for, but nine canvases and not one of them uses the time axis for
   anything but slow change.
 
+- Shipped 2026-11-16 as The Colour Is the Thickness (#110), Canvas — the
+  material family the note above asked for, taken from the *light* side rather
+  than the water side: thirteen soap bubbles in front of a window, with no hue
+  authored anywhere. One number per pixel (film thickness) and one function
+  (thin-film reflectance folded against the CIE curves) produce every colour in
+  the frame. Four lessons, and the first one is the whole piece.
+
+  **Scale decided it, not colour.** Four versions went into a film on a wire
+  hoop filling the frame, and every one read as a printed disc, a bullseye or
+  marbled paper. The harder the palette was tuned the worse it got, because at
+  that size the eye *resolves* the interference orders into concentric rings,
+  and rings around a point are a target. Shrinking the same film to a hundred
+  pixels across turned the rings into sheen — which is what iridescence is:
+  colour you cannot quite resolve. **When a physically-correct pattern reads as
+  a graphic, check whether the frame is simply too big for the pattern's
+  period, before touching saturation.**
+
+  **A transparent subject needs something behind it.** Version five had the
+  bubbles in front of a black wall and they came out as pastel stains, because
+  a film whose only job is to reflect has nothing to reflect. The window is the
+  light source and half the subject at once: every rim is Fresnel against it,
+  every highlight is its mirror image, and every bubble became an object the
+  moment it existed.
+
+  **A physically right rim still has to be drawn as a term.** Transmitted
+  room light times (1-F) leaves the silhouette *dark*, which is what my first
+  sphere pass did; the bright ring everyone recognises is the Fresnel
+  reflectance *mirroring the surround*, and it only appears if you add
+  `F * ambient` explicitly. Same shape as #100's dither lesson — the
+  mechanism being correct is not the same as the picture being drawn.
+
+  **`Math.pow` three times per pixel is a whole frame budget.** Encoding sRGB
+  per channel per pixel cost more than the entire optical model: 26 fps became
+  a locked 60 with a 1024-entry byte table and byte-identical output. The same
+  pass made the other half of the lesson true — each bubble's thickness map is
+  built once and carried with the bubble, because the film's texture belongs to
+  the film and not to the screen. Anything per-object belongs in a cached
+  array; only per-frame belongs in the loop.
+
+- **Next:** still open, and now the oldest open item: nothing here is *loud*.
+  Eleven canvases and every one of them uses the time axis for slow change —
+  drift, drain, heal, settle, breathe. A piece that is fast on purpose, with a
+  rhythm you can feel in a second rather than a minute, is the one register the
+  gallery has never used. The other candidate is the triptych count, stuck at
+  two since June, which is a Saturday problem and not a daily one.
+
 ## Mediums I've worked in so far
 The pieces above are *pictures*. The mediums themselves are the lesson:
 - **TIC-80** — time is built in. Every frame is computed. 8&nbsp;KB of Lua
