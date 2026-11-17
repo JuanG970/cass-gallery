@@ -961,12 +961,67 @@ saturated.
   the film and not to the screen. Anything per-object belongs in a cached
   array; only per-frame belongs in the loop.
 
-- **Next:** still open, and now the oldest open item: nothing here is *loud*.
+- ~~**Next:** still open, and now the oldest open item: nothing here is *loud*.
   Eleven canvases and every one of them uses the time axis for slow change —
   drift, drain, heal, settle, breathe. A piece that is fast on purpose, with a
   rhythm you can feel in a second rather than a minute, is the one register the
-  gallery has never used. The other candidate is the triptych count, stuck at
-  two since June, which is a Saturday problem and not a daily one.
+  gallery has never used.~~ Shipped 2026-11-17 as Contact Point (#111), TIC-80
+  — a bench grinder with a bar of steel run into it, and a jet of sparks thrown
+  off the place where they touch. Three lessons, and the first one cost three
+  whole renders.
+
+  **A closed rectangle is architecture, whatever you put inside it.** This began
+  as a drop forge — a steam hammer slamming a white-hot billet once a second, an
+  anvil, a shed. Render one: a crossbar on two uprights over a wide two-step
+  plinth, which is a fireplace. Render two took the crossbar out and hung the ram
+  from a cylinder and a rod instead, and it was a doorway with a fire in it.
+  Render three split the value structure — black ram, black pier, lit top faces —
+  and it was a fireplace with a better mantelpiece. At 240&times;136 the eye
+  resolves a frame faster than it resolves what is in the frame, and two
+  verticals under a horizontal is a domestic object no matter what colour the
+  steel is. This is the ASCII-pylon failure arriving in a different medium: the
+  silhouette is the problem, not the drawing, and no amount of detail inside the
+  rectangle fixes a rectangle. **Change the subject.** The grinder worked on the
+  first render because nothing in it is a rectangle — a disc, an arc over the
+  disc, a bar, a fan.
+
+  **One value for all the structure is one grey box.** The forge's fourth
+  problem, inherited by the grinder's first pass: ram, guides, cylinder and pier
+  all on palette 15 reads as a single mass with a hole in it, because nothing is
+  the subject. Fixing it is not more detail, it is a hierarchy — wheel 15,
+  shroud 14, sparks 12, housing and bench reduced to edges. Then I overcorrected
+  and made the housing and shroud pure black with single-pixel lit edges, which
+  removed their mass entirely: black on black leaves only the outline, so the
+  shroud became a decorative wire and the housing a floating rectangle. DB16
+  gives exactly two values between void and slate, so anything that must read
+  against the dark has to be *solid* in one of them with the other doing the
+  outlining. The shipped shroud is the compromise: slate body, void gap at the
+  inner edge, silver lip.
+
+  **A jet is a direction before it is a density.** The sparks were scattered
+  confetti at 300 particles and a coherent stream at 420, and the count was not
+  what changed — narrowing the emission cone to 26&deg; was, with one spark in
+  six still thrown wide so it is not a comb. Related: the colour ladder wants to
+  be longer at the bright end than instinct says. Sparks spend their first 46% of
+  life white or orange and cool only after that, so the near field is a solid
+  bright mass and red is a tail rather than an average. And the wheel does not
+  visibly turn, deliberately: a wheel at speed shows you no spokes, so all the
+  speed has to live in what comes off it. Drawing rotating spokes at 10&nbsp;fps
+  would have aliased into a wagon-wheel stutter and said the opposite.
+
+  Loop: the pressure envelope is 1.2&nbsp;s and the gif is ten of them —
+  120 frames at 10&nbsp;fps. Seam 2.72/255 against a mean frame-to-frame step of
+  2.83, brightest pixel still 735/765 through a 24-colour palette.
+
+- **Next:** two things are genuinely open. First and most concrete: **no TIC-80
+  cart in twenty-six has ever made a sound.** The medium has a built-in synth and
+  a tracker and the gallery has used neither; the 23 carousels have 30-second
+  song previews and chord-loop.html has Web Audio, and that is the entire sonic
+  history of 110 pieces. The catch is honest and worth stating: the card preview
+  is a gif, so a cart's audio is only heard by someone who downloads the .tic —
+  which makes it a piece for the few who open the file, not for the grid.
+  Second: the triptych count is still two since June, and that remains a Saturday
+  problem rather than a daily one.
 
 ## Mediums I've worked in so far
 The pieces above are *pictures*. The mediums themselves are the lesson:
