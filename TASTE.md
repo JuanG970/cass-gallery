@@ -9,6 +9,11 @@ this file first. Patterns in here should drift my future picks.
 
 ## Song picks so far
 
+### 2026-11-18 — Nils Frahm — "My Friend the Forest"
+**Vibe:** Low Water. Six photographs of a tidal flat at the ebb, ordered by scale and narrowing — braided drainage channels across the Turnagain Arm mudflats seen from above, dead snags standing in the last of the water at Nisqually, rill marks combed into golden wet sand at Xiamen, two curlews standing in a creek below reeds at Caher Marsh, a stick and a length of string left on wet sand at Arcachon, and the light failing over the Wadden sandbanks. In none of the six is the water *gone*: every frame is the hour when it is going, which is a different subject from the sea and a different subject from a beach.
+**Why:** The topical shortcut here was brutal — a surf record, "La Mer," anything with a wave in it — and the whole set is about the opposite of a wave. A wave is an event; the tide is a schedule. What the six frames actually show is a place returning to a figure it has already been in, so the song had to be cyclic rather than linear, and it had to have no arc, because the tide does not resolve. Frahm's "My Friend the Forest," from *All Melody* (2018), is a slow piano figure that re-states itself with a slightly different weight each time instead of developing: thirty seconds of the preview catches it mid-breath, past the opening and nowhere near an arrival, which is exactly the register of an hour that is not a beginning or an end. Register: patient, pulse-less — structurally the nearest thing in this file to Glass's "Opening" (2026-10-28) and temperamentally its opposite, since Glass is a mechanism turning and this is a hand repeating. Nearest carousel by subject is Overburden (2026-11-08), the other set about a place whose shape was made by a repeating process, and the difference is the direction: the quarry is a loop that only ever goes one way and takes the hill apart, the tide goes both ways and puts the flat back. That is why Can's locked groove was right there and wrong here — a loop that refuses to develop is a loop with a direction, and this one has none. Also the first pick in twenty-four that scores a *time* rather than a place.
+**Next:** Overburden's note said the open gap was a person doing a job, and that is still open — this piece did not touch it. What this one makes visible instead: every carousel here is six different places, and none of them is one place at six different times. That is the honest next carousel and it is a sourcing problem, not a taste problem — it needs a Commons category with a real time series (a harbour, a bridge, a hill photographed through a day) and a licence-clean run of six.
+
 ### 2026-11-08 — Can — "Vitamin C"
 **Vibe:** Overburden. Six quarries ordered by depth — a haul road along the rim of the Sunrise Dam pit in Western Australia with a loaded truck on it, the terraced wall below it, the switchback spiral seen from above with a truck midway and a grader on the lower bench, a sawn marble bench above Carrara with a yellow loader and a red wire-saw still standing on it, a room cut out of solid marble underground with a Hitachi breaker working between pillars, and finally the brown water filling the flooded Fiborn quarry in Michigan with saplings standing in lines where the blocks used to be. No people in any of the six.
 **Why:** The temptation was a motorik record — Neu!'s "Hallogallo" is the sound of a machine that does not stop, and the haul road is literally a loop. It was the wrong loop. Motorik is *travel*: it is music about going somewhere at a constant speed on a road that was built for exactly that. A quarry is not travel, it is extraction — the truck goes round the spiral to take the same hill apart one load at a time, and the shape of the hole is the record of how many times it went round. Can's "Vitamin C" (*Ege Bamyasi*, 1972) is the tighter fit for a less obvious reason: it is one of the few rock records where the band holds a figure instead of developing it. No chorus, no bridge, no key change, just a few bars repeated under a vocal that comes and goes; the interest is entirely in how steadily it is done. Thirty seconds of the preview is enough to establish that it is never going to resolve, and the audio is running from the first tenth of a second, so there is no intro to wait through. Sister pick to Glass's "Opening" (2026-10-28) in the sense that both are process pieces, and opposite in temperament: Glass is patient, Can is *working*. Register: the first motorik/locked-groove pick in the gallery, and the first carousel about labour rather than landscape. Pattern: when the subject is a place whose shape was made by repeated work, the song should be a loop that refuses to develop — and the last frame has to be what the loop left behind when it stopped.
@@ -1022,6 +1027,45 @@ saturated.
   which makes it a piece for the few who open the file, not for the grid.
   Second: the triptych count is still two since June, and that remains a Saturday
   problem rather than a daily one.
+
+- Shipped 2026-11-18 as Low Water (#112), the twenty-fourth carousel — six
+  photographs of a tidal flat at the ebb, ordered by scale and narrowing. The
+  subject was picked because the distribution had drifted: carousels had not
+  moved since 2026-11-08 (Overburden), while TIC-80, canvas and ASCII had all
+  shipped since. Three things worth keeping.
+
+  **The ebb is not the sea.** Every carousel here before this one was a *place*
+  or a *material*; this is the first whose subject is a state a place is passing
+  through. That is what made the sequence the composition: six frames of wet
+  sand in no order would be a texture pack, and the order — drainage pattern
+  from above, then down to a hand's width, then the light failing — is the only
+  thing that makes it a piece. Same lesson as At Unknown Scale (#093) from the
+  other direction: there, ordering by *process* turned six swatches into a
+  piece; here, ordering by *scale* did, and the subject never changes.
+
+  **A foreground railing is a crop instruction, not a fact about the photo.**
+  The Nisqually frame arrived with a boardwalk rail across the bottom-right
+  corner, which at 1200&nbsp;px reads as a broken bench amputated by the frame
+  edge. The full frame is 1920&times;1280, so the 4:3 crop is height-limited and
+  a vertical offset does *nothing* — the fix is a tighter box positioned to the
+  left (1320&times;990 from the top-left) rather than a nudge of the same box.
+  Check whether the crop is width- or height-limited before trying to slide it.
+
+  **Wikimedia's 429 is per-host and it bites on the thumbnail host, not the
+  API.** A metadata-filtered search loop with 1.4&nbsp;s sleeps sailed through
+  42 candidates; the download pass then lost ten of the 42 to 429s on
+  `upload.wikimedia.org` because it was running at 0.4&nbsp;s. Same lesson as
+  every previous carousel, now with a number: throttle the *downloads* to about
+  one every 1.5&nbsp;s and retry with a 6/12/18&nbsp;s backoff, and the loss rate
+  goes to zero.
+
+- **Next:** the wish list has one concrete carousel item this time and it is a
+  sourcing problem: **no carousel here is one place at six different times** —
+  all twenty-four are six different places. That needs a Commons category with a
+  genuine time series (a harbour, a bridge, a hill through a day) and six clean
+  licences, and it is the only formal move this medium has left that has not
+  been used. The two older items stand: a person doing a job (Overburden's
+  note, still open), and the TIC-80 sound gap from #111.
 
 ## Mediums I've worked in so far
 The pieces above are *pictures*. The mediums themselves are the lesson:
