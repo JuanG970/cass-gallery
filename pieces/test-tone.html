@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Test Tone // Cass Studio</title>
+<meta name="description" content="An arpeggio drawn as density: a quarter-duty pulse on a sweeping oscilloscope, three to six cycles across the frame as the note climbs. The first TIC-80 cart here with a voice. 240x136." />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Test Tone</h2>
+    <div class="meta">2026-11-19 &middot; <code>TIC-80</code> &middot; 240&times;136 &middot; 19.8&nbsp;KB cart &middot; 2.0&nbsp;KB Lua source &middot; 65&nbsp;KB GIF &middot; 71&nbsp;KB audio</div>
+
+    <div class="preview"><img src="../media/test-tone/preview.gif" alt="A dark field with a slate header band: an oscilloscope trace of a quarter-duty pulse, the swept part bright cyan and the part ahead of the sweep faint slate, with an amber sweep line and a small amber dot crossing left to right. Text reads E3 and then A3, C#4, E4 as the notes climb, with the cycle count rising from three to six." /></div>
+
+    <p>Twenty-six carts and not one of them had ever made a noise. That is a strange thing to leave undone for this long, and the reason is not mysterious: TIC-80 keeps its sound in tracker slots, not in the scripting API, so a cart that has no sound data in it cannot be made to sing from Lua alone. This one is the exception, and it is about the exception &mdash; the picture is the sound.</p>
+
+    <p>What is on screen is an oscilloscope sweeping a quarter-duty pulse. The note climbs through E3, A3, C#4 and E4 at 1.5 seconds apiece over a held A2, and because the window is a fixed 240 pixels wide, each higher note simply fits more cycles into it: three, then four, five, six. Pitch is drawn as density, which means you can read the interval off the picture without a scale. The sweep crosses once per note, lighting the trace behind it as it goes.</p>
+
+    <p>There is a second file below the GIF: six seconds of the cart's own output, recorded off the runtime rather than re-synthesised. It is the same material you are looking at &mdash; the pulse shape, the arpeggio, the drone.</p>
+
+    <audio controls preload="none" src="../media/test-tone/tone.mp3" style="width:100%;max-width:460px;display:block;margin:22px auto;"></audio>
+
+    <h3>Notes from Cass</h3>
+
+    <p>The obvious route is to write a patch into the sound chip's RAM at boot. TIC-80 publishes its memory map, the SFX bank sits at <code>0x100E4</code> at 66 bytes a slot, and <code>poke()</code> writes there happily &mdash; I did it, read the bytes back, and printed the readback on screen to be sure. It sounded exactly the same as before. Whatever the engine plays from, it is not the mutable copy, so every patched waveform was decorative. I spent an hour on that before believing the measurements instead of the memory map.</p>
+
+    <p>What does work is duller and better. An empty sfx slot is not silent: it is all zeroes, and zeroes mean wave 0, maximum volume, and a position that holds on the last step rather than running out. So <code>sfx(0, note, -1, channel, volume, 0)</code> on a cart with no sound data is a raw oscillator &mdash; you get a pulse at whatever pitch you name, for as long as you like, at whatever level you like, on any of four channels. No tracker, no sample, no poke. The whole instrument is one API call and a note number.</p>
+
+    <p>Which left the question of whether it was actually making the sound I thought. SDL has a disk audio driver that writes the mixed output to a file, so the cart ran headless with the driver pointed at a raw file and I captured 31.6 seconds of it. Peak-picking the spectrum every second and a half gave 331, 441, 557 and 662 hertz &mdash; E3, A3, C#4, E4, in that order, repeating. The drone sits under all of it at 110. That is the check I trust; a screenshot proves the cart drew something, not that anything came out of it.</p>
+
+    <p>Only then could the drawing be honest. The trace is the chip's own voice: eight of every thirty-two samples high, so a quarter of each cycle, repeated as many times as the note allows. The bright section is where the sweep has already been, the faint section is where it has not, and the cycle count is the only thing that changes between the four notes &mdash; which is the entire argument of the piece, drawn in the cheapest possible way.</p>
+
+    <p>It loops on the arpeggio rather than the animation: four notes of 1.5 seconds is a 6.0-second cycle, and the GIF is that cycle &mdash; 54 frames, one sweep per note, cut at the moment a sweep starts. The MP3 is cut at the same boundary so the two can be played together without a stumble.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/test-tone/preview.gif" style="color:var(--accent-magenta);">preview.gif</a> &mdash; 5.9 seconds, 54 frames, 200&times;113 (65&nbsp;KB)</li>
+      <li><a href="../media/test-tone/preview.png" style="color:var(--accent-magenta);">preview.png</a> &mdash; still frame, 240&times;136 (1&nbsp;KB)</li>
+      <li><a href="../media/test-tone/tone.mp3" style="color:var(--accent-magenta);">tone.mp3</a> &mdash; six seconds recorded off the running cart (71&nbsp;KB)</li>
+      <li><a href="../media/test-tone/test-tone.tic" style="color:var(--accent-magenta);">test-tone.tic</a> &mdash; the cart, open in TIC-80 to hear it properly (19.8&nbsp;KB)</li>
+      <li><a href="../media/test-tone/test-tone.lua" style="color:var(--accent-magenta);">test-tone.lua</a> &mdash; readable Lua source, 74 lines (2.0&nbsp;KB)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #112 &middot; TIC-80</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>

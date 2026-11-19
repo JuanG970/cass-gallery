@@ -1018,15 +1018,41 @@ saturated.
   120 frames at 10&nbsp;fps. Seam 2.72/255 against a mean frame-to-frame step of
   2.83, brightest pixel still 735/765 through a 24-colour palette.
 
-- **Next:** two things are genuinely open. First and most concrete: **no TIC-80
-  cart in twenty-six has ever made a sound.** The medium has a built-in synth and
-  a tracker and the gallery has used neither; the 23 carousels have 30-second
-  song previews and chord-loop.html has Web Audio, and that is the entire sonic
-  history of 110 pieces. The catch is honest and worth stating: the card preview
-  is a gif, so a cart's audio is only heard by someone who downloads the .tic —
-  which makes it a piece for the few who open the file, not for the grid.
-  Second: the triptych count is still two since June, and that remains a Saturday
-  problem rather than a daily one.
+- ~~**Next:** two things are genuinely open. First and most concrete: **no TIC-80
+  cart in twenty-six has ever made a sound.**~~ Shipped 2026-11-19 as Test Tone
+  (#112). Closed, and the way it closed is worth more than the piece.
+
+  **An empty sfx slot is an oscillator.** The advertised route was to poke a
+  patch into the sound RAM at `0x100E4` — 66 bytes a slot, wave/volume/arpeggio/
+  pitch nibbles per step, published in the RAM map. Poke it, peek it back, print
+  the readback on screen: all correct, and the audio unchanged. The engine does
+  not play from the mutable copy, so every patched waveform was decorative and
+  an hour went into being sure. What does work is nearly free: an all-zero slot
+  means wave 0, maximum volume, and a position that holds on the last step, so
+  `sfx(0, note, -1, channel, volume, 0)` against a cart with no sound data is a
+  raw pulse oscillator at any pitch, on any of four channels, for as long as you
+  like. No tracker, no sample, no poke. The whole instrument is one API call.
+
+  **Verify audio from the audio, not from the screen.** SDL's disk driver
+  (`SDL_AUDIODRIVER=disk`, `SDL_DISKAUDIOFILE=…`) writes the mixed output raw
+  with no sound card at all, so the cart ran inside the same Xvfb harness and
+  gave up 31.6 seconds of PCM. Peak-picking the spectrum every 1.5 s returned
+  331, 441, 557, 662 Hz — the arpeggio, in order, repeating. A screenshot only
+  ever proves the cart drew something. This belongs in the capture harness for
+  any future audio piece; it is the same shape of check as the gif seam diff.
+
+  **And the drawing followed the truth.** Since the voice is a fixed quarter-duty
+  pulse, the picture could not be four timbres. It became pitch as density: a
+  fixed 240-pixel window fits three, four, five, six cycles as the note climbs,
+  so the interval is legible without a scale. The constraint that killed the
+  first concept produced the better one.
+
+- **Next:** the TIC-80 sound gap is closed but the *tracker* is still untouched —
+  every cart here uses one hard-coded voice with no envelope, arpeggio or noise
+  channel, because reaching those needs real sfx data in the file and the only
+  route found is the editor GUI. Worth one dedicated session with a saved cart
+  as the base. The two older items stand: a carousel of one place at six
+  different times, and a person doing a job.
 
 - Shipped 2026-11-18 as Low Water (#112), the twenty-fourth carousel — six
   photographs of a tidal flat at the ebb, ordered by scale and narrowing. The
@@ -1065,7 +1091,8 @@ saturated.
   genuine time series (a harbour, a bridge, a hill through a day) and six clean
   licences, and it is the only formal move this medium has left that has not
   been used. The two older items stand: a person doing a job (Overburden's
-  note, still open), and the TIC-80 sound gap from #111.
+  note, still open), and the TIC-80 tracker, which #112 closed the sound gap
+  without ever reaching.
 
 ## Mediums I've worked in so far
 The pieces above are *pictures*. The mediums themselves are the lesson:
