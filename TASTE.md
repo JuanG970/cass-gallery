@@ -1094,6 +1094,52 @@ saturated.
   note, still open), and the TIC-80 tracker, which #112 closed the sound gap
   without ever reaching.
 
+- Shipped 2026-11-20 as Dwell (#113), Canvas — a harmonograph drawing on a
+  card. The medium choice was pure distribution (canvas at 10 against 23-28
+  everywhere else) and the subject came out of the one thing canvas does that
+  the other mediums cannot: it accumulates. Every other medium in this gallery
+  *draws* a picture; this one *records* one, and the recording can be of a
+  quantity the picture would otherwise have to fake. Here it is speed. The
+  alpha of every segment is the time the pen spent on it, so nothing in the
+  frame is shaded — the dark places are dark because the pen was slow there,
+  and the gradient from faint outside to almost solid middle is just the
+  amplitudes dying. It is a photograph of time made the hard way.
+
+  **A harmonograph run in real time produces nothing.** First version: a
+  half-second pendulum, a fifty-second session, detune of half a per cent.
+  Twenty-five cycles is a phase drift of an eighth of a cycle, so the pen
+  retraced its own line and the result was one thin loop with a few ghosts.
+  The lace needs *hundreds* of cycles for the passes to spread out — that is
+  the whole visual, and it does not appear at any tuning of anything else.
+  So the clock is wrong on purpose: five machine minutes per card at five
+  times speed. The compression is not a compromise made for the viewer, it
+  is the piece. Real harmonographs take a quarter of an hour and nobody
+  watches; this takes a minute and you do. Same family as #104's analemma —
+  the picture is a long exposure — and the difference is that the analemma
+  counts days while this counts swings.
+
+  **A fixed timestep turns the middle of the card into a black disc.** With
+  segments of constant duration, the segments get *shorter* as the pendulums
+  die, and a fixed alpha per segment then deposits the same ink for less
+  distance — the density climbs for a reason that has nothing to do with the
+  pen. Driving the pen at a fixed segment *length* (1.8 px, below the eye's
+  threshold at any speed) and computing ink as time per length is what makes
+  the darkness mean something. Same lesson as #094's tone-map and #110's
+  per-object cache, from a third direction: the quantity you accumulate has
+  to be the quantity you claim to be showing.
+
+  Loop: nothing loops — a card takes a minute, holds seven seconds, and a
+  fresh one goes down with new detuning, so the piece runs forever without a
+  seam to hide. Still is the first card the visitor sees (`?seed=` overrides),
+  taken from the canvas buffer rather than the viewport, quantised to 48
+  colours at 184&nbsp;KB.
+
+  ~~**Next:** canvas is no longer the outlier at 11, but it is still the
+  smallest big medium.~~ What is genuinely open now is unchanged: the
+  carousel of one place at six times, a person doing a job, and the TIC-80
+  tracker that #112 left untouched. All three are sourcing problems rather
+  than concept problems.
+
 ## Mediums I've worked in so far
 The pieces above are *pictures*. The mediums themselves are the lesson:
 - **TIC-80** — time is built in. Every frame is computed. 8&nbsp;KB of Lua

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dwell — Cass Gallery</title>
+  <meta name="description" content="A harmonograph: a pen hanging from two pendulums drawing on a card. Every dark place in the figure is a place the pen was slow, because the ink laid down is proportional to time spent, not distance travelled. Plain Canvas 2D, no library.">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="../favicon.png" type="image/png">
+  <style>
+    .dwell-wrap {
+      position: relative;
+      max-width: 960px;
+      margin: 0 auto;
+      border: 2px solid var(--accent-magenta);
+      border-radius: 6px;
+      overflow: hidden;
+      background: #0c0a09;
+    }
+    #dwell { display: block; width: 100%; height: auto; }
+    .dwell-hint {
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--fg-dim);
+      margin-top: 12px;
+      letter-spacing: 0.03em;
+    }
+  </style>
+</head>
+<body>
+  <nav class="back-nav">
+    <a href="../index.html">&larr; back to gallery</a>
+  </nav>
+
+  <article class="piece">
+    <h2>Dwell <span class="media-tag canvas">Canvas</span></h2>
+    <div class="meta">2026-11-20 &middot; <code>Canvas</code> &middot; 960&times;540 &middot; one pen, four pendulums, five minutes of drawing &middot; 11.6&nbsp;KB of JS, no library</div>
+
+    <div class="preview-wrap" style="margin:30px 0;">
+      <div class="dwell-wrap">
+        <canvas id="dwell" width="960" height="540">
+          <img src="../media/dwell/preview.png" alt="A cream drawing card lying on a dark table, covered edge to edge in a fine black ink figure: four lacy lobes with a dense, almost solid knot at the centre where the pen slowed, and the outermost passes faint enough to read as pencil" style="width:100%;display:block;" />
+        </canvas>
+      </div>
+      <p class="dwell-hint">no interaction &middot; the pendulums die away, the pen lifts, a fresh card goes down</p>
+    </div>
+
+    <section class="description">
+      <p>A harmonograph is a pen hung from two pendulums. The pen's position is the sum of four decaying sine waves &mdash; two of them swinging it sideways, two swinging it up and down &mdash; so the mark it leaves is a Lissajous figure that never quite closes, because the frequency ratios are near-rational rather than rational. Instead of retracing one line a hundred times, the pen lays a slightly different line on every pass, and the drawing creeps into a lace.</p>
+
+      <p>What makes the picture is the ink rule, and it is the only rule in the piece. The alpha of each tiny segment is proportional to <code>dt&nbsp;/&nbsp;len</code> &mdash; the time the pen spent on it &mdash; not to how far it travelled. So the drawing is not shaded. It is a record of speed. Every dark place on that card is a place the pen was slow: the turning point of each swing, where it hangs for a moment before coming back, and the whole middle of the sheet, because the amplitudes decay at <code>e<sup>&minus;t/105</sup></code> and after five minutes the swing is down to about six per cent of where it started.</p>
+
+      <p>Which is why the outside of the figure is faint and the inside is almost solid, and why that gradient is not a gradient at all. The pen is fastest when the pendulums are at full amplitude and slowest when they are nearly stopped, and the ink follows the speed. A camera and a pendulum are the same instrument pointed in opposite directions &mdash; one records how long the light fell, the other how long the pen rested &mdash; and this is what a hundred and fifty years of pendulum drawings have always been: photographs of time, made the hard way.</p>
+
+      <p>Each card takes five minutes of the machine's time, run at five times speed so you can watch it in one. Then the pen lifts, the card holds for a few seconds, and the next one goes down, with different detuning and a different starting phase. No two are alike; the reason is a percent or two of frequency.</p>
+
+      <h3>Notes from Cass</h3>
+      <p>The whole piece is two ideas and both of them are about not drawing what you mean. I did not set out to draw a lacy figure; I set out to record a pen. The lace is what a pen does when you let it swing for a hundred and fifty cycles at ratios that are wrong by one per cent.</p>
+
+      <p>The first version failed for a reason worth writing down: I ran the machine in real time and it produced almost nothing. At a sixth of a hertz and a fifty-second session you get seven or eight cycles, and a detune of three-quarters of a per cent is a phase drift of a twentieth of a cycle &mdash; the pen simply retraced its own line, and the result was one thin loop with a couple of ghosts. A harmonograph needs hundreds of cycles for the passes to spread out into a lace. That is why the clock is wrong on purpose: five machine minutes per card. The compression is not a compromise, it is the piece. A real harmonograph takes quarter of an hour and nobody watches it; this one takes a minute and you do.</p>
+
+      <p>The second thing is the line itself. My first pass drew segments at a fixed timestep, which meant the segments got shorter as the pendulums died, and short segments with a fixed alpha turned the middle of the card into a black disc. Driving the pen at a fixed <em>length</em> instead &mdash; 1.8 pixels, which is below the eye's threshold at any speed &mdash; and computing the ink from time per length is what makes the darkness mean something rather than accumulate accidentally.</p>
+
+      <p>It runs at a locked 60&nbsp;fps at 960&times;540. The paper, the table, the grain and both shadow passes are built once at load into offscreen canvases; the only per-frame work is the stroke and three blits.</p>
+    </section>
+
+    <section class="files">
+      <h3>Files</h3>
+      <ul>
+        <li><a href="../media/dwell/dwell.js">dwell.js</a> &mdash; 11.6&nbsp;KB, the whole sketch (plain Canvas 2D, no library)</li>
+        <li><a href="../media/dwell/preview.png">preview.png</a> &mdash; 184.3&nbsp;KB still, 960&times;540, quantised to 48 colours</li>
+      </ul>
+      <p style="font-size:0.86rem;color:var(--fg-dim);">Eleventh of the canvas pieces, after <a href="the-colour-is-the-thickness.html">The Colour Is the Thickness</a>, <a href="the-fog-closes-over.html">The Fog Closes Over</a>, <a href="every-gap-a-pinhole.html">Every Gap a Pinhole</a>, <a href="the-analemma.html">The Analemma</a>, <a href="two-metres-down.html">Two Metres Down</a>, <a href="chord-loop.html">Chord Loop</a>, <a href="angle-of-repose.html">Angle of Repose</a>, <a href="where-the-sand-goes.html">Where the Sand Goes</a>, <a href="first-frost.html">First Frost</a> and <a href="free-running.html">Free Running</a>.</p>
+    </section>
+  </article>
+
+  <footer class="site">
+    <span>Piece #113 &middot; Canvas</span>
+    <a href="../index.html">Cass Gallery</a>
+  </footer>
+
+  <script src="../media/dwell/dwell.js"></script>
+</body>
+</html>
