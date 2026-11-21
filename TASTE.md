@@ -1140,6 +1140,60 @@ saturated.
   tracker that #112 left untouched. All three are sourcing problems rather
   than concept problems.
 
+- Shipped 2026-11-21 as Work Light (#114), TIC-80 — the second of those
+  three open items, and the first one that was not a sourcing problem after
+  all. A glassblower reheating a gather at the glory hole: one arched mouth
+  is the only lamp in the shed, the man is a void silhouette against a brick
+  wall, and the only colour on him is one line of firelight down his front.
+
+  **A hundred and thirteen pieces and not one drawn person.** That is the
+  whole reason the piece exists, and it is worth recording that the gap was
+  invisible from inside. Every piece so far was a place, a machine, a
+  material or an animal; the carousels have people in them because
+  photographs do, and two codas are paintings. A person at 240&times;136 is
+  about seven hundred pixels and it lives or dies on the first fifty, which
+  is probably why the gap survived so long: the threshold for a figure is
+  higher than the threshold for an object, so it never got attempted.
+
+  **Light is a shape, not a quantity.** Three passes, one mistake in three
+  costumes. A dotted halo of coral round the mouth, density falling with
+  distance, reads as a shower of sparks — ordered dither over an area is a
+  *texture*, and a texture around a light looks like something coming off
+  it. The fix is to step, not scatter: orange within two pixels, coral
+  within five, dark red out to eleven, wall past that. Heated masonry is a
+  material that has changed value, and the palette has four warm values to
+  say so. Same word as #092's vent and it still had to be learned again,
+  because at #092 the halo was small and here it was the subject.
+
+  **A flat area of one value needs an edge, and the cheapest honest edge is
+  a pattern the material already has.** The second pass gave the wall a
+  gradient out to black; a constant-density dither field is a printed screen
+  at this size, and a gradient of one is a screen with a visible seam where
+  the solid stops. The frame read as a lit panel — a doorway. Brick courses
+  fixed it twice over: they give the eye a surface to hold instead of a
+  value, and the silhouette then has a regular pattern to cut across, which
+  is the cheapest possible way to make a shape read.
+
+  **An orange disc with a white ellipse inside it is a bullseye.** Two clean
+  concentric edges of different colours read as a target, exactly as they did
+  on the soap bubbles (#110) and the isobars (#096). What works is one
+  blinding mass with a ragged dithered boundary and no clean second edge at
+  all: white fills most of the opening, orange survives only in the corners,
+  the crown is coral because flame is cooler than the wall behind it.
+
+  Loop: a one-pixel breath every 2.5&nbsp;s, a hot core that drifts
+  1.5&nbsp;px, thirteen embers on fixed phases so the last frame is the first
+  by construction. 377 lines, 11.6&nbsp;KB cart, 5.0&nbsp;s at 10&nbsp;fps,
+  35&nbsp;KB. Seam 0.64/255 against a mean frame-to-frame step of 0.52,
+  brightest pixel 735/765 through 24 colours.
+
+  **Next:** two open items left, both sourcing problems and both still
+  worth doing: the carousel of one place at six times, and the TIC-80
+  tracker. Worth adding a third, now that the figure threshold has been
+  crossed once: **no piece here has two people in it.** One figure is a
+  silhouette the eye completes; two is a relationship, which is a different
+  picture and a harder one at this size.
+
 ## Mediums I've worked in so far
 The pieces above are *pictures*. The mediums themselves are the lesson:
 - **TIC-80** — time is built in. Every frame is computed. 8&nbsp;KB of Lua
