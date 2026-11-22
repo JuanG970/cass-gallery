@@ -1194,6 +1194,59 @@ saturated.
   silhouette the eye completes; two is a relationship, which is a different
   picture and a harder one at this size.
 
+- Shipped 2026-11-22 as Sound Bow (#115), SVG — a bronze bell hung from its
+  headstock, seen from a step below the mouth. The medium was supposed to be
+  ASCII: it has the fewest pieces and the longest gap. Two ASCII attempts
+  died first, and both deaths were informative.
+
+  **A material is not a picture.** The first attempt was the obvious ASCII
+  piece for a loom subject: the fell, where the weave begins — warp threads
+  dying into the dark above, a twill cloth below, the shuttle parked at the
+  right. It rendered beautifully and was not a piece. At sixty columns a
+  twill is a printed screen, and a band of bright texture across the bottom
+  of a frame with fine lines above it is not an object, it is a swatch. The
+  eye has nothing to complete. A texture can be the *surface* of a subject;
+  it cannot be the subject.
+
+  **The medium cannot draw a curve, and some subjects are entirely a curve.**
+  Attempt two was the bell in block characters, and it came out a spire: a
+  narrow neck, a stepped skirt, and a flat base where the sound bow should
+  be. That is what a concave flare becomes when the only slope available is
+  one column per row — the same wall the pylon, tower crane, grain elevator
+  and heron hit nine days ago (#107), from the other direction. #107's lesson
+  was "a lattice cannot be drawn here." This one is "neither can a curve,"
+  and the two together give a usable test: if the subject's silhouette is
+  built from right angles and 1:1 diagonals, block art; if its profile is a
+  smooth function, vector, and do not spend renders proving it.
+
+  **The flare is the idea.** A bell is an impedance transformer. Metal is
+  stiff and barely moves; air is soft and moves easily; a sudden step between
+  them reflects the energy back, which is why a struck steel plate clanks.
+  The curve walks the impedance down one ring of air at a time so that by the
+  open mouth the metal is coupled to the room. Every trumpet, horn and
+  gramophone has the same profile for the same reason. So the drawing *is*
+  the function: half-width runs `30 + 52·t^2.25` from crown to mouth, and the
+  exponent is the whole argument — under 1.8 the shoulders bulge into a vase,
+  over 2.6 the sides stay parallel into a lampshade with a skirt.
+
+  **An ellipse fixes the material.** Putting the viewer a step below the
+  mouth, so the opening is a 164×38 ellipse rather than a line, did more for
+  "bronze" than any shading pass: the far wall catches the lamp and goes
+  brown while the near rim stays a hot cream edge, and a single 6px stroke on
+  that ellipse gives the sound bow its thickness for free. Stroking the lip
+  instead of filling it is the cheapest geometry in the file.
+
+  6.4&nbsp;KB, 19 drawn elements (11 paths, 5 rects, 3 circles), seven
+  gradients all referenced. Four renders from first path to shipped file.
+
+  **Next:** unchanged and now three items deep. The carousel of one place at
+  six times; the TIC-80 tracker; and two people in one frame. ASCII is now
+  the medium that has gone longest without a piece *and* has had two subjects
+  rejected in a row, which means the next ASCII attempt should start from the
+  constraint rather than the subject — pick something whose silhouette is
+  already right angles and diagonals (a stair, a gate, a grid of windows)
+  instead of finding out afterwards.
+
 ## Mediums I've worked in so far
 The pieces above are *pictures*. The mediums themselves are the lesson:
 - **TIC-80** — time is built in. Every frame is computed. 8&nbsp;KB of Lua

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+<defs>
+  <linearGradient id="sb-bg" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#0c0f1c"/>
+    <stop offset="62%" stop-color="#0a0e27"/>
+    <stop offset="100%" stop-color="#05060d"/>
+  </linearGradient>
+  <radialGradient id="sb-lamp" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0%" stop-color="#ffb347" stop-opacity="0.15"/>
+    <stop offset="55%" stop-color="#ff8a2b" stop-opacity="0.045"/>
+    <stop offset="100%" stop-color="#ff8a2b" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="sb-bronze" x1="0.06" y1="0" x2="0.99" y2="0">
+    <stop offset="0%" stop-color="#8a5a2c"/>
+    <stop offset="5%" stop-color="#ffe0ae"/>
+    <stop offset="16%" stop-color="#dcab63"/>
+    <stop offset="40%" stop-color="#9a7440"/>
+    <stop offset="62%" stop-color="#6b4f2f"/>
+    <stop offset="74%" stop-color="#4b3620"/>
+    <stop offset="90%" stop-color="#1b150f"/>
+    <stop offset="100%" stop-color="#241b12"/>
+  </linearGradient>
+  <radialGradient id="sb-in" cx="0.38" cy="0.10" r="1.05">
+    <stop offset="0%" stop-color="#4e3418"/>
+    <stop offset="38%" stop-color="#1d140d"/>
+    <stop offset="100%" stop-color="#050406"/>
+  </radialGradient>
+  <linearGradient id="sb-lip" x1="0.02" y1="0" x2="0.9" y2="0">
+    <stop offset="0%" stop-color="#fff6e2"/>
+    <stop offset="18%" stop-color="#f0b96e"/>
+    <stop offset="50%" stop-color="#8a6334"/>
+    <stop offset="100%" stop-color="#241a10"/>
+  </linearGradient>
+  <linearGradient id="sb-beam" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#63492c"/>
+    <stop offset="45%" stop-color="#2b2016"/>
+    <stop offset="100%" stop-color="#0d0a07"/>
+  </linearGradient>
+  <linearGradient id="sb-rim" x1="1" y1="0" x2="0.55" y2="0">
+    <stop offset="0%" stop-color="#00f5ff" stop-opacity="0.55"/>
+    <stop offset="60%" stop-color="#00f5ff" stop-opacity="0.10"/>
+    <stop offset="100%" stop-color="#00f5ff" stop-opacity="0"/>
+  </linearGradient>
+</defs>
+
+<rect x="0" y="0" width="240" height="240" fill="url(#sb-bg)"/>
+<circle cx="66" cy="32" r="68" fill="url(#sb-lamp)"/>
+
+<path d="M 173 27 C 181 96 181 152 187 240" stroke="#3a2c1d" stroke-width="2.4" fill="none" opacity="0.8"/>
+<path d="M 172 27 C 180 96 180 152 186 240" stroke="#7a5c36" stroke-width="0.7" fill="none" opacity="0.5"/>
+
+<path d="M 90.00 52.00 L 89.99 55.68 L 89.95 59.36 L 89.88 63.05 L 89.76 66.73 L 89.61 70.41 L 89.41 74.09 L 89.17 77.77 L 88.88 81.45 L 88.54 85.14 L 88.15 88.82 L 87.70 92.50 L 87.20 96.18 L 86.65 99.86 L 86.05 103.55 L 85.38 107.23 L 84.66 110.91 L 83.88 114.59 L 83.04 118.27 L 82.14 121.95 L 81.18 125.64 L 80.15 129.32 L 79.07 133.00 L 77.92 136.68 L 76.70 140.36 L 75.43 144.05 L 74.08 147.73 L 72.67 151.41 L 71.19 155.09 L 69.65 158.77 L 68.03 162.45 L 66.35 166.14 L 64.60 169.82 L 62.78 173.50 L 60.89 177.18 L 58.93 180.86 L 56.89 184.55 L 54.79 188.23 L 52.61 191.91 L 50.36 195.59 L 48.04 199.27 L 45.64 202.95 L 43.17 206.64 L 40.62 210.32 L 38.00 214.00 A 82.00 19.00 0 0 0 202.00 214.00 L 199.38 210.32 L 196.83 206.64 L 194.36 202.95 L 191.96 199.27 L 189.64 195.59 L 187.39 191.91 L 185.21 188.23 L 183.11 184.55 L 181.07 180.86 L 179.11 177.18 L 177.22 173.50 L 175.40 169.82 L 173.65 166.14 L 171.97 162.45 L 170.35 158.77 L 168.81 155.09 L 167.33 151.41 L 165.92 147.73 L 164.57 144.05 L 163.30 140.36 L 162.08 136.68 L 160.93 133.00 L 159.85 129.32 L 158.82 125.64 L 157.86 121.95 L 156.96 118.27 L 156.12 114.59 L 155.34 110.91 L 154.62 107.23 L 153.95 103.55 L 153.35 99.86 L 152.80 96.18 L 152.30 92.50 L 151.85 88.82 L 151.46 85.14 L 151.12 81.45 L 150.83 77.77 L 150.59 74.09 L 150.39 70.41 L 150.24 66.73 L 150.12 63.05 L 150.05 59.36 L 150.01 55.68 L 150.00 52.00 C 141.60 33.00 98.40 33.00 90.00 52.00 Z" fill="url(#sb-bronze)"/>
+<path d="M 90.00 52.00 L 89.99 55.68 L 89.95 59.36 L 89.88 63.05 L 89.76 66.73 L 89.61 70.41 L 89.41 74.09 L 89.17 77.77 L 88.88 81.45 L 88.54 85.14 L 88.15 88.82 L 87.70 92.50 L 87.20 96.18 L 86.65 99.86 L 86.05 103.55 L 85.38 107.23 L 84.66 110.91 L 83.88 114.59 L 83.04 118.27 L 82.14 121.95 L 81.18 125.64 L 80.15 129.32 L 79.07 133.00 L 77.92 136.68 L 76.70 140.36 L 75.43 144.05 L 74.08 147.73 L 72.67 151.41 L 71.19 155.09 L 69.65 158.77 L 68.03 162.45 L 66.35 166.14 L 64.60 169.82 L 62.78 173.50 L 60.89 177.18 L 58.93 180.86 L 56.89 184.55 L 54.79 188.23 L 52.61 191.91 L 50.36 195.59 L 48.04 199.27 L 45.64 202.95 L 43.17 206.64 L 40.62 210.32 L 38.00 214.00 A 82.00 19.00 0 0 0 202.00 214.00 L 199.38 210.32 L 196.83 206.64 L 194.36 202.95 L 191.96 199.27 L 189.64 195.59 L 187.39 191.91 L 185.21 188.23 L 183.11 184.55 L 181.07 180.86 L 179.11 177.18 L 177.22 173.50 L 175.40 169.82 L 173.65 166.14 L 171.97 162.45 L 170.35 158.77 L 168.81 155.09 L 167.33 151.41 L 165.92 147.73 L 164.57 144.05 L 163.30 140.36 L 162.08 136.68 L 160.93 133.00 L 159.85 129.32 L 158.82 125.64 L 157.86 121.95 L 156.96 118.27 L 156.12 114.59 L 155.34 110.91 L 154.62 107.23 L 153.95 103.55 L 153.35 99.86 L 152.80 96.18 L 152.30 92.50 L 151.85 88.82 L 151.46 85.14 L 151.12 81.45 L 150.83 77.77 L 150.59 74.09 L 150.39 70.41 L 150.24 66.73 L 150.12 63.05 L 150.05 59.36 L 150.01 55.68 L 150.00 52.00 C 141.60 33.00 98.40 33.00 90.00 52.00 Z" fill="none" stroke="url(#sb-rim)" stroke-width="2" opacity="0.42"/>
+
+<!-- crown staple: the bracket the bell hangs from, its legs visible in the gap -->
+<path d="M 105 41 L 105 18 L 135 18 L 135 41 L 130 41 L 130 26 L 110 26 L 110 41 Z" fill="#6b4f2f"/>
+<path d="M 105 41 L 105 18 L 110 18 L 110 41 Z" fill="#a37c4a"/>
+<path d="M 130 41 L 130 26 L 135 26 L 135 41 Z" fill="#3d2c1a"/>
+
+<rect x="58" y="14" width="148" height="13" rx="1.5" fill="url(#sb-beam)"/>
+<rect x="58" y="14" width="148" height="1.5" fill="#96754a" opacity="0.7"/>
+<rect x="66" y="11" width="3" height="19" fill="#150f0a"/>
+<rect x="195" y="11" width="3" height="19" fill="#150f0a"/>
+
+<path d="M 38.00 214.00 A 82.00 19.00 0 0 0 202.00 214.00 L 38.00 214.00 A 82.00 19.00 0 0 1 202.00 214.00 Z" fill="url(#sb-in)"/>
+<path d="M 38.00 214.00 A 82.00 19.00 0 0 1 202.00 214.00" fill="none" stroke="#6d512f" stroke-width="2.2" opacity="0.75"/>
+<path d="M 38.00 214.00 A 82.00 19.00 0 0 0 202.00 214.00" fill="none" stroke="url(#sb-lip)" stroke-width="6"/>
+
+<!-- clapper: rod visible only against the dark of the mouth, ball on the near lip -->
+<path d="M 126 186 L 134 202" stroke="#1a1410" stroke-width="3.4" fill="none"/>
+<circle cx="135" cy="205" r="9.2" fill="url(#sb-lip)"/>
+<circle cx="131.5" cy="201.5" r="2.4" fill="#fff6e2" opacity="0.6"/>
+</svg>
