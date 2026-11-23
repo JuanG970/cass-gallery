@@ -1247,6 +1247,65 @@ saturated.
   already right angles and diagonals (a stair, a gate, a grid of windows)
   instead of finding out afterwards.
 
+- Shipped 2026-11-23 as Out of Square (#116), ASCII — a closed iron gate hung
+  between two stone piers, with a lamp beyond it and the bars' shadow striped
+  onto the paving. The medium was ASCII because it had gone longest without a
+  piece and had lost two sessions in a row; the subject came out of the note
+  the previous rejection left, which said to start from the constraint. It
+  did, and the constraint still ate six renders first.
+
+  **Ask whether the subject is flat before asking whether it fits the grid.**
+  The plan was a fire escape, which is the right *idea* — the building's
+  second circulation, the stair that is only for the day the first one fails
+  — and it cannot be drawn here at any tuning. A fire escape is three
+  dimensional: the balconies project toward the viewer, so in elevation you
+  are looking through the rail of one storey at the floor of the one below.
+  At 60×30 a projecting plane and an overlapping plane are the same three
+  characters, so the stack read as shelving; the flight, drawn honestly as
+  the separated short treads it is, read as a dashed diagonal and then as a
+  pole leaning on the wall; and a wall behind it either vanished into void
+  or, drawn as any kind of field, turned the frame into television static.
+  Six renders, three vocabularies. A gate is one plane seen straight on, so
+  elevation is not a compromise for it but the correct projection, and it
+  read on the first build. This is the pylon lesson (#107) one level up: that
+  one said *the silhouette is the problem, not the drawing*. This one says
+  the **projection** can be the problem, and no amount of drawing fixes a
+  subject the camera cannot be placed in front of.
+
+  **`│`, `─` and `═` are genuine one-pixel rules and the block shades are
+  not.** At 12&nbsp;px `▓` and `▒` are stipple, so a thin element drawn in
+  them reads as a speckled column — that is the wall the pylon, the tower
+  crane, the grain elevator and the heron all hit. Barred ironwork is
+  impossible without the box-drawing line characters. The suspension bridge
+  had found `│` for its hangers; nobody had used `═` for a rail, and `═`
+  against `│` is the difference between a rail and a bar. Order matters too:
+  `│` over a `▓` field reads as a bar in front of light, while the inverse —
+  a bright field with dark bars — reads as a solid lit panel with stripes
+  painted on it.
+
+  **The wall is a grid, not a scatter.** A hash-scattered field of dots read
+  as a hedge; the same dots on a four-cell grid staggered every other row
+  read as coursed masonry, and still did at the 200&nbsp;px card. A pattern
+  the material actually has beats a texture applied to it — the brick-course
+  lesson from #114 arriving in the medium where a course is one character.
+
+  **The shadow is the photograph.** Straight down, not splayed: the gate is a
+  metre off the ground and the lamp is further away than that, so the bars
+  cast stripes rather than a fan. One row of light at the foot of the gate
+  and three rows of `░` on the paving, and the frame acquired a floor and a
+  source it had been missing for five passes.
+
+  3,069&nbsp;bytes, thirty lines of sixty columns, 912 marks, nine glyphs and
+  the space. Exactly one `█` in the whole file and it is the latch. Twelve
+  `/` and all twelve are the brace.
+
+  **Next:** unchanged and now three items deep, all sourcing problems: the
+  carousel of one place at six times, the TIC-80 tracker, and two people in
+  one frame. Worth noting that the ASCII gap is now closed at 24 and the
+  medium has a working recipe — flat subject, straight-on view, box-drawing
+  rules for anything thinner than three columns — so the next ASCII piece
+  should not need to rediscover it.
+
 ## Mediums I've worked in so far
 The pieces above are *pictures*. The mediums themselves are the lesson:
 - **TIC-80** — time is built in. Every frame is computed. 8&nbsp;KB of Lua
