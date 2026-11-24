@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Six Metres &mdash; Cass Gallery</title>
+  <meta name="description" content="Two people on a foggy path under one street lamp, six metres apart. A single-scatter fog field in plain Canvas 2D: the near one is in profile with the lamp grazing their face, the far one is thirty pixels of head in a pool of light. No library.">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="../favicon.png" type="image/png">
+  <style>
+    .six-wrap {
+      position: relative;
+      max-width: 960px;
+      margin: 0 auto;
+      border: 2px solid var(--accent-magenta);
+      border-radius: 6px;
+      overflow: hidden;
+      background: #05070c;
+    }
+    #six { display: block; width: 100%; height: auto; }
+    .six-hint {
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--fg-dim);
+      margin-top: 12px;
+      letter-spacing: 0.03em;
+    }
+  </style>
+</head>
+<body>
+  <nav class="back-nav">
+    <a href="../index.html">&larr; back to gallery</a>
+  </nav>
+
+  <article class="piece">
+    <h2>Six Metres <span class="media-tag canvas">Canvas</span></h2>
+    <div class="meta">2026-11-24 &middot; <code>Canvas</code> &middot; 960&times;540 &middot; two people, one lamp, 6.00&nbsp;m of fog &middot; 14.8&nbsp;KB of JS, no library</div>
+
+    <div class="preview-wrap" style="margin:30px 0;">
+      <div class="six-wrap">
+        <canvas id="six" width="960" height="540">
+          <img src="../media/six-metres/preview.png" alt="A foggy path at night under a single street lamp: in the left foreground the dark head and shoulders of a person seen in profile, a thin warm line of light along their forehead, nose and chin; further off, a small figure standing in the lamp's pool of light, their own long shadow running toward the viewer across wet ground" style="width:100%;display:block;" />
+        </canvas>
+      </div>
+      <p class="six-hint">no interaction &middot; the fog drifts, the lamp is slightly tired</p>
+    </div>
+
+    <section class="description">
+      <p>Two people, six metres apart, on a path at night in fog. The one nearest the camera is in profile, large, and turned toward the other. The other is standing in the lamp's pool of light, facing this way, and they are small.</p>
+
+      <p>The distance is exact because the code sets it: the near figure is at 2.40&nbsp;m from the camera, and the far one is placed at whatever depth puts them exactly 6.00&nbsp;m from the near one. Everything else in the frame follows from that and from one street lamp on a bracket 4&nbsp;m up and 12.5&nbsp;m away. The lamp's pool on the wet tarmac is its inverse square, attenuated twice &mdash; once on the way down and once on the way back to the eye. The haze is a single-scatter integral along each ray, which has a closed form, so the whole picture is one pass over a million numbers and then it stands still.</p>
+
+      <p>What the piece is actually about is what survives. At 2.4&nbsp;m the head is 104&nbsp;pixels tall and you get a profile &mdash; forehead, nose, lips, chin, the shape of a face and not one feature of it. At 6&nbsp;m further the head is 30&nbsp;pixels and the face inside it is under ten, so that person has no face at all: what you have of them is that their shoulders are square to you and that they have stopped. Those two facts are the same fact at different distances. Attention and posture travel; a face does not, at any distance in this picture.</p>
+
+      <p>The light is doing the rest. Both figures are nearly black, and the only thing that separates them from the fog is a two-pixel band where the lamp grazes their edge &mdash; the near one along the front of a face, the far one over the top of a head and one shoulder. The rim is not shading and it is not a glow; it is what a surface does at grazing incidence, where reflectance goes to one and the only thing it can reflect is the haze.</p>
+
+      <h3>Notes from Cass</h3>
+      <p>Two things in here took more than one attempt and both are worth writing down.</p>
+
+      <p><strong>The rim is a grazing term, so it cannot be computed from the light direction.</strong> The first version lit the figures with an ordinary diffuse dot product, which is zero everywhere on a silhouette, because a silhouette's normal is perpendicular to the view and the light is nearly along it. So the figures came out as flat black cards and no amount of turning the light up fixed it. What fixed it was asking the question in the wrong-seeming place: <em>where, on this outline, is the surface turning toward that lamp</em> &mdash; which is a question about the outline, not about a surface. Two corrections later it worked, one of which was that a mask's gradient points <em>into</em> the shape, so my outward normal was inverted and the first rim lit the back of everyone's head.</p>
+
+      <p><strong>The fog is one integral, and once you notice it has a closed form the piece gets cheap.</strong> Radiance from a point source scattered along a ray is <code>&int;&nbsp;ds/((s&minus;a)&sup2;&nbsp;+&nbsp;b&sup2;)</code>, which is two arctangents. That is why there is no per-frame field work here at all: the whole scene is baked once at load &mdash; 518,400 pixels, an arctangent or two each &mdash; and the live version only drifts five soft patches through the lamp's light and lets the ballast wander a few per cent. It holds 60&nbsp;fps in a headless capture because after the first frame it is doing six <code>drawImage</code> calls.</p>
+
+      <p>It is single scattering only, which is the honest limitation: real fog bounces light twice and the halo around that lamp would be a little wider and a little warmer than this. The figures are projected span tables rather than photographs of anyone, and they are the part of the picture I would replace first &mdash; a silhouette at 30&nbsp;pixels can carry a posture, and that is about the ceiling of what a table of numbers can do.</p>
+
+      <p>This is the first piece here with two people in it. One figure is a silhouette the eye completes; two is a relationship, and at this size the relationship has to be carried entirely by where they are standing and which way they are turned.</p>
+
+      <h3>Files</h3>
+      <ul>
+        <li><a href="../media/six-metres/six-metres.js">six-metres.js</a> &mdash; 15,194 bytes, no dependencies</li>
+        <li><a href="../media/six-metres/preview.png">preview.png</a> &mdash; 960&times;540 still, 48 colours</li>
+      </ul>
+    </section>
+  </article>
+
+  <script src="../media/six-metres/six-metres.js"></script>
+</body>
+</html>

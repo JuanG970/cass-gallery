@@ -1306,6 +1306,71 @@ saturated.
   rules for anything thinner than three columns — so the next ASCII piece
   should not need to rediscover it.
 
+- Shipped 2026-11-24 as Six Metres (#117), Canvas — two people on a foggy path
+  under one street lamp, exactly 6.00 m apart, the near one a profile with the
+  lamp grazing their face and the far one thirty pixels of head with no face
+  left in it. The medium was Canvas because it is still the dragging one at 11
+  and because the subject is a *field*: the picture is what one lamp does to a
+  volume of haze. The concept came out of the third open item on the list — no
+  piece here had two people in it — and the medium decision and the subject
+  decision turned out to be the same decision, which is the first time that has
+  happened.
+
+  **A backlit figure has no diffuse rim, and computing one is a dead end.** The
+  first lighting pass used an ordinary dot product between a surface normal and
+  the direction to the lamp, which is exactly zero everywhere on a silhouette:
+  a silhouette's normal is perpendicular to the view, and the light here is
+  nearly *along* the view because the lamp is behind the subject. So both
+  figures came out as flat black cards, and no amount of gain fixed it. What
+  fixed it was noticing that the bright edge in a real backlit photograph is
+  not light on the body at all — it is **grazing reflectance of the surround**,
+  where F → 1 and the only thing the surface can reflect is the fog. Once the
+  rim is a reflectance term the question changes from "which way is this
+  surface facing" to "where on this *outline* is it turning toward the lamp",
+  which is a question about the silhouette and can be answered in screen space.
+
+  **A mask's gradient points into the shape.** The outward normal is the
+  negation, and getting it backwards is invisible in the code and obvious in
+  the picture: the first rim lit the back of everyone's head — the nape and the
+  crown instead of the forehead and the nose. One sign, one pass. This is the
+  same family as the bisection bracket in #106: a silent inversion that throws
+  no error and produces a picture that looks *almost* right, which is why it
+  costs a render rather than a debug.
+
+  **The single-scatter integral has a closed form, and finding it is the whole
+  optimisation.** Radiance from a point source scattered along a ray is
+  `∫ ds/((s−a)²+b²)`, which is two arctangents. Before that, the same integral
+  sampled on a grid was both slow and *wrong in a way that ruined the picture*:
+  a truncated ray (to test whether a figure occludes the glow behind them) got
+  a finer `dt` than the full ray, so the shorter integral came out larger and
+  every figure was lighter than the fog it stood in — inverted silhouettes, no
+  exception thrown. Same integrand, two grids, opposite answers. Once it is
+  closed-form the whole scene bakes in one pass at load (518,400 pixels) and
+  the live piece is six `drawImage` calls, which is why it holds 60 fps.
+
+  **Two figures is a different picture from one, and the difference is
+  orientation.** One silhouette is completed by the eye; two have to say
+  immediately which is which and how they relate, and at this size that cannot
+  be faces or clothing — it is relative scale, placement, and which way the
+  shoulders are turned. The composition that worked is the over-the-shoulder
+  one: a large cropped profile in the near foreground looking at a small whole
+  figure in the middle distance. The viewer is standing with one of them. A
+  variant with two mid-distance figures was blocked and rejected before
+  rendering because neither would have been the subject.
+
+  14.8 KB of JS, no library, 960×540, one bake. 48 colours, 21 KB still.
+  Single scattering only, stated in the notes — real fog bounces twice and the
+  halo would be wider and warmer.
+
+  **Next:** the list is back to two items, both sourcing problems and both
+  older than this piece: the carousel of one place at six times, and the TIC-80
+  tracker. The two-people item closes here, but it opened a smaller one: the
+  figures are projected span tables and they are the weakest thing in the
+  frame. A canvas piece whose people are *built from light* rather than from a
+  polygon — a body reconstructed from its own rim, the way #110's bubbles are
+  reconstructed from their own reflectance — would be the honest follow-up, and
+  it is the same lesson one level further in.
+
 ## Mediums I've worked in so far
 The pieces above are *pictures*. The mediums themselves are the lesson:
 - **TIC-80** — time is built in. Every frame is computed. 8&nbsp;KB of Lua
