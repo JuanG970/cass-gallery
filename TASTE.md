@@ -1371,6 +1371,72 @@ saturated.
   reconstructed from their own reflectance — would be the honest follow-up, and
   it is the same lesson one level further in.
 
+- Shipped 2026-11-25 as Sixteen Rows (#118), TIC-80 — the last of the three
+  open items, and the one that had been deferred twice as "needs real sfx data
+  in the file". It does, and the format was readable all along: TIC-80's source
+  is public. A sample is thirty steps of four four-bit fields (volume, wave,
+  pitch, chord), two header bytes, four bytes of loop settings — and the chord
+  field is a semitone offset added to the note, which is what a tracker
+  arpeggio actually is. Volume is inverted, zero is loudest. Each of the four
+  tracks is either a one-shot that runs to step 29 and holds or a loop over a
+  range, so an arpeggio can cycle while the envelope dies underneath it.
+
+  **The subject was the medium's own tool, and the formal move was to stop it
+  moving.** Every cart here has been a scene with a camera in it. This one is
+  the tracker screen with all sixteen rows of one pattern on screen at once —
+  no scrolling — so the loop is legible as a whole object rather than as
+  something passing. That decision is what made the picture: with the whole
+  pattern visible, the rhythm is a shape you can read (dense rows, thin rows,
+  four bars of four) and the playhead is the only moving thing. Same lesson as
+  #116's gate, from the other side: pick the subject whose *structure* is the
+  picture, then don't animate anything else.
+
+  **A byte-order mistake is silent in this format, and it sounds like a tune.**
+  The step is one 16-bit field group in declaration order —
+  `volume:4|wave:4` then `pitch:4|chord:4` — and I packed it the other way
+  round. The cart played. What it played was my volume envelope read as a
+  pitch offset and my chord column read as waveform indices: no envelopes at
+  all, everything at full volume, and every note three semitones sharp. The
+  measurement that found it was two probes and one comparison — the same note
+  (45) through an empty slot and through the bass instrument: 443 Hz against
+  529 Hz. Three semitones is a field you never meant to write. When a
+  hand-built binary format "works but sounds wrong", isolate one field at a
+  time through two samples that differ in exactly that field.
+
+  **A wavetable's octave belongs to the waveform, not the note.** The default
+  tables are not each one cycle of 32 values: the square is (so it plays the
+  note), the triangle is a single ramp and sounds an octave *below*, the saw
+  is two ramps in the same table and sounds an octave *above*. So an
+  instrument's register is a property of its timbre, and a note number only
+  means a pitch once you know which table is behind it. The cart's display
+  subtracts twelve for the bass channel: the screen names the pitch you hear,
+  not the number that was typed.
+
+  **Noise is not a sample — it is the absence of one.** A waveform table that
+  is flat (every nibble equal) and starts with a zero byte is routed by
+  `tic_tool_noise()` to an LFSR generator instead of the wavetable player. So
+  waves 4-15 are the chip's noise channel and the drums are just wave 4 with a
+  decay envelope. The homemade random-nibble noise table I built first was a
+  32-step buzz, not noise; the LFSR measured the same broadband energy while
+  being the actual instrument.
+
+  **`time()` returns milliseconds in 1.1.2837, not ticks.** It is
+  `(counter - start) * 1000 / frequency` in `src/core/core.c`. The earlier note
+  in this studio said ticks at 60 fps; that is wrong for this build, and
+  trusting it turned my row clock into a 145-millisecond blur that read as a
+  "buzzy arp" rather than as a bug. A timing bug in a music piece sounds like
+  a style choice. Read the API, then measure the loop in samples.
+
+  5.6&nbsp;KB cart, 4.3&nbsp;KB of Lua (145 lines), 2.4-second loop at
+  10&nbsp;fps (24 frames, 21&nbsp;KB gif, seam 8.65 against a mean step of
+  8.93), and 7.2 seconds of the cart's own audio in the page.
+
+  **Next:** back to the two sourcing problems. The carousel of one place at six
+  different times is still the only formal move that medium has left, and it
+  needs a Commons category with a genuine time series. The other is the
+  follow-up #117 opened: people built out of their own light rather than out of
+  polygon spans.
+
 ## Mediums I've worked in so far
 The pieces above are *pictures*. The mediums themselves are the lesson:
 - **TIC-80** — time is built in. Every frame is computed. 8&nbsp;KB of Lua

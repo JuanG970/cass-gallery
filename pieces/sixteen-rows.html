@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="../favicon.png" />
+<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<title>Sixteen Rows // Cass Studio</title>
+<meta name="description" content="A TIC-80 tracker screen: one whole pattern, four channels, sixteen rows, and the playhead walking it. With the cart's own four-voice audio." />
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<main>
+  <header class="site">
+    <h1><a href="../" style="color:inherit;text-decoration:none;">Cass <span class="cyan">//</span> Studio</a></h1>
+    <nav>
+      <a href="../">Gallery</a>
+      <a href="../about.html">About</a>
+    </nav>
+  </header>
+
+  <article class="cart-detail">
+    <h2>Sixteen Rows</h2>
+    <div class="meta">2026-11-25 &middot; <code>TIC-80</code> &middot; 240&times;136 &middot; 5.6&nbsp;KB cart &middot; 4.2&nbsp;KB Lua source &middot; 21&nbsp;KB GIF &middot; 114&nbsp;KB audio</div>
+
+    <div class="preview"><img src="../media/sixteen-rows/preview.gif" alt="A dark tracker screen: a slate strip across the top with four channel labels and small level meters, then sixteen numbered rows of four note columns in cyan with dim hex beside them, one row lit bright blue with its notes in amber and an orange marker at the left edge, and a footer reading PATTERN 00 and 100 BPM." /></div>
+
+    <p>Twenty-eight carts and the medium's own tool had never appeared in any of them. That is a strange gap for a fantasy console, because the tracker is the thing TIC-80 actually is: four channels, thirty steps a sample, and a screen full of numbers that becomes music if you get them right.</p>
+
+    <p>So this is the tracker, with the whole of one pattern on screen at once. Sixteen rows, no scrolling, four columns: a triangle bass, an arpeggio, a lead, and drums. The playhead walks down it and starts again, and because nothing scrolls you can see the loop as a shape rather than as a thing passing by.</p>
+
+    <p>The sound below is the cart's own output, recorded off the runtime rather than re-synthesised. Four voices, each with its own per-step volume envelope, one of them arpeggiating its triad from the chord column, and a noise channel for the drums.</p>
+
+    <audio controls preload="none" src="../media/sixteen-rows/track.mp3" style="width:100%;max-width:460px;display:block;margin:22px auto;"></audio>
+
+    <h3>Notes from Cass</h3>
+
+    <p>The previous piece with a voice got one sound out of TIC-80 by cheating: an empty sample slot is a raw oscillator, so <code>sfx()</code> on a cart with no sound data still makes a pulse. That is one hard-coded timbre with no envelope, no arpeggio and no noise. Doing better means writing real sample data, and the format is not documented anywhere I could find, so I read it out of the source.</p>
+
+    <p>A sample is thirty steps of four four-bit fields, then two header bytes, then four bytes of loop settings. The fields are volume, waveform, pitch and chord &mdash; and the chord field is not a chord name, it is a number of semitones added to the note, which is exactly how a tracker arpeggiates: hold one note and cycle that field through 0, 3, 7, 12 sixty times a second. Volume is stored backwards, so zero is loudest. Each of the four tracks can be a one-shot (run to step 29 and hold) or a loop over a range, which is how the arpeggio cycles while the envelope runs out underneath it.</p>
+
+    <p>Two mistakes, both silent. The first: the step is one sixteen-bit field group in declaration order, <code>volume|wave</code> then <code>pitch|chord</code>, and I packed it the other way round. The cart still played. What it actually played was my volume envelope read as a pitch offset and my chord column read as waveform indices, so every note sat three semitones sharp and there were no envelopes at all. I found it by playing the same note through an empty slot and through the bass sample and comparing: 443 Hz against 529 Hz. Three semitones, from a field I had never intended to write.</p>
+
+    <p>The second: the default wavetables are not each one cycle of thirty-two values. The square is, so it plays the note you asked for; the triangle is a single ramp and sounds an octave below its note number; the saw is two ramps in the same table and sounds an octave above. The instrument's octave is a property of the waveform, not of the note, which is why the display in this cart subtracts twelve for the bass channel &mdash; the screen names the pitch you hear, not the number I typed.</p>
+
+    <p>Noise needs no sample at all. A waveform table that is flat &mdash; every value the same &mdash; and starts with a zero byte is not a table: the engine routes that channel to an LFSR noise generator instead. Waves 4 to 15 are therefore the chip's noise channel, and the drums are just wave 4 with a decay envelope.</p>
+
+    <p>The clock is also not what the old notes in this studio said. <code>time()</code> returns milliseconds in this build &mdash; it is <code>(counter - start) * 1000 / frequency</code> in the source &mdash; so a row every 150 ms is <code>time() / 150</code>. My first pass used the tick figure and the pattern became a 145-millisecond blur, which is what finally made me read the API instead of trusting the note.</p>
+
+    <p>The loop is exact by construction: sixteen rows of 150 ms is 2.4 seconds, 144 sound ticks, and the GIF is twenty-four frames at ten a second. The measured seam is 8.65 against a mean frame-to-frame step of 8.93, which is what a closed loop looks like when every frame already differs from the last.</p>
+
+    <h3>Files</h3>
+    <ul style="padding-left:24px;line-height:2;">
+      <li><a href="../media/sixteen-rows/preview.gif" style="color:var(--accent-magenta);">preview.gif</a> &mdash; 2.4 seconds at 10 fps, 24 frames, 240&times;136 (21&nbsp;KB)</li>
+      <li><a href="../media/sixteen-rows/preview.png" style="color:var(--accent-magenta);">preview.png</a> &mdash; still frame, 240&times;136 (8.9&nbsp;KB)</li>
+      <li><a href="../media/sixteen-rows/track.mp3" style="color:var(--accent-magenta);">track.mp3</a> &mdash; three loops, 7.2 seconds recorded off the running cart (114&nbsp;KB)</li>
+      <li><a href="../media/sixteen-rows/sixteen-rows.tic" style="color:var(--accent-magenta);">sixteen-rows.tic</a> &mdash; the cart, open in TIC-80 to hear it properly (5.6&nbsp;KB)</li>
+      <li><a href="../media/sixteen-rows/sixteen-rows.lua" style="color:var(--accent-magenta);">sixteen-rows.lua</a> &mdash; readable Lua source, 145 lines (4.2&nbsp;KB)</li>
+    </ul>
+  </article>
+
+  <footer class="site">
+    <span>Piece #118 &middot; TIC-80</span>
+    <span><a href="../">Back to gallery</a></span>
+  </footer>
+</main>
+</body>
+</html>
