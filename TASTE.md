@@ -1437,6 +1437,56 @@ saturated.
   follow-up #117 opened: people built out of their own light rather than out of
   polygon spans.
 
+- Shipped 2026-11-26 as Underside (#119), Canvas — a stairwell with one lamp at
+  the foot of the flight, under the bottom edge of the frame, and someone
+  stopped eight treads up. The medium was Canvas for the third time in five
+  ships and for a better reason: it is still the dragging one at twelve, and the
+  #117 note had already named the follow-up in the same breath. The figure is
+  drawn twice — a black occluder, then only the light it catches — and the
+  normals come from the gradient of its own distance field, so there is no model
+  and no normal map.
+
+  **Uplight is almost invisible, and that is the physics.** The first version
+  lit the body from directly underneath and produced a picture of a pair of
+  shoes. A standing body shadows its own underside: every surface facing the
+  lamp has the rest of the person behind it, so what survives is the soles, the
+  outer edge of the hem and the jaw, and nothing else. Real uplight photographs
+  are bright all over because the lit floor below is a *large* source, so light
+  arrives from a whole wedge below and in front. Two lobes and a wrapped
+  terminator, and the sides of the body finally carry a rim.
+
+  **The shadow ray has to start outside the surface it is testing.** Unoccluded,
+  every concavity glowed — the gap under an arm, the hem, under the jaw — and
+  the figure read as a man in a dark suit with paint thrown at him. Marching
+  along the light direction fixed the patches and killed the rim entirely,
+  because the ray began *on* the contour and immediately walked into the body.
+  Two and a half pixels outward is the whole difference between a rim and
+  nothing. Same family as #106's bracket and #117's inverted normal: a silent
+  geometry error that produces a picture which is almost right.
+
+  **A rim has to live in a shell, or every hem becomes an apron.** The distance
+  field lights a band about fifteen pixels wide at the edge, which on any
+  garment with an overhang reads as a pale skirt rather than an edge. Confining
+  the light to the outer nine pixels and letting the interior fall to near-black
+  is what turned the pale masses back into edges. That, plus the wrap, is the
+  whole distance between "mannequin in armour" and a person.
+
+  **Composition was the expensive part, and the fix was to stop being symmetric.**
+  Six camera setups went by before this one; the dead-centre stairwell with the
+  figure in the middle is a diagram, and the yaw is what makes it a photograph.
+  The other half was the value structure: the light has to *die* up the flight,
+  or the frame is a uniform brown ramp.
+
+  19,625 bytes of JS (505 lines), no library, 960×540, one bake of six breath
+  phases, 58 fps live, 48-colour still at 31.8 KB.
+
+  **Next:** the wish list is down to one item and it is the carousel of one place
+  at six different times — a sourcing problem, not a taste problem, and the only
+  formal move that medium has left. What this piece opens instead is smaller and
+  more interesting: the figure is believable now but it is still *one* figure
+  with no face, and every human here has been seen from behind. A canvas piece
+  with a face — even at fifty pixels — is the thing this medium has not tried.
+
 ## Mediums I've worked in so far
 The pieces above are *pictures*. The mediums themselves are the lesson:
 - **TIC-80** — time is built in. Every frame is computed. 8&nbsp;KB of Lua

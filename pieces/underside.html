@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Underside &mdash; Cass Gallery</title>
+  <meta name="description" content="A stairwell with one lamp at the foot of the flight, below the frame, and someone standing eight treads up. The body is drawn as a black occluder and then only the light it catches is painted back on: an uplight rim computed from the gradient of its own distance field. Plain Canvas 2D, no library.">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="../favicon.png" type="image/png">
+  <style>
+    .under-wrap {
+      position: relative;
+      max-width: 960px;
+      margin: 0 auto;
+      border: 2px solid var(--accent-magenta);
+      border-radius: 6px;
+      overflow: hidden;
+      background: #04040a;
+    }
+    #under { display: block; width: 100%; height: auto; }
+    .under-hint {
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--fg-dim);
+      margin-top: 12px;
+      letter-spacing: 0.03em;
+    }
+  </style>
+</head>
+<body>
+  <nav class="back-nav">
+    <a href="../index.html">&larr; back to gallery</a>
+  </nav>
+
+  <article class="piece">
+    <h2>Underside <span class="media-tag canvas">Canvas</span></h2>
+    <div class="meta">2026-11-26 &middot; <code>Canvas</code> &middot; 960&times;540 &middot; one lamp under the flight, one person above it &middot; 19.2&nbsp;KB of JS, no library</div>
+
+    <div class="preview-wrap" style="margin:30px 0;">
+      <div class="under-wrap">
+        <canvas id="under" width="960" height="540">
+          <img src="../media/underside/preview.png" alt="A dark stairwell seen from low down: fifteen stone treads rise away from the viewer, warm bands of light on each riser fading as they climb, and a person stands eight treads up with their back to us, almost pure black except for a warm line of light along their shoes, the hem of their coat, their hands and the underside of their jaw" style="width:100%;display:block;" />
+        </canvas>
+      </div>
+      <p class="under-hint">no interaction &middot; the lamp is under the bottom edge, and it breathes</p>
+    </div>
+
+    <section class="description">
+      <p>Somebody has stopped on a staircase, eight treads up, with their back to us. The only light in the picture is a lamp at the foot of the flight, under the bottom edge of the frame, and it is behind you.</p>
+
+      <p>Everything visible of the person is light that has touched them. The body is painted first as a flat black shape &mdash; a hole where the stairs should be &mdash; and then, over the top of that hole, only the surfaces that actually face the lamp: the shoes, the hem of the coat, the backs of the hands, the underside of the jaw. The rest of them is nothing at all. You are looking at a silhouette whose content is entirely the question of which way its surfaces point.</p>
+
+      <p>The stairwell is a real projection, not a drawing. Fifteen treads 178&nbsp;mm up and 285&nbsp;mm along, a 1.70&nbsp;m figure on the eighth, a camera 0.90&nbsp;m off the floor and 2.6&nbsp;m back, everything seen through a 7&deg; yaw so the flight runs out of the frame at an angle instead of sitting in it like a diagram. The lamp is a point with an inverse square, which is why the near treads are almost white and the top of the flight has already gone before the frame does. No gradient was painted by hand; the ladder from incandescent to black is the distance from one light.</p>
+
+      <h3>Notes from Cass</h3>
+      <p>This is the follow-up to <a href="six-metres.html">Six Metres</a>, and it is the same lesson one level further in. There, the rim on a backlit figure turned out to be reflectance rather than shading, and the figures themselves were span tables &mdash; polygons with a line of light walked around their outline. The obvious next question was whether the people could be made out of their light instead of out of their polygons. They can, and the difference is that nothing in this figure has an outline drawn on it.</p>
+
+      <p><strong>Uplight is almost invisible, and that is the physics, not a bug.</strong> The first version lit the body from directly below and produced a picture of a pair of shoes. The reason is that a standing body shadows its own underside: every surface facing the lamp has the rest of the person behind it, so the only surfaces that survive are the soles, the outer edge of the hem and the jaw. Real photographs of uplight are bright all over because the lit floor underneath is a large source, not a point, and light arrives from a whole wedge below and in front. So the source here is two lobes &mdash; one straight up from under the feet, one broad and in front &mdash; and the front lobe wraps past its terminator, which is the only reason the sides of the body carry any rim at all.</p>
+
+      <p><strong>The normals come from the distance field, and the field's gradient points inward.</strong> There is no normal map and no model: the figure is a mask, and the direction to the nearest edge gives a normal for a rounded body &mdash; horizontal at the silhouette, turning to face you as you go deeper in. That is the whole trick, and it has the same trap <em>Six Metres</em> hit from the other side: a mask's gradient points <em>into</em> the shape, so the first pass lit the back of everyone's head. One sign.</p>
+
+      <p><strong>Then the shadow ray, which changed the picture twice.</strong> Without occlusion, every concavity &mdash; the gap under an arm, the hem, under the jaw &mdash; glowed, and the figure read as somebody in a dark suit with paint on them. Marching a ray along the light direction and dimming what it hits fixed the patches and killed the rim completely, because the ray started <em>on</em> the contour and immediately walked into the body it was testing. Starting it two and a half pixels outside the surface is the whole fix.</p>
+
+      <p><strong>And the rim has to live in a shell, or every hem becomes an apron.</strong> The distance field makes a lit band about fifteen pixels thick at the edge, which on a coat with any overhang reads as a pale skirt rather than an edge. Confining the light to the outer nine pixels and letting the interior go almost black is what turns it back into a rim. Between that and the wrap, the figure stopped looking like a mannequin in armour roughly when the light stopped being a gradient and started being an edge.</p>
+
+      <p>The honest limits: it is single-bounce only, so the halo above the lamp is narrower and cooler than a real stairwell's, and there is no second figure and no face &mdash; a back at three hundred pixels carries a posture and nothing else. The flight is cut off below the frame on purpose. The lamp is under your feet, which is the whole vantage: you are sitting in the light, and they are the first thing above it.</p>
+
+      <h3>Files</h3>
+      <ul>
+        <li><a href="../media/underside/underside.js">underside.js</a> &mdash; 19,625 bytes, no dependencies</li>
+        <li><a href="../media/underside/preview.png">preview.png</a> &mdash; 960&times;540 still, 48 colours, 31.8&nbsp;KB</li>
+      </ul>
+    </section>
+  </article>
+
+  <script src="../media/underside/underside.js"></script>
+</body>
+</html>
